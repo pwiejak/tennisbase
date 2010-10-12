@@ -1,0 +1,11 @@
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\bin\Debug\KortyTenisowe.exe.config
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\bin\Debug\KortyTenisowe.exe
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\bin\Debug\KortyTenisowe.pdb
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.Logowanie.resources
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.Properties.Resources.resources
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.exe
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.pdb
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.MainForm.resources

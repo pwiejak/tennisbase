@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Inzynierka1ModelStoreContainer" CdmEntityContainer="Inzynierka1Entities">
+    <EntitySetMapping Name="Dostepnosc">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Dostepnosc">
+        <MappingFragment StoreEntitySet="Dostepnosc">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Dzien_Tygodnia" ColumnName="Dzien_Tygodnia" />
+          <ScalarProperty Name="Godz_Rozpoczecia" ColumnName="Godz_Rozpoczecia" />
+          <ScalarProperty Name="Godz_Zakonczenia" ColumnName="Godz_Zakonczenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Katalog_Uslug">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Katalog_Uslug">
+        <MappingFragment StoreEntitySet="Katalog_Uslug">
+          <ScalarProperty Name="ID_Uslugi" ColumnName="ID_Uslugi" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pracownicy">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Pracownicy">
+        <MappingFragment StoreEntitySet="Pracownicy">
+          <ScalarProperty Name="Id_Pracownika" ColumnName="Id_Pracownika" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rezerwacje_Kortow">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Rezerwacje_Kortow">
+        <MappingFragment StoreEntitySet="Rezerwacje_Kortow">
+          <ScalarProperty Name="Nr_Kortu" ColumnName="Nr_Kortu" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Godz_Rozpoczecia" ColumnName="Godz_Rozpoczecia" />
+          <ScalarProperty Name="Godz_Zakonczenia" ColumnName="Godz_Zakonczenia" />
+          <ScalarProperty Name="ID_Osoby" ColumnName="ID_Osoby" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+          <ScalarProperty Name="Id_Pracownika" ColumnName="Id_Pracownika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Serwis">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Serwis">
+        <MappingFragment StoreEntitySet="Serwis">
+          <ScalarProperty Name="ID_Zlecenia" ColumnName="ID_Zlecenia" />
+          <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
+          <ScalarProperty Name="Usługa" ColumnName="Usługa" />
+          <ScalarProperty Name="Data_Przyjecia" ColumnName="Data_Przyjecia" />
+          <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
+          <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sparingpartnerzy">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Sparingpartnerzy">
+        <MappingFragment StoreEntitySet="Sparingpartnerzy">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Poziom" ColumnName="Poziom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sprzet">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Sprzet">
+        <MappingFragment StoreEntitySet="Sprzet">
+          <ScalarProperty Name="ID_Produktu" ColumnName="ID_Produktu" />
+          <ScalarProperty Name="Typ" ColumnName="Typ" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stan_Magazynowy">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Stan_Magazynowy">
+        <MappingFragment StoreEntitySet="Stan_Magazynowy">
+          <ScalarProperty Name="ID_Produktu" ColumnName="ID_Produktu" />
+          <ScalarProperty Name="Nr_Przedmiotu" ColumnName="Nr_Przedmiotu" />
+          <ScalarProperty Name="Typ_Sprzedazy" ColumnName="Typ_Sprzedazy" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+          <ScalarProperty Name="Rozmiar" ColumnName="Rozmiar" />
+          <ScalarProperty Name="Kolor" ColumnName="Kolor" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Inzynierka1Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trenerzy">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Trenerzy">
+        <MappingFragment StoreEntitySet="Trenerzy">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Poziom" ColumnName="Poziom" />
+          <ScalarProperty Name="Max_Osob" ColumnName="Max_Osob" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Typy">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Typy">
+        <MappingFragment StoreEntitySet="Typy">
+          <ScalarProperty Name="Nr_Typu" ColumnName="Nr_Typu" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uzytkownicy_Kortow">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Uzytkownicy_Kortow">
+        <MappingFragment StoreEntitySet="Uzytkownicy_Kortow">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Typ" ColumnName="Typ" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="Imię" ColumnName="Imię" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uzytkownicy_Systemu">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Uzytkownicy_Systemu">
+        <MappingFragment StoreEntitySet="Uzytkownicy_Systemu">
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="ID_Uzytkownika" ColumnName="ID_Uzytkownika" />
+          <ScalarProperty Name="Haslo" ColumnName="Haslo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wypozyczone">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Wypozyczone">
+        <MappingFragment StoreEntitySet="Wypozyczone">
+          <ScalarProperty Name="ID_Wypozyczenia" ColumnName="ID_Wypozyczenia" />
+          <ScalarProperty Name="ID_Przedmiotu" ColumnName="ID_Przedmiotu" />
+          <ScalarProperty Name="Id_Klienta" ColumnName="Id_Klienta" />
+          <ScalarProperty Name="Data_Rozpoczecia" ColumnName="Data_Rozpoczecia" />
+          <ScalarProperty Name="Godzina_Rozpoczecia" ColumnName="Godzina_Rozpoczecia" />
+          <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
+          <ScalarProperty Name="Godzina_Zakonczenia" ColumnName="Godzina_Zakonczenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
