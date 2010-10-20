@@ -58,11 +58,17 @@
     </Compile>
     <Compile Include="Baza1PartialClass.cs" />
     <Compile Include="DBQueries.cs" />
-    <Compile Include="Logowanie.cs">
+    <Compile Include="DodawaniePracownikaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Logowanie.Designer.cs">
-      <DependentUpon>Logowanie.cs</DependentUpon>
+    <Compile Include="DodawaniePracownikaForm.Designer.cs">
+      <DependentUpon>DodawaniePracownikaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogowanieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogowanieForm.Designer.cs">
+      <DependentUpon>LogowanieForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -72,8 +78,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Logowanie.resx">
-      <DependentUpon>Logowanie.cs</DependentUpon>
+    <Compile Include="TabKorty.cs" />
+    <Compile Include="TabPracownicy.cs" />
+    <EmbeddedResource Include="DodawaniePracownikaForm.resx">
+      <DependentUpon>DodawaniePracownikaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogowanieForm.resx">
+      <DependentUpon>LogowanieForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

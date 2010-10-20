@@ -15,10 +15,10 @@ namespace KortyTenisowe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Logowanie oknoLogowania = new Logowanie();
+            LogowanieForm oknoLogowania = new LogowanieForm();
             if (oknoLogowania.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new MainForm(oknoLogowania.login));
+                Application.Run(new MainForm(oknoLogowania.login, KortyTenisowe.LogowanieForm.poziomUprawnien));
             }
         }
     }

@@ -15,6 +15,7 @@
       <DefiningQuery>SELECT 
       [Rezerwacje_Kortow].[Nr_Kortu] AS [Nr_Kortu], 
       [Rezerwacje_Kortow].[Data] AS [Data], 
+      [Rezerwacje_Kortow].[Dzien_Tygodnia] AS [Dzien_Tygodnia], 
       [Rezerwacje_Kortow].[Godz_Rozpoczecia] AS [Godz_Rozpoczecia], 
       [Rezerwacje_Kortow].[Godz_Zakonczenia] AS [Godz_Zakonczenia], 
       [Rezerwacje_Kortow].[ID_Osoby] AS [ID_Osoby], 
@@ -41,13 +42,7 @@
     </EntitySet>
     <EntitySet Name="Typy" EntityType="Inzynierka1Model.Store.Typy" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Uzytkownicy_Kortow" EntityType="Inzynierka1Model.Store.Uzytkownicy_Kortow" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Uzytkownicy_Systemu" EntityType="Inzynierka1Model.Store.Uzytkownicy_Systemu" store:Type="Tables" store:Schema="dbo" store:Name="Uzytkownicy_Systemu">
-      <DefiningQuery>SELECT 
-      [Uzytkownicy_Systemu].[Login] AS [Login], 
-      [Uzytkownicy_Systemu].[ID_Uzytkownika] AS [ID_Uzytkownika], 
-      [Uzytkownicy_Systemu].[Haslo] AS [Haslo]
-      FROM [dbo].[Uzytkownicy_Systemu] AS [Uzytkownicy_Systemu]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="Uzytkownicy_Systemu" EntityType="Inzynierka1Model.Store.Uzytkownicy_Systemu" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Wypozyczone" EntityType="Inzynierka1Model.Store.Wypozyczone" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_Dostepnosc_Uzytkownicy_Kortow" Association="Inzynierka1Model.Store.FK_Dostepnosc_Uzytkownicy_Kortow">
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
@@ -73,6 +68,10 @@
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Serwis" EntitySet="Serwis" />
     </AssociationSet>
+    <AssociationSet Name="FK_Serwis_Uzytkownicy_Kortow1" Association="Inzynierka1Model.Store.FK_Serwis_Uzytkownicy_Kortow1">
+      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+      <End Role="Serwis" EntitySet="Serwis" />
+    </AssociationSet>
     <AssociationSet Name="FK_Sparingpartnerzy_Uzytkownicy_Kortow" Association="Inzynierka1Model.Store.FK_Sparingpartnerzy_Uzytkownicy_Kortow">
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Sparingpartnerzy" EntitySet="Sparingpartnerzy" />
@@ -89,7 +88,7 @@
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Trenerzy" EntitySet="Trenerzy" />
     </AssociationSet>
-    <AssociationSet Name="FK_Uzytkownicy_Systemu_Pracownicy" Association="Inzynierka1Model.Store.FK_Uzytkownicy_Systemu_Pracownicy">
+    <AssociationSet Name="FK_Uzytkownicy_Systemu_Pracownicy1" Association="Inzynierka1Model.Store.FK_Uzytkownicy_Systemu_Pracownicy1">
       <End Role="Pracownicy" EntitySet="Pracownicy" />
       <End Role="Uzytkownicy_Systemu" EntitySet="Uzytkownicy_Systemu" />
     </AssociationSet>
@@ -121,7 +120,7 @@
     <Key>
       <PropertyRef Name="ID_Uslugi" />
     </Key>
-    <Property Name="ID_Uslugi" Type="int" Nullable="false" />
+    <Property Name="ID_Uslugi" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Nazwa" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Cena" Type="float" />
   </EntityType>
@@ -147,6 +146,7 @@
     </Key>
     <Property Name="Nr_Kortu" Type="int" Nullable="false" />
     <Property Name="Data" Type="date" />
+    <Property Name="Dzien_Tygodnia" Type="int" />
     <Property Name="Godz_Rozpoczecia" Type="int" Nullable="false" />
     <Property Name="Godz_Zakonczenia" Type="int" Nullable="false" />
     <Property Name="ID_Osoby" Type="int" Nullable="false" />
@@ -157,8 +157,8 @@
     <Key>
       <PropertyRef Name="ID_Zlecenia" />
     </Key>
-    <Property Name="ID_Zlecenia" Type="nchar" Nullable="false" MaxLength="10" />
-    <Property Name="ID_Klienta" Type="int" Nullable="false" />
+    <Property Name="ID_Zlecenia" Type="int" Nullable="false" />
+    <Property Name="ID_Klienta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Usługa" Type="int" Nullable="false" />
     <Property Name="Data_Przyjecia" Type="nchar" Nullable="false" MaxLength="10" />
     <Property Name="Data_Zakonczenia" Type="nchar" MaxLength="10" />
@@ -231,24 +231,21 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Typ" Type="int" Nullable="false" />
     <Property Name="Nazwisko" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Imię" Type="nvarchar" MaxLength="50" />
     <Property Name="Telefon" Type="nvarchar" Nullable="false" MaxLength="20" />
   </EntityType>
-  <!--Errors Found During Generation:
-      warning 6002: The table/view 'Inzynierka1.dbo.Uzytkownicy_Systemu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
   <EntityType Name="Uzytkownicy_Systemu">
     <Key>
-      <PropertyRef Name="Login" />
       <PropertyRef Name="ID_Uzytkownika" />
-      <PropertyRef Name="Haslo" />
     </Key>
+    <Property Name="ID_Uzytkownika" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="ID_Uzytkownika" Type="int" Nullable="false" />
+    <Property Name="ID_Pracownika" Type="int" Nullable="false" />
     <Property Name="Haslo" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Uprawnienia" Type="int" />
   </EntityType>
   <EntityType Name="Wypozyczone">
     <Key>
@@ -261,6 +258,7 @@
     <Property Name="Godzina_Rozpoczecia" Type="int" Nullable="false" />
     <Property Name="Data_Zakonczenia" Type="date" Nullable="false" />
     <Property Name="Godzina_Zakonczenia" Type="int" Nullable="false" />
+    <Property Name="Wypozyczono" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="FK_Dostepnosc_Uzytkownicy_Kortow">
     <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
@@ -334,6 +332,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Serwis_Uzytkownicy_Kortow1">
+    <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
+    <End Role="Serwis" Type="Inzynierka1Model.Store.Serwis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy_Kortow">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Serwis">
+        <PropertyRef Name="ID_Klienta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Sparingpartnerzy_Uzytkownicy_Kortow">
     <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
     <End Role="Sparingpartnerzy" Type="Inzynierka1Model.Store.Sparingpartnerzy" Multiplicity="*" />
@@ -382,7 +392,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Uzytkownicy_Systemu_Pracownicy">
+  <Association Name="FK_Uzytkownicy_Systemu_Pracownicy1">
     <End Role="Pracownicy" Type="Inzynierka1Model.Store.Pracownicy" Multiplicity="1" />
     <End Role="Uzytkownicy_Systemu" Type="Inzynierka1Model.Store.Uzytkownicy_Systemu" Multiplicity="*" />
     <ReferentialConstraint>
@@ -390,7 +400,7 @@
         <PropertyRef Name="Id_Pracownika" />
       </Principal>
       <Dependent Role="Uzytkownicy_Systemu">
-        <PropertyRef Name="ID_Uzytkownika" />
+        <PropertyRef Name="ID_Pracownika" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

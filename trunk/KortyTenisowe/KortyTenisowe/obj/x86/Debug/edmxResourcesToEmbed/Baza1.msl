@@ -33,6 +33,7 @@
     <EntitySetMapping Name="Rezerwacje_Kortow">
       <EntityTypeMapping TypeName="Inzynierka1Model.Rezerwacje_Kortow">
         <MappingFragment StoreEntitySet="Rezerwacje_Kortow">
+          <ScalarProperty Name="Dzien_Tygodnia" ColumnName="Dzien_Tygodnia" />
           <ScalarProperty Name="Nr_Kortu" ColumnName="Nr_Kortu" />
           <ScalarProperty Name="Data" ColumnName="Data" />
           <ScalarProperty Name="Godz_Rozpoczecia" ColumnName="Godz_Rozpoczecia" />
@@ -40,19 +41,6 @@
           <ScalarProperty Name="ID_Osoby" ColumnName="ID_Osoby" />
           <ScalarProperty Name="Cena" ColumnName="Cena" />
           <ScalarProperty Name="Id_Pracownika" ColumnName="Id_Pracownika" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Serwis">
-      <EntityTypeMapping TypeName="Inzynierka1Model.Serwis">
-        <MappingFragment StoreEntitySet="Serwis">
-          <ScalarProperty Name="ID_Zlecenia" ColumnName="ID_Zlecenia" />
-          <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
-          <ScalarProperty Name="Usługa" ColumnName="Usługa" />
-          <ScalarProperty Name="Data_Przyjecia" ColumnName="Data_Przyjecia" />
-          <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
-          <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
-          <ScalarProperty Name="Opis" ColumnName="Opis" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -127,18 +115,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Uzytkownicy_Systemu">
-      <EntityTypeMapping TypeName="Inzynierka1Model.Uzytkownicy_Systemu">
-        <MappingFragment StoreEntitySet="Uzytkownicy_Systemu">
-          <ScalarProperty Name="Login" ColumnName="Login" />
-          <ScalarProperty Name="ID_Uzytkownika" ColumnName="ID_Uzytkownika" />
-          <ScalarProperty Name="Haslo" ColumnName="Haslo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Wypozyczone">
       <EntityTypeMapping TypeName="Inzynierka1Model.Wypozyczone">
         <MappingFragment StoreEntitySet="Wypozyczone">
+          <ScalarProperty Name="Wypozyczono" ColumnName="Wypozyczono" />
           <ScalarProperty Name="ID_Wypozyczenia" ColumnName="ID_Wypozyczenia" />
           <ScalarProperty Name="ID_Przedmiotu" ColumnName="ID_Przedmiotu" />
           <ScalarProperty Name="Id_Klienta" ColumnName="Id_Klienta" />
@@ -146,6 +126,30 @@
           <ScalarProperty Name="Godzina_Rozpoczecia" ColumnName="Godzina_Rozpoczecia" />
           <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
           <ScalarProperty Name="Godzina_Zakonczenia" ColumnName="Godzina_Zakonczenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uzytkownicy_Systemu">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Uzytkownicy_Systemu">
+        <MappingFragment StoreEntitySet="Uzytkownicy_Systemu">
+          <ScalarProperty Name="Uprawnienia" ColumnName="Uprawnienia" />
+          <ScalarProperty Name="Haslo" ColumnName="Haslo" />
+          <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="ID_Uzytkownika" ColumnName="ID_Uzytkownika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Serwis">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Serwis">
+        <MappingFragment StoreEntitySet="Serwis">
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+          <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
+          <ScalarProperty Name="Data_Przyjecia" ColumnName="Data_Przyjecia" />
+          <ScalarProperty Name="Usługa" ColumnName="Usługa" />
+          <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
+          <ScalarProperty Name="ID_Zlecenia" ColumnName="ID_Zlecenia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
