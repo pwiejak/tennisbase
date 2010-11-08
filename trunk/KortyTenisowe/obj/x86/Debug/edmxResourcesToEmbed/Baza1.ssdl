@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Inzynierka1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="Inzynierka1ModelStoreContainer">
+    <EntitySet Name="Dostepnosc" EntityType="Inzynierka1Model.Store.Dostepnosc" store:Type="Tables" store:Schema="dbo" store:Name="Dostepnosc">
+      <DefiningQuery>SELECT 
+      [Dostepnosc].[ID] AS [ID], 
+      [Dostepnosc].[Dzien_Tygodnia] AS [Dzien_Tygodnia], 
+      [Dostepnosc].[Godz_Rozpoczecia] AS [Godz_Rozpoczecia], 
+      [Dostepnosc].[Godz_Zakonczenia] AS [Godz_Zakonczenia]
+      FROM [dbo].[Dostepnosc] AS [Dostepnosc]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Katalog_Uslug" EntityType="Inzynierka1Model.Store.Katalog_Uslug" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kategorie" EntityType="Inzynierka1Model.Store.Kategorie" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Klasyfikacje" EntityType="Inzynierka1Model.Store.Klasyfikacje" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pracownicy" EntityType="Inzynierka1Model.Store.Pracownicy" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Punkty_Zawodnikow" EntityType="Inzynierka1Model.Store.Punkty_Zawodnikow" store:Type="Tables" store:Schema="dbo" store:Name="Punkty_Zawodnikow">
+      <DefiningQuery>SELECT 
+      [Punkty_Zawodnikow].[ID_Zawodnika] AS [ID_Zawodnika], 
+      [Punkty_Zawodnikow].[ID_Klasyfikacji] AS [ID_Klasyfikacji], 
+      [Punkty_Zawodnikow].[Punkty] AS [Punkty]
+      FROM [dbo].[Punkty_Zawodnikow] AS [Punkty_Zawodnikow]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Rezerwacje_Kortow" EntityType="Inzynierka1Model.Store.Rezerwacje_Kortow" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Rozegrane_Mecze" EntityType="Inzynierka1Model.Store.Rozegrane_Mecze" store:Type="Tables" store:Schema="dbo" store:Name="Rozegrane_Mecze">
+      <DefiningQuery>SELECT 
+      [Rozegrane_Mecze].[ID_Zawodnika1] AS [ID_Zawodnika1], 
+      [Rozegrane_Mecze].[ID_Zawodnika2] AS [ID_Zawodnika2], 
+      [Rozegrane_Mecze].[ID_Klasyfikacji] AS [ID_Klasyfikacji], 
+      [Rozegrane_Mecze].[Zwyciezca] AS [Zwyciezca]
+      FROM [dbo].[Rozegrane_Mecze] AS [Rozegrane_Mecze]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Serwis" EntityType="Inzynierka1Model.Store.Serwis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sparingpartnerzy" EntityType="Inzynierka1Model.Store.Sparingpartnerzy" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sprzet" EntityType="Inzynierka1Model.Store.Sprzet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stan_Magazynowy" EntityType="Inzynierka1Model.Store.Stan_Magazynowy" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="Inzynierka1Model.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Trenerzy" EntityType="Inzynierka1Model.Store.Trenerzy" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Turnieje" EntityType="Inzynierka1Model.Store.Turnieje" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Typy" EntityType="Inzynierka1Model.Store.Typy" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Uzytkownicy_Kortow" EntityType="Inzynierka1Model.Store.Uzytkownicy_Kortow" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Uzytkownicy_Systemu" EntityType="Inzynierka1Model.Store.Uzytkownicy_Systemu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Wypozyczone" EntityType="Inzynierka1Model.Store.Wypozyczone" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Zawodnicy" EntityType="Inzynierka1Model.Store.Zawodnicy" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Dostepnosc_Uzytkownicy_Kortow" Association="Inzynierka1Model.Store.FK_Dostepnosc_Uzytkownicy_Kortow">
+      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+      <End Role="Dostepnosc" EntitySet="Dostepnosc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Punkty_Zawodnikow_Klasyfikacje" Association="Inzynierka1Model.Store.FK_Punkty_Zawodnikow_Klasyfikacje">
+      <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
+      <End Role="Punkty_Zawodnikow" EntitySet="Punkty_Zawodnikow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Punkty_Zawodnikow_Zawodnicy" Association="Inzynierka1Model.Store.FK_Punkty_Zawodnikow_Zawodnicy">
+      <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+      <End Role="Punkty_Zawodnikow" EntitySet="Punkty_Zawodnikow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rezerwacje_Kortow_Pracownicy" Association="Inzynierka1Model.Store.FK_Rezerwacje_Kortow_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Rezerwacje_Kortow" EntitySet="Rezerwacje_Kortow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" Association="Inzynierka1Model.Store.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow">
+      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+      <End Role="Rezerwacje_Kortow" EntitySet="Rezerwacje_Kortow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rozegrane_Mecze_Klasyfikacje" Association="Inzynierka1Model.Store.FK_Rozegrane_Mecze_Klasyfikacje">
+      <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
+      <End Role="Rozegrane_Mecze" EntitySet="Rozegrane_Mecze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rozegrane_Mecze_Zawodnicy" Association="Inzynierka1Model.Store.FK_Rozegrane_Mecze_Zawodnicy">
+      <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+      <End Role="Rozegrane_Mecze" EntitySet="Rozegrane_Mecze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rozegrane_Mecze_Zawodnicy1" Association="Inzynierka1Model.Store.FK_Rozegrane_Mecze_Zawodnicy1">
+      <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+      <End Role="Rozegrane_Mecze" EntitySet="Rozegrane_Mecze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Serwis_Katalog_Uslug" Association="Inzynierka1Model.Store.FK_Serwis_Katalog_Uslug">
+      <End Role="Katalog_Uslug" EntitySet="Katalog_Uslug" />
+      <End Role="Serwis" EntitySet="Serwis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Serwis_Pracownicy" Association="Inzynierka1Model.Store.FK_Serwis_Pracownicy">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Serwis" EntitySet="Serwis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Serwis_Uzytkownicy_Kortow" Association="Inzynierka1Model.Store.FK_Serwis_Uzytkownicy_Kortow">
+      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+      <End Role="Serwis" EntitySet="Serwis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Serwis_Uzytkownicy_Kortow1" Association="Inzynierka1Model.Store.FK_Serwis_Uzytkownicy_Kortow1">
+      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+      <End Role="Serwis" EntitySet="Serwis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sparingpartnerzy_Uzytkownicy_Kortow" Association="Inzynierka1Model.Store.FK_Sparingpartnerzy_Uzytkownicy_Kortow">
+      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+      <End Role="Sparingpartnerzy" EntitySet="Sparingpartnerzy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sprzet_Typy" Association="Inzynierka1Model.Store.FK_Sprzet_Typy">
+      <End Role="Typy" EntitySet="Typy" />
+      <End Role="Sprzet" EntitySet="Sprzet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stan_Magazynowy_Sprzet" Association="Inzynierka1Model.Store.FK_Stan_Magazynowy_Sprzet">
+      <End Role="Sprzet" EntitySet="Sprzet" />
+      <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trenerzy_Uzytkownicy_Kortow" Association="Inzynierka1Model.Store.FK_Trenerzy_Uzytkownicy_Kortow">
+      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+      <End Role="Trenerzy" EntitySet="Trenerzy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Turnieje_Kategorie" Association="Inzynierka1Model.Store.FK_Turnieje_Kategorie">
+      <End Role="Kategorie" EntitySet="Kategorie" />
+      <End Role="Turnieje" EntitySet="Turnieje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Uzytkownicy_Systemu_Pracownicy1" Association="Inzynierka1Model.Store.FK_Uzytkownicy_Systemu_Pracownicy1">
+      <End Role="Pracownicy" EntitySet="Pracownicy" />
+      <End Role="Uzytkownicy_Systemu" EntitySet="Uzytkownicy_Systemu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wypozyczone_Stan_Magazynowy" Association="Inzynierka1Model.Store.FK_Wypozyczone_Stan_Magazynowy">
+      <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
+      <End Role="Wypozyczone" EntitySet="Wypozyczone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wypozyczone_Uzytkownicy_Kortow" Association="Inzynierka1Model.Store.FK_Wypozyczone_Uzytkownicy_Kortow">
+      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+      <End Role="Wypozyczone" EntitySet="Wypozyczone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zawodnicy_Uzytkownicy_Kortow" Association="Inzynierka1Model.Store.FK_Zawodnicy_Uzytkownicy_Kortow">
+      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+      <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+    </AssociationSet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Inzynierka1.dbo.Dostepnosc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Dostepnosc">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Dzien_Tygodnia" />
+      <PropertyRef Name="Godz_Rozpoczecia" />
+      <PropertyRef Name="Godz_Zakonczenia" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Dzien_Tygodnia" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Godz_Rozpoczecia" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Godz_Zakonczenia" Type="nchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Katalog_Uslug">
+    <Key>
+      <PropertyRef Name="ID_Uslugi" />
+    </Key>
+    <Property Name="ID_Uslugi" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Cena" Type="float" />
+  </EntityType>
+  <EntityType Name="Kategorie">
+    <Key>
+      <PropertyRef Name="ID_Kategorii" />
+    </Key>
+    <Property Name="ID_Kategorii" Type="int" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Opis" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Klasyfikacje">
+    <Key>
+      <PropertyRef Name="ID_Klasyfikacji" />
+    </Key>
+    <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
+    <Property Name="Opis" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Pracownicy">
+    <Key>
+      <PropertyRef Name="Id_Pracownika" />
+    </Key>
+    <Property Name="Id_Pracownika" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwisko" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Imie" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Telefon" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Inzynierka1.dbo.Punkty_Zawodnikow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Punkty_Zawodnikow">
+    <Key>
+      <PropertyRef Name="ID_Zawodnika" />
+      <PropertyRef Name="ID_Klasyfikacji" />
+      <PropertyRef Name="Punkty" />
+    </Key>
+    <Property Name="ID_Zawodnika" Type="int" Nullable="false" />
+    <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
+    <Property Name="Punkty" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rezerwacje_Kortow">
+    <Key>
+      <PropertyRef Name="ID_Rezerwacji" />
+    </Key>
+    <Property Name="ID_Rezerwacji" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nr_Kortu" Type="int" Nullable="false" />
+    <Property Name="Data" Type="date" />
+    <Property Name="Dzien_Tygodnia" Type="int" />
+    <Property Name="Godz_Rozpoczecia" Type="int" Nullable="false" />
+    <Property Name="Godz_Zakonczenia" Type="int" Nullable="false" />
+    <Property Name="ID_Osoby" Type="int" Nullable="false" />
+    <Property Name="Cena" Type="float" />
+    <Property Name="Id_Pracownika" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Inzynierka1.dbo.Rozegrane_Mecze' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Rozegrane_Mecze">
+    <Key>
+      <PropertyRef Name="ID_Zawodnika1" />
+      <PropertyRef Name="ID_Zawodnika2" />
+      <PropertyRef Name="ID_Klasyfikacji" />
+      <PropertyRef Name="Zwyciezca" />
+    </Key>
+    <Property Name="ID_Zawodnika1" Type="int" Nullable="false" />
+    <Property Name="ID_Zawodnika2" Type="int" Nullable="false" />
+    <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
+    <Property Name="Zwyciezca" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Serwis">
+    <Key>
+      <PropertyRef Name="ID_Zlecenia" />
+    </Key>
+    <Property Name="ID_Zlecenia" Type="int" Nullable="false" />
+    <Property Name="ID_Klienta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Usługa" Type="int" Nullable="false" />
+    <Property Name="Data_Przyjecia" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Data_Zakonczenia" Type="nchar" MaxLength="10" />
+    <Property Name="ID_Pracownika" Type="int" Nullable="false" />
+    <Property Name="Opis" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Sparingpartnerzy">
+    <Key>
+      <PropertyRef Name="ID_Sparingpartnera" />
+    </Key>
+    <Property Name="ID_Sparingpartnera" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="ID_Osoby" Type="int" Nullable="false" />
+    <Property Name="Poziom" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sprzet">
+    <Key>
+      <PropertyRef Name="ID_Produktu" />
+    </Key>
+    <Property Name="ID_Produktu" Type="int" Nullable="false" />
+    <Property Name="Typ" Type="int" Nullable="false" />
+    <Property Name="Marka" Type="int" Nullable="false" />
+    <Property Name="Model" Type="int" Nullable="false" />
+    <Property Name="Opis" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Stan_Magazynowy">
+    <Key>
+      <PropertyRef Name="Nr_Przedmiotu" />
+    </Key>
+    <Property Name="ID_Produktu" Type="int" Nullable="false" />
+    <Property Name="Nr_Przedmiotu" Type="int" Nullable="false" />
+    <Property Name="Typ_Sprzedazy" Type="int" Nullable="false" />
+    <Property Name="Ilosc" Type="int" Nullable="false" />
+    <Property Name="Rozmiar" Type="nvarchar" MaxLength="50" />
+    <Property Name="Kolor" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cena" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Trenerzy">
+    <Key>
+      <PropertyRef Name="ID_Trenera" />
+    </Key>
+    <Property Name="ID_Trenera" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="ID_Osoby" Type="int" Nullable="false" />
+    <Property Name="Poziom" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Max_Osob" Type="int" />
+  </EntityType>
+  <EntityType Name="Turnieje">
+    <Key>
+      <PropertyRef Name="ID_Turnieju" />
+    </Key>
+    <Property Name="ID_Turnieju" Type="int" Nullable="false" />
+    <Property Name="ID_Klasyfikacji" Type="int" />
+    <Property Name="Kategoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Typy">
+    <Key>
+      <PropertyRef Name="Nr_Typu" />
+    </Key>
+    <Property Name="Nr_Typu" Type="int" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Uzytkownicy_Kortow">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Typ" Type="int" Nullable="false" />
+    <Property Name="Nazwisko" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Imię" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefon" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Uzytkownicy_Systemu">
+    <Key>
+      <PropertyRef Name="ID_Uzytkownika" />
+    </Key>
+    <Property Name="ID_Uzytkownika" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ID_Pracownika" Type="int" Nullable="false" />
+    <Property Name="Haslo" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Uprawnienia" Type="int" />
+  </EntityType>
+  <EntityType Name="Wypozyczone">
+    <Key>
+      <PropertyRef Name="ID_Wypozyczenia" />
+    </Key>
+    <Property Name="ID_Wypozyczenia" Type="int" Nullable="false" />
+    <Property Name="ID_Przedmiotu" Type="int" Nullable="false" />
+    <Property Name="Id_Klienta" Type="int" Nullable="false" />
+    <Property Name="Data_Rozpoczecia" Type="date" Nullable="false" />
+    <Property Name="Godzina_Rozpoczecia" Type="int" Nullable="false" />
+    <Property Name="Data_Zakonczenia" Type="date" Nullable="false" />
+    <Property Name="Godzina_Zakonczenia" Type="int" Nullable="false" />
+    <Property Name="Wypozyczono" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zawodnicy">
+    <Key>
+      <PropertyRef Name="ID_Zawodnika" />
+    </Key>
+    <Property Name="ID_Zawodnika" Type="int" Nullable="false" />
+    <Property Name="ID_Uzytkownika_Kortow" Type="int" />
+  </EntityType>
+  <Association Name="FK_Dostepnosc_Uzytkownicy_Kortow">
+    <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
+    <End Role="Dostepnosc" Type="Inzynierka1Model.Store.Dostepnosc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy_Kortow">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Dostepnosc">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Punkty_Zawodnikow_Klasyfikacje">
+    <End Role="Klasyfikacje" Type="Inzynierka1Model.Store.Klasyfikacje" Multiplicity="1" />
+    <End Role="Punkty_Zawodnikow" Type="Inzynierka1Model.Store.Punkty_Zawodnikow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klasyfikacje">
+        <PropertyRef Name="ID_Klasyfikacji" />
+      </Principal>
+      <Dependent Role="Punkty_Zawodnikow">
+        <PropertyRef Name="ID_Klasyfikacji" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Punkty_Zawodnikow_Zawodnicy">
+    <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="1" />
+    <End Role="Punkty_Zawodnikow" Type="Inzynierka1Model.Store.Punkty_Zawodnikow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zawodnicy">
+        <PropertyRef Name="ID_Zawodnika" />
+      </Principal>
+      <Dependent Role="Punkty_Zawodnikow">
+        <PropertyRef Name="ID_Zawodnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rezerwacje_Kortow_Pracownicy">
+    <End Role="Pracownicy" Type="Inzynierka1Model.Store.Pracownicy" Multiplicity="1" />
+    <End Role="Rezerwacje_Kortow" Type="Inzynierka1Model.Store.Rezerwacje_Kortow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="Id_Pracownika" />
+      </Principal>
+      <Dependent Role="Rezerwacje_Kortow">
+        <PropertyRef Name="Id_Pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rezerwacje_Kortow_Uzytkownicy_Kortow">
+    <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
+    <End Role="Rezerwacje_Kortow" Type="Inzynierka1Model.Store.Rezerwacje_Kortow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy_Kortow">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Rezerwacje_Kortow">
+        <PropertyRef Name="ID_Osoby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rozegrane_Mecze_Klasyfikacje">
+    <End Role="Klasyfikacje" Type="Inzynierka1Model.Store.Klasyfikacje" Multiplicity="1" />
+    <End Role="Rozegrane_Mecze" Type="Inzynierka1Model.Store.Rozegrane_Mecze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klasyfikacje">
+        <PropertyRef Name="ID_Klasyfikacji" />
+      </Principal>
+      <Dependent Role="Rozegrane_Mecze">
+        <PropertyRef Name="ID_Klasyfikacji" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rozegrane_Mecze_Zawodnicy">
+    <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="1" />
+    <End Role="Rozegrane_Mecze" Type="Inzynierka1Model.Store.Rozegrane_Mecze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zawodnicy">
+        <PropertyRef Name="ID_Zawodnika" />
+      </Principal>
+      <Dependent Role="Rozegrane_Mecze">
+        <PropertyRef Name="ID_Zawodnika1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rozegrane_Mecze_Zawodnicy1">
+    <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="1" />
+    <End Role="Rozegrane_Mecze" Type="Inzynierka1Model.Store.Rozegrane_Mecze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zawodnicy">
+        <PropertyRef Name="ID_Zawodnika" />
+      </Principal>
+      <Dependent Role="Rozegrane_Mecze">
+        <PropertyRef Name="ID_Zawodnika2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Serwis_Katalog_Uslug">
+    <End Role="Katalog_Uslug" Type="Inzynierka1Model.Store.Katalog_Uslug" Multiplicity="1" />
+    <End Role="Serwis" Type="Inzynierka1Model.Store.Serwis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Katalog_Uslug">
+        <PropertyRef Name="ID_Uslugi" />
+      </Principal>
+      <Dependent Role="Serwis">
+        <PropertyRef Name="Usługa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Serwis_Pracownicy">
+    <End Role="Pracownicy" Type="Inzynierka1Model.Store.Pracownicy" Multiplicity="1" />
+    <End Role="Serwis" Type="Inzynierka1Model.Store.Serwis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="Id_Pracownika" />
+      </Principal>
+      <Dependent Role="Serwis">
+        <PropertyRef Name="ID_Pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Serwis_Uzytkownicy_Kortow">
+    <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
+    <End Role="Serwis" Type="Inzynierka1Model.Store.Serwis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy_Kortow">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Serwis">
+        <PropertyRef Name="ID_Klienta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Serwis_Uzytkownicy_Kortow1">
+    <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
+    <End Role="Serwis" Type="Inzynierka1Model.Store.Serwis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy_Kortow">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Serwis">
+        <PropertyRef Name="ID_Klienta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sparingpartnerzy_Uzytkownicy_Kortow">
+    <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
+    <End Role="Sparingpartnerzy" Type="Inzynierka1Model.Store.Sparingpartnerzy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy_Kortow">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sparingpartnerzy">
+        <PropertyRef Name="ID_Osoby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sprzet_Typy">
+    <End Role="Typy" Type="Inzynierka1Model.Store.Typy" Multiplicity="1" />
+    <End Role="Sprzet" Type="Inzynierka1Model.Store.Sprzet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typy">
+        <PropertyRef Name="Nr_Typu" />
+      </Principal>
+      <Dependent Role="Sprzet">
+        <PropertyRef Name="Typ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stan_Magazynowy_Sprzet">
+    <End Role="Sprzet" Type="Inzynierka1Model.Store.Sprzet" Multiplicity="1" />
+    <End Role="Stan_Magazynowy" Type="Inzynierka1Model.Store.Stan_Magazynowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sprzet">
+        <PropertyRef Name="ID_Produktu" />
+      </Principal>
+      <Dependent Role="Stan_Magazynowy">
+        <PropertyRef Name="ID_Produktu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trenerzy_Uzytkownicy_Kortow">
+    <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
+    <End Role="Trenerzy" Type="Inzynierka1Model.Store.Trenerzy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy_Kortow">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Trenerzy">
+        <PropertyRef Name="ID_Osoby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Turnieje_Kategorie">
+    <End Role="Kategorie" Type="Inzynierka1Model.Store.Kategorie" Multiplicity="1" />
+    <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategorie">
+        <PropertyRef Name="ID_Kategorii" />
+      </Principal>
+      <Dependent Role="Turnieje">
+        <PropertyRef Name="Kategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Uzytkownicy_Systemu_Pracownicy1">
+    <End Role="Pracownicy" Type="Inzynierka1Model.Store.Pracownicy" Multiplicity="1" />
+    <End Role="Uzytkownicy_Systemu" Type="Inzynierka1Model.Store.Uzytkownicy_Systemu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownicy">
+        <PropertyRef Name="Id_Pracownika" />
+      </Principal>
+      <Dependent Role="Uzytkownicy_Systemu">
+        <PropertyRef Name="ID_Pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wypozyczone_Stan_Magazynowy">
+    <End Role="Stan_Magazynowy" Type="Inzynierka1Model.Store.Stan_Magazynowy" Multiplicity="1" />
+    <End Role="Wypozyczone" Type="Inzynierka1Model.Store.Wypozyczone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stan_Magazynowy">
+        <PropertyRef Name="Nr_Przedmiotu" />
+      </Principal>
+      <Dependent Role="Wypozyczone">
+        <PropertyRef Name="ID_Przedmiotu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wypozyczone_Uzytkownicy_Kortow">
+    <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
+    <End Role="Wypozyczone" Type="Inzynierka1Model.Store.Wypozyczone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy_Kortow">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Wypozyczone">
+        <PropertyRef Name="Id_Klienta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zawodnicy_Uzytkownicy_Kortow">
+    <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="0..1" />
+    <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy_Kortow">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Zawodnicy">
+        <PropertyRef Name="ID_Uzytkownika_Kortow" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>
