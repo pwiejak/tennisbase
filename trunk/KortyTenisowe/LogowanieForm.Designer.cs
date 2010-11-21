@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.tbLogin = new System.Windows.Forms.TextBox();
-            this.btLogowanie = new System.Windows.Forms.Button();
             this.label1Logowanie = new System.Windows.Forms.Label();
             this.tbHaslo = new System.Windows.Forms.TextBox();
+            this.rbtZatwierdz = new Telerik.WinControls.UI.RadButton();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtZatwierdz)).BeginInit();
             this.SuspendLayout();
             // 
             // tbLogin
@@ -42,16 +43,6 @@
             this.tbLogin.TabIndex = 0;
             this.tbLogin.Text = "Login...";
             this.tbLogin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbLogin_MouseClick);
-            // 
-            // btLogowanie
-            // 
-            this.btLogowanie.Location = new System.Drawing.Point(119, 151);
-            this.btLogowanie.Name = "btLogowanie";
-            this.btLogowanie.Size = new System.Drawing.Size(75, 23);
-            this.btLogowanie.TabIndex = 2;
-            this.btLogowanie.Text = "Zatwierdź";
-            this.btLogowanie.UseVisualStyleBackColor = true;
-            this.btLogowanie.Click += new System.EventHandler(this.btLogowanie_Click);
             // 
             // label1Logowanie
             // 
@@ -72,17 +63,28 @@
             this.tbHaslo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbHaslo_MouseClick);
             this.tbHaslo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbHaslo_KeyDown);
             // 
+            // rbtZatwierdz
+            // 
+            this.rbtZatwierdz.Location = new System.Drawing.Point(89, 149);
+            this.rbtZatwierdz.Name = "rbtZatwierdz";
+            this.rbtZatwierdz.Size = new System.Drawing.Size(130, 24);
+            this.rbtZatwierdz.TabIndex = 3;
+            this.rbtZatwierdz.Text = "Zatwierdź";
+            this.rbtZatwierdz.Click += new System.EventHandler(this.rbtZatwierdz_Click);
+            // 
             // LogowanieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 262);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(333, 193);
+            this.Controls.Add(this.rbtZatwierdz);
             this.Controls.Add(this.tbHaslo);
             this.Controls.Add(this.label1Logowanie);
-            this.Controls.Add(this.btLogowanie);
             this.Controls.Add(this.tbLogin);
             this.Name = "LogowanieForm";
             this.Text = "Logowanie";
+            ((System.ComponentModel.ISupportInitialize)(this.rbtZatwierdz)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,9 +93,9 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbLogin;
-        private System.Windows.Forms.Button btLogowanie;
         private System.Windows.Forms.Label label1Logowanie;
         private System.Windows.Forms.TextBox tbHaslo;
+        private Telerik.WinControls.UI.RadButton rbtZatwierdz;
     }
 }
 

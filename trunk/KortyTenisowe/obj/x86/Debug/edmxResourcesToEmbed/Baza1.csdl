@@ -4,7 +4,6 @@
     <EntitySet Name="Dostepnosc" EntityType="Inzynierka1Model.Dostepnosc" />
     <EntitySet Name="Katalog_Uslug" EntityType="Inzynierka1Model.Katalog_Uslug" />
     <EntitySet Name="Pracownicy" EntityType="Inzynierka1Model.Pracownicy" />
-    <EntitySet Name="Sprzet" EntityType="Inzynierka1Model.Sprzet" />
     <EntitySet Name="Stan_Magazynowy" EntityType="Inzynierka1Model.Stan_Magazynowy" />
     <EntitySet Name="sysdiagrams" EntityType="Inzynierka1Model.sysdiagrams" />
     <EntitySet Name="Typy" EntityType="Inzynierka1Model.Typy" />
@@ -13,14 +12,6 @@
     <AssociationSet Name="FK_Dostepnosc_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow">
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Dostepnosc" EntitySet="Dostepnosc" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Sprzet_Typy" Association="Inzynierka1Model.FK_Sprzet_Typy">
-      <End Role="Typy" EntitySet="Typy" />
-      <End Role="Sprzet" EntitySet="Sprzet" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Stan_Magazynowy_Sprzet" Association="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet">
-      <End Role="Sprzet" EntitySet="Sprzet" />
-      <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
     </AssociationSet>
     <AssociationSet Name="FK_Wypozyczone_Stan_Magazynowy" Association="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy">
       <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
@@ -105,6 +96,15 @@
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Trenerzy" EntitySet="Trenerzy" />
     </AssociationSet>
+    <EntitySet Name="Sprzet" EntityType="Inzynierka1Model.Sprzet" />
+    <AssociationSet Name="FK_Sprzet_Typy" Association="Inzynierka1Model.FK_Sprzet_Typy">
+      <End Role="Typy" EntitySet="Typy" />
+      <End Role="Sprzet" EntitySet="Sprzet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stan_Magazynowy_Sprzet" Association="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet">
+      <End Role="Sprzet" EntitySet="Sprzet" />
+      <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Dostepnosc">
     <Key>
@@ -140,18 +140,6 @@
     <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Pracownicy" FromRole="Pracownicy" ToRole="Serwis" />
     <NavigationProperty Name="Rezerwacje_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" FromRole="Pracownicy" ToRole="Rezerwacje_Kortow" />
   </EntityType>
-  <EntityType Name="Sprzet">
-    <Key>
-      <PropertyRef Name="ID_Produktu" />
-    </Key>
-    <Property Name="ID_Produktu" Type="Int32" Nullable="false" />
-    <Property Name="Typ" Type="Int32" Nullable="false" />
-    <Property Name="Marka" Type="Int32" Nullable="false" />
-    <Property Name="Model" Type="Int32" Nullable="false" />
-    <Property Name="Opis" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="Typy" Relationship="Inzynierka1Model.FK_Sprzet_Typy" FromRole="Sprzet" ToRole="Typy" />
-    <NavigationProperty Name="Stan_Magazynowy" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Sprzet" ToRole="Stan_Magazynowy" />
-  </EntityType>
   <EntityType Name="Stan_Magazynowy">
     <Key>
       <PropertyRef Name="Nr_Przedmiotu" />
@@ -163,8 +151,8 @@
     <Property Name="Rozmiar" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="Kolor" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="Cena" Type="Double" Nullable="false" />
-    <NavigationProperty Name="Sprzet" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Stan_Magazynowy" ToRole="Sprzet" />
     <NavigationProperty Name="Wypozyczone" Relationship="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" FromRole="Stan_Magazynowy" ToRole="Wypozyczone" />
+    <NavigationProperty Name="Sprzet" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Stan_Magazynowy" ToRole="Sprzet" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -226,30 +214,6 @@
       </Principal>
       <Dependent Role="Dostepnosc">
         <PropertyRef Name="ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Sprzet_Typy">
-    <End Role="Typy" Type="Inzynierka1Model.Typy" Multiplicity="1" />
-    <End Role="Sprzet" Type="Inzynierka1Model.Sprzet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Typy">
-        <PropertyRef Name="Nr_Typu" />
-      </Principal>
-      <Dependent Role="Sprzet">
-        <PropertyRef Name="Typ" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Stan_Magazynowy_Sprzet">
-    <End Role="Sprzet" Type="Inzynierka1Model.Sprzet" Multiplicity="1" />
-    <End Role="Stan_Magazynowy" Type="Inzynierka1Model.Stan_Magazynowy" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Sprzet">
-        <PropertyRef Name="ID_Produktu" />
-      </Principal>
-      <Dependent Role="Stan_Magazynowy">
-        <PropertyRef Name="ID_Produktu" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -593,6 +557,42 @@
       </Principal>
       <Dependent Role="Trenerzy">
         <PropertyRef Name="ID_Osoby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Sprzet">
+    <Key>
+      <PropertyRef Name="ID_Produktu" />
+    </Key>
+    <Property Type="Int32" Name="ID_Produktu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Typ" Nullable="false" />
+    <Property Type="String" Name="Marka" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Model" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Opis" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Typy" Relationship="Inzynierka1Model.FK_Sprzet_Typy" FromRole="Sprzet" ToRole="Typy" />
+    <NavigationProperty Name="Stan_Magazynowy" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Sprzet" ToRole="Stan_Magazynowy" />
+  </EntityType>
+  <Association Name="FK_Sprzet_Typy">
+    <End Type="Inzynierka1Model.Typy" Role="Typy" Multiplicity="1" />
+    <End Type="Inzynierka1Model.Sprzet" Role="Sprzet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typy">
+        <PropertyRef Name="Nr_Typu" />
+      </Principal>
+      <Dependent Role="Sprzet">
+        <PropertyRef Name="Typ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stan_Magazynowy_Sprzet">
+    <End Type="Inzynierka1Model.Sprzet" Role="Sprzet" Multiplicity="1" />
+    <End Type="Inzynierka1Model.Stan_Magazynowy" Role="Stan_Magazynowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sprzet">
+        <PropertyRef Name="ID_Produktu" />
+      </Principal>
+      <Dependent Role="Stan_Magazynowy">
+        <PropertyRef Name="ID_Produktu" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

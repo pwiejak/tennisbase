@@ -244,11 +244,11 @@
           <Key>
             <PropertyRef Name="ID_Produktu" />
           </Key>
-          <Property Name="ID_Produktu" Type="int" Nullable="false" />
+          <Property Name="ID_Produktu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Typ" Type="int" Nullable="false" />
-          <Property Name="Marka" Type="int" Nullable="false" />
-          <Property Name="Model" Type="int" Nullable="false" />
-          <Property Name="Opis" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Marka" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Model" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Opis" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Stan_Magazynowy">
           <Key>
@@ -293,7 +293,7 @@
           <Key>
             <PropertyRef Name="Nr_Typu" />
           </Key>
-          <Property Name="Nr_Typu" Type="int" Nullable="false" />
+          <Property Name="Nr_Typu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="Uzytkownicy_Kortow">
@@ -627,7 +627,6 @@
           <EntitySet Name="Dostepnosc" EntityType="Inzynierka1Model.Dostepnosc" />
           <EntitySet Name="Katalog_Uslug" EntityType="Inzynierka1Model.Katalog_Uslug" />
           <EntitySet Name="Pracownicy" EntityType="Inzynierka1Model.Pracownicy" />
-          <EntitySet Name="Sprzet" EntityType="Inzynierka1Model.Sprzet" />
           <EntitySet Name="Stan_Magazynowy" EntityType="Inzynierka1Model.Stan_Magazynowy" />
           <EntitySet Name="sysdiagrams" EntityType="Inzynierka1Model.sysdiagrams" />
           <EntitySet Name="Typy" EntityType="Inzynierka1Model.Typy" />
@@ -636,14 +635,6 @@
           <AssociationSet Name="FK_Dostepnosc_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow">
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
             <End Role="Dostepnosc" EntitySet="Dostepnosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sprzet_Typy" Association="Inzynierka1Model.FK_Sprzet_Typy">
-            <End Role="Typy" EntitySet="Typy" />
-            <End Role="Sprzet" EntitySet="Sprzet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Stan_Magazynowy_Sprzet" Association="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet">
-            <End Role="Sprzet" EntitySet="Sprzet" />
-            <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
           </AssociationSet>
           <AssociationSet Name="FK_Wypozyczone_Stan_Magazynowy" Association="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy">
             <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
@@ -728,6 +719,15 @@
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
             <End Role="Trenerzy" EntitySet="Trenerzy" />
           </AssociationSet>
+          <EntitySet Name="Sprzet" EntityType="Inzynierka1Model.Sprzet" />
+          <AssociationSet Name="FK_Sprzet_Typy" Association="Inzynierka1Model.FK_Sprzet_Typy">
+            <End Role="Typy" EntitySet="Typy" />
+            <End Role="Sprzet" EntitySet="Sprzet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stan_Magazynowy_Sprzet" Association="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet">
+            <End Role="Sprzet" EntitySet="Sprzet" />
+            <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Dostepnosc">
           <Key>
@@ -763,18 +763,6 @@
           <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Pracownicy" FromRole="Pracownicy" ToRole="Serwis" />
           <NavigationProperty Name="Rezerwacje_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" FromRole="Pracownicy" ToRole="Rezerwacje_Kortow" />
           </EntityType>
-        <EntityType Name="Sprzet">
-          <Key>
-            <PropertyRef Name="ID_Produktu" />
-          </Key>
-          <Property Name="ID_Produktu" Type="Int32" Nullable="false" />
-          <Property Name="Typ" Type="Int32" Nullable="false" />
-          <Property Name="Marka" Type="Int32" Nullable="false" />
-          <Property Name="Model" Type="Int32" Nullable="false" />
-          <Property Name="Opis" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Typy" Relationship="Inzynierka1Model.FK_Sprzet_Typy" FromRole="Sprzet" ToRole="Typy" />
-          <NavigationProperty Name="Stan_Magazynowy" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Sprzet" ToRole="Stan_Magazynowy" />
-        </EntityType>
         <EntityType Name="Stan_Magazynowy">
           <Key>
             <PropertyRef Name="Nr_Przedmiotu" />
@@ -786,8 +774,8 @@
           <Property Name="Rozmiar" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Kolor" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Cena" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Sprzet" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Stan_Magazynowy" ToRole="Sprzet" />
           <NavigationProperty Name="Wypozyczone" Relationship="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" FromRole="Stan_Magazynowy" ToRole="Wypozyczone" />
+          <NavigationProperty Name="Sprzet" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Stan_Magazynowy" ToRole="Sprzet" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -849,30 +837,6 @@
             </Principal>
             <Dependent Role="Dostepnosc">
               <PropertyRef Name="ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sprzet_Typy">
-          <End Role="Typy" Type="Inzynierka1Model.Typy" Multiplicity="1" />
-          <End Role="Sprzet" Type="Inzynierka1Model.Sprzet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Typy">
-              <PropertyRef Name="Nr_Typu" />
-            </Principal>
-            <Dependent Role="Sprzet">
-              <PropertyRef Name="Typ" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Stan_Magazynowy_Sprzet">
-          <End Role="Sprzet" Type="Inzynierka1Model.Sprzet" Multiplicity="1" />
-          <End Role="Stan_Magazynowy" Type="Inzynierka1Model.Stan_Magazynowy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sprzet">
-              <PropertyRef Name="ID_Produktu" />
-            </Principal>
-            <Dependent Role="Stan_Magazynowy">
-              <PropertyRef Name="ID_Produktu" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1219,6 +1183,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Sprzet">
+          <Key>
+            <PropertyRef Name="ID_Produktu" />
+          </Key>
+          <Property Type="Int32" Name="ID_Produktu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Typ" Nullable="false" />
+          <Property Type="String" Name="Marka" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Model" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Opis" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Typy" Relationship="Inzynierka1Model.FK_Sprzet_Typy" FromRole="Sprzet" ToRole="Typy" />
+          <NavigationProperty Name="Stan_Magazynowy" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Sprzet" ToRole="Stan_Magazynowy" />
+        </EntityType>
+        <Association Name="FK_Sprzet_Typy">
+          <End Type="Inzynierka1Model.Typy" Role="Typy" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Sprzet" Role="Sprzet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Typy">
+              <PropertyRef Name="Nr_Typu" />
+            </Principal>
+            <Dependent Role="Sprzet">
+              <PropertyRef Name="Typ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stan_Magazynowy_Sprzet">
+          <End Type="Inzynierka1Model.Sprzet" Role="Sprzet" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Stan_Magazynowy" Role="Stan_Magazynowy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sprzet">
+              <PropertyRef Name="ID_Produktu" />
+            </Principal>
+            <Dependent Role="Stan_Magazynowy">
+              <PropertyRef Name="ID_Produktu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1241,13 +1241,6 @@
             <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
             <ScalarProperty Name="Imie" ColumnName="Imie" />
             <ScalarProperty Name="Telefon" ColumnName="Telefon" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Sprzet"><EntityTypeMapping TypeName="Inzynierka1Model.Sprzet"><MappingFragment StoreEntitySet="Sprzet">
-            <ScalarProperty Name="ID_Produktu" ColumnName="ID_Produktu" />
-            <ScalarProperty Name="Typ" ColumnName="Typ" />
-            <ScalarProperty Name="Marka" ColumnName="Marka" />
-            <ScalarProperty Name="Model" ColumnName="Model" />
-            <ScalarProperty Name="Opis" ColumnName="Opis" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Stan_Magazynowy"><EntityTypeMapping TypeName="Inzynierka1Model.Stan_Magazynowy"><MappingFragment StoreEntitySet="Stan_Magazynowy">
             <ScalarProperty Name="ID_Produktu" ColumnName="ID_Produktu" />
@@ -1397,6 +1390,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Sprzet">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Sprzet">
+              <MappingFragment StoreEntitySet="Sprzet">
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
+                <ScalarProperty Name="ID_Produktu" ColumnName="ID_Produktu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1421,7 +1425,6 @@
         <EntityTypeShape EntityType="Inzynierka1Model.Dostepnosc" Width="1.5" PointX="3" PointY="8.25" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="Inzynierka1Model.Katalog_Uslug" Width="1.5" PointX="3.75" PointY="15.25" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="Inzynierka1Model.Pracownicy" Width="1.5" PointX="3.75" PointY="0.75" Height="2.3648893229166656" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Sprzet" Width="1.5" PointX="1.5" PointY="4.5" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="Inzynierka1Model.Stan_Magazynowy" Width="1.5" PointX="3.75" PointY="4.25" Height="2.7494921874999996" IsExpanded="true" />
         <EntityTypeShape EntityType="Inzynierka1Model.sysdiagrams" Width="1.5" PointX="8.75" PointY="1.875" Height="1.9802864583333317" IsExpanded="true" />
         <EntityTypeShape EntityType="Inzynierka1Model.Typy" Width="1.5" PointX="1.5" PointY="1.875" Height="1.5956835937500031" IsExpanded="true" />
@@ -1429,16 +1432,10 @@
         <EntityTypeShape EntityType="Inzynierka1Model.Wypozyczone" Width="1.5" PointX="6" PointY="6.25" Height="2.7494921874999951" IsExpanded="true" />
         <AssociationConnector Association="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow" ManuallyRouted="false">
           <ConnectorPoint PointX="1.7031275" PointY="10.125" />
-          <ConnectorPoint PointX="1.7031275" PointY="9.0600967838541653" />
-          <ConnectorPoint PointX="3" PointY="9.0600967838541653" />
-        </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Sprzet_Typy" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="3.4706835937500031" />
-          <ConnectorPoint PointX="2.25" PointY="4.5" />
-        </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" ManuallyRouted="false">
-          <ConnectorPoint PointX="3" PointY="5.6824446614583337" />
-          <ConnectorPoint PointX="3.75" PointY="5.6824446614583337" />
+          <ConnectorPoint PointX="1.7031275" PointY="9.0600967838541671" />
+          <ConnectorPoint PointX="2.4479166666666665" PointY="9.0600967838541671" />
+          <ConnectorPoint PointX="2.6145833333333335" PointY="9.0600967838541671" />
+          <ConnectorPoint PointX="3" PointY="9.0600967838541671" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" ManuallyRouted="false">
           <ConnectorPoint PointX="5.25" PointY="6.62474609375" />
@@ -1447,10 +1444,12 @@
           <ConnectorPoint PointX="6" PointY="6.62474609375" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.09375" PointY="10.125" />
-          <ConnectorPoint PointX="1.09375" PointY="7.62474609375" />
+          <ConnectorPoint PointX="1.19531125" PointY="10.125" />
+          <ConnectorPoint PointX="1.19531125" PointY="7.62474609375" />
+          <ConnectorPoint PointX="2.4479166666666665" PointY="7.6247460937499989" />
+          <ConnectorPoint PointX="2.6145833333333335" PointY="7.62474609375" />
           <ConnectorPoint PointX="5.541666666666667" PointY="7.6247460937499989" />
-          <ConnectorPoint PointX="5.708333333333333" PointY="7.62474609375" />
+          <ConnectorPoint PointX="5.770833333333333" PointY="7.62474609375" />
           <ConnectorPoint PointX="6" PointY="7.62474609375" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Inzynierka1Model.Uzytkownicy_Systemu" Width="1.5" PointX="6" PointY="0.875" Height="2.1725878906250031" />
@@ -1461,28 +1460,32 @@
         <EntityTypeShape EntityType="Inzynierka1Model.Serwis" Width="1.5" PointX="6" PointY="10.375" Height="3.1340950520833388" />
         <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Katalog_Uslug" >
           <ConnectorPoint PointX="4.90625" PointY="15.25" />
-          <ConnectorPoint PointX="4.90625" PointY="11.174399315755203" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="11.174399315755203" />
-          <ConnectorPoint PointX="5.708333333333333" PointY="11.174399315755203" />
-          <ConnectorPoint PointX="6" PointY="11.174399315755203" />
+          <ConnectorPoint PointX="4.90625" PointY="12.379547026041671" />
+          <ConnectorPoint PointX="5.604166666666667" PointY="12.379547026041671" />
+          <ConnectorPoint PointX="5.770833333333333" PointY="12.379547026041671" />
+          <ConnectorPoint PointX="6" PointY="12.379547026041671" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Pracownicy" >
-          <ConnectorPoint PointX="5.25" PointY="3.114889322916667" />
-          <ConnectorPoint PointX="5.625" PointY="3.4898893229166674" />
-          <ConnectorPoint PointX="5.625" PointY="12.372999183919266" />
-          <ConnectorPoint PointX="6" PointY="12.372999183919266" />
+          <ConnectorPoint PointX="5.25" PointY="3.1148893229166656" />
+          <ConnectorPoint PointX="5.625" PointY="3.4898893229166656" />
+          <ConnectorPoint PointX="5.625" PointY="11.783521013020835" />
+          <ConnectorPoint PointX="6" PointY="11.783521013020835" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="2.25" PointY="10.558098979120889" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="10.558098979120887" />
-          <ConnectorPoint PointX="5.833333333333333" PointY="10.558098979120889" />
-          <ConnectorPoint PointX="6" PointY="10.558098979120889" />
+          <ConnectorPoint PointX="2.25" PointY="10.577031143429757" />
+          <ConnectorPoint PointX="2.4479166666666665" PointY="10.577031143429757" />
+          <ConnectorPoint PointX="2.6145833333333335" PointY="10.577031143429757" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="10.577031143429755" />
+          <ConnectorPoint PointX="5.833333333333333" PointY="10.577031143429757" />
+          <ConnectorPoint PointX="6" PointY="10.577031143429757" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1" >
-          <ConnectorPoint PointX="2.25" PointY="10.866249147438046" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="10.866249147438044" />
-          <ConnectorPoint PointX="5.833333333333333" PointY="10.866249147438046" />
-          <ConnectorPoint PointX="6" PointY="10.866249147438046" />
+          <ConnectorPoint PointX="2.25" PointY="10.913515571714878" />
+          <ConnectorPoint PointX="2.4479166666666665" PointY="10.913515571714878" />
+          <ConnectorPoint PointX="2.6145833333333335" PointY="10.913515571714878" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="10.913515571714877" />
+          <ConnectorPoint PointX="5.833333333333333" PointY="10.913515571714878" />
+          <ConnectorPoint PointX="6" PointY="10.913515571714878" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Inzynierka1Model.Kategorie" Width="1.5" PointX="10.375" PointY="9.875" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="Inzynierka1Model.Klasyfikacje" Width="1.5" PointX="6" PointY="17.625" Height="1.7879850260416674" />
@@ -1508,12 +1511,16 @@
           <ConnectorPoint PointX="3.34375" PointY="14.90625" />
           <ConnectorPoint PointX="4.822916666666667" PointY="14.90625" />
           <ConnectorPoint PointX="4.989583333333333" PointY="14.90625" />
+          <ConnectorPoint PointX="5.604166666666667" PointY="14.90625" />
+          <ConnectorPoint PointX="5.770833333333333" PointY="14.90625" />
           <ConnectorPoint PointX="6.25" PointY="14.90625" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy" >
           <ConnectorPoint PointX="4.5" PointY="13.622091471354171" />
           <ConnectorPoint PointX="4.822916666666667" PointY="13.622091471354171" />
           <ConnectorPoint PointX="4.989583333333333" PointY="13.622091471354171" />
+          <ConnectorPoint PointX="5.604166666666667" PointY="13.622091471354171" />
+          <ConnectorPoint PointX="5.770833333333333" PointY="13.622091471354171" />
           <ConnectorPoint PointX="8.25" PointY="13.622091471354171" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy1" >
@@ -1522,12 +1529,16 @@
           <ConnectorPoint PointX="4.625" PointY="14.114889322916667" />
           <ConnectorPoint PointX="4.822916666666667" PointY="14.114889322916667" />
           <ConnectorPoint PointX="4.989583333333333" PointY="14.114889322916667" />
+          <ConnectorPoint PointX="5.604166666666667" PointY="14.114889322916667" />
+          <ConnectorPoint PointX="5.770833333333333" PointY="14.114889322916667" />
           <ConnectorPoint PointX="7.875" PointY="14.114889322916667" />
           <ConnectorPoint PointX="8.25" PointY="13.739889322916667" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="2.25" PointY="12.738775464391072" />
-          <ConnectorPoint PointX="3" PointY="12.738775464391072" />
+          <ConnectorPoint PointX="2.25" PointY="12.806765807870866" />
+          <ConnectorPoint PointX="2.4479166666666665" PointY="12.806765807870866" />
+          <ConnectorPoint PointX="2.6145833333333335" PointY="12.806765807870866" />
+          <ConnectorPoint PointX="3" PointY="12.806765807870866" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Inzynierka1Model.Rezerwacje_Kortow" Width="1.5" PointX="9" PointY="5.625" Height="3.1340950520833388" />
         <AssociationConnector Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" >
@@ -1536,8 +1547,10 @@
           <ConnectorPoint PointX="10.40625" PointY="5.625" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="2.25" PointY="11.80251230591456" />
-          <ConnectorPoint PointX="2.75" PointY="11.80251230591456" />
+          <ConnectorPoint PointX="2.25" PointY="11.860140689792871" />
+          <ConnectorPoint PointX="2.4479166666666665" PointY="11.860140689792871" />
+          <ConnectorPoint PointX="2.6145833333333335" PointY="11.860140689792871" />
+          <ConnectorPoint PointX="2.75" PointY="11.860140689792871" />
           <ConnectorPoint PointX="2.75" PointY="11.25" />
           <ConnectorPoint PointX="5.541666666666667" PointY="11.25" />
           <ConnectorPoint PointX="5.708333333333333" PointY="11.25" />
@@ -1549,18 +1562,36 @@
         <EntityTypeShape EntityType="Inzynierka1Model.Sparingpartnerzy" Width="1.5" PointX="3" PointY="18.625" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="Inzynierka1Model.Trenerzy" Width="1.5" PointX="3" PointY="21.125" Height="1.9802864583333246" />
         <AssociationConnector Association="Inzynierka1Model.FK_Sparingpartnerzy_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="1.5" PointY="13.643697916666667" />
-          <ConnectorPoint PointX="1.5" PointY="19.518992513020834" />
-          <ConnectorPoint PointX="1.8229191666666667" PointY="19.518992513020834" />
-          <ConnectorPoint PointX="1.9895858333333332" PointY="19.518992513020834" />
+          <ConnectorPoint PointX="1.2460921875" PointY="13.643697916666667" />
+          <ConnectorPoint PointX="1.2460921875" PointY="19.518992513020834" />
+          <ConnectorPoint PointX="1.6959652604166668" PointY="19.518992513020834" />
+          <ConnectorPoint PointX="1.8626319270833334" PointY="19.518992513020834" />
+          <ConnectorPoint PointX="2.4479166666666665" PointY="19.518992513020834" />
+          <ConnectorPoint PointX="2.6145833333333335" PointY="19.518992513020834" />
           <ConnectorPoint PointX="3" PointY="19.518992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Trenerzy_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="1.9062525" PointY="13.643697916666667" />
-          <ConnectorPoint PointX="1.9062525" PointY="22.115143229166662" />
+          <ConnectorPoint PointX="1.77929859375" PointY="13.643697916666667" />
+          <ConnectorPoint PointX="1.77929859375" PointY="22.115143229166662" />
+          <ConnectorPoint PointX="2.4479166666666665" PointY="22.115143229166662" />
+          <ConnectorPoint PointX="2.6145833333333335" PointY="22.115143229166662" />
           <ConnectorPoint PointX="3" PointY="22.115143229166662" />
         </AssociationConnector>
-      </Diagram>
+        <EntityTypeShape EntityType="Inzynierka1Model.Sprzet" Width="1.5" PointX="3.75" PointY="24.5" Height="2.3648893229166674" />
+        <AssociationConnector Association="Inzynierka1Model.FK_Sprzet_Typy" >
+          <ConnectorPoint PointX="2.53125" PointY="3.47068359375" />
+          <ConnectorPoint PointX="2.53125" PointY="25.682444661458334" />
+          <ConnectorPoint PointX="3.75" PointY="25.682444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" >
+          <ConnectorPoint PointX="5.25" PointY="24.563460538461534" />
+          <ConnectorPoint PointX="5.6875" PointY="24.125960538461534" />
+          <ConnectorPoint PointX="5.6875" PointY="7.4369921875" />
+          <ConnectorPoint PointX="5.6839255650988791" PointY="7.4334177525988778" />
+          <ConnectorPoint PointX="5.5660744349011209" PointY="7.31556662240112" />
+          <ConnectorPoint PointX="5.25" PointY="6.9994921875" />
+        </AssociationConnector>
+        </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>

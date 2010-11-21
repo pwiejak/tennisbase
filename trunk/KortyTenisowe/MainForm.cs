@@ -23,6 +23,8 @@ namespace KortyTenisowe
             this.Text += ": " + zalogowanyUzytkownik;
             zarezerwowaneKorty = new List<Rezerwacje_Kortow>();
             wybranyDzien = DateTime.Now;
+            TabSprzet.WczytajKategorie(rDDLKategorie);
+            TabMagazyn.WczytajKategorie(rddlKategorieMagazyn);
         }
 
         private void zakończToolStripMenuItem_Click(object sender, EventArgs e)
@@ -111,6 +113,33 @@ namespace KortyTenisowe
                 RezerwacjaKortuForm rezerwacja = new RezerwacjaKortuForm(wybranyDzien.Date, zalogowanyUzytkownik, dgKorty, e);
                 rezerwacja.ShowDialog();
             }
+        }
+
+        private void btDodajSprzet_Click(object sender, EventArgs e)
+        {
+            DodajSprzetForm dodanieSprzetu = new DodajSprzetForm();
+            dodanieSprzetu.ShowDialog();
+        }
+
+        private void rbtDodajNowy_Click(object sender, EventArgs e)
+        {
+            DodajSprzetForm dodanieSprzetu = new DodajSprzetForm();
+            dodanieSprzetu.ShowDialog();
+        }
+
+        private void rDDLKategorie_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            /*List<Sprzet> m_lista = new List<Sprzet>();
+            m_lista = DBQueries.zwrocSprzetWgTypu(e.Position+1).ToList<Sprzet>();
+             */
+            TabSprzet.PokazSprzetWgTypu(e.Position + 1, rgvSprzet);
+        }
+
+        private void rbNowyTyp_Click(object sender, EventArgs e)
+        {
+            DodajKategorieForm dodanieKategorii = new DodajKategorieForm(rDDLKategorie);
+            dodanieKategorii.ShowDialog();
+            TabSprzet.WczytajKategorie(rDDLKategorie);
         }
     }
 }

@@ -239,11 +239,11 @@
     <Key>
       <PropertyRef Name="ID_Produktu" />
     </Key>
-    <Property Name="ID_Produktu" Type="int" Nullable="false" />
+    <Property Name="ID_Produktu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Typ" Type="int" Nullable="false" />
-    <Property Name="Marka" Type="int" Nullable="false" />
-    <Property Name="Model" Type="int" Nullable="false" />
-    <Property Name="Opis" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Marka" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Model" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Opis" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Stan_Magazynowy">
     <Key>
@@ -288,7 +288,7 @@
     <Key>
       <PropertyRef Name="Nr_Typu" />
     </Key>
-    <Property Name="Nr_Typu" Type="int" Nullable="false" />
+    <Property Name="Nr_Typu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Nazwa" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="Uzytkownicy_Kortow">

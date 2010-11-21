@@ -19,8 +19,6 @@ using System.Runtime.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Dostepnosc_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Dostepnosc", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Dostepnosc), true)]
-[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Sprzet_Typy", "Typy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Typy), "Sprzet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Sprzet), true)]
-[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Stan_Magazynowy_Sprzet", "Sprzet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Sprzet), "Stan_Magazynowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Stan_Magazynowy), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Wypozyczone_Stan_Magazynowy", "Stan_Magazynowy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Stan_Magazynowy), "Wypozyczone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Wypozyczone), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Wypozyczone_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Wypozyczone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Wypozyczone), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Uzytkownicy_Systemu_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Pracownicy), "Uzytkownicy_Systemu", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Uzytkownicy_Systemu), true)]
@@ -39,6 +37,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Rezerwacje_Kortow_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Rezerwacje_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Rezerwacje_Kortow), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Sparingpartnerzy_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Sparingpartnerzy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Sparingpartnerzy), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Trenerzy_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Trenerzy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Trenerzy), true)]
+[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Sprzet_Typy", "Typy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Typy), "Sprzet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Sprzet), true)]
+[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Stan_Magazynowy_Sprzet", "Sprzet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Sprzet), "Stan_Magazynowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Stan_Magazynowy), true)]
 
 #endregion
 
@@ -137,22 +137,6 @@ namespace KortyTenisowe
             }
         }
         private ObjectSet<Pracownicy> _Pracownicy;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Sprzet> Sprzet
-        {
-            get
-            {
-                if ((_Sprzet == null))
-                {
-                    _Sprzet = base.CreateObjectSet<Sprzet>("Sprzet");
-                }
-                return _Sprzet;
-            }
-        }
-        private ObjectSet<Sprzet> _Sprzet;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -409,6 +393,22 @@ namespace KortyTenisowe
             }
         }
         private ObjectSet<Trenerzy> _Trenerzy;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Sprzet> Sprzet
+        {
+            get
+            {
+                if ((_Sprzet == null))
+                {
+                    _Sprzet = base.CreateObjectSet<Sprzet>("Sprzet");
+                }
+                return _Sprzet;
+            }
+        }
+        private ObjectSet<Sprzet> _Sprzet;
 
         #endregion
         #region AddTo Methods
@@ -435,14 +435,6 @@ namespace KortyTenisowe
         public void AddToPracownicy(Pracownicy pracownicy)
         {
             base.AddObject("Pracownicy", pracownicy);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Sprzet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToSprzet(Sprzet sprzet)
-        {
-            base.AddObject("Sprzet", sprzet);
         }
     
         /// <summary>
@@ -571,6 +563,14 @@ namespace KortyTenisowe
         public void AddToTrenerzy(Trenerzy trenerzy)
         {
             base.AddObject("Trenerzy", trenerzy);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Sprzet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSprzet(Sprzet sprzet)
+        {
+            base.AddObject("Sprzet", sprzet);
         }
 
         #endregion
@@ -2668,15 +2668,13 @@ namespace KortyTenisowe
         /// <param name="typ">Initial value of the Typ property.</param>
         /// <param name="marka">Initial value of the Marka property.</param>
         /// <param name="model">Initial value of the Model property.</param>
-        /// <param name="opis">Initial value of the Opis property.</param>
-        public static Sprzet CreateSprzet(global::System.Int32 iD_Produktu, global::System.Int32 typ, global::System.Int32 marka, global::System.Int32 model, global::System.String opis)
+        public static Sprzet CreateSprzet(global::System.Int32 iD_Produktu, global::System.Int32 typ, global::System.String marka, global::System.String model)
         {
             Sprzet sprzet = new Sprzet();
             sprzet.ID_Produktu = iD_Produktu;
             sprzet.Typ = typ;
             sprzet.Marka = marka;
             sprzet.Model = model;
-            sprzet.Opis = opis;
             return sprzet;
         }
 
@@ -2739,7 +2737,7 @@ namespace KortyTenisowe
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Marka
+        public global::System.String Marka
         {
             get
             {
@@ -2749,13 +2747,13 @@ namespace KortyTenisowe
             {
                 OnMarkaChanging(value);
                 ReportPropertyChanging("Marka");
-                _Marka = StructuralObject.SetValidValue(value);
+                _Marka = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Marka");
                 OnMarkaChanged();
             }
         }
-        private global::System.Int32 _Marka;
-        partial void OnMarkaChanging(global::System.Int32 value);
+        private global::System.String _Marka;
+        partial void OnMarkaChanging(global::System.String value);
         partial void OnMarkaChanged();
     
         /// <summary>
@@ -2763,7 +2761,7 @@ namespace KortyTenisowe
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Model
+        public global::System.String Model
         {
             get
             {
@@ -2773,19 +2771,19 @@ namespace KortyTenisowe
             {
                 OnModelChanging(value);
                 ReportPropertyChanging("Model");
-                _Model = StructuralObject.SetValidValue(value);
+                _Model = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Model");
                 OnModelChanged();
             }
         }
-        private global::System.Int32 _Model;
-        partial void OnModelChanging(global::System.Int32 value);
+        private global::System.String _Model;
+        partial void OnModelChanging(global::System.String value);
         partial void OnModelChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Opis
         {
@@ -2797,7 +2795,7 @@ namespace KortyTenisowe
             {
                 OnOpisChanging(value);
                 ReportPropertyChanging("Opis");
-                _Opis = StructuralObject.SetValidValue(value, false);
+                _Opis = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Opis");
                 OnOpisChanged();
             }
@@ -3086,6 +3084,28 @@ namespace KortyTenisowe
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Wypozyczone_Stan_Magazynowy", "Wypozyczone")]
+        public EntityCollection<Wypozyczone> Wypozyczone
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy", "Wypozyczone");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy", "Wypozyczone", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Stan_Magazynowy_Sprzet", "Sprzet")]
         public Sprzet Sprzet
         {
@@ -3114,28 +3134,6 @@ namespace KortyTenisowe
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sprzet>("Inzynierka1Model.FK_Stan_Magazynowy_Sprzet", "Sprzet", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Wypozyczone_Stan_Magazynowy", "Wypozyczone")]
-        public EntityCollection<Wypozyczone> Wypozyczone
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy", "Wypozyczone");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy", "Wypozyczone", value);
                 }
             }
         }

@@ -18,7 +18,26 @@ namespace KortyTenisowe
             InitializeComponent();        
         }
 
-        private void btLogowanie_Click(object sender, EventArgs e)
+
+        private void tbHaslo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                this.rbtZatwierdz_Click(this, null);
+            }
+        }
+
+        private void tbLogin_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.tbLogin.Text = "";
+        }
+
+        private void tbHaslo_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.tbHaslo.Text = "";
+        }
+
+        private void rbtZatwierdz_Click(object sender, EventArgs e)
         {
             string haslo;
             login = tbLogin.Text;
@@ -35,25 +54,6 @@ namespace KortyTenisowe
             }
             else
                 System.Windows.Forms.MessageBox.Show("Błędne dane logowania!");
-
-        }
-
-        private void tbHaslo_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyValue == 13)
-            {
-                this.btLogowanie_Click(this, null);
-            }
-        }
-
-        private void tbLogin_MouseClick(object sender, MouseEventArgs e)
-        {
-            this.tbLogin.Text = "";
-        }
-
-        private void tbHaslo_MouseClick(object sender, MouseEventArgs e)
-        {
-            this.tbHaslo.Text = "";
         }
     }
 }

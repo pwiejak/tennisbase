@@ -49,6 +49,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2010.2.10.806, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.GridView, Version=2010.2.10.806, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Telerik, Version=2010.2.10.806, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2010.2.10.806, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="TelerikCommon, Version=2010.2.10.806, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Baza1.Designer.cs">
@@ -58,11 +63,23 @@
     </Compile>
     <Compile Include="Baza1PartialClass.cs" />
     <Compile Include="DBQueries.cs" />
+    <Compile Include="DodajKategorieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajKategorieForm.Designer.cs">
+      <DependentUpon>DodajKategorieForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DodajKlientaForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DodajKlientaForm.Designer.cs">
       <DependentUpon>DodajKlientaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajSprzetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajSprzetForm.Designer.cs">
+      <DependentUpon>DodajSprzetForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DodawaniePracownikaForm.cs">
       <SubType>Form</SubType>
@@ -91,9 +108,17 @@
       <DependentUpon>RezerwacjaKortuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TabKorty.cs" />
+    <Compile Include="TabMagazyn.cs" />
     <Compile Include="TabPracownicy.cs" />
+    <Compile Include="TabSprzet.cs" />
+    <EmbeddedResource Include="DodajKategorieForm.resx">
+      <DependentUpon>DodajKategorieForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DodajKlientaForm.resx">
       <DependentUpon>DodajKlientaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajSprzetForm.resx">
+      <DependentUpon>DodajSprzetForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DodawaniePracownikaForm.resx">
       <DependentUpon>DodawaniePracownikaForm.cs</DependentUpon>

@@ -30,17 +30,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Sprzet">
-      <EntityTypeMapping TypeName="Inzynierka1Model.Sprzet">
-        <MappingFragment StoreEntitySet="Sprzet">
-          <ScalarProperty Name="ID_Produktu" ColumnName="ID_Produktu" />
-          <ScalarProperty Name="Typ" ColumnName="Typ" />
-          <ScalarProperty Name="Marka" ColumnName="Marka" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
-          <ScalarProperty Name="Opis" ColumnName="Opis" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Stan_Magazynowy">
       <EntityTypeMapping TypeName="Inzynierka1Model.Stan_Magazynowy">
         <MappingFragment StoreEntitySet="Stan_Magazynowy">
@@ -206,6 +195,17 @@
           <ScalarProperty Name="Poziom" ColumnName="Poziom" />
           <ScalarProperty Name="ID_Osoby" ColumnName="ID_Osoby" />
           <ScalarProperty Name="ID_Trenera" ColumnName="ID_Trenera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sprzet">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Sprzet">
+        <MappingFragment StoreEntitySet="Sprzet">
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="Typ" ColumnName="Typ" />
+          <ScalarProperty Name="ID_Produktu" ColumnName="ID_Produktu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -69,7 +69,7 @@ namespace KortyTenisowe
                 /* Pobranie ID ostatnio dodanego pracownika */
                 Pracownicy dodany = (from Pracownicy pracownicy in Inzynierka1Entities.ENTITY.Pracownicy 
                                      where String.Compare(pracownik.Nazwisko, pracownicy.Nazwisko, true) == 0
-                                     select pracownicy).LastOrDefault();
+                                     select pracownicy).ToList().LastOrDefault();
                 
                 /* Dodanie konta użytkownika dla stworzonego pracownika i zapisanie zmian w bazie */
                 Uzytkownik.ID_Pracownika = dodany.Id_Pracownika;
@@ -205,5 +205,60 @@ namespace KortyTenisowe
             }
         }
 
+        public static IEnumerable<Typy> ZwrocTypy()
+        {
+            return (from Typy zwracaneTypy in Inzynierka1Entities.ENTITY.Typy
+                    select zwracaneTypy);
+        }
+
+        public static bool dodajSprzet(int indeksTypu, string marka, string model, string opis)
+        {
+            bool success = true;
+            Sprzet dodawanySprzet = new Sprzet();
+            dodawanySprzet.Typ = indeksTypu+1;
+            dodawanySprzet.Marka = marka;
+            dodawanySprzet.Model = model;
+            if (opis != null)
+                dodawanySprzet.Opis = opis;
+            try
+            {
+                Inzynierka1Entities.ENTITY.AddToSprzet(dodawanySprzet);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show("Wystąpił błąd: " + e.Message);
+            }
+
+            return success;
+        }
+
+        public static IEnumerable<Sprzet> zwrocSprzetWgTypu(int indeksTypu)
+        {
+            int m_indeks = indeksTypu;
+            return (from Sprzet zwracanySprzet in Inzynierka1Entities.ENTITY.Sprzet
+                    where zwracanySprzet.Typ == m_indeks
+                    select zwracanySprzet);
+        }
+
+        public static bool dodajNowaKategorie(string nazwaKategorii)
+        {
+            Typy dodawanyTyp = new Typy();
+            dodawanyTyp.Nazwa = nazwaKategorii;
+            bool success = true;
+            try
+            {
+                Inzynierka1Entities.ENTITY.AddToTypy(dodawanyTyp);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show("Wystąpił bład: " + e.Message);
+            }
+            return success;
+
+        }
     }
 }
