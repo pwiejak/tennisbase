@@ -242,6 +242,22 @@ namespace KortyTenisowe
                     select zwracanySprzet);
         }
 
+        public static IEnumerable<Stan_Magazynowy> zwrocStanMagazynowyWgTypu(int indeksTypu)
+        {
+            int m_indeks = indeksTypu;
+            return (from Stan_Magazynowy zwracanySprzet in Inzynierka1Entities.ENTITY.Stan_Magazynowy
+                    join Sprzet sprzet in Inzynierka1Entities.ENTITY.Sprzet on zwracanySprzet.ID_Produktu equals sprzet.ID_Produktu
+                    where sprzet.Typ == m_indeks
+                    select zwracanySprzet);
+        }
+
+        public static IEnumerable<Stan_Magazynowy> zwrocPrzedmiotWgID(int id)
+        {
+            return (from Stan_Magazynowy zwracanyPrzedmiot in Inzynierka1Entities.ENTITY.Stan_Magazynowy
+                    where zwracanyPrzedmiot.ID_Produktu == id
+                    select zwracanyPrzedmiot);
+        }
+
         public static bool dodajNowaKategorie(string nazwaKategorii)
         {
             Typy dodawanyTyp = new Typy();

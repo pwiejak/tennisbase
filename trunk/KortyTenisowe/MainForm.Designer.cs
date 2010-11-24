@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn81 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn82 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn83 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn84 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn85 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn86 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn87 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn88 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn23 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn24 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn25 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn26 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn27 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn28 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn29 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn30 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn31 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn32 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn33 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.tcMainForm = new System.Windows.Forms.TabControl();
             this.tabKorty = new System.Windows.Forms.TabPage();
             this.rtbInformacja = new System.Windows.Forms.RichTextBox();
@@ -47,31 +50,52 @@
             this.ColumnKort4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kalendarz = new System.Windows.Forms.MonthCalendar();
             this.tabSprzet = new System.Windows.Forms.TabPage();
+            this.rbNowyTyp = new Telerik.WinControls.UI.RadButton();
             this.rgvSprzet = new Telerik.WinControls.UI.RadGridView();
             this.rDDLKategorie = new Telerik.WinControls.UI.RadDropDownList();
             this.rbtDodajNowy = new Telerik.WinControls.UI.RadButton();
+            this.tabMagazyn = new System.Windows.Forms.TabPage();
+            this.rbtSzukajWgID = new Telerik.WinControls.UI.RadButton();
+            this.rtbIDProduktu = new Telerik.WinControls.UI.RadTextBox();
+            this.rddlKategorieMagazyn = new Telerik.WinControls.UI.RadDropDownList();
+            this.rgvMagazyn = new Telerik.WinControls.UI.RadGridView();
             this.tabPracownicy = new System.Windows.Forms.TabPage();
             this.btDodajPracownika = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rbNowyTyp = new Telerik.WinControls.UI.RadButton();
-            this.tabMagazyn = new System.Windows.Forms.TabPage();
-            this.rgvMagazyn = new Telerik.WinControls.UI.RadGridView();
-            this.rddlKategorieMagazyn = new Telerik.WinControls.UI.RadDropDownList();
+            this.rlbKategoria = new Telerik.WinControls.UI.RadLabel();
+            this.rlblSzukajWgID = new Telerik.WinControls.UI.RadLabel();
+            this.pbJednorazowa = new System.Windows.Forms.PictureBox();
+            this.panelLegenda = new Telerik.WinControls.UI.RadPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.rlblLegenda = new Telerik.WinControls.UI.RadLabel();
+            this.rlblJednorazowa = new Telerik.WinControls.UI.RadLabel();
+            this.rlblStala = new Telerik.WinControls.UI.RadLabel();
             this.tcMainForm.SuspendLayout();
             this.tabKorty.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgKorty)).BeginInit();
             this.tabSprzet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rbNowyTyp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgvSprzet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rDDLKategorie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtDodajNowy)).BeginInit();
+            this.tabMagazyn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtSzukajWgID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rtbIDProduktu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rddlKategorieMagazyn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgvMagazyn)).BeginInit();
             this.tabPracownicy.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rbNowyTyp)).BeginInit();
-            this.tabMagazyn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rgvMagazyn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rddlKategorieMagazyn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlbKategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlblSzukajWgID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbJednorazowa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelLegenda)).BeginInit();
+            this.panelLegenda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlblLegenda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlblJednorazowa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlblStala)).BeginInit();
             this.SuspendLayout();
             // 
             // tcMainForm
@@ -89,22 +113,23 @@
             // tabKorty
             // 
             this.tabKorty.BackColor = System.Drawing.Color.AliceBlue;
+            this.tabKorty.Controls.Add(this.panelLegenda);
             this.tabKorty.Controls.Add(this.rtbInformacja);
             this.tabKorty.Controls.Add(this.dgKorty);
             this.tabKorty.Controls.Add(this.Kalendarz);
             this.tabKorty.Location = new System.Drawing.Point(4, 22);
             this.tabKorty.Name = "tabKorty";
             this.tabKorty.Padding = new System.Windows.Forms.Padding(3);
-            this.tabKorty.Size = new System.Drawing.Size(796, 410);
+            this.tabKorty.Size = new System.Drawing.Size(796, 409);
             this.tabKorty.TabIndex = 0;
             this.tabKorty.Text = "Korty";
             // 
             // rtbInformacja
             // 
-            this.rtbInformacja.Location = new System.Drawing.Point(15, 191);
+            this.rtbInformacja.Location = new System.Drawing.Point(12, 183);
             this.rtbInformacja.Name = "rtbInformacja";
             this.rtbInformacja.ReadOnly = true;
-            this.rtbInformacja.Size = new System.Drawing.Size(122, 125);
+            this.rtbInformacja.Size = new System.Drawing.Size(157, 93);
             this.rtbInformacja.TabIndex = 2;
             this.rtbInformacja.Text = "";
             // 
@@ -156,7 +181,7 @@
             // 
             // Kalendarz
             // 
-            this.Kalendarz.Location = new System.Drawing.Point(0, 9);
+            this.Kalendarz.Location = new System.Drawing.Point(12, 9);
             this.Kalendarz.Name = "Kalendarz";
             this.Kalendarz.TabIndex = 0;
             this.Kalendarz.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.Kalendarz_DateChanged);
@@ -175,32 +200,41 @@
             this.tabSprzet.TabIndex = 1;
             this.tabSprzet.Text = "Sprzet";
             // 
+            // rbNowyTyp
+            // 
+            this.rbNowyTyp.Location = new System.Drawing.Point(6, 360);
+            this.rbNowyTyp.Name = "rbNowyTyp";
+            this.rbNowyTyp.Size = new System.Drawing.Size(130, 24);
+            this.rbNowyTyp.TabIndex = 0;
+            this.rbNowyTyp.Text = "Dodaj nową kategorię";
+            this.rbNowyTyp.Click += new System.EventHandler(this.rbNowyTyp_Click);
+            // 
             // rgvSprzet
             // 
             this.rgvSprzet.Location = new System.Drawing.Point(173, 17);
             // 
             // rgvSprzet
             // 
-            gridViewTextBoxColumn81.FormatString = "";
-            gridViewTextBoxColumn81.HeaderText = "Nr";
-            gridViewTextBoxColumn81.Name = "Id";
-            gridViewTextBoxColumn82.FormatString = "";
-            gridViewTextBoxColumn82.HeaderText = "Marka";
-            gridViewTextBoxColumn82.Name = "Marka";
-            gridViewTextBoxColumn82.Width = 100;
-            gridViewTextBoxColumn83.FormatString = "";
-            gridViewTextBoxColumn83.HeaderText = "Model";
-            gridViewTextBoxColumn83.Name = "Model";
-            gridViewTextBoxColumn83.Width = 100;
-            gridViewTextBoxColumn84.FormatString = "";
-            gridViewTextBoxColumn84.HeaderText = "Opis";
-            gridViewTextBoxColumn84.Name = "Opis";
-            gridViewTextBoxColumn84.Width = 300;
+            gridViewTextBoxColumn23.FormatString = "";
+            gridViewTextBoxColumn23.HeaderText = "Nr";
+            gridViewTextBoxColumn23.Name = "Id";
+            gridViewTextBoxColumn24.FormatString = "";
+            gridViewTextBoxColumn24.HeaderText = "Marka";
+            gridViewTextBoxColumn24.Name = "Marka";
+            gridViewTextBoxColumn24.Width = 100;
+            gridViewTextBoxColumn25.FormatString = "";
+            gridViewTextBoxColumn25.HeaderText = "Model";
+            gridViewTextBoxColumn25.Name = "Model";
+            gridViewTextBoxColumn25.Width = 100;
+            gridViewTextBoxColumn26.FormatString = "";
+            gridViewTextBoxColumn26.HeaderText = "Opis";
+            gridViewTextBoxColumn26.Name = "Opis";
+            gridViewTextBoxColumn26.Width = 300;
             this.rgvSprzet.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn81,
-            gridViewTextBoxColumn82,
-            gridViewTextBoxColumn83,
-            gridViewTextBoxColumn84});
+            gridViewTextBoxColumn23,
+            gridViewTextBoxColumn24,
+            gridViewTextBoxColumn25,
+            gridViewTextBoxColumn26});
             this.rgvSprzet.Name = "rgvSprzet";
             this.rgvSprzet.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.rgvSprzet.ReadOnly = true;
@@ -231,13 +265,99 @@
             this.rbtDodajNowy.Text = "Dodaj nowy";
             this.rbtDodajNowy.Click += new System.EventHandler(this.rbtDodajNowy_Click);
             // 
+            // tabMagazyn
+            // 
+            this.tabMagazyn.BackColor = System.Drawing.Color.AliceBlue;
+            this.tabMagazyn.Controls.Add(this.rlblSzukajWgID);
+            this.tabMagazyn.Controls.Add(this.rlbKategoria);
+            this.tabMagazyn.Controls.Add(this.rbtSzukajWgID);
+            this.tabMagazyn.Controls.Add(this.rtbIDProduktu);
+            this.tabMagazyn.Controls.Add(this.rddlKategorieMagazyn);
+            this.tabMagazyn.Controls.Add(this.rgvMagazyn);
+            this.tabMagazyn.Location = new System.Drawing.Point(4, 22);
+            this.tabMagazyn.Name = "tabMagazyn";
+            this.tabMagazyn.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMagazyn.Size = new System.Drawing.Size(796, 409);
+            this.tabMagazyn.TabIndex = 3;
+            this.tabMagazyn.Text = "Magazyn";
+            // 
+            // rbtSzukajWgID
+            // 
+            this.rbtSzukajWgID.Location = new System.Drawing.Point(6, 138);
+            this.rbtSzukajWgID.Name = "rbtSzukajWgID";
+            this.rbtSzukajWgID.Size = new System.Drawing.Size(130, 24);
+            this.rbtSzukajWgID.TabIndex = 7;
+            this.rbtSzukajWgID.Text = "Szukaj";
+            this.rbtSzukajWgID.Click += new System.EventHandler(this.rbtSzukajWgID_Click);
+            // 
+            // rtbIDProduktu
+            // 
+            this.rtbIDProduktu.Location = new System.Drawing.Point(6, 112);
+            this.rtbIDProduktu.Name = "rtbIDProduktu";
+            this.rtbIDProduktu.Size = new System.Drawing.Size(130, 20);
+            this.rtbIDProduktu.TabIndex = 6;
+            this.rtbIDProduktu.TabStop = false;
+            this.rtbIDProduktu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rtbIDProduktu_KeyDown);
+            // 
+            // rddlKategorieMagazyn
+            // 
+            this.rddlKategorieMagazyn.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
+            this.rddlKategorieMagazyn.Location = new System.Drawing.Point(6, 47);
+            this.rddlKategorieMagazyn.Name = "rddlKategorieMagazyn";
+            this.rddlKategorieMagazyn.Size = new System.Drawing.Size(130, 20);
+            this.rddlKategorieMagazyn.TabIndex = 5;
+            this.rddlKategorieMagazyn.Text = "Kategoria";
+            this.rddlKategorieMagazyn.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.rddlKategorieMagazyn_SelectedIndexChanged);
+            // 
+            // rgvMagazyn
+            // 
+            this.rgvMagazyn.Location = new System.Drawing.Point(173, 17);
+            // 
+            // rgvMagazyn
+            // 
+            gridViewTextBoxColumn27.FormatString = "";
+            gridViewTextBoxColumn27.HeaderText = "Nr";
+            gridViewTextBoxColumn27.Name = "Id";
+            gridViewTextBoxColumn28.HeaderText = "Ilosc";
+            gridViewTextBoxColumn28.Name = "Ilosc";
+            gridViewTextBoxColumn29.HeaderText = "Rozmiar";
+            gridViewTextBoxColumn29.Name = "Rozmiar";
+            gridViewTextBoxColumn30.HeaderText = "Cena";
+            gridViewTextBoxColumn30.Name = "Cena";
+            gridViewTextBoxColumn31.HeaderText = "Kolor";
+            gridViewTextBoxColumn31.Name = "Kolor";
+            gridViewTextBoxColumn32.HeaderText = "Sprzedaz";
+            gridViewTextBoxColumn32.Name = "Sprzedaz";
+            gridViewTextBoxColumn32.Width = 100;
+            gridViewTextBoxColumn33.HeaderText = "Wypozyczenie";
+            gridViewTextBoxColumn33.Name = "Wypozyczenie";
+            gridViewTextBoxColumn33.Width = 100;
+            this.rgvMagazyn.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn27,
+            gridViewTextBoxColumn28,
+            gridViewTextBoxColumn29,
+            gridViewTextBoxColumn30,
+            gridViewTextBoxColumn31,
+            gridViewTextBoxColumn32,
+            gridViewTextBoxColumn33});
+            this.rgvMagazyn.Name = "rgvMagazyn";
+            this.rgvMagazyn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.rgvMagazyn.ReadOnly = true;
+            // 
+            // 
+            // 
+            this.rgvMagazyn.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.rgvMagazyn.Size = new System.Drawing.Size(569, 367);
+            this.rgvMagazyn.TabIndex = 4;
+            this.rgvMagazyn.Text = "Magazyn";
+            // 
             // tabPracownicy
             // 
             this.tabPracownicy.Controls.Add(this.btDodajPracownika);
             this.tabPracownicy.Location = new System.Drawing.Point(4, 22);
             this.tabPracownicy.Name = "tabPracownicy";
             this.tabPracownicy.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPracownicy.Size = new System.Drawing.Size(796, 410);
+            this.tabPracownicy.Size = new System.Drawing.Size(796, 409);
             this.tabPracownicy.TabIndex = 2;
             this.tabPracownicy.Text = "Pracownicy";
             this.tabPracownicy.UseVisualStyleBackColor = true;
@@ -277,72 +397,75 @@
             this.zakończToolStripMenuItem.Text = "Zakończ";
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
             // 
-            // rbNowyTyp
+            // rlbKategoria
             // 
-            this.rbNowyTyp.Location = new System.Drawing.Point(6, 360);
-            this.rbNowyTyp.Name = "rbNowyTyp";
-            this.rbNowyTyp.Size = new System.Drawing.Size(130, 24);
-            this.rbNowyTyp.TabIndex = 0;
-            this.rbNowyTyp.Text = "Dodaj nową kategorię";
-            this.rbNowyTyp.Click += new System.EventHandler(this.rbNowyTyp_Click);
+            this.rlbKategoria.Location = new System.Drawing.Point(9, 25);
+            this.rlbKategoria.Name = "rlbKategoria";
+            this.rlbKategoria.Size = new System.Drawing.Size(97, 16);
+            this.rlbKategoria.TabIndex = 8;
+            this.rlbKategoria.Text = "Wybierz kategorię";
             // 
-            // tabMagazyn
+            // rlblSzukajWgID
             // 
-            this.tabMagazyn.BackColor = System.Drawing.Color.AliceBlue;
-            this.tabMagazyn.Controls.Add(this.rddlKategorieMagazyn);
-            this.tabMagazyn.Controls.Add(this.rgvMagazyn);
-            this.tabMagazyn.Location = new System.Drawing.Point(4, 22);
-            this.tabMagazyn.Name = "tabMagazyn";
-            this.tabMagazyn.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMagazyn.Size = new System.Drawing.Size(796, 410);
-            this.tabMagazyn.TabIndex = 3;
-            this.tabMagazyn.Text = "Magazyn";
+            this.rlblSzukajWgID.Location = new System.Drawing.Point(9, 90);
+            this.rlblSzukajWgID.Name = "rlblSzukajWgID";
+            this.rlblSzukajWgID.Size = new System.Drawing.Size(75, 16);
+            this.rlblSzukajWgID.TabIndex = 9;
+            this.rlblSzukajWgID.Text = "Szukaj wg ID:";
             // 
-            // rgvMagazyn
+            // pbJednorazowa
             // 
-            this.rgvMagazyn.Location = new System.Drawing.Point(173, 17);
+            this.pbJednorazowa.BackColor = System.Drawing.Color.Crimson;
+            this.pbJednorazowa.Location = new System.Drawing.Point(3, 25);
+            this.pbJednorazowa.Name = "pbJednorazowa";
+            this.pbJednorazowa.Size = new System.Drawing.Size(30, 15);
+            this.pbJednorazowa.TabIndex = 3;
+            this.pbJednorazowa.TabStop = false;
             // 
-            // rgvMagazyn
+            // panelLegenda
             // 
-            gridViewTextBoxColumn85.FormatString = "";
-            gridViewTextBoxColumn85.HeaderText = "Nr";
-            gridViewTextBoxColumn85.Name = "Id";
-            gridViewTextBoxColumn86.FormatString = "";
-            gridViewTextBoxColumn86.HeaderText = "Marka";
-            gridViewTextBoxColumn86.Name = "Marka";
-            gridViewTextBoxColumn86.Width = 100;
-            gridViewTextBoxColumn87.FormatString = "";
-            gridViewTextBoxColumn87.HeaderText = "Model";
-            gridViewTextBoxColumn87.Name = "Model";
-            gridViewTextBoxColumn87.Width = 100;
-            gridViewTextBoxColumn88.FormatString = "";
-            gridViewTextBoxColumn88.HeaderText = "Opis";
-            gridViewTextBoxColumn88.Name = "Opis";
-            gridViewTextBoxColumn88.Width = 300;
-            this.rgvMagazyn.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn85,
-            gridViewTextBoxColumn86,
-            gridViewTextBoxColumn87,
-            gridViewTextBoxColumn88});
-            this.rgvMagazyn.Name = "rgvMagazyn";
-            this.rgvMagazyn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.rgvMagazyn.ReadOnly = true;
+            this.panelLegenda.Controls.Add(this.rlblStala);
+            this.panelLegenda.Controls.Add(this.rlblJednorazowa);
+            this.panelLegenda.Controls.Add(this.rlblLegenda);
+            this.panelLegenda.Controls.Add(this.pictureBox1);
+            this.panelLegenda.Controls.Add(this.pbJednorazowa);
+            this.panelLegenda.Location = new System.Drawing.Point(17, 313);
+            this.panelLegenda.Name = "panelLegenda";
+            this.panelLegenda.Size = new System.Drawing.Size(152, 72);
+            this.panelLegenda.TabIndex = 4;
             // 
+            // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 46);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 15);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
-            this.rgvMagazyn.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.rgvMagazyn.Size = new System.Drawing.Size(569, 367);
-            this.rgvMagazyn.TabIndex = 4;
-            this.rgvMagazyn.Text = "Magazyn";
+            // rlblLegenda
             // 
-            // rddlKategorieMagazyn
+            this.rlblLegenda.Location = new System.Drawing.Point(3, 3);
+            this.rlblLegenda.Name = "rlblLegenda";
+            this.rlblLegenda.Size = new System.Drawing.Size(51, 18);
+            this.rlblLegenda.TabIndex = 5;
+            this.rlblLegenda.Text = "Legenda:";
             // 
-            this.rddlKategorieMagazyn.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            this.rddlKategorieMagazyn.Location = new System.Drawing.Point(6, 47);
-            this.rddlKategorieMagazyn.Name = "rddlKategorieMagazyn";
-            this.rddlKategorieMagazyn.Size = new System.Drawing.Size(130, 20);
-            this.rddlKategorieMagazyn.TabIndex = 5;
-            this.rddlKategorieMagazyn.Text = "Kategoria";
+            // rlblJednorazowa
+            // 
+            this.rlblJednorazowa.Location = new System.Drawing.Point(39, 22);
+            this.rlblJednorazowa.Name = "rlblJednorazowa";
+            this.rlblJednorazowa.Size = new System.Drawing.Size(71, 18);
+            this.rlblJednorazowa.TabIndex = 6;
+            this.rlblJednorazowa.Text = "Jednorazowa";
+            // 
+            // rlblStala
+            // 
+            this.rlblStala.Location = new System.Drawing.Point(39, 43);
+            this.rlblStala.Name = "rlblStala";
+            this.rlblStala.Size = new System.Drawing.Size(31, 18);
+            this.rlblStala.TabIndex = 7;
+            this.rlblStala.Text = "Stała";
             // 
             // MainForm
             // 
@@ -360,17 +483,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgKorty)).EndInit();
             this.tabSprzet.ResumeLayout(false);
             this.tabSprzet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rbNowyTyp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgvSprzet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rDDLKategorie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtDodajNowy)).EndInit();
+            this.tabMagazyn.ResumeLayout(false);
+            this.tabMagazyn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtSzukajWgID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rtbIDProduktu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rddlKategorieMagazyn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgvMagazyn)).EndInit();
             this.tabPracownicy.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rbNowyTyp)).EndInit();
-            this.tabMagazyn.ResumeLayout(false);
-            this.tabMagazyn.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rgvMagazyn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rddlKategorieMagazyn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlbKategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlblSzukajWgID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbJednorazowa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelLegenda)).EndInit();
+            this.panelLegenda.ResumeLayout(false);
+            this.panelLegenda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlblLegenda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlblJednorazowa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlblStala)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,5 +536,15 @@
         private System.Windows.Forms.TabPage tabMagazyn;
         private Telerik.WinControls.UI.RadGridView rgvMagazyn;
         private Telerik.WinControls.UI.RadDropDownList rddlKategorieMagazyn;
+        private Telerik.WinControls.UI.RadTextBox rtbIDProduktu;
+        private Telerik.WinControls.UI.RadButton rbtSzukajWgID;
+        private Telerik.WinControls.UI.RadLabel rlbKategoria;
+        private Telerik.WinControls.UI.RadLabel rlblSzukajWgID;
+        private Telerik.WinControls.UI.RadPanel panelLegenda;
+        private Telerik.WinControls.UI.RadLabel rlblStala;
+        private Telerik.WinControls.UI.RadLabel rlblJednorazowa;
+        private Telerik.WinControls.UI.RadLabel rlblLegenda;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbJednorazowa;
     }
 }

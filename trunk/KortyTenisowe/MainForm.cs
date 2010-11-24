@@ -79,9 +79,19 @@ namespace KortyTenisowe
                     if (korty[iloscRezerwacji].Nr_Kortu == kolejnyKort)
                     {
                         int iloscGodzin = korty[iloscRezerwacji].Godz_Zakonczenia - korty[iloscRezerwacji].Godz_Rozpoczecia;
-                        for (int k = 0; k < iloscGodzin; k++)
+                        if ((korty[iloscRezerwacji].Dzien_Tygodnia) == null)
                         {
-                            dgKorty.Rows[korty[iloscRezerwacji].Godz_Rozpoczecia + (k - 6)].Cells[kolejnyKort].Style.BackColor = Color.Crimson;
+                            for (int k = 0; k < iloscGodzin; k++)
+                            {
+                                dgKorty.Rows[korty[iloscRezerwacji].Godz_Rozpoczecia + (k - 6)].Cells[kolejnyKort].Style.BackColor = Color.Crimson;
+                            }
+                        }
+                        else
+                        {
+                            for (int k = 0; k < iloscGodzin; k++)
+                            {
+                                dgKorty.Rows[korty[iloscRezerwacji].Godz_Rozpoczecia + (k - 6)].Cells[kolejnyKort].Style.BackColor = Color.Black;
+                            }
                         }
                     }
                 }
@@ -140,6 +150,32 @@ namespace KortyTenisowe
             DodajKategorieForm dodanieKategorii = new DodajKategorieForm(rDDLKategorie);
             dodanieKategorii.ShowDialog();
             TabSprzet.WczytajKategorie(rDDLKategorie);
+        }
+
+        private void rddlKategorieMagazyn_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            TabMagazyn.PokazStanMagazynuWgTypu(e.Position + 1, rgvMagazyn);
+        }
+
+        private void rbtSzukajWgID_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idPrzedmiotu = int.Parse(rtbIDProduktu.Text);
+                TabMagazyn.PokazPrzedmiotWgID(idPrzedmiotu, rgvMagazyn);
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Podaj poprawną wartość");
+            }            
+        }
+
+        private void rtbIDProduktu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                this.rbtSzukajWgID_Click(this, null);
+            }
         }
     }
 }
