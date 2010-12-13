@@ -4,6 +4,7 @@ E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\bin\Debug\KortyTenisowe.pdb
 E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\ResolveAssemblyReference.cache
 E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.DodajKategorieForm.resources
 E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.DodajKlientaForm.resources
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.DodajNaMagazynForm.resources
 E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.DodajSprzetForm.resources
 E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.DodawaniePracownikaForm.resources
 E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.LogowanieForm.resources
@@ -14,3 +15,6 @@ E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\GenerateResource.re
 E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\GenerateResource.write.1.tlog
 E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.exe
 E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.pdb
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.ZmienIloscForm.resources
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.PotwierdzenieForm.resources
+E:\VS2010\Projects\KortyTenisowe\KortyTenisowe\obj\x86\Debug\KortyTenisowe.WypozyczenieForm.resources

@@ -4,22 +4,12 @@
     <EntitySet Name="Dostepnosc" EntityType="Inzynierka1Model.Dostepnosc" />
     <EntitySet Name="Katalog_Uslug" EntityType="Inzynierka1Model.Katalog_Uslug" />
     <EntitySet Name="Pracownicy" EntityType="Inzynierka1Model.Pracownicy" />
-    <EntitySet Name="Stan_Magazynowy" EntityType="Inzynierka1Model.Stan_Magazynowy" />
     <EntitySet Name="sysdiagrams" EntityType="Inzynierka1Model.sysdiagrams" />
     <EntitySet Name="Typy" EntityType="Inzynierka1Model.Typy" />
     <EntitySet Name="Uzytkownicy_Kortow" EntityType="Inzynierka1Model.Uzytkownicy_Kortow" />
-    <EntitySet Name="Wypozyczone" EntityType="Inzynierka1Model.Wypozyczone" />
     <AssociationSet Name="FK_Dostepnosc_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow">
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Dostepnosc" EntitySet="Dostepnosc" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Wypozyczone_Stan_Magazynowy" Association="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy">
-      <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
-      <End Role="Wypozyczone" EntitySet="Wypozyczone" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Wypozyczone_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow">
-      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
-      <End Role="Wypozyczone" EntitySet="Wypozyczone" />
     </AssociationSet>
     <EntitySet Name="Uzytkownicy_Systemu" EntityType="Inzynierka1Model.Uzytkownicy_Systemu" />
     <AssociationSet Name="FK_Uzytkownicy_Systemu_Pracownicy1" Association="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1">
@@ -101,10 +91,21 @@
       <End Role="Typy" EntitySet="Typy" />
       <End Role="Sprzet" EntitySet="Sprzet" />
     </AssociationSet>
+    <EntitySet Name="Stan_Magazynowy" EntityType="Inzynierka1Model.Stan_Magazynowy" />
     <AssociationSet Name="FK_Stan_Magazynowy_Sprzet" Association="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet">
       <End Role="Sprzet" EntitySet="Sprzet" />
       <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
     </AssociationSet>
+    <EntitySet Name="Wypozyczone" EntityType="Inzynierka1Model.Wypozyczone" />
+    <AssociationSet Name="FK_Wypozyczone_Stan_Magazynowy" Association="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy">
+      <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
+      <End Role="Wypozyczone" EntitySet="Wypozyczone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wypozyczone_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow">
+      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+      <End Role="Wypozyczone" EntitySet="Wypozyczone" />
+    </AssociationSet>
+    <EntitySet Name="Informacje" EntityType="Inzynierka1Model.Informacje" />
   </EntityContainer>
   <EntityType Name="Dostepnosc">
     <Key>
@@ -140,20 +141,6 @@
     <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Pracownicy" FromRole="Pracownicy" ToRole="Serwis" />
     <NavigationProperty Name="Rezerwacje_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" FromRole="Pracownicy" ToRole="Rezerwacje_Kortow" />
   </EntityType>
-  <EntityType Name="Stan_Magazynowy">
-    <Key>
-      <PropertyRef Name="Nr_Przedmiotu" />
-    </Key>
-    <Property Name="ID_Produktu" Type="Int32" Nullable="false" />
-    <Property Name="Nr_Przedmiotu" Type="Int32" Nullable="false" />
-    <Property Name="Typ_Sprzedazy" Type="Int32" Nullable="false" />
-    <Property Name="Ilosc" Type="Int32" Nullable="false" />
-    <Property Name="Rozmiar" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="Kolor" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="Cena" Type="Double" Nullable="false" />
-    <NavigationProperty Name="Wypozyczone" Relationship="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" FromRole="Stan_Magazynowy" ToRole="Wypozyczone" />
-    <NavigationProperty Name="Sprzet" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Stan_Magazynowy" ToRole="Sprzet" />
-  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -182,28 +169,13 @@
     <Property Name="Imię" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="Telefon" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Dostepnosc" Relationship="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Dostepnosc" />
-    <NavigationProperty Name="Wypozyczone" Relationship="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Wypozyczone" />
     <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Serwis" />
     <NavigationProperty Name="Serwis1" Relationship="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1" FromRole="Uzytkownicy_Kortow" ToRole="Serwis" />
     <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Zawodnicy" />
     <NavigationProperty Name="Rezerwacje_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Rezerwacje_Kortow" />
     <NavigationProperty Name="Sparingpartnerzy" Relationship="Inzynierka1Model.FK_Sparingpartnerzy_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Sparingpartnerzy" />
     <NavigationProperty Name="Trenerzy" Relationship="Inzynierka1Model.FK_Trenerzy_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Trenerzy" />
-  </EntityType>
-  <EntityType Name="Wypozyczone">
-    <Key>
-      <PropertyRef Name="ID_Wypozyczenia" />
-    </Key>
-    <Property Name="ID_Wypozyczenia" Type="Int32" Nullable="false" />
-    <Property Name="ID_Przedmiotu" Type="Int32" Nullable="false" />
-    <Property Name="Id_Klienta" Type="Int32" Nullable="false" />
-    <Property Name="Data_Rozpoczecia" Type="DateTime" Nullable="false" />
-    <Property Name="Godzina_Rozpoczecia" Type="Int32" Nullable="false" />
-    <Property Name="Data_Zakonczenia" Type="DateTime" Nullable="false" />
-    <Property Name="Godzina_Zakonczenia" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Stan_Magazynowy" Relationship="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" FromRole="Wypozyczone" ToRole="Stan_Magazynowy" />
-    <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow" FromRole="Wypozyczone" ToRole="Uzytkownicy_Kortow" />
-    <Property Type="Boolean" Name="Wypozyczono" Nullable="false" />
+    <NavigationProperty Name="Wypozyczone" Relationship="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Wypozyczone" />
   </EntityType>
   <Association Name="FK_Dostepnosc_Uzytkownicy_Kortow">
     <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Uzytkownicy_Kortow" Multiplicity="1" />
@@ -214,30 +186,6 @@
       </Principal>
       <Dependent Role="Dostepnosc">
         <PropertyRef Name="ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Wypozyczone_Stan_Magazynowy">
-    <End Role="Stan_Magazynowy" Type="Inzynierka1Model.Stan_Magazynowy" Multiplicity="1" />
-    <End Role="Wypozyczone" Type="Inzynierka1Model.Wypozyczone" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Stan_Magazynowy">
-        <PropertyRef Name="Nr_Przedmiotu" />
-      </Principal>
-      <Dependent Role="Wypozyczone">
-        <PropertyRef Name="ID_Przedmiotu" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Wypozyczone_Uzytkownicy_Kortow">
-    <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Uzytkownicy_Kortow" Multiplicity="1" />
-    <End Role="Wypozyczone" Type="Inzynierka1Model.Wypozyczone" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Uzytkownicy_Kortow">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Wypozyczone">
-        <PropertyRef Name="Id_Klienta" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -584,6 +532,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Stan_Magazynowy">
+    <Key>
+      <PropertyRef Name="Nr_Przedmiotu" />
+    </Key>
+    <Property Type="Int32" Name="ID_Produktu" Nullable="false" />
+    <Property Type="Int32" Name="Nr_Przedmiotu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Typ_Sprzedazy" Nullable="false" />
+    <Property Type="Int32" Name="Ilosc" Nullable="false" />
+    <Property Type="String" Name="Rozmiar" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Kolor" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="Cena" Nullable="false" />
+    <NavigationProperty Name="Sprzet" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Stan_Magazynowy" ToRole="Sprzet" />
+    <NavigationProperty Name="Wypozyczone" Relationship="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" FromRole="Stan_Magazynowy" ToRole="Wypozyczone" />
+  </EntityType>
   <Association Name="FK_Stan_Magazynowy_Sprzet">
     <End Type="Inzynierka1Model.Sprzet" Role="Sprzet" Multiplicity="1" />
     <End Type="Inzynierka1Model.Stan_Magazynowy" Role="Stan_Magazynowy" Multiplicity="*" />
@@ -596,4 +558,54 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Wypozyczone">
+    <Key>
+      <PropertyRef Name="ID_Wypozyczenia" />
+    </Key>
+    <Property Type="Int32" Name="ID_Wypozyczenia" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ID_Przedmiotu" Nullable="false" />
+    <Property Type="Int32" Name="Id_Klienta" Nullable="false" />
+    <Property Type="DateTime" Name="Data_Rozpoczecia" Nullable="false" />
+    <Property Type="Int32" Name="Godzina_Rozpoczecia" />
+    <Property Type="DateTime" Name="Data_Zakonczenia" Nullable="false" />
+    <Property Type="Int32" Name="Godzina_Zakonczenia" />
+    <Property Type="Boolean" Name="Wypozyczono" Nullable="false" />
+    <Property Type="Boolean" Name="Zwrocono" />
+    <NavigationProperty Name="Stan_Magazynowy" Relationship="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" FromRole="Wypozyczone" ToRole="Stan_Magazynowy" />
+    <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow" FromRole="Wypozyczone" ToRole="Uzytkownicy_Kortow" />
+  </EntityType>
+  <Association Name="FK_Wypozyczone_Stan_Magazynowy">
+    <End Type="Inzynierka1Model.Stan_Magazynowy" Role="Stan_Magazynowy" Multiplicity="1" />
+    <End Type="Inzynierka1Model.Wypozyczone" Role="Wypozyczone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stan_Magazynowy">
+        <PropertyRef Name="Nr_Przedmiotu" />
+      </Principal>
+      <Dependent Role="Wypozyczone">
+        <PropertyRef Name="ID_Przedmiotu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wypozyczone_Uzytkownicy_Kortow">
+    <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
+    <End Type="Inzynierka1Model.Wypozyczone" Role="Wypozyczone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uzytkownicy_Kortow">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Wypozyczone">
+        <PropertyRef Name="Id_Klienta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Informacje">
+    <Key>
+      <PropertyRef Name="IloscKortow" />
+      <PropertyRef Name="GodzinaOtwarcia" />
+      <PropertyRef Name="GodzinaZamkniecia" />
+    </Key>
+    <Property Type="Int32" Name="IloscKortow" Nullable="false" />
+    <Property Type="Int32" Name="GodzinaOtwarcia" Nullable="false" />
+    <Property Type="Int32" Name="GodzinaZamkniecia" Nullable="false" />
+  </EntityType>
 </Schema>

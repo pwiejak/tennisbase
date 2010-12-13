@@ -49,6 +49,7 @@ namespace KortyTenisowe
                     else typKlienta = 2;
                     if(DBQueries.DodajKlienta(imie, nazwisko, telefon, typKlienta) == true)
                     {
+                        MessageBox.Show("Dodano poprawnie");
                         this.Dispose();
                     }
                     else

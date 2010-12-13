@@ -34,5 +34,11 @@ namespace KortyTenisowe
                 listaKategorii.Items.Add(element);
             }
         }
+
+        public static void DodajSprzetNaMagazyn(int id)
+        {
+            DodajNaMagazynForm formaDodania = new DodajNaMagazynForm(id);
+            formaDodania.ShowDialog();
+        }
     }
 }

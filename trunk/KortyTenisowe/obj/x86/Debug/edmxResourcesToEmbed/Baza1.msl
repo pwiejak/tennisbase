@@ -30,19 +30,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Stan_Magazynowy">
-      <EntityTypeMapping TypeName="Inzynierka1Model.Stan_Magazynowy">
-        <MappingFragment StoreEntitySet="Stan_Magazynowy">
-          <ScalarProperty Name="ID_Produktu" ColumnName="ID_Produktu" />
-          <ScalarProperty Name="Nr_Przedmiotu" ColumnName="Nr_Przedmiotu" />
-          <ScalarProperty Name="Typ_Sprzedazy" ColumnName="Typ_Sprzedazy" />
-          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
-          <ScalarProperty Name="Rozmiar" ColumnName="Rozmiar" />
-          <ScalarProperty Name="Kolor" ColumnName="Kolor" />
-          <ScalarProperty Name="Cena" ColumnName="Cena" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="Inzynierka1Model.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -70,20 +57,6 @@
           <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
           <ScalarProperty Name="Imię" ColumnName="Imię" />
           <ScalarProperty Name="Telefon" ColumnName="Telefon" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Wypozyczone">
-      <EntityTypeMapping TypeName="Inzynierka1Model.Wypozyczone">
-        <MappingFragment StoreEntitySet="Wypozyczone">
-          <ScalarProperty Name="Wypozyczono" ColumnName="Wypozyczono" />
-          <ScalarProperty Name="ID_Wypozyczenia" ColumnName="ID_Wypozyczenia" />
-          <ScalarProperty Name="ID_Przedmiotu" ColumnName="ID_Przedmiotu" />
-          <ScalarProperty Name="Id_Klienta" ColumnName="Id_Klienta" />
-          <ScalarProperty Name="Data_Rozpoczecia" ColumnName="Data_Rozpoczecia" />
-          <ScalarProperty Name="Godzina_Rozpoczecia" ColumnName="Godzina_Rozpoczecia" />
-          <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
-          <ScalarProperty Name="Godzina_Zakonczenia" ColumnName="Godzina_Zakonczenia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -206,6 +179,43 @@
           <ScalarProperty Name="Marka" ColumnName="Marka" />
           <ScalarProperty Name="Typ" ColumnName="Typ" />
           <ScalarProperty Name="ID_Produktu" ColumnName="ID_Produktu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stan_Magazynowy">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Stan_Magazynowy">
+        <MappingFragment StoreEntitySet="Stan_Magazynowy">
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+          <ScalarProperty Name="Kolor" ColumnName="Kolor" />
+          <ScalarProperty Name="Rozmiar" ColumnName="Rozmiar" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+          <ScalarProperty Name="Typ_Sprzedazy" ColumnName="Typ_Sprzedazy" />
+          <ScalarProperty Name="Nr_Przedmiotu" ColumnName="Nr_Przedmiotu" />
+          <ScalarProperty Name="ID_Produktu" ColumnName="ID_Produktu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wypozyczone">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Wypozyczone">
+        <MappingFragment StoreEntitySet="Wypozyczone">
+          <ScalarProperty Name="Zwrocono" ColumnName="Zwrocono" />
+          <ScalarProperty Name="Wypozyczono" ColumnName="Wypozyczono" />
+          <ScalarProperty Name="Godzina_Zakonczenia" ColumnName="Godzina_Zakonczenia" />
+          <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
+          <ScalarProperty Name="Godzina_Rozpoczecia" ColumnName="Godzina_Rozpoczecia" />
+          <ScalarProperty Name="Data_Rozpoczecia" ColumnName="Data_Rozpoczecia" />
+          <ScalarProperty Name="Id_Klienta" ColumnName="Id_Klienta" />
+          <ScalarProperty Name="ID_Przedmiotu" ColumnName="ID_Przedmiotu" />
+          <ScalarProperty Name="ID_Wypozyczenia" ColumnName="ID_Wypozyczenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Informacje">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Informacje">
+        <MappingFragment StoreEntitySet="Informacje">
+          <ScalarProperty Name="GodzinaZamkniecia" ColumnName="GodzinaZamkniecia" />
+          <ScalarProperty Name="GodzinaOtwarcia" ColumnName="GodzinaOtwarcia" />
+          <ScalarProperty Name="IloscKortow" ColumnName="IloscKortow" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -19,8 +19,6 @@ using System.Runtime.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Dostepnosc_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Dostepnosc", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Dostepnosc), true)]
-[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Wypozyczone_Stan_Magazynowy", "Stan_Magazynowy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Stan_Magazynowy), "Wypozyczone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Wypozyczone), true)]
-[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Wypozyczone_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Wypozyczone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Wypozyczone), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Uzytkownicy_Systemu_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Pracownicy), "Uzytkownicy_Systemu", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Uzytkownicy_Systemu), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Serwis_Katalog_Uslug", "Katalog_Uslug", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Katalog_Uslug), "Serwis", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Serwis), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Serwis_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Pracownicy), "Serwis", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Serwis), true)]
@@ -39,6 +37,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Trenerzy_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Trenerzy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Trenerzy), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Sprzet_Typy", "Typy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Typy), "Sprzet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Sprzet), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Stan_Magazynowy_Sprzet", "Sprzet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Sprzet), "Stan_Magazynowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Stan_Magazynowy), true)]
+[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Wypozyczone_Stan_Magazynowy", "Stan_Magazynowy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Stan_Magazynowy), "Wypozyczone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Wypozyczone), true)]
+[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Wypozyczone_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Wypozyczone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Wypozyczone), true)]
 
 #endregion
 
@@ -141,22 +141,6 @@ namespace KortyTenisowe
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Stan_Magazynowy> Stan_Magazynowy
-        {
-            get
-            {
-                if ((_Stan_Magazynowy == null))
-                {
-                    _Stan_Magazynowy = base.CreateObjectSet<Stan_Magazynowy>("Stan_Magazynowy");
-                }
-                return _Stan_Magazynowy;
-            }
-        }
-        private ObjectSet<Stan_Magazynowy> _Stan_Magazynowy;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<sysdiagrams> sysdiagrams
         {
             get
@@ -201,22 +185,6 @@ namespace KortyTenisowe
             }
         }
         private ObjectSet<Uzytkownicy_Kortow> _Uzytkownicy_Kortow;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Wypozyczone> Wypozyczone
-        {
-            get
-            {
-                if ((_Wypozyczone == null))
-                {
-                    _Wypozyczone = base.CreateObjectSet<Wypozyczone>("Wypozyczone");
-                }
-                return _Wypozyczone;
-            }
-        }
-        private ObjectSet<Wypozyczone> _Wypozyczone;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -409,6 +377,54 @@ namespace KortyTenisowe
             }
         }
         private ObjectSet<Sprzet> _Sprzet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Stan_Magazynowy> Stan_Magazynowy
+        {
+            get
+            {
+                if ((_Stan_Magazynowy == null))
+                {
+                    _Stan_Magazynowy = base.CreateObjectSet<Stan_Magazynowy>("Stan_Magazynowy");
+                }
+                return _Stan_Magazynowy;
+            }
+        }
+        private ObjectSet<Stan_Magazynowy> _Stan_Magazynowy;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Wypozyczone> Wypozyczone
+        {
+            get
+            {
+                if ((_Wypozyczone == null))
+                {
+                    _Wypozyczone = base.CreateObjectSet<Wypozyczone>("Wypozyczone");
+                }
+                return _Wypozyczone;
+            }
+        }
+        private ObjectSet<Wypozyczone> _Wypozyczone;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Informacje> Informacje
+        {
+            get
+            {
+                if ((_Informacje == null))
+                {
+                    _Informacje = base.CreateObjectSet<Informacje>("Informacje");
+                }
+                return _Informacje;
+            }
+        }
+        private ObjectSet<Informacje> _Informacje;
 
         #endregion
         #region AddTo Methods
@@ -438,14 +454,6 @@ namespace KortyTenisowe
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Stan_Magazynowy EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToStan_Magazynowy(Stan_Magazynowy stan_Magazynowy)
-        {
-            base.AddObject("Stan_Magazynowy", stan_Magazynowy);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTosysdiagrams(sysdiagrams sysdiagrams)
@@ -467,14 +475,6 @@ namespace KortyTenisowe
         public void AddToUzytkownicy_Kortow(Uzytkownicy_Kortow uzytkownicy_Kortow)
         {
             base.AddObject("Uzytkownicy_Kortow", uzytkownicy_Kortow);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Wypozyczone EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToWypozyczone(Wypozyczone wypozyczone)
-        {
-            base.AddObject("Wypozyczone", wypozyczone);
         }
     
         /// <summary>
@@ -571,6 +571,30 @@ namespace KortyTenisowe
         public void AddToSprzet(Sprzet sprzet)
         {
             base.AddObject("Sprzet", sprzet);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Stan_Magazynowy EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToStan_Magazynowy(Stan_Magazynowy stan_Magazynowy)
+        {
+            base.AddObject("Stan_Magazynowy", stan_Magazynowy);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Wypozyczone EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToWypozyczone(Wypozyczone wypozyczone)
+        {
+            base.AddObject("Wypozyczone", wypozyczone);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Informacje EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToInformacje(Informacje informacje)
+        {
+            base.AddObject("Informacje", informacje);
         }
 
         #endregion
@@ -762,6 +786,119 @@ namespace KortyTenisowe
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Inzynierka1Model", Name="Informacje")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Informacje : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Informacje object.
+        /// </summary>
+        /// <param name="iloscKortow">Initial value of the IloscKortow property.</param>
+        /// <param name="godzinaOtwarcia">Initial value of the GodzinaOtwarcia property.</param>
+        /// <param name="godzinaZamkniecia">Initial value of the GodzinaZamkniecia property.</param>
+        public static Informacje CreateInformacje(global::System.Int32 iloscKortow, global::System.Int32 godzinaOtwarcia, global::System.Int32 godzinaZamkniecia)
+        {
+            Informacje informacje = new Informacje();
+            informacje.IloscKortow = iloscKortow;
+            informacje.GodzinaOtwarcia = godzinaOtwarcia;
+            informacje.GodzinaZamkniecia = godzinaZamkniecia;
+            return informacje;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IloscKortow
+        {
+            get
+            {
+                return _IloscKortow;
+            }
+            set
+            {
+                if (_IloscKortow != value)
+                {
+                    OnIloscKortowChanging(value);
+                    ReportPropertyChanging("IloscKortow");
+                    _IloscKortow = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IloscKortow");
+                    OnIloscKortowChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IloscKortow;
+        partial void OnIloscKortowChanging(global::System.Int32 value);
+        partial void OnIloscKortowChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 GodzinaOtwarcia
+        {
+            get
+            {
+                return _GodzinaOtwarcia;
+            }
+            set
+            {
+                if (_GodzinaOtwarcia != value)
+                {
+                    OnGodzinaOtwarciaChanging(value);
+                    ReportPropertyChanging("GodzinaOtwarcia");
+                    _GodzinaOtwarcia = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("GodzinaOtwarcia");
+                    OnGodzinaOtwarciaChanged();
+                }
+            }
+        }
+        private global::System.Int32 _GodzinaOtwarcia;
+        partial void OnGodzinaOtwarciaChanging(global::System.Int32 value);
+        partial void OnGodzinaOtwarciaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 GodzinaZamkniecia
+        {
+            get
+            {
+                return _GodzinaZamkniecia;
+            }
+            set
+            {
+                if (_GodzinaZamkniecia != value)
+                {
+                    OnGodzinaZamknieciaChanging(value);
+                    ReportPropertyChanging("GodzinaZamkniecia");
+                    _GodzinaZamkniecia = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("GodzinaZamkniecia");
+                    OnGodzinaZamknieciaChanged();
+                }
+            }
+        }
+        private global::System.Int32 _GodzinaZamkniecia;
+        partial void OnGodzinaZamknieciaChanging(global::System.Int32 value);
+        partial void OnGodzinaZamknieciaChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
@@ -3084,28 +3221,6 @@ namespace KortyTenisowe
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Wypozyczone_Stan_Magazynowy", "Wypozyczone")]
-        public EntityCollection<Wypozyczone> Wypozyczone
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy", "Wypozyczone");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy", "Wypozyczone", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Stan_Magazynowy_Sprzet", "Sprzet")]
         public Sprzet Sprzet
         {
@@ -3134,6 +3249,28 @@ namespace KortyTenisowe
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sprzet>("Inzynierka1Model.FK_Stan_Magazynowy_Sprzet", "Sprzet", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Wypozyczone_Stan_Magazynowy", "Wypozyczone")]
+        public EntityCollection<Wypozyczone> Wypozyczone
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy", "Wypozyczone");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy", "Wypozyczone", value);
                 }
             }
         }
@@ -3905,28 +4042,6 @@ namespace KortyTenisowe
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Wypozyczone_Uzytkownicy_Kortow", "Wypozyczone")]
-        public EntityCollection<Wypozyczone> Wypozyczone
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow", "Wypozyczone");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow", "Wypozyczone", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Serwis_Uzytkownicy_Kortow", "Serwis")]
         public EntityCollection<Serwis> Serwis
         {
@@ -4049,6 +4164,28 @@ namespace KortyTenisowe
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trenerzy>("Inzynierka1Model.FK_Trenerzy_Uzytkownicy_Kortow", "Trenerzy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Wypozyczone_Uzytkownicy_Kortow", "Wypozyczone")]
+        public EntityCollection<Wypozyczone> Wypozyczone
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow", "Wypozyczone");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow", "Wypozyczone", value);
                 }
             }
         }
@@ -4271,20 +4408,16 @@ namespace KortyTenisowe
         /// <param name="iD_Przedmiotu">Initial value of the ID_Przedmiotu property.</param>
         /// <param name="id_Klienta">Initial value of the Id_Klienta property.</param>
         /// <param name="data_Rozpoczecia">Initial value of the Data_Rozpoczecia property.</param>
-        /// <param name="godzina_Rozpoczecia">Initial value of the Godzina_Rozpoczecia property.</param>
         /// <param name="data_Zakonczenia">Initial value of the Data_Zakonczenia property.</param>
-        /// <param name="godzina_Zakonczenia">Initial value of the Godzina_Zakonczenia property.</param>
         /// <param name="wypozyczono">Initial value of the Wypozyczono property.</param>
-        public static Wypozyczone CreateWypozyczone(global::System.Int32 iD_Wypozyczenia, global::System.Int32 iD_Przedmiotu, global::System.Int32 id_Klienta, global::System.DateTime data_Rozpoczecia, global::System.Int32 godzina_Rozpoczecia, global::System.DateTime data_Zakonczenia, global::System.Int32 godzina_Zakonczenia, global::System.Boolean wypozyczono)
+        public static Wypozyczone CreateWypozyczone(global::System.Int32 iD_Wypozyczenia, global::System.Int32 iD_Przedmiotu, global::System.Int32 id_Klienta, global::System.DateTime data_Rozpoczecia, global::System.DateTime data_Zakonczenia, global::System.Boolean wypozyczono)
         {
             Wypozyczone wypozyczone = new Wypozyczone();
             wypozyczone.ID_Wypozyczenia = iD_Wypozyczenia;
             wypozyczone.ID_Przedmiotu = iD_Przedmiotu;
             wypozyczone.Id_Klienta = id_Klienta;
             wypozyczone.Data_Rozpoczecia = data_Rozpoczecia;
-            wypozyczone.Godzina_Rozpoczecia = godzina_Rozpoczecia;
             wypozyczone.Data_Zakonczenia = data_Zakonczenia;
-            wypozyczone.Godzina_Zakonczenia = godzina_Zakonczenia;
             wypozyczone.Wypozyczono = wypozyczono;
             return wypozyczone;
         }
@@ -4394,9 +4527,9 @@ namespace KortyTenisowe
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 Godzina_Rozpoczecia
+        public Nullable<global::System.Int32> Godzina_Rozpoczecia
         {
             get
             {
@@ -4411,8 +4544,8 @@ namespace KortyTenisowe
                 OnGodzina_RozpoczeciaChanged();
             }
         }
-        private global::System.Int32 _Godzina_Rozpoczecia;
-        partial void OnGodzina_RozpoczeciaChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _Godzina_Rozpoczecia;
+        partial void OnGodzina_RozpoczeciaChanging(Nullable<global::System.Int32> value);
         partial void OnGodzina_RozpoczeciaChanged();
     
         /// <summary>
@@ -4442,9 +4575,9 @@ namespace KortyTenisowe
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 Godzina_Zakonczenia
+        public Nullable<global::System.Int32> Godzina_Zakonczenia
         {
             get
             {
@@ -4459,8 +4592,8 @@ namespace KortyTenisowe
                 OnGodzina_ZakonczeniaChanged();
             }
         }
-        private global::System.Int32 _Godzina_Zakonczenia;
-        partial void OnGodzina_ZakonczeniaChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _Godzina_Zakonczenia;
+        partial void OnGodzina_ZakonczeniaChanging(Nullable<global::System.Int32> value);
         partial void OnGodzina_ZakonczeniaChanged();
     
         /// <summary>
@@ -4486,6 +4619,30 @@ namespace KortyTenisowe
         private global::System.Boolean _Wypozyczono;
         partial void OnWypozyczonoChanging(global::System.Boolean value);
         partial void OnWypozyczonoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Zwrocono
+        {
+            get
+            {
+                return _Zwrocono;
+            }
+            set
+            {
+                OnZwroconoChanging(value);
+                ReportPropertyChanging("Zwrocono");
+                _Zwrocono = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Zwrocono");
+                OnZwroconoChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Zwrocono;
+        partial void OnZwroconoChanging(Nullable<global::System.Boolean> value);
+        partial void OnZwroconoChanged();
 
         #endregion
     

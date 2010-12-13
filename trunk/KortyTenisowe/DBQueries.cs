@@ -251,6 +251,12 @@ namespace KortyTenisowe
                     select zwracanySprzet);
         }
 
+        public static IEnumerable<Wypozyczone> zwrocWypozyczenia()
+        {
+            return (from Wypozyczone wypozyczenia in Inzynierka1Entities.ENTITY.Wypozyczone
+                    select wypozyczenia);
+        }
+
         public static IEnumerable<Stan_Magazynowy> zwrocPrzedmiotWgID(int id)
         {
             return (from Stan_Magazynowy zwracanyPrzedmiot in Inzynierka1Entities.ENTITY.Stan_Magazynowy
@@ -274,7 +280,123 @@ namespace KortyTenisowe
                 System.Windows.Forms.MessageBox.Show("Wystąpił bład: " + e.Message);
             }
             return success;
+        }
 
+        public static bool dodajSprzetNaMagazyn(int id, int typSprzedazy, int ilosc, string rozmiar, string kolor, float cena)
+        {
+            bool success = true;
+            Stan_Magazynowy dodawanySprzet = new Stan_Magazynowy();
+            dodawanySprzet.ID_Produktu = id;
+            dodawanySprzet.Typ_Sprzedazy = typSprzedazy;
+            dodawanySprzet.Ilosc = ilosc;
+            dodawanySprzet.Rozmiar = rozmiar;
+            dodawanySprzet.Kolor = kolor;
+            dodawanySprzet.Cena = cena;
+
+            try
+            {
+                Inzynierka1Entities.ENTITY.AddToStan_Magazynowy(dodawanySprzet);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception exc)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            }
+
+            return success;
+        }
+
+        public static int zwrocIloscStanuMagazynu(int id)
+        {
+            return (from Stan_Magazynowy sprawdzanySprzet in Inzynierka1Entities.ENTITY.Stan_Magazynowy
+                    where sprawdzanySprzet.Nr_Przedmiotu == id
+                    select sprawdzanySprzet.Ilosc).First();
+        }
+
+        public static bool zmienIloscStanuMagazynowego(int id, int ilosc)
+        {
+            bool success = true;
+            Stan_Magazynowy zmienianyObiekt = new Stan_Magazynowy();
+            try
+            {
+                zmienianyObiekt = (from Stan_Magazynowy sprawdzanySprzet in Inzynierka1Entities.ENTITY.Stan_Magazynowy
+                                   where sprawdzanySprzet.Nr_Przedmiotu == id
+                                   select sprawdzanySprzet).First();
+                zmienianyObiekt.Ilosc = ilosc;
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception exc)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            }
+
+            return success;
+        }
+
+        public static bool UsunPrzedmiotZMagazynu(int id)
+        {
+            bool success = true;
+            Stan_Magazynowy usuwanyObiekt = new Stan_Magazynowy();
+            try
+            {
+                usuwanyObiekt = (from Stan_Magazynowy sprawdzanySprzet in Inzynierka1Entities.ENTITY.Stan_Magazynowy
+                                 where sprawdzanySprzet.Nr_Przedmiotu == id
+                                 select sprawdzanySprzet).First();
+                Inzynierka1Entities.ENTITY.Stan_Magazynowy.DeleteObject(usuwanyObiekt);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception exc)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            }
+
+            return success;
+        }
+
+        public static bool DodajWypozyczenie(int idPrzedmiotu, int idKlienta, DateTime dataRozpoczecia, int godzRozpoczecia,
+                                                DateTime dataZakonczenia, int godzZakonczenia)
+        {
+            bool success = true;
+
+            Wypozyczone dodawaneWypozyczenie = new Wypozyczone();
+            dodawaneWypozyczenie.ID_Przedmiotu = idPrzedmiotu;
+            dodawaneWypozyczenie.Id_Klienta = idKlienta;
+            dodawaneWypozyczenie.Data_Rozpoczecia = dataRozpoczecia;
+            dodawaneWypozyczenie.Data_Zakonczenia = dataZakonczenia;
+
+            if (dataRozpoczecia != dataZakonczenia)
+            {
+                dodawaneWypozyczenie.Godzina_Rozpoczecia = null;
+                dodawaneWypozyczenie.Godzina_Zakonczenia = null;
+            }
+            else
+            {
+                dodawaneWypozyczenie.Godzina_Rozpoczecia = godzRozpoczecia;
+                dodawaneWypozyczenie.Godzina_Zakonczenia = godzZakonczenia;
+            }
+
+            try
+            {
+                Inzynierka1Entities.ENTITY.AddToWypozyczone(dodawaneWypozyczenie);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message);
+                success = false;
+            }
+
+            return success;
+        }
+
+        public static Uzytkownicy_Kortow zwrocKonkretnegoKLienta(int idKLienta)
+        {
+            return (from Uzytkownicy_Kortow klient in Inzynierka1Entities.ENTITY.Uzytkownicy_Kortow
+                    where klient.ID == idKLienta
+                    select klient).First();
         }
     }
 }

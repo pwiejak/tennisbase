@@ -83,6 +83,7 @@
             this.Controls.Add(this.label1Logowanie);
             this.Controls.Add(this.tbLogin);
             this.Name = "LogowanieForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logowanie";
             ((System.ComponentModel.ISupportInitialize)(this.rbtZatwierdz)).EndInit();
             this.ResumeLayout(false);

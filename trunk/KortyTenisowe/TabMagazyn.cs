@@ -32,12 +32,12 @@ namespace KortyTenisowe
             {
                 if (m_listaMagazynu[i].Typ_Sprzedazy == 1)
                 {
-                    dataGrid.Rows.Add(m_listaMagazynu[i].ID_Produktu, m_listaMagazynu[i].Ilosc, m_listaMagazynu[i].Rozmiar,
+                    dataGrid.Rows.Add(m_listaMagazynu[i].Nr_Przedmiotu, m_listaMagazynu[i].ID_Produktu, m_listaMagazynu[i].Ilosc, m_listaMagazynu[i].Rozmiar,
                                     m_listaMagazynu[i].Cena, m_listaMagazynu[i].Kolor, "Tak");
                 }
                 else
                 {
-                    dataGrid.Rows.Add(m_listaMagazynu[i].ID_Produktu, m_listaMagazynu[i].Ilosc, m_listaMagazynu[i].Rozmiar,
+                    dataGrid.Rows.Add(m_listaMagazynu[i].Nr_Przedmiotu, m_listaMagazynu[i].ID_Produktu, m_listaMagazynu[i].Ilosc, m_listaMagazynu[i].Rozmiar,
                                     m_listaMagazynu[i].Cena, m_listaMagazynu[i].Kolor, "", "Tak");
                 }
                 //dataGrid.Rows[i].Cells[1].Value = i;
@@ -61,12 +61,12 @@ namespace KortyTenisowe
                 {
                     if (szukanyPrzedmiot[i].Typ_Sprzedazy == 1)
                     {
-                        dataGrid.Rows.Add(szukanyPrzedmiot[i].ID_Produktu, szukanyPrzedmiot[i].Ilosc, szukanyPrzedmiot[i].Rozmiar,
+                        dataGrid.Rows.Add(szukanyPrzedmiot[i].Nr_Przedmiotu, szukanyPrzedmiot[i].ID_Produktu, szukanyPrzedmiot[i].Ilosc, szukanyPrzedmiot[i].Rozmiar,
                                         szukanyPrzedmiot[i].Cena, szukanyPrzedmiot[i].Kolor, "Tak");
                     }
                     else
                     {
-                        dataGrid.Rows.Add(szukanyPrzedmiot[i].ID_Produktu, szukanyPrzedmiot[i].Ilosc, szukanyPrzedmiot[i].Rozmiar,
+                        dataGrid.Rows.Add(szukanyPrzedmiot[i].Nr_Przedmiotu, szukanyPrzedmiot[i].ID_Produktu, szukanyPrzedmiot[i].Ilosc, szukanyPrzedmiot[i].Rozmiar,
                                         szukanyPrzedmiot[i].Cena, szukanyPrzedmiot[i].Kolor, "", "Tak");
                     }
                 }

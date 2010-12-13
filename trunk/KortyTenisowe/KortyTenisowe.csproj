@@ -75,6 +75,12 @@
     <Compile Include="DodajKlientaForm.Designer.cs">
       <DependentUpon>DodajKlientaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DodajNaMagazynForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajNaMagazynForm.Designer.cs">
+      <DependentUpon>DodajNaMagazynForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DodajSprzetForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PotwierdzenieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PotwierdzenieForm.Designer.cs">
+      <DependentUpon>PotwierdzenieForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RezerwacjaKortuForm.cs">
@@ -111,11 +123,28 @@
     <Compile Include="TabMagazyn.cs" />
     <Compile Include="TabPracownicy.cs" />
     <Compile Include="TabSprzet.cs" />
+    <Compile Include="TabWypozyczalnia.cs" />
+    <Compile Include="WypozyczenieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WypozyczenieForm.Designer.cs">
+      <DependentUpon>WypozyczenieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZmienIloscForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZmienIloscForm.Designer.cs">
+      <DependentUpon>ZmienIloscForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DodajKategorieForm.resx">
       <DependentUpon>DodajKategorieForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DodajKlientaForm.resx">
       <DependentUpon>DodajKlientaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajNaMagazynForm.resx">
+      <DependentUpon>DodajNaMagazynForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DodajSprzetForm.resx">
       <DependentUpon>DodajSprzetForm.cs</DependentUpon>
@@ -129,6 +158,10 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PotwierdzenieForm.resx">
+      <DependentUpon>PotwierdzenieForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -137,9 +170,18 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RezerwacjaKortuForm.resx">
       <DependentUpon>RezerwacjaKortuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WypozyczenieForm.resx">
+      <DependentUpon>WypozyczenieForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZmienIloscForm.resx">
+      <DependentUpon>ZmienIloscForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EntityDeploy Include="Baza1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -159,6 +201,21 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\pics\tennis_0002_25601.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\pics\try2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\pics\tlo1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\pics\tlo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\pics\korty21.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

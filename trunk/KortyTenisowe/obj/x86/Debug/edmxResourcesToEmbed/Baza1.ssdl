@@ -9,6 +9,13 @@
       [Dostepnosc].[Godz_Zakonczenia] AS [Godz_Zakonczenia]
       FROM [dbo].[Dostepnosc] AS [Dostepnosc]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="Informacje" EntityType="Inzynierka1Model.Store.Informacje" store:Type="Tables" store:Schema="dbo" store:Name="Informacje">
+      <DefiningQuery>SELECT 
+      [Informacje].[IloscKortow] AS [IloscKortow], 
+      [Informacje].[GodzinaOtwarcia] AS [GodzinaOtwarcia], 
+      [Informacje].[GodzinaZamkniecia] AS [GodzinaZamkniecia]
+      FROM [dbo].[Informacje] AS [Informacje]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="Katalog_Uslug" EntityType="Inzynierka1Model.Store.Katalog_Uslug" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Kategorie" EntityType="Inzynierka1Model.Store.Kategorie" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Klasyfikacje" EntityType="Inzynierka1Model.Store.Klasyfikacje" store:Type="Tables" Schema="dbo" />
@@ -141,6 +148,19 @@
     <Property Name="Godz_Rozpoczecia" Type="nchar" Nullable="false" MaxLength="10" />
     <Property Name="Godz_Zakonczenia" Type="nchar" Nullable="false" MaxLength="10" />
   </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Inzynierka1.dbo.Informacje' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Informacje">
+    <Key>
+      <PropertyRef Name="IloscKortow" />
+      <PropertyRef Name="GodzinaOtwarcia" />
+      <PropertyRef Name="GodzinaZamkniecia" />
+    </Key>
+    <Property Name="IloscKortow" Type="int" Nullable="false" />
+    <Property Name="GodzinaOtwarcia" Type="int" Nullable="false" />
+    <Property Name="GodzinaZamkniecia" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Katalog_Uslug">
     <Key>
       <PropertyRef Name="ID_Uslugi" />
@@ -250,7 +270,7 @@
       <PropertyRef Name="Nr_Przedmiotu" />
     </Key>
     <Property Name="ID_Produktu" Type="int" Nullable="false" />
-    <Property Name="Nr_Przedmiotu" Type="int" Nullable="false" />
+    <Property Name="Nr_Przedmiotu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Typ_Sprzedazy" Type="int" Nullable="false" />
     <Property Name="Ilosc" Type="int" Nullable="false" />
     <Property Name="Rozmiar" Type="nvarchar" MaxLength="50" />
@@ -315,14 +335,15 @@
     <Key>
       <PropertyRef Name="ID_Wypozyczenia" />
     </Key>
-    <Property Name="ID_Wypozyczenia" Type="int" Nullable="false" />
+    <Property Name="ID_Wypozyczenia" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ID_Przedmiotu" Type="int" Nullable="false" />
     <Property Name="Id_Klienta" Type="int" Nullable="false" />
     <Property Name="Data_Rozpoczecia" Type="date" Nullable="false" />
-    <Property Name="Godzina_Rozpoczecia" Type="int" Nullable="false" />
+    <Property Name="Godzina_Rozpoczecia" Type="int" />
     <Property Name="Data_Zakonczenia" Type="date" Nullable="false" />
-    <Property Name="Godzina_Zakonczenia" Type="int" Nullable="false" />
+    <Property Name="Godzina_Zakonczenia" Type="int" />
     <Property Name="Wypozyczono" Type="bit" Nullable="false" />
+    <Property Name="Zwrocono" Type="bit" />
   </EntityType>
   <EntityType Name="Zawodnicy">
     <Key>
