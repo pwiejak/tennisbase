@@ -25,22 +25,9 @@
           <EntitySet Name="Kategorie" EntityType="Inzynierka1Model.Store.Kategorie" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Klasyfikacje" EntityType="Inzynierka1Model.Store.Klasyfikacje" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Pracownicy" EntityType="Inzynierka1Model.Store.Pracownicy" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Punkty_Zawodnikow" EntityType="Inzynierka1Model.Store.Punkty_Zawodnikow" store:Type="Tables" store:Schema="dbo" store:Name="Punkty_Zawodnikow">
-            <DefiningQuery>SELECT 
-      [Punkty_Zawodnikow].[ID_Zawodnika] AS [ID_Zawodnika], 
-      [Punkty_Zawodnikow].[ID_Klasyfikacji] AS [ID_Klasyfikacji], 
-      [Punkty_Zawodnikow].[Punkty] AS [Punkty]
-      FROM [dbo].[Punkty_Zawodnikow] AS [Punkty_Zawodnikow]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Punkty_Zawodnikow" EntityType="Inzynierka1Model.Store.Punkty_Zawodnikow" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Rezerwacje_Kortow" EntityType="Inzynierka1Model.Store.Rezerwacje_Kortow" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Rozegrane_Mecze" EntityType="Inzynierka1Model.Store.Rozegrane_Mecze" store:Type="Tables" store:Schema="dbo" store:Name="Rozegrane_Mecze">
-            <DefiningQuery>SELECT 
-      [Rozegrane_Mecze].[ID_Zawodnika1] AS [ID_Zawodnika1], 
-      [Rozegrane_Mecze].[ID_Zawodnika2] AS [ID_Zawodnika2], 
-      [Rozegrane_Mecze].[ID_Klasyfikacji] AS [ID_Klasyfikacji], 
-      [Rozegrane_Mecze].[Zwyciezca] AS [Zwyciezca]
-      FROM [dbo].[Rozegrane_Mecze] AS [Rozegrane_Mecze]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Rozegrane_Mecze" EntityType="Inzynierka1Model.Store.Rozegrane_Mecze" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Serwis" EntityType="Inzynierka1Model.Store.Serwis" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Sparingpartnerzy" EntityType="Inzynierka1Model.Store.Sparingpartnerzy" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Sprzet" EntityType="Inzynierka1Model.Store.Sprzet" store:Type="Tables" Schema="dbo" />
@@ -121,6 +108,10 @@
             <End Role="Kategorie" EntitySet="Kategorie" />
             <End Role="Turnieje" EntitySet="Turnieje" />
           </AssociationSet>
+          <AssociationSet Name="FK_Turnieje_Klasyfikacje" Association="Inzynierka1Model.Store.FK_Turnieje_Klasyfikacje">
+            <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
+            <End Role="Turnieje" EntitySet="Turnieje" />
+          </AssociationSet>
           <AssociationSet Name="FK_Uzytkownicy_Systemu_Pracownicy1" Association="Inzynierka1Model.Store.FK_Uzytkownicy_Systemu_Pracownicy1">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Uzytkownicy_Systemu" EntitySet="Uzytkownicy_Systemu" />
@@ -187,7 +178,7 @@
             <PropertyRef Name="ID_Klasyfikacji" />
           </Key>
           <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
-          <Property Name="Opis" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CzyGeneralna" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Pracownicy">
           <Key>
@@ -198,14 +189,9 @@
           <Property Name="Imie" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Telefon" Type="nvarchar" Nullable="false" MaxLength="20" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'Inzynierka1.dbo.Punkty_Zawodnikow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Punkty_Zawodnikow">
           <Key>
             <PropertyRef Name="ID_Zawodnika" />
-            <PropertyRef Name="ID_Klasyfikacji" />
-            <PropertyRef Name="Punkty" />
           </Key>
           <Property Name="ID_Zawodnika" Type="int" Nullable="false" />
           <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
@@ -225,20 +211,18 @@
           <Property Name="Cena" Type="float" />
           <Property Name="Id_Pracownika" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'Inzynierka1.dbo.Rozegrane_Mecze' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Rozegrane_Mecze">
           <Key>
-            <PropertyRef Name="ID_Zawodnika1" />
-            <PropertyRef Name="ID_Zawodnika2" />
             <PropertyRef Name="ID_Klasyfikacji" />
-            <PropertyRef Name="Zwyciezca" />
           </Key>
           <Property Name="ID_Zawodnika1" Type="int" Nullable="false" />
           <Property Name="ID_Zawodnika2" Type="int" Nullable="false" />
           <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
-          <Property Name="Zwyciezca" Type="int" Nullable="false" />
+          <Property Name="Set1" Type="nchar" MaxLength="10" />
+          <Property Name="Set2" Type="nchar" MaxLength="10" />
+          <Property Name="Set3" Type="nchar" MaxLength="10" />
+          <Property Name="Set4" Type="nchar" MaxLength="10" />
+          <Property Name="Set5" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Serwis">
           <Key>
@@ -308,6 +292,9 @@
           <Property Name="ID_Turnieju" Type="int" Nullable="false" />
           <Property Name="ID_Klasyfikacji" Type="int" />
           <Property Name="Kategoria" Type="int" Nullable="false" />
+          <Property Name="DataRozp" Type="date" Nullable="false" />
+          <Property Name="DataZak" Type="date" Nullable="false" />
+          <Property Name="Opis" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Typy">
           <Key>
@@ -325,6 +312,7 @@
           <Property Name="Nazwisko" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Imię" Type="nvarchar" MaxLength="50" />
           <Property Name="Telefon" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Uzytkownicy_Systemu">
           <Key>
@@ -356,6 +344,7 @@
           </Key>
           <Property Name="ID_Zawodnika" Type="int" Nullable="false" />
           <Property Name="ID_Uzytkownika_Kortow" Type="int" />
+          <Property Name="ID_Turnieju" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Dostepnosc_Uzytkownicy_Kortow">
           <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
@@ -383,7 +372,7 @@
         </Association>
         <Association Name="FK_Punkty_Zawodnikow_Zawodnicy">
           <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="1" />
-          <End Role="Punkty_Zawodnikow" Type="Inzynierka1Model.Store.Punkty_Zawodnikow" Multiplicity="*" />
+          <End Role="Punkty_Zawodnikow" Type="Inzynierka1Model.Store.Punkty_Zawodnikow" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Zawodnicy">
               <PropertyRef Name="ID_Zawodnika" />
@@ -419,7 +408,7 @@
         </Association>
         <Association Name="FK_Rozegrane_Mecze_Klasyfikacje">
           <End Role="Klasyfikacje" Type="Inzynierka1Model.Store.Klasyfikacje" Multiplicity="1" />
-          <End Role="Rozegrane_Mecze" Type="Inzynierka1Model.Store.Rozegrane_Mecze" Multiplicity="*" />
+          <End Role="Rozegrane_Mecze" Type="Inzynierka1Model.Store.Rozegrane_Mecze" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Klasyfikacje">
               <PropertyRef Name="ID_Klasyfikacji" />
@@ -561,6 +550,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Turnieje_Klasyfikacje">
+          <End Role="Klasyfikacje" Type="Inzynierka1Model.Store.Klasyfikacje" Multiplicity="0..1" />
+          <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klasyfikacje">
+              <PropertyRef Name="ID_Klasyfikacji" />
+            </Principal>
+            <Dependent Role="Turnieje">
+              <PropertyRef Name="ID_Klasyfikacji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Uzytkownicy_Systemu_Pracownicy1">
           <End Role="Pracownicy" Type="Inzynierka1Model.Store.Pracownicy" Multiplicity="1" />
           <End Role="Uzytkownicy_Systemu" Type="Inzynierka1Model.Store.Uzytkownicy_Systemu" Multiplicity="*" />
@@ -646,43 +647,34 @@
       <Schema Namespace="Inzynierka1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="Inzynierka1Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Dostepnosc" EntityType="Inzynierka1Model.Dostepnosc" />
+          <EntitySet Name="Informacje" EntityType="Inzynierka1Model.Informacje" />
           <EntitySet Name="Katalog_Uslug" EntityType="Inzynierka1Model.Katalog_Uslug" />
+          <EntitySet Name="Kategorie" EntityType="Inzynierka1Model.Kategorie" />
+          <EntitySet Name="Klasyfikacje" EntityType="Inzynierka1Model.Klasyfikacje" />
           <EntitySet Name="Pracownicy" EntityType="Inzynierka1Model.Pracownicy" />
+          <EntitySet Name="Punkty_Zawodnikow" EntityType="Inzynierka1Model.Punkty_Zawodnikow" />
+          <EntitySet Name="Rezerwacje_Kortow" EntityType="Inzynierka1Model.Rezerwacje_Kortow" />
+          <EntitySet Name="Rozegrane_Mecze" EntityType="Inzynierka1Model.Rozegrane_Mecze" />
+          <EntitySet Name="Serwis" EntityType="Inzynierka1Model.Serwis" />
+          <EntitySet Name="Sparingpartnerzy" EntityType="Inzynierka1Model.Sparingpartnerzy" />
+          <EntitySet Name="Sprzet" EntityType="Inzynierka1Model.Sprzet" />
+          <EntitySet Name="Stan_Magazynowy" EntityType="Inzynierka1Model.Stan_Magazynowy" />
           <EntitySet Name="sysdiagrams" EntityType="Inzynierka1Model.sysdiagrams" />
+          <EntitySet Name="Trenerzy" EntityType="Inzynierka1Model.Trenerzy" />
+          <EntitySet Name="Turnieje" EntityType="Inzynierka1Model.Turnieje" />
           <EntitySet Name="Typy" EntityType="Inzynierka1Model.Typy" />
           <EntitySet Name="Uzytkownicy_Kortow" EntityType="Inzynierka1Model.Uzytkownicy_Kortow" />
+          <EntitySet Name="Uzytkownicy_Systemu" EntityType="Inzynierka1Model.Uzytkownicy_Systemu" />
+          <EntitySet Name="Wypozyczone" EntityType="Inzynierka1Model.Wypozyczone" />
+          <EntitySet Name="Zawodnicy" EntityType="Inzynierka1Model.Zawodnicy" />
           <AssociationSet Name="FK_Dostepnosc_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow">
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
             <End Role="Dostepnosc" EntitySet="Dostepnosc" />
           </AssociationSet>
-          <EntitySet Name="Uzytkownicy_Systemu" EntityType="Inzynierka1Model.Uzytkownicy_Systemu" />
-          <AssociationSet Name="FK_Uzytkownicy_Systemu_Pracownicy1" Association="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Uzytkownicy_Systemu" EntitySet="Uzytkownicy_Systemu" />
-          </AssociationSet>
-          <EntitySet Name="Serwis" EntityType="Inzynierka1Model.Serwis" />
           <AssociationSet Name="FK_Serwis_Katalog_Uslug" Association="Inzynierka1Model.FK_Serwis_Katalog_Uslug">
             <End Role="Katalog_Uslug" EntitySet="Katalog_Uslug" />
             <End Role="Serwis" EntitySet="Serwis" />
           </AssociationSet>
-          <AssociationSet Name="FK_Serwis_Pracownicy" Association="Inzynierka1Model.FK_Serwis_Pracownicy">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Serwis" EntitySet="Serwis" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Serwis_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow">
-            <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
-            <End Role="Serwis" EntitySet="Serwis" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Serwis_Uzytkownicy_Kortow1" Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1">
-            <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
-            <End Role="Serwis" EntitySet="Serwis" />
-          </AssociationSet>
-          <EntitySet Name="Kategorie" EntityType="Inzynierka1Model.Kategorie" />
-          <EntitySet Name="Klasyfikacje" EntityType="Inzynierka1Model.Klasyfikacje" />
-          <EntitySet Name="Punkty_Zawodnikow" EntityType="Inzynierka1Model.Punkty_Zawodnikow" />
-          <EntitySet Name="Rozegrane_Mecze" EntityType="Inzynierka1Model.Rozegrane_Mecze" />
-          <EntitySet Name="Turnieje" EntityType="Inzynierka1Model.Turnieje" />
-          <EntitySet Name="Zawodnicy" EntityType="Inzynierka1Model.Zawodnicy" />
           <AssociationSet Name="FK_Turnieje_Kategorie" Association="Inzynierka1Model.FK_Turnieje_Kategorie">
             <End Role="Kategorie" EntitySet="Kategorie" />
             <End Role="Turnieje" EntitySet="Turnieje" />
@@ -695,9 +687,29 @@
             <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
             <End Role="Rozegrane_Mecze" EntitySet="Rozegrane_Mecze" />
           </AssociationSet>
+          <AssociationSet Name="FK_Turnieje_Klasyfikacje" Association="Inzynierka1Model.FK_Turnieje_Klasyfikacje">
+            <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
+            <End Role="Turnieje" EntitySet="Turnieje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezerwacje_Kortow_Pracownicy" Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Rezerwacje_Kortow" EntitySet="Rezerwacje_Kortow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Serwis_Pracownicy" Association="Inzynierka1Model.FK_Serwis_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Serwis" EntitySet="Serwis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uzytkownicy_Systemu_Pracownicy1" Association="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Uzytkownicy_Systemu" EntitySet="Uzytkownicy_Systemu" />
+          </AssociationSet>
           <AssociationSet Name="FK_Punkty_Zawodnikow_Zawodnicy" Association="Inzynierka1Model.FK_Punkty_Zawodnikow_Zawodnicy">
             <End Role="Zawodnicy" EntitySet="Zawodnicy" />
             <End Role="Punkty_Zawodnikow" EntitySet="Punkty_Zawodnikow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow">
+            <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+            <End Role="Rezerwacje_Kortow" EntitySet="Rezerwacje_Kortow" />
           </AssociationSet>
           <AssociationSet Name="FK_Rozegrane_Mecze_Zawodnicy" Association="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy">
             <End Role="Zawodnicy" EntitySet="Zawodnicy" />
@@ -707,50 +719,43 @@
             <End Role="Zawodnicy" EntitySet="Zawodnicy" />
             <End Role="Rozegrane_Mecze" EntitySet="Rozegrane_Mecze" />
           </AssociationSet>
-          <AssociationSet Name="FK_Zawodnicy_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow">
+          <AssociationSet Name="FK_Serwis_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow">
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
-            <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+            <End Role="Serwis" EntitySet="Serwis" />
           </AssociationSet>
-          <EntitySet Name="Rezerwacje_Kortow" EntityType="Inzynierka1Model.Rezerwacje_Kortow" />
-          <AssociationSet Name="FK_Rezerwacje_Kortow_Pracownicy" Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Rezerwacje_Kortow" EntitySet="Rezerwacje_Kortow" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow">
+          <AssociationSet Name="FK_Serwis_Uzytkownicy_Kortow1" Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1">
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
-            <End Role="Rezerwacje_Kortow" EntitySet="Rezerwacje_Kortow" />
+            <End Role="Serwis" EntitySet="Serwis" />
           </AssociationSet>
-          <EntitySet Name="Sparingpartnerzy" EntityType="Inzynierka1Model.Sparingpartnerzy" />
-          <EntitySet Name="Trenerzy" EntityType="Inzynierka1Model.Trenerzy" />
           <AssociationSet Name="FK_Sparingpartnerzy_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Sparingpartnerzy_Uzytkownicy_Kortow">
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
             <End Role="Sparingpartnerzy" EntitySet="Sparingpartnerzy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sprzet_Typy" Association="Inzynierka1Model.FK_Sprzet_Typy">
+            <End Role="Typy" EntitySet="Typy" />
+            <End Role="Sprzet" EntitySet="Sprzet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stan_Magazynowy_Sprzet" Association="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet">
+            <End Role="Sprzet" EntitySet="Sprzet" />
+            <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wypozyczone_Stan_Magazynowy" Association="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy">
+            <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
+            <End Role="Wypozyczone" EntitySet="Wypozyczone" />
           </AssociationSet>
           <AssociationSet Name="FK_Trenerzy_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Trenerzy_Uzytkownicy_Kortow">
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
             <End Role="Trenerzy" EntitySet="Trenerzy" />
           </AssociationSet>
-          <EntitySet Name="Sprzet" EntityType="Inzynierka1Model.Sprzet" />
-          <AssociationSet Name="FK_Sprzet_Typy" Association="Inzynierka1Model.FK_Sprzet_Typy">
-            <End Role="Typy" EntitySet="Typy" />
-            <End Role="Sprzet" EntitySet="Sprzet" />
-          </AssociationSet>
-          <EntitySet Name="Stan_Magazynowy" EntityType="Inzynierka1Model.Stan_Magazynowy" />
-          <AssociationSet Name="FK_Stan_Magazynowy_Sprzet" Association="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet">
-            <End Role="Sprzet" EntitySet="Sprzet" />
-            <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
-          </AssociationSet>
-          <EntitySet Name="Wypozyczone" EntityType="Inzynierka1Model.Wypozyczone" />
-          <AssociationSet Name="FK_Wypozyczone_Stan_Magazynowy" Association="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy">
-            <End Role="Stan_Magazynowy" EntitySet="Stan_Magazynowy" />
-            <End Role="Wypozyczone" EntitySet="Wypozyczone" />
-          </AssociationSet>
           <AssociationSet Name="FK_Wypozyczone_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow">
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
             <End Role="Wypozyczone" EntitySet="Wypozyczone" />
           </AssociationSet>
-          <EntitySet Name="Informacje" EntityType="Inzynierka1Model.Informacje" />
-          </EntityContainer>
+          <AssociationSet Name="FK_Zawodnicy_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow">
+            <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+            <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Dostepnosc">
           <Key>
             <PropertyRef Name="ID" />
@@ -758,104 +763,104 @@
             <PropertyRef Name="Godz_Rozpoczecia" />
             <PropertyRef Name="Godz_Zakonczenia" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Dzien_Tygodnia" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
-          <Property Name="Godz_Rozpoczecia" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
-          <Property Name="Godz_Zakonczenia" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Dzien_Tygodnia" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Godz_Rozpoczecia" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Godz_Zakonczenia" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow" FromRole="Dostepnosc" ToRole="Uzytkownicy_Kortow" />
+        </EntityType>
+        <EntityType Name="Informacje">
+          <Key>
+            <PropertyRef Name="IloscKortow" />
+            <PropertyRef Name="GodzinaOtwarcia" />
+            <PropertyRef Name="GodzinaZamkniecia" />
+          </Key>
+          <Property Type="Int32" Name="IloscKortow" Nullable="false" />
+          <Property Type="Int32" Name="GodzinaOtwarcia" Nullable="false" />
+          <Property Type="Int32" Name="GodzinaZamkniecia" Nullable="false" />
         </EntityType>
         <EntityType Name="Katalog_Uslug">
           <Key>
             <PropertyRef Name="ID_Uslugi" />
           </Key>
-          <Property Name="ID_Uslugi" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Cena" Type="Double" />
+          <Property Type="Int32" Name="ID_Uslugi" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nazwa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Cena" />
           <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Katalog_Uslug" FromRole="Katalog_Uslug" ToRole="Serwis" />
+        </EntityType>
+        <EntityType Name="Kategorie">
+          <Key>
+            <PropertyRef Name="ID_Kategorii" />
+          </Key>
+          <Property Type="Int32" Name="ID_Kategorii" Nullable="false" />
+          <Property Type="String" Name="Nazwa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Opis" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Turnieje" Relationship="Inzynierka1Model.FK_Turnieje_Kategorie" FromRole="Kategorie" ToRole="Turnieje" />
+        </EntityType>
+        <EntityType Name="Klasyfikacje">
+          <Key>
+            <PropertyRef Name="ID_Klasyfikacji" />
+          </Key>
+          <Property Type="Int32" Name="ID_Klasyfikacji" Nullable="false" />
+          <Property Type="Boolean" Name="CzyGeneralna" Nullable="false" />
+          <NavigationProperty Name="Punkty_Zawodnikow" Relationship="Inzynierka1Model.FK_Punkty_Zawodnikow_Klasyfikacje" FromRole="Klasyfikacje" ToRole="Punkty_Zawodnikow" />
+          <NavigationProperty Name="Rozegrane_Mecze" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Klasyfikacje" FromRole="Klasyfikacje" ToRole="Rozegrane_Mecze" />
+          <NavigationProperty Name="Turnieje" Relationship="Inzynierka1Model.FK_Turnieje_Klasyfikacje" FromRole="Klasyfikacje" ToRole="Turnieje" />
         </EntityType>
         <EntityType Name="Pracownicy">
           <Key>
             <PropertyRef Name="Id_Pracownika" />
           </Key>
-          <Property Name="Id_Pracownika" Type="Int32" Nullable="false" />
-          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Imie" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Telefon" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Uzytkownicy_Systemu" Relationship="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1" FromRole="Pracownicy" ToRole="Uzytkownicy_Systemu" />
-          <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Pracownicy" FromRole="Pracownicy" ToRole="Serwis" />
+          <Property Type="Int32" Name="Id_Pracownika" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nazwisko" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Imie" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telefon" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Rezerwacje_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" FromRole="Pracownicy" ToRole="Rezerwacje_Kortow" />
-          </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Pracownicy" FromRole="Pracownicy" ToRole="Serwis" />
+          <NavigationProperty Name="Uzytkownicy_Systemu" Relationship="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1" FromRole="Pracownicy" ToRole="Uzytkownicy_Systemu" />
         </EntityType>
-        <EntityType Name="Typy">
+        <EntityType Name="Punkty_Zawodnikow">
           <Key>
-            <PropertyRef Name="Nr_Typu" />
+            <PropertyRef Name="ID_Zawodnika" />
           </Key>
-          <Property Name="Nr_Typu" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Sprzet" Relationship="Inzynierka1Model.FK_Sprzet_Typy" FromRole="Typy" ToRole="Sprzet" />
+          <Property Type="Int32" Name="ID_Zawodnika" Nullable="false" />
+          <Property Type="Int32" Name="ID_Klasyfikacji" Nullable="false" />
+          <Property Type="Int32" Name="Punkty" Nullable="false" />
+          <NavigationProperty Name="Klasyfikacje" Relationship="Inzynierka1Model.FK_Punkty_Zawodnikow_Klasyfikacje" FromRole="Punkty_Zawodnikow" ToRole="Klasyfikacje" />
+          <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Punkty_Zawodnikow_Zawodnicy" FromRole="Punkty_Zawodnikow" ToRole="Zawodnicy" />
         </EntityType>
-        <EntityType Name="Uzytkownicy_Kortow">
+        <EntityType Name="Rezerwacje_Kortow">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_Rezerwacji" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Typ" Type="Int32" Nullable="false" />
-          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Imię" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Telefon" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Dostepnosc" Relationship="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Dostepnosc" />
-          <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Serwis" />
-          <NavigationProperty Name="Serwis1" Relationship="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1" FromRole="Uzytkownicy_Kortow" ToRole="Serwis" />
-          <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Zawodnicy" />
-          <NavigationProperty Name="Rezerwacje_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Rezerwacje_Kortow" />
-          <NavigationProperty Name="Sparingpartnerzy" Relationship="Inzynierka1Model.FK_Sparingpartnerzy_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Sparingpartnerzy" />
-          <NavigationProperty Name="Trenerzy" Relationship="Inzynierka1Model.FK_Trenerzy_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Trenerzy" />
-          <NavigationProperty Name="Wypozyczone" Relationship="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Wypozyczone" />
+          <Property Type="Int32" Name="ID_Rezerwacji" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Nr_Kortu" Nullable="false" />
+          <Property Type="DateTime" Name="Data" />
+          <Property Type="Int32" Name="Dzien_Tygodnia" />
+          <Property Type="Int32" Name="Godz_Rozpoczecia" Nullable="false" />
+          <Property Type="Int32" Name="Godz_Zakonczenia" Nullable="false" />
+          <Property Type="Int32" Name="ID_Osoby" Nullable="false" />
+          <Property Type="Double" Name="Cena" />
+          <Property Type="Int32" Name="Id_Pracownika" Nullable="false" />
+          <NavigationProperty Name="Pracownicy" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" FromRole="Rezerwacje_Kortow" ToRole="Pracownicy" />
+          <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" FromRole="Rezerwacje_Kortow" ToRole="Uzytkownicy_Kortow" />
         </EntityType>
-        <Association Name="FK_Dostepnosc_Uzytkownicy_Kortow">
-          <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Uzytkownicy_Kortow" Multiplicity="1" />
-          <End Role="Dostepnosc" Type="Inzynierka1Model.Dostepnosc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Uzytkownicy_Kortow">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Dostepnosc">
-              <PropertyRef Name="ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Uzytkownicy_Systemu">
+        <EntityType Name="Rozegrane_Mecze">
           <Key>
-            <PropertyRef Name="ID_Uzytkownika" />
+            <PropertyRef Name="ID_Klasyfikacji" />
           </Key>
-          <Property Type="Int32" Name="ID_Uzytkownika" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Login" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="ID_Pracownika" Nullable="false" />
-          <Property Type="String" Name="Haslo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="Uprawnienia" />
-          <NavigationProperty Name="Pracownicy" Relationship="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1" FromRole="Uzytkownicy_Systemu" ToRole="Pracownicy" />
+          <Property Type="Int32" Name="ID_Zawodnika1" Nullable="false" />
+          <Property Type="Int32" Name="ID_Zawodnika2" Nullable="false" />
+          <Property Type="Int32" Name="ID_Klasyfikacji" Nullable="false" />
+          <Property Type="String" Name="Set1" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Set2" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Set3" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Set4" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Set5" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Klasyfikacje" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Klasyfikacje" FromRole="Rozegrane_Mecze" ToRole="Klasyfikacje" />
+          <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy" FromRole="Rozegrane_Mecze" ToRole="Zawodnicy" />
+          <NavigationProperty Name="Zawodnicy1" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy1" FromRole="Rozegrane_Mecze" ToRole="Zawodnicy" />
         </EntityType>
-        <Association Name="FK_Uzytkownicy_Systemu_Pracownicy1">
-          <End Type="Inzynierka1Model.Pracownicy" Role="Pracownicy" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Uzytkownicy_Systemu" Role="Uzytkownicy_Systemu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pracownicy">
-              <PropertyRef Name="Id_Pracownika" />
-            </Principal>
-            <Dependent Role="Uzytkownicy_Systemu">
-              <PropertyRef Name="ID_Pracownika" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Serwis">
           <Key>
             <PropertyRef Name="ID_Zlecenia" />
@@ -872,6 +877,152 @@
           <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow" FromRole="Serwis" ToRole="Uzytkownicy_Kortow" />
           <NavigationProperty Name="Uzytkownicy_Kortow1" Relationship="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1" FromRole="Serwis" ToRole="Uzytkownicy_Kortow" />
         </EntityType>
+        <EntityType Name="Sparingpartnerzy">
+          <Key>
+            <PropertyRef Name="ID_Sparingpartnera" />
+          </Key>
+          <Property Type="String" Name="ID_Sparingpartnera" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="ID_Osoby" Nullable="false" />
+          <Property Type="String" Name="Poziom" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Sparingpartnerzy_Uzytkownicy_Kortow" FromRole="Sparingpartnerzy" ToRole="Uzytkownicy_Kortow" />
+        </EntityType>
+        <EntityType Name="Sprzet">
+          <Key>
+            <PropertyRef Name="ID_Produktu" />
+          </Key>
+          <Property Type="Int32" Name="ID_Produktu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Typ" Nullable="false" />
+          <Property Type="String" Name="Marka" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Model" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Opis" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Typy" Relationship="Inzynierka1Model.FK_Sprzet_Typy" FromRole="Sprzet" ToRole="Typy" />
+          <NavigationProperty Name="Stan_Magazynowy" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Sprzet" ToRole="Stan_Magazynowy" />
+        </EntityType>
+        <EntityType Name="Stan_Magazynowy">
+          <Key>
+            <PropertyRef Name="Nr_Przedmiotu" />
+          </Key>
+          <Property Type="Int32" Name="ID_Produktu" Nullable="false" />
+          <Property Type="Int32" Name="Nr_Przedmiotu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Typ_Sprzedazy" Nullable="false" />
+          <Property Type="Int32" Name="Ilosc" Nullable="false" />
+          <Property Type="String" Name="Rozmiar" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Kolor" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Cena" Nullable="false" />
+          <NavigationProperty Name="Sprzet" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Stan_Magazynowy" ToRole="Sprzet" />
+          <NavigationProperty Name="Wypozyczone" Relationship="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" FromRole="Stan_Magazynowy" ToRole="Wypozyczone" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Trenerzy">
+          <Key>
+            <PropertyRef Name="ID_Trenera" />
+          </Key>
+          <Property Type="String" Name="ID_Trenera" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="ID_Osoby" Nullable="false" />
+          <Property Type="String" Name="Poziom" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Max_Osob" />
+          <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Trenerzy_Uzytkownicy_Kortow" FromRole="Trenerzy" ToRole="Uzytkownicy_Kortow" />
+        </EntityType>
+        <EntityType Name="Turnieje">
+          <Key>
+            <PropertyRef Name="ID_Turnieju" />
+          </Key>
+          <Property Type="Int32" Name="ID_Turnieju" Nullable="false" />
+          <Property Type="Int32" Name="ID_Klasyfikacji" />
+          <Property Type="Int32" Name="Kategoria" Nullable="false" />
+          <Property Type="DateTime" Name="DataRozp" Nullable="false" />
+          <Property Type="DateTime" Name="DataZak" Nullable="false" />
+          <Property Type="String" Name="Opis" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Kategorie" Relationship="Inzynierka1Model.FK_Turnieje_Kategorie" FromRole="Turnieje" ToRole="Kategorie" />
+          <NavigationProperty Name="Klasyfikacje" Relationship="Inzynierka1Model.FK_Turnieje_Klasyfikacje" FromRole="Turnieje" ToRole="Klasyfikacje" />
+        </EntityType>
+        <EntityType Name="Typy">
+          <Key>
+            <PropertyRef Name="Nr_Typu" />
+          </Key>
+          <Property Type="Int32" Name="Nr_Typu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nazwa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Sprzet" Relationship="Inzynierka1Model.FK_Sprzet_Typy" FromRole="Typy" ToRole="Sprzet" />
+        </EntityType>
+        <EntityType Name="Uzytkownicy_Kortow">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Typ" Nullable="false" />
+          <Property Type="String" Name="Nazwisko" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Imię" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telefon" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dostepnosc" Relationship="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Dostepnosc" />
+          <NavigationProperty Name="Rezerwacje_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Rezerwacje_Kortow" />
+          <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Serwis" />
+          <NavigationProperty Name="Serwis1" Relationship="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1" FromRole="Uzytkownicy_Kortow" ToRole="Serwis" />
+          <NavigationProperty Name="Sparingpartnerzy" Relationship="Inzynierka1Model.FK_Sparingpartnerzy_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Sparingpartnerzy" />
+          <NavigationProperty Name="Trenerzy" Relationship="Inzynierka1Model.FK_Trenerzy_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Trenerzy" />
+          <NavigationProperty Name="Wypozyczone" Relationship="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Wypozyczone" />
+          <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Zawodnicy" />
+        </EntityType>
+        <EntityType Name="Uzytkownicy_Systemu">
+          <Key>
+            <PropertyRef Name="ID_Uzytkownika" />
+          </Key>
+          <Property Type="Int32" Name="ID_Uzytkownika" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Login" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID_Pracownika" Nullable="false" />
+          <Property Type="String" Name="Haslo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Uprawnienia" />
+          <NavigationProperty Name="Pracownicy" Relationship="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1" FromRole="Uzytkownicy_Systemu" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="Wypozyczone">
+          <Key>
+            <PropertyRef Name="ID_Wypozyczenia" />
+          </Key>
+          <Property Type="Int32" Name="ID_Wypozyczenia" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ID_Przedmiotu" Nullable="false" />
+          <Property Type="Int32" Name="Id_Klienta" Nullable="false" />
+          <Property Type="DateTime" Name="Data_Rozpoczecia" Nullable="false" />
+          <Property Type="Int32" Name="Godzina_Rozpoczecia" />
+          <Property Type="DateTime" Name="Data_Zakonczenia" Nullable="false" />
+          <Property Type="Int32" Name="Godzina_Zakonczenia" />
+          <Property Type="Boolean" Name="Wypozyczono" Nullable="false" />
+          <Property Type="Boolean" Name="Zwrocono" />
+          <NavigationProperty Name="Stan_Magazynowy" Relationship="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" FromRole="Wypozyczone" ToRole="Stan_Magazynowy" />
+          <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow" FromRole="Wypozyczone" ToRole="Uzytkownicy_Kortow" />
+        </EntityType>
+        <EntityType Name="Zawodnicy">
+          <Key>
+            <PropertyRef Name="ID_Zawodnika" />
+          </Key>
+          <Property Type="Int32" Name="ID_Zawodnika" Nullable="false" />
+          <Property Type="Int32" Name="ID_Uzytkownika_Kortow" />
+          <Property Type="Int32" Name="ID_Turnieju" Nullable="false" />
+          <NavigationProperty Name="Punkty_Zawodnikow" Relationship="Inzynierka1Model.FK_Punkty_Zawodnikow_Zawodnicy" FromRole="Zawodnicy" ToRole="Punkty_Zawodnikow" />
+          <NavigationProperty Name="Rozegrane_Mecze" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy" FromRole="Zawodnicy" ToRole="Rozegrane_Mecze" />
+          <NavigationProperty Name="Rozegrane_Mecze1" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy1" FromRole="Zawodnicy" ToRole="Rozegrane_Mecze" />
+          <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow" FromRole="Zawodnicy" ToRole="Uzytkownicy_Kortow" />
+        </EntityType>
+        <Association Name="FK_Dostepnosc_Uzytkownicy_Kortow">
+          <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Dostepnosc" Role="Dostepnosc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy_Kortow">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Dostepnosc">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Serwis_Katalog_Uslug">
           <End Type="Inzynierka1Model.Katalog_Uslug" Role="Katalog_Uslug" Multiplicity="1" />
           <End Type="Inzynierka1Model.Serwis" Role="Serwis" Multiplicity="*" />
@@ -884,107 +1035,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Serwis_Pracownicy">
-          <End Type="Inzynierka1Model.Pracownicy" Role="Pracownicy" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Serwis" Role="Serwis" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pracownicy">
-              <PropertyRef Name="Id_Pracownika" />
-            </Principal>
-            <Dependent Role="Serwis">
-              <PropertyRef Name="ID_Pracownika" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Serwis_Uzytkownicy_Kortow">
-          <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Serwis" Role="Serwis" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Uzytkownicy_Kortow">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Serwis">
-              <PropertyRef Name="ID_Klienta" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Serwis_Uzytkownicy_Kortow1">
-          <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Serwis" Role="Serwis" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Uzytkownicy_Kortow">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Serwis">
-              <PropertyRef Name="ID_Klienta" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Kategorie">
-          <Key>
-            <PropertyRef Name="ID_Kategorii" />
-          </Key>
-          <Property Type="Int32" Name="ID_Kategorii" Nullable="false" />
-          <Property Type="String" Name="Nazwa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Opis" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Turnieje" Relationship="Inzynierka1Model.FK_Turnieje_Kategorie" FromRole="Kategorie" ToRole="Turnieje" />
-        </EntityType>
-        <EntityType Name="Klasyfikacje">
-          <Key>
-            <PropertyRef Name="ID_Klasyfikacji" />
-          </Key>
-          <Property Type="Int32" Name="ID_Klasyfikacji" Nullable="false" />
-          <Property Type="String" Name="Opis" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Punkty_Zawodnikow" Relationship="Inzynierka1Model.FK_Punkty_Zawodnikow_Klasyfikacje" FromRole="Klasyfikacje" ToRole="Punkty_Zawodnikow" />
-          <NavigationProperty Name="Rozegrane_Mecze" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Klasyfikacje" FromRole="Klasyfikacje" ToRole="Rozegrane_Mecze" />
-        </EntityType>
-        <EntityType Name="Punkty_Zawodnikow">
-          <Key>
-            <PropertyRef Name="ID_Zawodnika" />
-            <PropertyRef Name="ID_Klasyfikacji" />
-            <PropertyRef Name="Punkty" />
-          </Key>
-          <Property Type="Int32" Name="ID_Zawodnika" Nullable="false" />
-          <Property Type="Int32" Name="ID_Klasyfikacji" Nullable="false" />
-          <Property Type="Int32" Name="Punkty" Nullable="false" />
-          <NavigationProperty Name="Klasyfikacje" Relationship="Inzynierka1Model.FK_Punkty_Zawodnikow_Klasyfikacje" FromRole="Punkty_Zawodnikow" ToRole="Klasyfikacje" />
-          <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Punkty_Zawodnikow_Zawodnicy" FromRole="Punkty_Zawodnikow" ToRole="Zawodnicy" />
-        </EntityType>
-        <EntityType Name="Rozegrane_Mecze">
-          <Key>
-            <PropertyRef Name="ID_Zawodnika1" />
-            <PropertyRef Name="ID_Zawodnika2" />
-            <PropertyRef Name="ID_Klasyfikacji" />
-            <PropertyRef Name="Zwyciezca" />
-          </Key>
-          <Property Type="Int32" Name="ID_Zawodnika1" Nullable="false" />
-          <Property Type="Int32" Name="ID_Zawodnika2" Nullable="false" />
-          <Property Type="Int32" Name="ID_Klasyfikacji" Nullable="false" />
-          <Property Type="Int32" Name="Zwyciezca" Nullable="false" />
-          <NavigationProperty Name="Klasyfikacje" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Klasyfikacje" FromRole="Rozegrane_Mecze" ToRole="Klasyfikacje" />
-          <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy" FromRole="Rozegrane_Mecze" ToRole="Zawodnicy" />
-          <NavigationProperty Name="Zawodnicy1" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy1" FromRole="Rozegrane_Mecze" ToRole="Zawodnicy" />
-        </EntityType>
-        <EntityType Name="Turnieje">
-          <Key>
-            <PropertyRef Name="ID_Turnieju" />
-          </Key>
-          <Property Type="Int32" Name="ID_Turnieju" Nullable="false" />
-          <Property Type="Int32" Name="ID_Klasyfikacji" />
-          <Property Type="Int32" Name="Kategoria" Nullable="false" />
-          <NavigationProperty Name="Kategorie" Relationship="Inzynierka1Model.FK_Turnieje_Kategorie" FromRole="Turnieje" ToRole="Kategorie" />
-        </EntityType>
-        <EntityType Name="Zawodnicy">
-          <Key>
-            <PropertyRef Name="ID_Zawodnika" />
-          </Key>
-          <Property Type="Int32" Name="ID_Zawodnika" Nullable="false" />
-          <Property Type="Int32" Name="ID_Uzytkownika_Kortow" />
-          <NavigationProperty Name="Punkty_Zawodnikow" Relationship="Inzynierka1Model.FK_Punkty_Zawodnikow_Zawodnicy" FromRole="Zawodnicy" ToRole="Punkty_Zawodnikow" />
-          <NavigationProperty Name="Rozegrane_Mecze" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy" FromRole="Zawodnicy" ToRole="Rozegrane_Mecze" />
-          <NavigationProperty Name="Rozegrane_Mecze1" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy1" FromRole="Zawodnicy" ToRole="Rozegrane_Mecze" />
-          <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow" FromRole="Zawodnicy" ToRole="Uzytkownicy_Kortow" />
-        </EntityType>
         <Association Name="FK_Turnieje_Kategorie">
           <End Type="Inzynierka1Model.Kategorie" Role="Kategorie" Multiplicity="1" />
           <End Type="Inzynierka1Model.Turnieje" Role="Turnieje" Multiplicity="*" />
@@ -1011,7 +1061,7 @@
         </Association>
         <Association Name="FK_Rozegrane_Mecze_Klasyfikacje">
           <End Type="Inzynierka1Model.Klasyfikacje" Role="Klasyfikacje" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Rozegrane_Mecze" Role="Rozegrane_Mecze" Multiplicity="*" />
+          <End Type="Inzynierka1Model.Rozegrane_Mecze" Role="Rozegrane_Mecze" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Klasyfikacje">
               <PropertyRef Name="ID_Klasyfikacji" />
@@ -1021,15 +1071,75 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Turnieje_Klasyfikacje">
+          <End Type="Inzynierka1Model.Klasyfikacje" Role="Klasyfikacje" Multiplicity="0..1" />
+          <End Type="Inzynierka1Model.Turnieje" Role="Turnieje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klasyfikacje">
+              <PropertyRef Name="ID_Klasyfikacji" />
+            </Principal>
+            <Dependent Role="Turnieje">
+              <PropertyRef Name="ID_Klasyfikacji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezerwacje_Kortow_Pracownicy">
+          <End Type="Inzynierka1Model.Pracownicy" Role="Pracownicy" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Rezerwacje_Kortow" Role="Rezerwacje_Kortow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="Id_Pracownika" />
+            </Principal>
+            <Dependent Role="Rezerwacje_Kortow">
+              <PropertyRef Name="Id_Pracownika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Serwis_Pracownicy">
+          <End Type="Inzynierka1Model.Pracownicy" Role="Pracownicy" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Serwis" Role="Serwis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="Id_Pracownika" />
+            </Principal>
+            <Dependent Role="Serwis">
+              <PropertyRef Name="ID_Pracownika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uzytkownicy_Systemu_Pracownicy1">
+          <End Type="Inzynierka1Model.Pracownicy" Role="Pracownicy" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Uzytkownicy_Systemu" Role="Uzytkownicy_Systemu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="Id_Pracownika" />
+            </Principal>
+            <Dependent Role="Uzytkownicy_Systemu">
+              <PropertyRef Name="ID_Pracownika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Punkty_Zawodnikow_Zawodnicy">
           <End Type="Inzynierka1Model.Zawodnicy" Role="Zawodnicy" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Punkty_Zawodnikow" Role="Punkty_Zawodnikow" Multiplicity="*" />
+          <End Type="Inzynierka1Model.Punkty_Zawodnikow" Role="Punkty_Zawodnikow" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Zawodnicy">
               <PropertyRef Name="ID_Zawodnika" />
             </Principal>
             <Dependent Role="Punkty_Zawodnikow">
               <PropertyRef Name="ID_Zawodnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezerwacje_Kortow_Uzytkownicy_Kortow">
+          <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Rezerwacje_Kortow" Role="Rezerwacje_Kortow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy_Kortow">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rezerwacje_Kortow">
+              <PropertyRef Name="ID_Osoby" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1057,77 +1167,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Zawodnicy_Uzytkownicy_Kortow">
-          <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="0..1" />
-          <End Type="Inzynierka1Model.Zawodnicy" Role="Zawodnicy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Uzytkownicy_Kortow">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Zawodnicy">
-              <PropertyRef Name="ID_Uzytkownika_Kortow" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Rezerwacje_Kortow">
-          <Key>
-            <PropertyRef Name="ID_Rezerwacji" />
-          </Key>
-          <Property Type="Int32" Name="ID_Rezerwacji" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="Nr_Kortu" Nullable="false" />
-          <Property Type="DateTime" Name="Data" />
-          <Property Type="Int32" Name="Dzien_Tygodnia" />
-          <Property Type="Int32" Name="Godz_Rozpoczecia" Nullable="false" />
-          <Property Type="Int32" Name="Godz_Zakonczenia" Nullable="false" />
-          <Property Type="Int32" Name="ID_Osoby" Nullable="false" />
-          <Property Type="Double" Name="Cena" />
-          <Property Type="Int32" Name="Id_Pracownika" Nullable="false" />
-          <NavigationProperty Name="Pracownicy" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" FromRole="Rezerwacje_Kortow" ToRole="Pracownicy" />
-          <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" FromRole="Rezerwacje_Kortow" ToRole="Uzytkownicy_Kortow" />
-        </EntityType>
-        <Association Name="FK_Rezerwacje_Kortow_Pracownicy">
-          <End Type="Inzynierka1Model.Pracownicy" Role="Pracownicy" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Rezerwacje_Kortow" Role="Rezerwacje_Kortow" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pracownicy">
-              <PropertyRef Name="Id_Pracownika" />
-            </Principal>
-            <Dependent Role="Rezerwacje_Kortow">
-              <PropertyRef Name="Id_Pracownika" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rezerwacje_Kortow_Uzytkownicy_Kortow">
+        <Association Name="FK_Serwis_Uzytkownicy_Kortow">
           <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Rezerwacje_Kortow" Role="Rezerwacje_Kortow" Multiplicity="*" />
+          <End Type="Inzynierka1Model.Serwis" Role="Serwis" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Uzytkownicy_Kortow">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Rezerwacje_Kortow">
-              <PropertyRef Name="ID_Osoby" />
+            <Dependent Role="Serwis">
+              <PropertyRef Name="ID_Klienta" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Sparingpartnerzy">
-          <Key>
-            <PropertyRef Name="ID_Sparingpartnera" />
-          </Key>
-          <Property Type="String" Name="ID_Sparingpartnera" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="Int32" Name="ID_Osoby" Nullable="false" />
-          <Property Type="String" Name="Poziom" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Sparingpartnerzy_Uzytkownicy_Kortow" FromRole="Sparingpartnerzy" ToRole="Uzytkownicy_Kortow" />
-        </EntityType>
-        <EntityType Name="Trenerzy">
-          <Key>
-            <PropertyRef Name="ID_Trenera" />
-          </Key>
-          <Property Type="String" Name="ID_Trenera" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="Int32" Name="ID_Osoby" Nullable="false" />
-          <Property Type="String" Name="Poziom" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="Max_Osob" />
-          <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Trenerzy_Uzytkownicy_Kortow" FromRole="Trenerzy" ToRole="Uzytkownicy_Kortow" />
-        </EntityType>
+        <Association Name="FK_Serwis_Uzytkownicy_Kortow1">
+          <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Serwis" Role="Serwis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy_Kortow">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Serwis">
+              <PropertyRef Name="ID_Klienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Sparingpartnerzy_Uzytkownicy_Kortow">
           <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
           <End Type="Inzynierka1Model.Sparingpartnerzy" Role="Sparingpartnerzy" Multiplicity="*" />
@@ -1137,6 +1200,42 @@
             </Principal>
             <Dependent Role="Sparingpartnerzy">
               <PropertyRef Name="ID_Osoby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sprzet_Typy">
+          <End Type="Inzynierka1Model.Typy" Role="Typy" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Sprzet" Role="Sprzet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Typy">
+              <PropertyRef Name="Nr_Typu" />
+            </Principal>
+            <Dependent Role="Sprzet">
+              <PropertyRef Name="Typ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stan_Magazynowy_Sprzet">
+          <End Type="Inzynierka1Model.Sprzet" Role="Sprzet" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Stan_Magazynowy" Role="Stan_Magazynowy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sprzet">
+              <PropertyRef Name="ID_Produktu" />
+            </Principal>
+            <Dependent Role="Stan_Magazynowy">
+              <PropertyRef Name="ID_Produktu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wypozyczone_Stan_Magazynowy">
+          <End Type="Inzynierka1Model.Stan_Magazynowy" Role="Stan_Magazynowy" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Wypozyczone" Role="Wypozyczone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stan_Magazynowy">
+              <PropertyRef Name="Nr_Przedmiotu" />
+            </Principal>
+            <Dependent Role="Wypozyczone">
+              <PropertyRef Name="ID_Przedmiotu" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1152,84 +1251,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Sprzet">
-          <Key>
-            <PropertyRef Name="ID_Produktu" />
-          </Key>
-          <Property Type="Int32" Name="ID_Produktu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="Typ" Nullable="false" />
-          <Property Type="String" Name="Marka" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Model" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Opis" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Typy" Relationship="Inzynierka1Model.FK_Sprzet_Typy" FromRole="Sprzet" ToRole="Typy" />
-          <NavigationProperty Name="Stan_Magazynowy" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Sprzet" ToRole="Stan_Magazynowy" />
-        </EntityType>
-        <Association Name="FK_Sprzet_Typy">
-          <End Type="Inzynierka1Model.Typy" Role="Typy" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Sprzet" Role="Sprzet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Typy">
-              <PropertyRef Name="Nr_Typu" />
-            </Principal>
-            <Dependent Role="Sprzet">
-              <PropertyRef Name="Typ" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Stan_Magazynowy">
-          <Key>
-            <PropertyRef Name="Nr_Przedmiotu" />
-          </Key>
-          <Property Type="Int32" Name="ID_Produktu" Nullable="false" />
-          <Property Type="Int32" Name="Nr_Przedmiotu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="Typ_Sprzedazy" Nullable="false" />
-          <Property Type="Int32" Name="Ilosc" Nullable="false" />
-          <Property Type="String" Name="Rozmiar" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Kolor" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Double" Name="Cena" Nullable="false" />
-          <NavigationProperty Name="Sprzet" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Stan_Magazynowy" ToRole="Sprzet" />
-          <NavigationProperty Name="Wypozyczone" Relationship="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" FromRole="Stan_Magazynowy" ToRole="Wypozyczone" />
-        </EntityType>
-        <Association Name="FK_Stan_Magazynowy_Sprzet">
-          <End Type="Inzynierka1Model.Sprzet" Role="Sprzet" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Stan_Magazynowy" Role="Stan_Magazynowy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sprzet">
-              <PropertyRef Name="ID_Produktu" />
-            </Principal>
-            <Dependent Role="Stan_Magazynowy">
-              <PropertyRef Name="ID_Produktu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Wypozyczone">
-          <Key>
-            <PropertyRef Name="ID_Wypozyczenia" />
-          </Key>
-          <Property Type="Int32" Name="ID_Wypozyczenia" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="ID_Przedmiotu" Nullable="false" />
-          <Property Type="Int32" Name="Id_Klienta" Nullable="false" />
-          <Property Type="DateTime" Name="Data_Rozpoczecia" Nullable="false" />
-          <Property Type="Int32" Name="Godzina_Rozpoczecia" />
-          <Property Type="DateTime" Name="Data_Zakonczenia" Nullable="false" />
-          <Property Type="Int32" Name="Godzina_Zakonczenia" />
-          <Property Type="Boolean" Name="Wypozyczono" Nullable="false" />
-          <Property Type="Boolean" Name="Zwrocono" />
-          <NavigationProperty Name="Stan_Magazynowy" Relationship="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" FromRole="Wypozyczone" ToRole="Stan_Magazynowy" />
-          <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow" FromRole="Wypozyczone" ToRole="Uzytkownicy_Kortow" />
-        </EntityType>
-        <Association Name="FK_Wypozyczone_Stan_Magazynowy">
-          <End Type="Inzynierka1Model.Stan_Magazynowy" Role="Stan_Magazynowy" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Wypozyczone" Role="Wypozyczone" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Stan_Magazynowy">
-              <PropertyRef Name="Nr_Przedmiotu" />
-            </Principal>
-            <Dependent Role="Wypozyczone">
-              <PropertyRef Name="ID_Przedmiotu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Wypozyczone_Uzytkownicy_Kortow">
           <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
           <End Type="Inzynierka1Model.Wypozyczone" Role="Wypozyczone" Multiplicity="*" />
@@ -1242,78 +1263,49 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Informacje">
-          <Key>
-            <PropertyRef Name="IloscKortow" />
-            <PropertyRef Name="GodzinaOtwarcia" />
-            <PropertyRef Name="GodzinaZamkniecia" />
-          </Key>
-          <Property Type="Int32" Name="IloscKortow" Nullable="false" />
-          <Property Type="Int32" Name="GodzinaOtwarcia" Nullable="false" />
-          <Property Type="Int32" Name="GodzinaZamkniecia" Nullable="false" />
-        </EntityType>
+        <Association Name="FK_Zawodnicy_Uzytkownicy_Kortow">
+          <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="0..1" />
+          <End Type="Inzynierka1Model.Zawodnicy" Role="Zawodnicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy_Kortow">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zawodnicy">
+              <PropertyRef Name="ID_Uzytkownika_Kortow" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Inzynierka1ModelStoreContainer" CdmEntityContainer="Inzynierka1Entities">
-          <EntitySetMapping Name="Dostepnosc"><EntityTypeMapping TypeName="Inzynierka1Model.Dostepnosc"><MappingFragment StoreEntitySet="Dostepnosc">
-            <ScalarProperty Name="ID" ColumnName="ID" />
-            <ScalarProperty Name="Dzien_Tygodnia" ColumnName="Dzien_Tygodnia" />
-            <ScalarProperty Name="Godz_Rozpoczecia" ColumnName="Godz_Rozpoczecia" />
-            <ScalarProperty Name="Godz_Zakonczenia" ColumnName="Godz_Zakonczenia" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Katalog_Uslug"><EntityTypeMapping TypeName="Inzynierka1Model.Katalog_Uslug"><MappingFragment StoreEntitySet="Katalog_Uslug">
-            <ScalarProperty Name="ID_Uslugi" ColumnName="ID_Uslugi" />
-            <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-            <ScalarProperty Name="Cena" ColumnName="Cena" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Pracownicy"><EntityTypeMapping TypeName="Inzynierka1Model.Pracownicy"><MappingFragment StoreEntitySet="Pracownicy">
-            <ScalarProperty Name="Id_Pracownika" ColumnName="Id_Pracownika" />
-            <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
-            <ScalarProperty Name="Imie" ColumnName="Imie" />
-            <ScalarProperty Name="Telefon" ColumnName="Telefon" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="Inzynierka1Model.sysdiagrams"><MappingFragment StoreEntitySet="sysdiagrams">
-            <ScalarProperty Name="name" ColumnName="name" />
-            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-            <ScalarProperty Name="version" ColumnName="version" />
-            <ScalarProperty Name="definition" ColumnName="definition" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Typy"><EntityTypeMapping TypeName="Inzynierka1Model.Typy"><MappingFragment StoreEntitySet="Typy">
-            <ScalarProperty Name="Nr_Typu" ColumnName="Nr_Typu" />
-            <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Uzytkownicy_Kortow"><EntityTypeMapping TypeName="Inzynierka1Model.Uzytkownicy_Kortow"><MappingFragment StoreEntitySet="Uzytkownicy_Kortow">
-            <ScalarProperty Name="ID" ColumnName="ID" />
-            <ScalarProperty Name="Typ" ColumnName="Typ" />
-            <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
-            <ScalarProperty Name="Imię" ColumnName="Imię" />
-            <ScalarProperty Name="Telefon" ColumnName="Telefon" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Uzytkownicy_Systemu">
-            <EntityTypeMapping TypeName="Inzynierka1Model.Uzytkownicy_Systemu">
-              <MappingFragment StoreEntitySet="Uzytkownicy_Systemu">
-                <ScalarProperty Name="Uprawnienia" ColumnName="Uprawnienia" />
-                <ScalarProperty Name="Haslo" ColumnName="Haslo" />
-                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="ID_Uzytkownika" ColumnName="ID_Uzytkownika" />
+          <EntitySetMapping Name="Dostepnosc">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Dostepnosc">
+              <MappingFragment StoreEntitySet="Dostepnosc">
+                <ScalarProperty Name="Godz_Zakonczenia" ColumnName="Godz_Zakonczenia" />
+                <ScalarProperty Name="Godz_Rozpoczecia" ColumnName="Godz_Rozpoczecia" />
+                <ScalarProperty Name="Dzien_Tygodnia" ColumnName="Dzien_Tygodnia" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Serwis">
-            <EntityTypeMapping TypeName="Inzynierka1Model.Serwis">
-              <MappingFragment StoreEntitySet="Serwis">
-                <ScalarProperty Name="Opis" ColumnName="Opis" />
-                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
-                <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
-                <ScalarProperty Name="Data_Przyjecia" ColumnName="Data_Przyjecia" />
-                <ScalarProperty Name="Usługa" ColumnName="Usługa" />
-                <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
-                <ScalarProperty Name="ID_Zlecenia" ColumnName="ID_Zlecenia" />
+          <EntitySetMapping Name="Informacje">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Informacje">
+              <MappingFragment StoreEntitySet="Informacje">
+                <ScalarProperty Name="GodzinaZamkniecia" ColumnName="GodzinaZamkniecia" />
+                <ScalarProperty Name="GodzinaOtwarcia" ColumnName="GodzinaOtwarcia" />
+                <ScalarProperty Name="IloscKortow" ColumnName="IloscKortow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Katalog_Uslug">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Katalog_Uslug">
+              <MappingFragment StoreEntitySet="Katalog_Uslug">
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="ID_Uslugi" ColumnName="ID_Uslugi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1329,8 +1321,18 @@
           <EntitySetMapping Name="Klasyfikacje">
             <EntityTypeMapping TypeName="Inzynierka1Model.Klasyfikacje">
               <MappingFragment StoreEntitySet="Klasyfikacje">
-                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="CzyGeneralna" ColumnName="CzyGeneralna" />
                 <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownicy">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Pracownicy">
+              <MappingFragment StoreEntitySet="Pracownicy">
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Id_Pracownika" ColumnName="Id_Pracownika" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1339,33 +1341,6 @@
               <MappingFragment StoreEntitySet="Punkty_Zawodnikow">
                 <ScalarProperty Name="Punkty" ColumnName="Punkty" />
                 <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />
-                <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Rozegrane_Mecze">
-            <EntityTypeMapping TypeName="Inzynierka1Model.Rozegrane_Mecze">
-              <MappingFragment StoreEntitySet="Rozegrane_Mecze">
-                <ScalarProperty Name="Zwyciezca" ColumnName="Zwyciezca" />
-                <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />
-                <ScalarProperty Name="ID_Zawodnika2" ColumnName="ID_Zawodnika2" />
-                <ScalarProperty Name="ID_Zawodnika1" ColumnName="ID_Zawodnika1" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Turnieje">
-            <EntityTypeMapping TypeName="Inzynierka1Model.Turnieje">
-              <MappingFragment StoreEntitySet="Turnieje">
-                <ScalarProperty Name="Kategoria" ColumnName="Kategoria" />
-                <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />
-                <ScalarProperty Name="ID_Turnieju" ColumnName="ID_Turnieju" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Zawodnicy">
-            <EntityTypeMapping TypeName="Inzynierka1Model.Zawodnicy">
-              <MappingFragment StoreEntitySet="Zawodnicy">
-                <ScalarProperty Name="ID_Uzytkownika_Kortow" ColumnName="ID_Uzytkownika_Kortow" />
                 <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1385,22 +1360,39 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Rozegrane_Mecze">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Rozegrane_Mecze">
+              <MappingFragment StoreEntitySet="Rozegrane_Mecze">
+                <ScalarProperty Name="Set5" ColumnName="Set5" />
+                <ScalarProperty Name="Set4" ColumnName="Set4" />
+                <ScalarProperty Name="Set3" ColumnName="Set3" />
+                <ScalarProperty Name="Set2" ColumnName="Set2" />
+                <ScalarProperty Name="Set1" ColumnName="Set1" />
+                <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />
+                <ScalarProperty Name="ID_Zawodnika2" ColumnName="ID_Zawodnika2" />
+                <ScalarProperty Name="ID_Zawodnika1" ColumnName="ID_Zawodnika1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Serwis">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Serwis">
+              <MappingFragment StoreEntitySet="Serwis">
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+                <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
+                <ScalarProperty Name="Data_Przyjecia" ColumnName="Data_Przyjecia" />
+                <ScalarProperty Name="Usługa" ColumnName="Usługa" />
+                <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
+                <ScalarProperty Name="ID_Zlecenia" ColumnName="ID_Zlecenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Sparingpartnerzy">
             <EntityTypeMapping TypeName="Inzynierka1Model.Sparingpartnerzy">
               <MappingFragment StoreEntitySet="Sparingpartnerzy">
                 <ScalarProperty Name="Poziom" ColumnName="Poziom" />
                 <ScalarProperty Name="ID_Osoby" ColumnName="ID_Osoby" />
                 <ScalarProperty Name="ID_Sparingpartnera" ColumnName="ID_Sparingpartnera" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Trenerzy">
-            <EntityTypeMapping TypeName="Inzynierka1Model.Trenerzy">
-              <MappingFragment StoreEntitySet="Trenerzy">
-                <ScalarProperty Name="Max_Osob" ColumnName="Max_Osob" />
-                <ScalarProperty Name="Poziom" ColumnName="Poziom" />
-                <ScalarProperty Name="ID_Osoby" ColumnName="ID_Osoby" />
-                <ScalarProperty Name="ID_Trenera" ColumnName="ID_Trenera" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1428,6 +1420,70 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Inzynierka1Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trenerzy">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Trenerzy">
+              <MappingFragment StoreEntitySet="Trenerzy">
+                <ScalarProperty Name="Max_Osob" ColumnName="Max_Osob" />
+                <ScalarProperty Name="Poziom" ColumnName="Poziom" />
+                <ScalarProperty Name="ID_Osoby" ColumnName="ID_Osoby" />
+                <ScalarProperty Name="ID_Trenera" ColumnName="ID_Trenera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Turnieje">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Turnieje">
+              <MappingFragment StoreEntitySet="Turnieje">
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="DataZak" ColumnName="DataZak" />
+                <ScalarProperty Name="DataRozp" ColumnName="DataRozp" />
+                <ScalarProperty Name="Kategoria" ColumnName="Kategoria" />
+                <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />
+                <ScalarProperty Name="ID_Turnieju" ColumnName="ID_Turnieju" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Typy">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Typy">
+              <MappingFragment StoreEntitySet="Typy">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Nr_Typu" ColumnName="Nr_Typu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uzytkownicy_Kortow">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Uzytkownicy_Kortow">
+              <MappingFragment StoreEntitySet="Uzytkownicy_Kortow">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Imię" ColumnName="Imię" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uzytkownicy_Systemu">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Uzytkownicy_Systemu">
+              <MappingFragment StoreEntitySet="Uzytkownicy_Systemu">
+                <ScalarProperty Name="Uprawnienia" ColumnName="Uprawnienia" />
+                <ScalarProperty Name="Haslo" ColumnName="Haslo" />
+                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="ID_Uzytkownika" ColumnName="ID_Uzytkownika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Wypozyczone">
             <EntityTypeMapping TypeName="Inzynierka1Model.Wypozyczone">
               <MappingFragment StoreEntitySet="Wypozyczone">
@@ -1443,12 +1499,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Informacje">
-            <EntityTypeMapping TypeName="Inzynierka1Model.Informacje">
-              <MappingFragment StoreEntitySet="Informacje">
-                <ScalarProperty Name="GodzinaZamkniecia" ColumnName="GodzinaZamkniecia" />
-                <ScalarProperty Name="GodzinaOtwarcia" ColumnName="GodzinaOtwarcia" />
-                <ScalarProperty Name="IloscKortow" ColumnName="IloscKortow" />
+          <EntitySetMapping Name="Zawodnicy">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Zawodnicy">
+              <MappingFragment StoreEntitySet="Zawodnicy">
+                <ScalarProperty Name="ID_Turnieju" ColumnName="ID_Turnieju" />
+                <ScalarProperty Name="ID_Uzytkownika_Kortow" ColumnName="ID_Uzytkownika_Kortow" />
+                <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1473,161 +1529,198 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Baza1">
-        <EntityTypeShape EntityType="Inzynierka1Model.Dostepnosc" Width="1.5" PointX="3" PointY="8.25" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Katalog_Uslug" Width="1.5" PointX="3.75" PointY="15.25" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Pracownicy" Width="1.5" PointX="3.75" PointY="0.75" Height="2.3648893229166656" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inzynierka1Model.sysdiagrams" Width="1.5" PointX="8.75" PointY="1.875" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Typy" Width="1.5" PointX="1.5" PointY="1.875" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Uzytkownicy_Kortow" Width="1.5" PointX="0.75" PointY="10.125" Height="3.1340950520833388" IsExpanded="true" />
-        <AssociationConnector Association="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.7688507057124379" PointY="10.125" />
-          <ConnectorPoint PointX="1.7688507057124379" PointY="9.0600967838541671" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="9.0600967838541653" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="9.0600967838541671" />
-          <ConnectorPoint PointX="3" PointY="9.0600967838541671" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Dostepnosc" Width="1.5" PointX="3" PointY="9.625" Height="1.9802864583333282" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Informacje" Width="1.5" PointX="5.75" PointY="0.75" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Katalog_Uslug" Width="1.5" PointX="3.75" PointY="2" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Kategorie" Width="1.5" PointX="3" PointY="32.625" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Klasyfikacje" Width="1.5" PointX="3" PointY="26.5" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Pracownicy" Width="1.5" PointX="0.75" PointY="9.625" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Punkty_Zawodnikow" Width="1.5" PointX="5.25" PointY="29.5" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Rezerwacje_Kortow" Width="1.5" PointX="3" PointY="13.25" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Rozegrane_Mecze" Width="1.5" PointX="8.25" PointY="29" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Serwis" Width="1.5" PointX="6" PointY="13.25" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Sparingpartnerzy" Width="1.5" PointX="3" PointY="20.125" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Sprzet" Width="1.5" PointX="1.5" PointY="5.625" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Stan_Magazynowy" Width="1.5" PointX="3.75" PointY="5.5" Height="2.7494921875000102" />
+        <EntityTypeShape EntityType="Inzynierka1Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="3.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Trenerzy" Width="1.5" PointX="3" PointY="22.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Turnieje" Width="1.5" PointX="5.25" PointY="26.25" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Typy" Width="1.5" PointX="1.5" PointY="3" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Uzytkownicy_Kortow" Width="1.5" PointX="0.75" PointY="13" Height="3.7109993489583388" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Uzytkownicy_Systemu" Width="1.5" PointX="3" PointY="35.75" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Wypozyczone" Width="1.5" PointX="6" PointY="9.25" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Zawodnicy" Width="1.5" PointX="3" PointY="29.375" Height="2.3648893229166674" />
+        <AssociationConnector Association="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow" >
+          <ConnectorPoint PointX="2.2130769230769229" PointY="13" />
+          <ConnectorPoint PointX="2.65625" PointY="12.556826923076923" />
+          <ConnectorPoint PointX="2.65625" PointY="10.615143229166664" />
+          <ConnectorPoint PointX="3" PointY="10.615143229166664" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Inzynierka1Model.Uzytkownicy_Systemu" Width="1.5" PointX="6" PointY="0.875" Height="2.1725878906250031" />
-        <AssociationConnector Association="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1" >
-          <ConnectorPoint PointX="5.25" PointY="1.9156168033854164" />
-          <ConnectorPoint PointX="6" PointY="1.9156168033854164" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="Inzynierka1Model.Serwis" Width="1.5" PointX="6" PointY="10.375" Height="3.1340950520833388" />
         <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Katalog_Uslug" >
-          <ConnectorPoint PointX="4.90625" PointY="15.25" />
-          <ConnectorPoint PointX="4.90625" PointY="12.379547026041671" />
-          <ConnectorPoint PointX="6" PointY="12.379547026041671" />
+          <ConnectorPoint PointX="4.5" PointY="3.7879850260416674" />
+          <ConnectorPoint PointX="4.5" PointY="5.25" />
+          <ConnectorPoint PointX="5.5" PointY="5.25" />
+          <ConnectorPoint PointX="5.5" PointY="14.817047526041662" />
+          <ConnectorPoint PointX="6" PointY="14.817047526041662" />
         </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Pracownicy" >
-          <ConnectorPoint PointX="5.078125" PointY="3.1148893229166656" />
-          <ConnectorPoint PointX="5.078125" PointY="11.114191946464361" />
-          <ConnectorPoint PointX="6" PointY="11.114191946464361" />
-        </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="2.25" PointY="10.538064153341098" />
-          <ConnectorPoint PointX="2.6979166666666665" PointY="10.538064153341098" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="10.538064153341098" />
-          <ConnectorPoint PointX="4.994791666666667" PointY="10.538064153341098" />
-          <ConnectorPoint PointX="5.161458333333333" PointY="10.538064153341098" />
-          <ConnectorPoint PointX="6" PointY="10.538064153341098" />
-        </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1" >
-          <ConnectorPoint PointX="2.25" PointY="10.82612804990273" />
-          <ConnectorPoint PointX="2.6979166666666665" PointY="10.82612804990273" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="10.82612804990273" />
-          <ConnectorPoint PointX="4.994791666666667" PointY="10.82612804990273" />
-          <ConnectorPoint PointX="5.161458333333333" PointY="10.82612804990273" />
-          <ConnectorPoint PointX="6" PointY="10.82612804990273" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="Inzynierka1Model.Kategorie" Width="1.5" PointX="10.375" PointY="9.875" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Klasyfikacje" Width="1.5" PointX="6" PointY="17.625" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Punkty_Zawodnikow" Width="1.5" PointX="6.25" PointY="14.625" Height="1.9802864583333388" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Rozegrane_Mecze" Width="1.5" PointX="8.25" PointY="11.375" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Turnieje" Width="1.5" PointX="12.625" PointY="9.875" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Zawodnicy" Width="1.5" PointX="3" PointY="11.5" Height="2.1725878906250031" />
         <AssociationConnector Association="Inzynierka1Model.FK_Turnieje_Kategorie" >
-          <ConnectorPoint PointX="11.875" PointY="10.768992513020834" />
-          <ConnectorPoint PointX="12.625" PointY="10.768992513020834" />
+          <ConnectorPoint PointX="4.5000000000000018" PointY="32.625" />
+          <ConnectorPoint PointX="4.875" PointY="32.25" />
+          <ConnectorPoint PointX="4.875" PointY="27.528595377604169" />
+          <ConnectorPoint PointX="5.25" PointY="27.528595377604169" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Punkty_Zawodnikow_Klasyfikacje" >
-          <ConnectorPoint PointX="6.875" PointY="17.625" />
-          <ConnectorPoint PointX="6.875" PointY="16.605286458333339" />
+          <ConnectorPoint PointX="4.5" PointY="28.417977766025633" />
+          <ConnectorPoint PointX="4.8160744349011217" PointY="28.734052200926754" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="28.851903331124511" />
+          <ConnectorPoint PointX="5.0625" PointY="28.980477766025633" />
+          <ConnectorPoint PointX="5.0625" PointY="30.490143229166669" />
+          <ConnectorPoint PointX="5.25" PointY="30.490143229166669" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Rozegrane_Mecze_Klasyfikacje" >
-          <ConnectorPoint PointX="7.5" PointY="17.626152846153843" />
-          <ConnectorPoint PointX="7.8761528461538433" PointY="17.25" />
-          <ConnectorPoint PointX="9.031252" PointY="17.25" />
-          <ConnectorPoint PointX="9.031252" PointY="13.739889322916667" />
+          <ConnectorPoint PointX="3.75" PointY="28.480286458333325" />
+          <ConnectorPoint PointX="3.75" PointY="29.125" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="29.125" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="29.125" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="29.125" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="29.125" />
+          <ConnectorPoint PointX="7.875" PointY="29.125" />
+          <ConnectorPoint PointX="7.875" PointY="30.567047526041662" />
+          <ConnectorPoint PointX="8.25" PointY="30.567047526041662" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Turnieje_Klasyfikacje" >
+          <ConnectorPoint PointX="4.5" PointY="26.951797688802085" />
+          <ConnectorPoint PointX="5.25" PointY="26.951797688802085" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" >
+          <ConnectorPoint PointX="2.2499999999999996" PointY="11.989889322916667" />
+          <ConnectorPoint PointX="2.5973244349011213" PointY="12.337213757817787" />
+          <ConnectorPoint PointX="2.7151755650988791" PointY="12.455064888015546" />
+          <ConnectorPoint PointX="2.875" PointY="12.614889322916667" />
+          <ConnectorPoint PointX="2.875" PointY="14.817047526041669" />
+          <ConnectorPoint PointX="3" PointY="14.817047526041669" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Pracownicy" >
+          <ConnectorPoint PointX="2.25" PointY="11.952965245993591" />
+          <ConnectorPoint PointX="2.5892168813000822" PointY="12.203495494644214" />
+          <ConnectorPoint PointX="2.7232831186999178" PointY="12.302510754918723" />
+          <ConnectorPoint PointX="3.28125" PointY="12.714599861378206" />
+          <ConnectorPoint PointX="3.28125" PointY="12.625" />
+          <ConnectorPoint PointX="5.4015374615384619" PointY="12.625" />
+          <ConnectorPoint PointX="5.4410744349011217" PointY="12.664536973362658" />
+          <ConnectorPoint PointX="5.5589255650988791" PointY="12.782388103560416" />
+          <ConnectorPoint PointX="6.0265374615384619" PointY="13.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1" >
+          <ConnectorPoint PointX="2.2442307692307688" PointY="11.989889322916667" />
+          <ConnectorPoint PointX="2.5973244349011213" PointY="12.34298298858702" />
+          <ConnectorPoint PointX="2.7151755650988787" PointY="12.460834118784778" />
+          <ConnectorPoint PointX="2.78125" PointY="12.5269085536859" />
+          <ConnectorPoint PointX="2.78125" PointY="36.8362939453125" />
+          <ConnectorPoint PointX="3" PointY="36.8362939453125" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Punkty_Zawodnikow_Zawodnicy" >
-          <ConnectorPoint PointX="3.34375" PointY="13.672587890625003" />
-          <ConnectorPoint PointX="3.34375" PointY="14.90625" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="14.90625" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="14.90625" />
-          <ConnectorPoint PointX="6.25" PointY="14.90625" />
-        </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy" >
-          <ConnectorPoint PointX="4.5" PointY="13.622091471354171" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="13.622091471354171" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="13.622091471354171" />
-          <ConnectorPoint PointX="8.25" PointY="13.622091471354171" />
-        </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy1" >
-          <ConnectorPoint PointX="4.5" PointY="13.672587890625003" />
-          <ConnectorPoint PointX="4.625" PointY="13.797587890625003" />
-          <ConnectorPoint PointX="4.625" PointY="14.114889322916667" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="14.114889322916667" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="14.114889322916667" />
-          <ConnectorPoint PointX="7.875" PointY="14.114889322916667" />
-          <ConnectorPoint PointX="8.25" PointY="13.739889322916667" />
-        </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="2.25" PointY="12.571848958333334" />
-          <ConnectorPoint PointX="2.6979166666666665" PointY="12.571848958333334" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="12.571848958333334" />
-          <ConnectorPoint PointX="3" PointY="12.571848958333334" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="Inzynierka1Model.Rezerwacje_Kortow" Width="1.5" PointX="9" PointY="5.625" Height="3.1340950520833388" />
-        <AssociationConnector Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" >
-          <ConnectorPoint PointX="5.25" PointY="0.78124999999999989" />
-          <ConnectorPoint PointX="10.40625" PointY="0.78124999999999989" />
-          <ConnectorPoint PointX="10.40625" PointY="5.625" />
+          <ConnectorPoint PointX="4.5" PointY="29.932571614583335" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="29.932571614583335" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="29.932571614583335" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="29.932571614583335" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="29.932571614583335" />
+          <ConnectorPoint PointX="5.25" PointY="29.932571614583335" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="2.25" PointY="10.126152846153847" />
-          <ConnectorPoint PointX="2.625" PointY="9.7511528461538468" />
-          <ConnectorPoint PointX="2.625" PointY="6.9062505000000005" />
-          <ConnectorPoint PointX="2.6979166666666665" PointY="6.9062505" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="6.9062505000000005" />
-          <ConnectorPoint PointX="4.994791666666667" PointY="6.9062505" />
-          <ConnectorPoint PointX="5.161458333333333" PointY="6.9062505000000005" />
-          <ConnectorPoint PointX="9" PointY="6.9062505000000005" />
+          <ConnectorPoint PointX="2.25" PointY="13.971023763020835" />
+          <ConnectorPoint PointX="2.6979166666666665" PointY="13.971023763020833" />
+          <ConnectorPoint PointX="2.9583333333333335" PointY="13.971023763020835" />
+          <ConnectorPoint PointX="3" PointY="13.971023763020835" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Inzynierka1Model.Sparingpartnerzy" Width="1.5" PointX="3" PointY="18.625" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Trenerzy" Width="1.5" PointX="3" PointY="21.125" Height="1.9802864583333246" />
+        <AssociationConnector Association="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy" >
+          <ConnectorPoint PointX="4.5" PointY="31.641337890625003" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="31.641337890625003" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="31.641337890625003" />
+          <ConnectorPoint PointX="8.25" PointY="31.641337890625003" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy1" >
+          <ConnectorPoint PointX="4.5" PointY="29.40625" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="29.40625" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="29.40625" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="29.40625" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="29.40625" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="29.40625" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="29.40625" />
+          <ConnectorPoint PointX="8.25" PointY="29.40625" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow" >
+          <ConnectorPoint PointX="2.2499999999999996" PointY="16.710999348958339" />
+          <ConnectorPoint PointX="2.625" PointY="17.085999348958339" />
+          <ConnectorPoint PointX="2.625" PointY="16.759095052083325" />
+          <ConnectorPoint PointX="2.6979166666666665" PointY="16.759095052083325" />
+          <ConnectorPoint PointX="2.8645833333333335" PointY="16.759095052083325" />
+          <ConnectorPoint PointX="5.6261528461538468" PointY="16.759095052083325" />
+          <ConnectorPoint PointX="6.0011528461538459" PointY="16.384095052083325" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1" >
+          <ConnectorPoint PointX="2.25" PointY="13.038075923076924" />
+          <ConnectorPoint PointX="2.5" PointY="12.788075923076924" />
+          <ConnectorPoint PointX="2.5" PointY="12.5" />
+          <ConnectorPoint PointX="2.6767773437499991" PointY="12.5" />
+          <ConnectorPoint PointX="2.8434440104166661" PointY="12.5" />
+          <ConnectorPoint PointX="2.9073493755063011" PointY="12.5" />
+          <ConnectorPoint PointX="3.0740160421729681" PointY="12.5" />
+          <ConnectorPoint PointX="5.2257692307692309" PointY="12.5" />
+          <ConnectorPoint PointX="5.4410744349011217" PointY="12.715305204131889" />
+          <ConnectorPoint PointX="5.5589255650988791" PointY="12.833156334329647" />
+          <ConnectorPoint PointX="6" PointY="13.274230769230769" />
+        </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Sparingpartnerzy_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="1.3850764031356575" PointY="13.643697916666667" />
-          <ConnectorPoint PointX="1.3850764031356575" PointY="19.518992513020834" />
-          <ConnectorPoint PointX="1.7654573682344956" PointY="19.518992513020834" />
-          <ConnectorPoint PointX="1.9321240349011621" PointY="19.518992513020834" />
-          <ConnectorPoint PointX="2.6979166666666665" PointY="19.518992513020834" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="19.518992513020834" />
-          <ConnectorPoint PointX="3" PointY="19.518992513020834" />
+          <ConnectorPoint PointX="1.4687474999999997" PointY="16.710999348958339" />
+          <ConnectorPoint PointX="1.4687474999999997" PointY="21.018992513020834" />
+          <ConnectorPoint PointX="1.7760404166666663" PointY="21.018992513020834" />
+          <ConnectorPoint PointX="1.9427070833333329" PointY="21.018992513020834" />
+          <ConnectorPoint PointX="2.6979166666666665" PointY="21.018992513020834" />
+          <ConnectorPoint PointX="2.8645833333333335" PointY="21.018992513020834" />
+          <ConnectorPoint PointX="3" PointY="21.018992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Sprzet_Typy" >
+          <ConnectorPoint PointX="2.25" PointY="4.595683593749996" />
+          <ConnectorPoint PointX="2.25" PointY="5.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" >
+          <ConnectorPoint PointX="3" PointY="6.8074446614583337" />
+          <ConnectorPoint PointX="3.75" PointY="6.8074446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" >
+          <ConnectorPoint PointX="4.90625" PointY="8.24949218750001" />
+          <ConnectorPoint PointX="4.90625" PointY="12.025940755208334" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="12.025940755208334" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="12.025940755208334" />
+          <ConnectorPoint PointX="6" PointY="12.025940755208334" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Trenerzy_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="1.8487907015678289" PointY="13.643697916666667" />
-          <ConnectorPoint PointX="1.8487907015678289" PointY="22.115143229166662" />
-          <ConnectorPoint PointX="2.6979166666666665" PointY="22.115143229166662" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="22.115143229166662" />
-          <ConnectorPoint PointX="3" PointY="22.115143229166662" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="Inzynierka1Model.Sprzet" Width="1.5" PointX="3.75" PointY="24.5" Height="2.3648893229166674" />
-        <AssociationConnector Association="Inzynierka1Model.FK_Sprzet_Typy" >
-          <ConnectorPoint PointX="2.78125" PointY="3.4706835937500031" />
-          <ConnectorPoint PointX="2.78125" PointY="25.682444661458334" />
-          <ConnectorPoint PointX="3.75" PointY="25.682444661458334" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="Inzynierka1Model.Stan_Magazynowy" Width="1.5" PointX="6" PointY="24.25" Height="2.7494921875000031" />
-        <AssociationConnector Association="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" >
-          <ConnectorPoint PointX="5.25" PointY="25.682444661458334" />
-          <ConnectorPoint PointX="6" PointY="25.682444661458334" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="Inzynierka1Model.Wypozyczone" Width="1.5" PointX="8.25" PointY="18" Height="3.1340950520833388" />
-        <AssociationConnector Association="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" >
-          <ConnectorPoint PointX="7.5" PointY="25.624746093749998" />
-          <ConnectorPoint PointX="9" PointY="25.624746093749998" />
-          <ConnectorPoint PointX="9" PointY="21.134095052083339" />
+          <ConnectorPoint PointX="1.8593737499999996" PointY="16.710999348958339" />
+          <ConnectorPoint PointX="1.8593737499999996" PointY="23.740143229166662" />
+          <ConnectorPoint PointX="2.6979166666666665" PointY="23.740143229166662" />
+          <ConnectorPoint PointX="2.8645833333333335" PointY="23.740143229166662" />
+          <ConnectorPoint PointX="3" PointY="23.740143229166662" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="1.0362857015678286" PointY="13.643697916666667" />
-          <ConnectorPoint PointX="1.0362857015678286" PointY="20.768992513020834" />
-          <ConnectorPoint PointX="1.7654573682344956" PointY="20.768992513020834" />
-          <ConnectorPoint PointX="1.9321240349011621" PointY="20.768992513020834" />
-          <ConnectorPoint PointX="2.6979166666666665" PointY="20.768992513020834" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="20.768992513020834" />
-          <ConnectorPoint PointX="8.25" PointY="20.768992513020834" />
+          <ConnectorPoint PointX="2.25" PointY="13.001152846153847" />
+          <ConnectorPoint PointX="2.375" PointY="12.625" />
+          <ConnectorPoint PointX="2.375" PointY="12.759095052083339" />
+          <ConnectorPoint PointX="2.6979166666666665" PointY="12.759095052083337" />
+          <ConnectorPoint PointX="2.9583333333333335" PointY="12.759095052083339" />
+          <ConnectorPoint PointX="5.4015309495192367" PointY="12.759095052083339" />
+          <ConnectorPoint PointX="5.6189658469551338" PointY="12.759095052083339" />
+          <ConnectorPoint PointX="5.6261528461538468" PointY="12.759095052083339" />
+          <ConnectorPoint PointX="6.0011528461538459" PointY="12.384095052083339" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Inzynierka1Model.Informacje" Width="1.5" PointX="0.75" PointY="4.75" Height="1.5956835937500031" />
-        </Diagram>
+        <AssociationConnector Association="Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow" >
+          <ConnectorPoint PointX="1.0781212499999997" PointY="16.710999348958339" />
+          <ConnectorPoint PointX="1.0781212499999997" PointY="30.557444661458334" />
+          <ConnectorPoint PointX="2.6979166666666665" PointY="30.557444661458334" />
+          <ConnectorPoint PointX="2.8645833333333335" PointY="30.557444661458334" />
+          <ConnectorPoint PointX="3" PointY="30.557444661458334" />
+        </AssociationConnector>
+      </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>

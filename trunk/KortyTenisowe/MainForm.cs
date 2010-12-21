@@ -275,5 +275,48 @@ namespace KortyTenisowe
                 wypozycz.ShowDialog();
         }
 
+private void rbtObslugaTurnieju_Click(object sender, EventArgs e)
+        {
+            KortyTenisowe.ObslugaTurniejuForm ObslugaTurnieju = new KortyTenisowe.ObslugaTurniejuForm();
+            ObslugaTurnieju.Activate();
+            ObslugaTurnieju.ShowDialog();
+
+        }
+
+        private void rbtDodajTurniej_Click(object sender, EventArgs e)
+        {
+            KortyTenisowe.DodajTurniejForm DodajTurniej = new KortyTenisowe.DodajTurniejForm();
+            DodajTurniej.Activate();
+            DodajTurniej.ShowDialog();
+        }
+
+        private void rbtUsunTurniej_Click(object sender, EventArgs e)
+        {
+            KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm();
+            Usun.Activate();
+            Usun.ShowDialog();
+        }
+
+        private void rbtDodajKlasyfikacje_Click(object sender, EventArgs e)
+        {
+            KortyTenisowe.DodajKlasyfikacjeForm DodajKlasyfikacje = new KortyTenisowe.DodajKlasyfikacjeForm();
+            DodajKlasyfikacje.Activate();
+            DodajKlasyfikacje.ShowDialog();
+        }
+
+        private void rbtUsunKlasyfikacje_Click(object sender, EventArgs e)
+        {
+            KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm();
+            Usun.Activate();
+            Usun.ShowDialog();
+        }
+
+        private void rbtWynikiSpotkan_Click(object sender, EventArgs e)
+        {
+            KortyTenisowe.WynikiForm Wyniki = new KortyTenisowe.WynikiForm();
+            Wyniki.Activate();
+            Wyniki.ShowDialog();
+        }
+
     }
 }

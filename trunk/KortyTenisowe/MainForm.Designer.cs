@@ -55,6 +55,14 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn24 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn25 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn26 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn27 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn28 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn29 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn30 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn31 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn32 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn33 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn34 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.tcMainForm = new System.Windows.Forms.TabControl();
             this.tabKorty = new System.Windows.Forms.TabPage();
             this.dgKorty = new System.Windows.Forms.DataGridView();
@@ -89,17 +97,32 @@
             this.rtbIDProduktu = new Telerik.WinControls.UI.RadTextBox();
             this.rddlKategorieMagazyn = new Telerik.WinControls.UI.RadDropDownList();
             this.rgvMagazyn = new Telerik.WinControls.UI.RadGridView();
-            this.tabZarzadzanie = new System.Windows.Forms.TabPage();
-            this.btDodajKlienta = new System.Windows.Forms.Button();
-            this.btDodajPracownika = new System.Windows.Forms.Button();
+            this.tabTurnieje = new System.Windows.Forms.TabPage();
+            this.rbtEdytujTurniej = new Telerik.WinControls.UI.RadButton();
+            this.rbtUsunTurniej = new Telerik.WinControls.UI.RadButton();
+            this.rbtObslugaTurnieju = new Telerik.WinControls.UI.RadButton();
+            this.rgvTurnieje = new Telerik.WinControls.UI.RadGridView();
+            this.rbtDodajTurniej = new Telerik.WinControls.UI.RadButton();
+            this.tabKlasyfikacje = new System.Windows.Forms.TabPage();
+            this.rDDLWybierzTurniej = new Telerik.WinControls.UI.RadDropDownList();
+            this.rbtUsunKlasyfikacje = new Telerik.WinControls.UI.RadButton();
+            this.rbtWynikiSpotkan = new Telerik.WinControls.UI.RadButton();
+            this.rbtEdytujKlasyfikacje = new Telerik.WinControls.UI.RadButton();
+            this.rlbKlasyfikacje = new Telerik.WinControls.UI.RadLabel();
+            this.rlbWybierzTurniej = new Telerik.WinControls.UI.RadLabel();
+            this.rgvKlasyfikacje = new Telerik.WinControls.UI.RadGridView();
+            this.rbtDodajKlasyfikacje = new Telerik.WinControls.UI.RadButton();
             this.tabWypozyczalnia = new System.Windows.Forms.TabPage();
+            this.rchbNadchodzace = new Telerik.WinControls.UI.RadCheckBox();
             this.rlblStan = new Telerik.WinControls.UI.RadLabel();
             this.rddlStan = new Telerik.WinControls.UI.RadDropDownList();
             this.rgvWypozyczalnia = new Telerik.WinControls.UI.RadGridView();
+            this.tabZarzadzanie = new System.Windows.Forms.TabPage();
+            this.btDodajKlienta = new System.Windows.Forms.Button();
+            this.btDodajPracownika = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rchbNadchodzace = new Telerik.WinControls.UI.RadCheckBox();
             this.tcMainForm.SuspendLayout();
             this.tabKorty.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgKorty)).BeginInit();
@@ -128,13 +151,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.rtbIDProduktu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rddlKategorieMagazyn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgvMagazyn)).BeginInit();
-            this.tabZarzadzanie.SuspendLayout();
+            this.tabTurnieje.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtEdytujTurniej)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtUsunTurniej)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtObslugaTurnieju)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgvTurnieje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtDodajTurniej)).BeginInit();
+            this.tabKlasyfikacje.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rDDLWybierzTurniej)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtUsunKlasyfikacje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtWynikiSpotkan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtEdytujKlasyfikacje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlbKlasyfikacje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlbWybierzTurniej)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgvKlasyfikacje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtDodajKlasyfikacje)).BeginInit();
             this.tabWypozyczalnia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rchbNadchodzace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rlblStan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rddlStan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgvWypozyczalnia)).BeginInit();
+            this.tabZarzadzanie.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rchbNadchodzace)).BeginInit();
             this.SuspendLayout();
             // 
             // tcMainForm
@@ -142,6 +180,8 @@
             this.tcMainForm.Controls.Add(this.tabKorty);
             this.tcMainForm.Controls.Add(this.tabSprzet);
             this.tcMainForm.Controls.Add(this.tabMagazyn);
+            this.tcMainForm.Controls.Add(this.tabTurnieje);
+            this.tcMainForm.Controls.Add(this.tabKlasyfikacje);
             this.tcMainForm.Controls.Add(this.tabWypozyczalnia);
             this.tcMainForm.Controls.Add(this.tabZarzadzanie);
             resources.ApplyResources(this.tcMainForm, "tcMainForm");
@@ -210,18 +250,13 @@
             // 
             // rgvKorty
             // 
-            resources.ApplyResources(gridViewTextBoxColumn1, "gridViewTextBoxColumn1");
             gridViewTextBoxColumn1.Name = "godzina";
-            resources.ApplyResources(gridViewTextBoxColumn2, "gridViewTextBoxColumn2");
             gridViewTextBoxColumn2.Name = "kort1";
             gridViewTextBoxColumn2.Width = 100;
-            resources.ApplyResources(gridViewTextBoxColumn3, "gridViewTextBoxColumn3");
             gridViewTextBoxColumn3.Name = "kort2";
             gridViewTextBoxColumn3.Width = 100;
-            resources.ApplyResources(gridViewTextBoxColumn4, "gridViewTextBoxColumn4");
             gridViewTextBoxColumn4.Name = "kort3";
             gridViewTextBoxColumn4.Width = 100;
-            resources.ApplyResources(gridViewTextBoxColumn5, "gridViewTextBoxColumn5");
             gridViewTextBoxColumn5.Name = "kort4";
             gridViewTextBoxColumn5.Width = 100;
             this.rgvKorty.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
@@ -392,15 +427,11 @@
             // 
             // rgvSprzet
             // 
-            resources.ApplyResources(gridViewTextBoxColumn6, "gridViewTextBoxColumn6");
             gridViewTextBoxColumn6.Name = "Id";
-            resources.ApplyResources(gridViewTextBoxColumn7, "gridViewTextBoxColumn7");
             gridViewTextBoxColumn7.Name = "Marka";
             gridViewTextBoxColumn7.Width = 100;
-            resources.ApplyResources(gridViewTextBoxColumn8, "gridViewTextBoxColumn8");
             gridViewTextBoxColumn8.Name = "Model";
             gridViewTextBoxColumn8.Width = 100;
-            resources.ApplyResources(gridViewTextBoxColumn9, "gridViewTextBoxColumn9");
             gridViewTextBoxColumn9.Name = "Opis";
             gridViewTextBoxColumn9.Width = 300;
             this.rgvSprzet.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
@@ -597,38 +628,30 @@
             // rgvMagazyn
             // 
             gridViewTextBoxColumn10.AllowResize = false;
-            resources.ApplyResources(gridViewTextBoxColumn10, "gridViewTextBoxColumn10");
             gridViewTextBoxColumn10.Name = "Nr";
             gridViewTextBoxColumn10.ReadOnly = true;
             gridViewTextBoxColumn11.AllowResize = false;
-            resources.ApplyResources(gridViewTextBoxColumn11, "gridViewTextBoxColumn11");
             gridViewTextBoxColumn11.Name = "ID";
             gridViewTextBoxColumn11.ReadOnly = true;
             gridViewTextBoxColumn11.Width = 80;
             gridViewTextBoxColumn12.AllowResize = false;
-            resources.ApplyResources(gridViewTextBoxColumn12, "gridViewTextBoxColumn12");
             gridViewTextBoxColumn12.Name = "Ilosc";
             gridViewTextBoxColumn12.ReadOnly = true;
             gridViewTextBoxColumn13.AllowResize = false;
-            resources.ApplyResources(gridViewTextBoxColumn13, "gridViewTextBoxColumn13");
             gridViewTextBoxColumn13.Name = "Rozmiar";
             gridViewTextBoxColumn13.ReadOnly = true;
             gridViewTextBoxColumn14.AllowResize = false;
-            resources.ApplyResources(gridViewTextBoxColumn14, "gridViewTextBoxColumn14");
             gridViewTextBoxColumn14.Name = "Cena";
             gridViewTextBoxColumn14.ReadOnly = true;
             gridViewTextBoxColumn15.AllowResize = false;
-            resources.ApplyResources(gridViewTextBoxColumn15, "gridViewTextBoxColumn15");
             gridViewTextBoxColumn15.Name = "Kolor";
             gridViewTextBoxColumn15.ReadOnly = true;
             gridViewTextBoxColumn15.Width = 70;
             gridViewTextBoxColumn16.AllowResize = false;
-            resources.ApplyResources(gridViewTextBoxColumn16, "gridViewTextBoxColumn16");
             gridViewTextBoxColumn16.Name = "Sprzedaz";
             gridViewTextBoxColumn16.ReadOnly = true;
             gridViewTextBoxColumn16.Width = 100;
             gridViewTextBoxColumn17.AllowResize = false;
-            resources.ApplyResources(gridViewTextBoxColumn17, "gridViewTextBoxColumn17");
             gridViewTextBoxColumn17.Name = "Wypozyczenie";
             gridViewTextBoxColumn17.ReadOnly = true;
             gridViewTextBoxColumn17.Width = 100;
@@ -655,33 +678,142 @@
             this.rgvMagazyn.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rgvMagazyn.RootElement.TextOrientation")));
             this.rgvMagazyn.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.rgvMagazyn_CellClick);
             // 
-            // tabZarzadzanie
+            // tabTurnieje
             // 
-            this.tabZarzadzanie.BackgroundImage = global::KortyTenisowe.Properties.Resources.tlo1;
-            resources.ApplyResources(this.tabZarzadzanie, "tabZarzadzanie");
-            this.tabZarzadzanie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabZarzadzanie.Controls.Add(this.btDodajKlienta);
-            this.tabZarzadzanie.Controls.Add(this.btDodajPracownika);
-            this.tabZarzadzanie.Name = "tabZarzadzanie";
-            this.tabZarzadzanie.UseVisualStyleBackColor = true;
+            this.tabTurnieje.Controls.Add(this.rbtEdytujTurniej);
+            this.tabTurnieje.Controls.Add(this.rbtUsunTurniej);
+            this.tabTurnieje.Controls.Add(this.rbtObslugaTurnieju);
+            this.tabTurnieje.Controls.Add(this.rgvTurnieje);
+            this.tabTurnieje.Controls.Add(this.rbtDodajTurniej);
+            resources.ApplyResources(this.tabTurnieje, "tabTurnieje");
+            this.tabTurnieje.Name = "tabTurnieje";
+            this.tabTurnieje.UseVisualStyleBackColor = true;
             // 
-            // btDodajKlienta
+            // rbtEdytujTurniej
             // 
-            this.btDodajKlienta.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.btDodajKlienta, "btDodajKlienta");
-            this.btDodajKlienta.ForeColor = System.Drawing.Color.Transparent;
-            this.btDodajKlienta.Name = "btDodajKlienta";
-            this.btDodajKlienta.UseVisualStyleBackColor = true;
-            this.btDodajKlienta.Click += new System.EventHandler(this.btDodajKlienta_Click_1);
+            resources.ApplyResources(this.rbtEdytujTurniej, "rbtEdytujTurniej");
+            this.rbtEdytujTurniej.Name = "rbtEdytujTurniej";
             // 
-            // btDodajPracownika
+            // rbtUsunTurniej
             // 
-            this.btDodajPracownika.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.btDodajPracownika, "btDodajPracownika");
-            this.btDodajPracownika.ForeColor = System.Drawing.Color.Transparent;
-            this.btDodajPracownika.Name = "btDodajPracownika";
-            this.btDodajPracownika.UseVisualStyleBackColor = true;
-            this.btDodajPracownika.Click += new System.EventHandler(this.btDodajPracownika_Click);
+            resources.ApplyResources(this.rbtUsunTurniej, "rbtUsunTurniej");
+            this.rbtUsunTurniej.Name = "rbtUsunTurniej";
+            this.rbtUsunTurniej.Click += new System.EventHandler(this.rbtUsunTurniej_Click);
+            // 
+            // rbtObslugaTurnieju
+            // 
+            resources.ApplyResources(this.rbtObslugaTurnieju, "rbtObslugaTurnieju");
+            this.rbtObslugaTurnieju.Name = "rbtObslugaTurnieju";
+            this.rbtObslugaTurnieju.Click += new System.EventHandler(this.rbtObslugaTurnieju_Click);
+            // 
+            // rgvTurnieje
+            // 
+            resources.ApplyResources(this.rgvTurnieje, "rgvTurnieje");
+            // 
+            // rgvTurnieje
+            // 
+            resources.ApplyResources(gridViewTextBoxColumn18, "gridViewTextBoxColumn18");
+            gridViewTextBoxColumn18.Name = "Id";
+            gridViewTextBoxColumn18.Width = 85;
+            resources.ApplyResources(gridViewTextBoxColumn19, "gridViewTextBoxColumn19");
+            gridViewTextBoxColumn19.Name = "Nazwa";
+            gridViewTextBoxColumn19.Width = 150;
+            resources.ApplyResources(gridViewTextBoxColumn20, "gridViewTextBoxColumn20");
+            gridViewTextBoxColumn20.Name = "Opis";
+            gridViewTextBoxColumn20.Width = 250;
+            resources.ApplyResources(gridViewTextBoxColumn21, "gridViewTextBoxColumn21");
+            gridViewTextBoxColumn21.Name = "Kategoria";
+            gridViewTextBoxColumn21.Width = 100;
+            this.rgvTurnieje.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn18,
+            gridViewTextBoxColumn19,
+            gridViewTextBoxColumn20,
+            gridViewTextBoxColumn21});
+            this.rgvTurnieje.Name = "rgvTurnieje";
+            this.rgvTurnieje.ReadOnly = true;
+            // 
+            // rbtDodajTurniej
+            // 
+            resources.ApplyResources(this.rbtDodajTurniej, "rbtDodajTurniej");
+            this.rbtDodajTurniej.Name = "rbtDodajTurniej";
+            this.rbtDodajTurniej.Click += new System.EventHandler(this.rbtDodajTurniej_Click);
+            // 
+            // tabKlasyfikacje
+            // 
+            this.tabKlasyfikacje.Controls.Add(this.rDDLWybierzTurniej);
+            this.tabKlasyfikacje.Controls.Add(this.rbtUsunKlasyfikacje);
+            this.tabKlasyfikacje.Controls.Add(this.rbtWynikiSpotkan);
+            this.tabKlasyfikacje.Controls.Add(this.rbtEdytujKlasyfikacje);
+            this.tabKlasyfikacje.Controls.Add(this.rlbKlasyfikacje);
+            this.tabKlasyfikacje.Controls.Add(this.rlbWybierzTurniej);
+            this.tabKlasyfikacje.Controls.Add(this.rgvKlasyfikacje);
+            this.tabKlasyfikacje.Controls.Add(this.rbtDodajKlasyfikacje);
+            resources.ApplyResources(this.tabKlasyfikacje, "tabKlasyfikacje");
+            this.tabKlasyfikacje.Name = "tabKlasyfikacje";
+            this.tabKlasyfikacje.UseVisualStyleBackColor = true;
+            // 
+            // rDDLWybierzTurniej
+            // 
+            resources.ApplyResources(this.rDDLWybierzTurniej, "rDDLWybierzTurniej");
+            this.rDDLWybierzTurniej.Name = "rDDLWybierzTurniej";
+            // 
+            // rbtUsunKlasyfikacje
+            // 
+            resources.ApplyResources(this.rbtUsunKlasyfikacje, "rbtUsunKlasyfikacje");
+            this.rbtUsunKlasyfikacje.Name = "rbtUsunKlasyfikacje";
+            this.rbtUsunKlasyfikacje.Click += new System.EventHandler(this.rbtUsunKlasyfikacje_Click);
+            // 
+            // rbtWynikiSpotkan
+            // 
+            resources.ApplyResources(this.rbtWynikiSpotkan, "rbtWynikiSpotkan");
+            this.rbtWynikiSpotkan.Name = "rbtWynikiSpotkan";
+            this.rbtWynikiSpotkan.Click += new System.EventHandler(this.rbtWynikiSpotkan_Click);
+            // 
+            // rbtEdytujKlasyfikacje
+            // 
+            resources.ApplyResources(this.rbtEdytujKlasyfikacje, "rbtEdytujKlasyfikacje");
+            this.rbtEdytujKlasyfikacje.Name = "rbtEdytujKlasyfikacje";
+            // 
+            // rlbKlasyfikacje
+            // 
+            resources.ApplyResources(this.rlbKlasyfikacje, "rlbKlasyfikacje");
+            this.rlbKlasyfikacje.Name = "rlbKlasyfikacje";
+            // 
+            // rlbWybierzTurniej
+            // 
+            resources.ApplyResources(this.rlbWybierzTurniej, "rlbWybierzTurniej");
+            this.rlbWybierzTurniej.Name = "rlbWybierzTurniej";
+            // 
+            // rgvKlasyfikacje
+            // 
+            resources.ApplyResources(this.rgvKlasyfikacje, "rgvKlasyfikacje");
+            // 
+            // rgvKlasyfikacje
+            // 
+            resources.ApplyResources(gridViewTextBoxColumn22, "gridViewTextBoxColumn22");
+            gridViewTextBoxColumn22.Name = "Id";
+            resources.ApplyResources(gridViewTextBoxColumn23, "gridViewTextBoxColumn23");
+            gridViewTextBoxColumn23.Name = "Imie";
+            gridViewTextBoxColumn23.Width = 150;
+            resources.ApplyResources(gridViewTextBoxColumn24, "gridViewTextBoxColumn24");
+            gridViewTextBoxColumn24.Name = "Nazwisko";
+            gridViewTextBoxColumn24.Width = 240;
+            resources.ApplyResources(gridViewTextBoxColumn25, "gridViewTextBoxColumn25");
+            gridViewTextBoxColumn25.Name = "Punkty";
+            gridViewTextBoxColumn25.Width = 100;
+            this.rgvKlasyfikacje.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn22,
+            gridViewTextBoxColumn23,
+            gridViewTextBoxColumn24,
+            gridViewTextBoxColumn25});
+            this.rgvKlasyfikacje.Name = "rgvKlasyfikacje";
+            this.rgvKlasyfikacje.ReadOnly = true;
+            // 
+            // rbtDodajKlasyfikacje
+            // 
+            resources.ApplyResources(this.rbtDodajKlasyfikacje, "rbtDodajKlasyfikacje");
+            this.rbtDodajKlasyfikacje.Name = "rbtDodajKlasyfikacje";
+            this.rbtDodajKlasyfikacje.Click += new System.EventHandler(this.rbtDodajKlasyfikacje_Click);
             // 
             // tabWypozyczalnia
             // 
@@ -692,6 +824,11 @@
             resources.ApplyResources(this.tabWypozyczalnia, "tabWypozyczalnia");
             this.tabWypozyczalnia.Name = "tabWypozyczalnia";
             this.tabWypozyczalnia.UseVisualStyleBackColor = true;
+            // 
+            // rchbNadchodzace
+            // 
+            resources.ApplyResources(this.rchbNadchodzace, "rchbNadchodzace");
+            this.rchbNadchodzace.Name = "rchbNadchodzace";
             // 
             // rlblStan
             // 
@@ -731,41 +868,32 @@
             // 
             // rgvWypozyczalnia
             // 
-            resources.ApplyResources(gridViewTextBoxColumn18, "gridViewTextBoxColumn18");
-            gridViewTextBoxColumn18.Name = "ID_Wypozyczenia";
-            gridViewTextBoxColumn19.AllowResize = false;
-            resources.ApplyResources(gridViewTextBoxColumn19, "gridViewTextBoxColumn19");
-            gridViewTextBoxColumn19.Name = "Nr";
-            gridViewTextBoxColumn19.ReadOnly = true;
-            resources.ApplyResources(gridViewTextBoxColumn20, "gridViewTextBoxColumn20");
-            gridViewTextBoxColumn20.Name = "ID_Klienta";
-            gridViewTextBoxColumn20.Width = 80;
-            resources.ApplyResources(gridViewTextBoxColumn21, "gridViewTextBoxColumn21");
-            gridViewTextBoxColumn21.Name = "Data_rozp";
-            gridViewTextBoxColumn21.Width = 75;
-            resources.ApplyResources(gridViewTextBoxColumn22, "gridViewTextBoxColumn22");
-            gridViewTextBoxColumn22.Name = "Godz_rozp";
-            resources.ApplyResources(gridViewTextBoxColumn23, "gridViewTextBoxColumn23");
-            gridViewTextBoxColumn23.Name = "Data_zak";
-            gridViewTextBoxColumn23.Width = 75;
-            resources.ApplyResources(gridViewTextBoxColumn24, "gridViewTextBoxColumn24");
-            gridViewTextBoxColumn24.Name = "Godz_zak";
-            resources.ApplyResources(gridViewTextBoxColumn25, "gridViewTextBoxColumn25");
-            gridViewTextBoxColumn25.Name = "Wypozyczono";
-            gridViewTextBoxColumn25.Width = 80;
-            resources.ApplyResources(gridViewTextBoxColumn26, "gridViewTextBoxColumn26");
-            gridViewTextBoxColumn26.Name = "Zwrocono";
-            gridViewTextBoxColumn26.Width = 75;
+            gridViewTextBoxColumn26.Name = "ID_Wypozyczenia";
+            gridViewTextBoxColumn27.AllowResize = false;
+            gridViewTextBoxColumn27.Name = "Nr";
+            gridViewTextBoxColumn27.ReadOnly = true;
+            gridViewTextBoxColumn28.Name = "ID_Klienta";
+            gridViewTextBoxColumn28.Width = 80;
+            gridViewTextBoxColumn29.Name = "Data_rozp";
+            gridViewTextBoxColumn29.Width = 75;
+            gridViewTextBoxColumn30.Name = "Godz_rozp";
+            gridViewTextBoxColumn31.Name = "Data_zak";
+            gridViewTextBoxColumn31.Width = 75;
+            gridViewTextBoxColumn32.Name = "Godz_zak";
+            gridViewTextBoxColumn33.Name = "Wypozyczono";
+            gridViewTextBoxColumn33.Width = 80;
+            gridViewTextBoxColumn34.Name = "Zwrocono";
+            gridViewTextBoxColumn34.Width = 75;
             this.rgvWypozyczalnia.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn18,
-            gridViewTextBoxColumn19,
-            gridViewTextBoxColumn20,
-            gridViewTextBoxColumn21,
-            gridViewTextBoxColumn22,
-            gridViewTextBoxColumn23,
-            gridViewTextBoxColumn24,
-            gridViewTextBoxColumn25,
-            gridViewTextBoxColumn26});
+            gridViewTextBoxColumn26,
+            gridViewTextBoxColumn27,
+            gridViewTextBoxColumn28,
+            gridViewTextBoxColumn29,
+            gridViewTextBoxColumn30,
+            gridViewTextBoxColumn31,
+            gridViewTextBoxColumn32,
+            gridViewTextBoxColumn33,
+            gridViewTextBoxColumn34});
             this.rgvWypozyczalnia.Name = "rgvWypozyczalnia";
             this.rgvWypozyczalnia.ReadOnly = true;
             // 
@@ -778,6 +906,34 @@
             this.rgvWypozyczalnia.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rgvWypozyczalnia.RootElement.Padding")));
             this.rgvWypozyczalnia.RootElement.Text = resources.GetString("rgvWypozyczalnia.RootElement.Text");
             this.rgvWypozyczalnia.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rgvWypozyczalnia.RootElement.TextOrientation")));
+            // 
+            // tabZarzadzanie
+            // 
+            this.tabZarzadzanie.BackgroundImage = global::KortyTenisowe.Properties.Resources.tlo1;
+            resources.ApplyResources(this.tabZarzadzanie, "tabZarzadzanie");
+            this.tabZarzadzanie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabZarzadzanie.Controls.Add(this.btDodajKlienta);
+            this.tabZarzadzanie.Controls.Add(this.btDodajPracownika);
+            this.tabZarzadzanie.Name = "tabZarzadzanie";
+            this.tabZarzadzanie.UseVisualStyleBackColor = true;
+            // 
+            // btDodajKlienta
+            // 
+            this.btDodajKlienta.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.btDodajKlienta, "btDodajKlienta");
+            this.btDodajKlienta.ForeColor = System.Drawing.Color.Transparent;
+            this.btDodajKlienta.Name = "btDodajKlienta";
+            this.btDodajKlienta.UseVisualStyleBackColor = true;
+            this.btDodajKlienta.Click += new System.EventHandler(this.btDodajKlienta_Click_1);
+            // 
+            // btDodajPracownika
+            // 
+            this.btDodajPracownika.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.btDodajPracownika, "btDodajPracownika");
+            this.btDodajPracownika.ForeColor = System.Drawing.Color.Transparent;
+            this.btDodajPracownika.Name = "btDodajPracownika";
+            this.btDodajPracownika.UseVisualStyleBackColor = true;
+            this.btDodajPracownika.Click += new System.EventHandler(this.btDodajPracownika_Click);
             // 
             // menuStrip1
             // 
@@ -798,11 +954,6 @@
             this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
             resources.ApplyResources(this.zakończToolStripMenuItem, "zakończToolStripMenuItem");
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
-            // 
-            // rchbNadchodzace
-            // 
-            resources.ApplyResources(this.rchbNadchodzace, "rchbNadchodzace");
-            this.rchbNadchodzace.Name = "rchbNadchodzace";
             // 
             // MainForm
             // 
@@ -844,15 +995,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.rtbIDProduktu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rddlKategorieMagazyn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgvMagazyn)).EndInit();
-            this.tabZarzadzanie.ResumeLayout(false);
+            this.tabTurnieje.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rbtEdytujTurniej)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtUsunTurniej)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtObslugaTurnieju)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgvTurnieje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtDodajTurniej)).EndInit();
+            this.tabKlasyfikacje.ResumeLayout(false);
+            this.tabKlasyfikacje.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rDDLWybierzTurniej)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtUsunKlasyfikacje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtWynikiSpotkan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtEdytujKlasyfikacje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlbKlasyfikacje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlbWybierzTurniej)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgvKlasyfikacje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtDodajKlasyfikacje)).EndInit();
             this.tabWypozyczalnia.ResumeLayout(false);
             this.tabWypozyczalnia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rchbNadchodzace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rlblStan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rddlStan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgvWypozyczalnia)).EndInit();
+            this.tabZarzadzanie.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rchbNadchodzace)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -905,5 +1072,20 @@
         private Telerik.WinControls.UI.RadDropDownList rddlStan;
         private Telerik.WinControls.UI.RadButton rbtWypozycz;
         private Telerik.WinControls.UI.RadCheckBox rchbNadchodzace;
+        private System.Windows.Forms.TabPage tabTurnieje;
+        private Telerik.WinControls.UI.RadButton rbtEdytujTurniej;
+        private Telerik.WinControls.UI.RadButton rbtUsunTurniej;
+        private Telerik.WinControls.UI.RadButton rbtObslugaTurnieju;
+        private Telerik.WinControls.UI.RadGridView rgvTurnieje;
+        private Telerik.WinControls.UI.RadButton rbtDodajTurniej;
+        private System.Windows.Forms.TabPage tabKlasyfikacje;
+        private Telerik.WinControls.UI.RadDropDownList rDDLWybierzTurniej;
+        private Telerik.WinControls.UI.RadButton rbtUsunKlasyfikacje;
+        private Telerik.WinControls.UI.RadButton rbtWynikiSpotkan;
+        private Telerik.WinControls.UI.RadButton rbtEdytujKlasyfikacje;
+        private Telerik.WinControls.UI.RadLabel rlbKlasyfikacje;
+        private Telerik.WinControls.UI.RadLabel rlbWybierzTurniej;
+        private Telerik.WinControls.UI.RadGridView rgvKlasyfikacje;
+        private Telerik.WinControls.UI.RadButton rbtDodajKlasyfikacje;
     }
 }
