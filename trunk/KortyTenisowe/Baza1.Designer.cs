@@ -3899,6 +3899,30 @@ namespace KortyTenisowe
         private global::System.String _Opis;
         partial void OnOpisChanging(global::System.String value);
         partial void OnOpisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Nazwa
+        {
+            get
+            {
+                return _Nazwa;
+            }
+            set
+            {
+                OnNazwaChanging(value);
+                ReportPropertyChanging("Nazwa");
+                _Nazwa = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Nazwa");
+                OnNazwaChanged();
+            }
+        }
+        private global::System.String _Nazwa;
+        partial void OnNazwaChanging(global::System.String value);
+        partial void OnNazwaChanged();
 
         #endregion
     
@@ -4998,11 +5022,19 @@ namespace KortyTenisowe
         /// </summary>
         /// <param name="iD_Zawodnika">Initial value of the ID_Zawodnika property.</param>
         /// <param name="iD_Turnieju">Initial value of the ID_Turnieju property.</param>
-        public static Zawodnicy CreateZawodnicy(global::System.Int32 iD_Zawodnika, global::System.Int32 iD_Turnieju)
+        /// <param name="imie">Initial value of the Imie property.</param>
+        /// <param name="nazwisko">Initial value of the Nazwisko property.</param>
+        /// <param name="telefon">Initial value of the Telefon property.</param>
+        /// <param name="email">Initial value of the Email property.</param>
+        public static Zawodnicy CreateZawodnicy(global::System.Int32 iD_Zawodnika, global::System.Int32 iD_Turnieju, global::System.String imie, global::System.String nazwisko, global::System.String telefon, global::System.String email)
         {
             Zawodnicy zawodnicy = new Zawodnicy();
             zawodnicy.ID_Zawodnika = iD_Zawodnika;
             zawodnicy.ID_Turnieju = iD_Turnieju;
+            zawodnicy.Imie = imie;
+            zawodnicy.Nazwisko = nazwisko;
+            zawodnicy.Telefon = telefon;
+            zawodnicy.Email = email;
             return zawodnicy;
         }
 
@@ -5083,6 +5115,102 @@ namespace KortyTenisowe
         private global::System.Int32 _ID_Turnieju;
         partial void OnID_TurniejuChanging(global::System.Int32 value);
         partial void OnID_TurniejuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Imie
+        {
+            get
+            {
+                return _Imie;
+            }
+            set
+            {
+                OnImieChanging(value);
+                ReportPropertyChanging("Imie");
+                _Imie = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Imie");
+                OnImieChanged();
+            }
+        }
+        private global::System.String _Imie;
+        partial void OnImieChanging(global::System.String value);
+        partial void OnImieChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Nazwisko
+        {
+            get
+            {
+                return _Nazwisko;
+            }
+            set
+            {
+                OnNazwiskoChanging(value);
+                ReportPropertyChanging("Nazwisko");
+                _Nazwisko = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Nazwisko");
+                OnNazwiskoChanged();
+            }
+        }
+        private global::System.String _Nazwisko;
+        partial void OnNazwiskoChanging(global::System.String value);
+        partial void OnNazwiskoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Telefon
+        {
+            get
+            {
+                return _Telefon;
+            }
+            set
+            {
+                OnTelefonChanging(value);
+                ReportPropertyChanging("Telefon");
+                _Telefon = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Telefon");
+                OnTelefonChanged();
+            }
+        }
+        private global::System.String _Telefon;
+        partial void OnTelefonChanging(global::System.String value);
+        partial void OnTelefonChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                OnEmailChanging(value);
+                ReportPropertyChanging("Email");
+                _Email = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Email");
+                OnEmailChanged();
+            }
+        }
+        private global::System.String _Email;
+        partial void OnEmailChanging(global::System.String value);
+        partial void OnEmailChanged();
 
         #endregion
     

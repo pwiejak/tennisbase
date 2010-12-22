@@ -20,22 +20,9 @@
     <EntitySet Name="Kategorie" EntityType="Inzynierka1Model.Store.Kategorie" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Klasyfikacje" EntityType="Inzynierka1Model.Store.Klasyfikacje" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Pracownicy" EntityType="Inzynierka1Model.Store.Pracownicy" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Punkty_Zawodnikow" EntityType="Inzynierka1Model.Store.Punkty_Zawodnikow" store:Type="Tables" store:Schema="dbo" store:Name="Punkty_Zawodnikow">
-      <DefiningQuery>SELECT 
-      [Punkty_Zawodnikow].[ID_Zawodnika] AS [ID_Zawodnika], 
-      [Punkty_Zawodnikow].[ID_Klasyfikacji] AS [ID_Klasyfikacji], 
-      [Punkty_Zawodnikow].[Punkty] AS [Punkty]
-      FROM [dbo].[Punkty_Zawodnikow] AS [Punkty_Zawodnikow]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="Punkty_Zawodnikow" EntityType="Inzynierka1Model.Store.Punkty_Zawodnikow" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Rezerwacje_Kortow" EntityType="Inzynierka1Model.Store.Rezerwacje_Kortow" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Rozegrane_Mecze" EntityType="Inzynierka1Model.Store.Rozegrane_Mecze" store:Type="Tables" store:Schema="dbo" store:Name="Rozegrane_Mecze">
-      <DefiningQuery>SELECT 
-      [Rozegrane_Mecze].[ID_Zawodnika1] AS [ID_Zawodnika1], 
-      [Rozegrane_Mecze].[ID_Zawodnika2] AS [ID_Zawodnika2], 
-      [Rozegrane_Mecze].[ID_Klasyfikacji] AS [ID_Klasyfikacji], 
-      [Rozegrane_Mecze].[Zwyciezca] AS [Zwyciezca]
-      FROM [dbo].[Rozegrane_Mecze] AS [Rozegrane_Mecze]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="Rozegrane_Mecze" EntityType="Inzynierka1Model.Store.Rozegrane_Mecze" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Serwis" EntityType="Inzynierka1Model.Store.Serwis" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Sparingpartnerzy" EntityType="Inzynierka1Model.Store.Sparingpartnerzy" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Sprzet" EntityType="Inzynierka1Model.Store.Sprzet" store:Type="Tables" Schema="dbo" />
@@ -112,10 +99,6 @@
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Trenerzy" EntitySet="Trenerzy" />
     </AssociationSet>
-    <AssociationSet Name="FK_Turnieje_Kategorie" Association="Inzynierka1Model.Store.FK_Turnieje_Kategorie">
-      <End Role="Kategorie" EntitySet="Kategorie" />
-      <End Role="Turnieje" EntitySet="Turnieje" />
-    </AssociationSet>
     <AssociationSet Name="FK_Uzytkownicy_Systemu_Pracownicy1" Association="Inzynierka1Model.Store.FK_Uzytkownicy_Systemu_Pracownicy1">
       <End Role="Pracownicy" EntitySet="Pracownicy" />
       <End Role="Uzytkownicy_Systemu" EntitySet="Uzytkownicy_Systemu" />
@@ -182,7 +165,7 @@
       <PropertyRef Name="ID_Klasyfikacji" />
     </Key>
     <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
-    <Property Name="Opis" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CzyGeneralna" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Pracownicy">
     <Key>
@@ -193,14 +176,9 @@
     <Property Name="Imie" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Telefon" Type="nvarchar" Nullable="false" MaxLength="20" />
   </EntityType>
-  <!--Errors Found During Generation:
-      warning 6002: The table/view 'Inzynierka1.dbo.Punkty_Zawodnikow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
   <EntityType Name="Punkty_Zawodnikow">
     <Key>
       <PropertyRef Name="ID_Zawodnika" />
-      <PropertyRef Name="ID_Klasyfikacji" />
-      <PropertyRef Name="Punkty" />
     </Key>
     <Property Name="ID_Zawodnika" Type="int" Nullable="false" />
     <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
@@ -220,20 +198,18 @@
     <Property Name="Cena" Type="float" />
     <Property Name="Id_Pracownika" Type="int" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-      warning 6002: The table/view 'Inzynierka1.dbo.Rozegrane_Mecze' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
   <EntityType Name="Rozegrane_Mecze">
     <Key>
-      <PropertyRef Name="ID_Zawodnika1" />
-      <PropertyRef Name="ID_Zawodnika2" />
       <PropertyRef Name="ID_Klasyfikacji" />
-      <PropertyRef Name="Zwyciezca" />
     </Key>
     <Property Name="ID_Zawodnika1" Type="int" Nullable="false" />
     <Property Name="ID_Zawodnika2" Type="int" Nullable="false" />
     <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
-    <Property Name="Zwyciezca" Type="int" Nullable="false" />
+    <Property Name="Set1" Type="nchar" MaxLength="10" />
+    <Property Name="Set2" Type="nchar" MaxLength="10" />
+    <Property Name="Set3" Type="nchar" MaxLength="10" />
+    <Property Name="Set4" Type="nchar" MaxLength="10" />
+    <Property Name="Set5" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Serwis">
     <Key>
@@ -300,9 +276,13 @@
     <Key>
       <PropertyRef Name="ID_Turnieju" />
     </Key>
-    <Property Name="ID_Turnieju" Type="int" Nullable="false" />
+    <Property Name="ID_Turnieju" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ID_Klasyfikacji" Type="int" />
     <Property Name="Kategoria" Type="int" Nullable="false" />
+    <Property Name="DataRozp" Type="date" Nullable="false" />
+    <Property Name="DataZak" Type="date" Nullable="false" />
+    <Property Name="Opis" Type="varchar" MaxLength="100" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Typy">
     <Key>
@@ -320,6 +300,7 @@
     <Property Name="Nazwisko" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Imię" Type="nvarchar" MaxLength="50" />
     <Property Name="Telefon" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Uzytkownicy_Systemu">
     <Key>
@@ -349,8 +330,13 @@
     <Key>
       <PropertyRef Name="ID_Zawodnika" />
     </Key>
-    <Property Name="ID_Zawodnika" Type="int" Nullable="false" />
+    <Property Name="ID_Zawodnika" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ID_Uzytkownika_Kortow" Type="int" />
+    <Property Name="ID_Turnieju" Type="int" Nullable="false" />
+    <Property Name="Imie" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Nazwisko" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Telefon" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <Association Name="FK_Dostepnosc_Uzytkownicy_Kortow">
     <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
@@ -378,7 +364,7 @@
   </Association>
   <Association Name="FK_Punkty_Zawodnikow_Zawodnicy">
     <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="1" />
-    <End Role="Punkty_Zawodnikow" Type="Inzynierka1Model.Store.Punkty_Zawodnikow" Multiplicity="*" />
+    <End Role="Punkty_Zawodnikow" Type="Inzynierka1Model.Store.Punkty_Zawodnikow" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Zawodnicy">
         <PropertyRef Name="ID_Zawodnika" />
@@ -414,7 +400,7 @@
   </Association>
   <Association Name="FK_Rozegrane_Mecze_Klasyfikacje">
     <End Role="Klasyfikacje" Type="Inzynierka1Model.Store.Klasyfikacje" Multiplicity="1" />
-    <End Role="Rozegrane_Mecze" Type="Inzynierka1Model.Store.Rozegrane_Mecze" Multiplicity="*" />
+    <End Role="Rozegrane_Mecze" Type="Inzynierka1Model.Store.Rozegrane_Mecze" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Klasyfikacje">
         <PropertyRef Name="ID_Klasyfikacji" />
@@ -541,18 +527,6 @@
       </Principal>
       <Dependent Role="Trenerzy">
         <PropertyRef Name="ID_Osoby" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Turnieje_Kategorie">
-    <End Role="Kategorie" Type="Inzynierka1Model.Store.Kategorie" Multiplicity="1" />
-    <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Kategorie">
-        <PropertyRef Name="ID_Kategorii" />
-      </Principal>
-      <Dependent Role="Turnieje">
-        <PropertyRef Name="Kategoria" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

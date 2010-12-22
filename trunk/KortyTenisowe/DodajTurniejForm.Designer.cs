@@ -175,6 +175,7 @@
             this.rbtOK.Size = new System.Drawing.Size(130, 24);
             this.rbtOK.TabIndex = 9;
             this.rbtOK.Text = "OK";
+            this.rbtOK.Click += new System.EventHandler(this.rbtOK_Click);
             // 
             // rbtAnuluj
             // 

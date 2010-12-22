@@ -28,6 +28,7 @@ namespace KortyTenisowe
             TabSprzet.WczytajKategorie(rDDLKategorie);
             TabMagazyn.WczytajKategorie(rddlKategorieMagazyn);
             TabWypozyczalnia.PokazWypozyczenia(rgvWypozyczalnia);
+            TabTurnieje.ZwrocTurnieje(rgvTurnieje);
             TabWypozyczalnia.PokazStany(rddlStan);
         }
 

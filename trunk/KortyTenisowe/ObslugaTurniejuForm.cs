@@ -14,6 +14,18 @@ namespace KortyTenisowe
         public ObslugaTurniejuForm()
         {
             InitializeComponent();
+            ZwrocZawodnikow(rgvZawodnicy);
+        }
+
+        public static void ZwrocZawodnikow(Telerik.WinControls.UI.RadGridView dataGrid)
+        {
+            List<Zawodnicy> WszyscyZawodnicy = DBQueries.ZwrocZawodnikow().ToList();
+
+            dataGrid.Rows.Clear();
+            for (int i = 0; i < WszyscyZawodnicy.Count; i++)
+            {
+                dataGrid.Rows.Add(WszyscyZawodnicy[i].ID_Zawodnika, WszyscyZawodnicy[i].Imie, WszyscyZawodnicy[i].Nazwisko, WszyscyZawodnicy[i].Telefon);
+            }
         }
 
         private void rbtDodajZawodnika_Click(object sender, EventArgs e)

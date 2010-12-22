@@ -398,5 +398,66 @@ namespace KortyTenisowe
                     where klient.ID == idKLienta
                     select klient).First();
         }
+
+        public static bool DodajZawodnika(string Imie, string Nazwisko, string Telefon, string Email)
+        {
+            bool result = true;
+            Zawodnicy dodawanyZawodnik = new Zawodnicy();
+            dodawanyZawodnik.Nazwisko = Nazwisko;
+            dodawanyZawodnik.Imie = Imie;
+            dodawanyZawodnik.Telefon = Telefon;
+            dodawanyZawodnik.Email = Email;
+
+            try
+            {
+                Inzynierka1Entities.ENTITY.AddToZawodnicy(dodawanyZawodnik);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                result = false;
+                System.Windows.Forms.MessageBox.Show("Wystąpił błąd: " + e.Message);
+            }
+            return result;
+        }
+
+        public static bool DodajTurniej(int Kategoria, DateTime dataRozpoczecia, DateTime dataZakonczenia, string Nazwa, string Opis)
+        {
+            bool success = true;
+
+            Turnieje dodawanyTurniej = new Turnieje();
+            dodawanyTurniej.Kategoria = Kategoria;
+            dodawanyTurniej.DataRozp = dataRozpoczecia;
+            dodawanyTurniej.DataZak = dataZakonczenia;
+            dodawanyTurniej.Nazwa = Nazwa;
+            dodawanyTurniej.Opis = Opis;
+
+
+            try
+            {
+                Inzynierka1Entities.ENTITY.AddToTurnieje(dodawanyTurniej);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message);
+                success = false;
+            }
+
+            return success;
+        }
+
+        public static IEnumerable<Turnieje> ZwrocTurnieje()
+        {
+            return (from Turnieje WszystkieTurnieje in KortyTenisowe.Inzynierka1Entities.ENTITY.Turnieje
+                    orderby WszystkieTurnieje.ID_Turnieju
+                    select WszystkieTurnieje);
+        }
+
+        public static IEnumerable<Zawodnicy> ZwrocZawodnikow()
+        {
+            return (from Zawodnicy WszyscyZawodnicy in KortyTenisowe.Inzynierka1Entities.ENTITY.Zawodnicy
+                    select WszyscyZawodnicy);
+        }
     }
 }

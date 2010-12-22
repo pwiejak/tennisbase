@@ -104,14 +104,6 @@
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
             <End Role="Trenerzy" EntitySet="Trenerzy" />
           </AssociationSet>
-          <AssociationSet Name="FK_Turnieje_Kategorie" Association="Inzynierka1Model.Store.FK_Turnieje_Kategorie">
-            <End Role="Kategorie" EntitySet="Kategorie" />
-            <End Role="Turnieje" EntitySet="Turnieje" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Turnieje_Klasyfikacje" Association="Inzynierka1Model.Store.FK_Turnieje_Klasyfikacje">
-            <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
-            <End Role="Turnieje" EntitySet="Turnieje" />
-          </AssociationSet>
           <AssociationSet Name="FK_Uzytkownicy_Systemu_Pracownicy1" Association="Inzynierka1Model.Store.FK_Uzytkownicy_Systemu_Pracownicy1">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Uzytkownicy_Systemu" EntitySet="Uzytkownicy_Systemu" />
@@ -289,12 +281,13 @@
           <Key>
             <PropertyRef Name="ID_Turnieju" />
           </Key>
-          <Property Name="ID_Turnieju" Type="int" Nullable="false" />
+          <Property Name="ID_Turnieju" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ID_Klasyfikacji" Type="int" />
           <Property Name="Kategoria" Type="int" Nullable="false" />
           <Property Name="DataRozp" Type="date" Nullable="false" />
           <Property Name="DataZak" Type="date" Nullable="false" />
           <Property Name="Opis" Type="varchar" MaxLength="100" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Typy">
           <Key>
@@ -342,9 +335,13 @@
           <Key>
             <PropertyRef Name="ID_Zawodnika" />
           </Key>
-          <Property Name="ID_Zawodnika" Type="int" Nullable="false" />
+          <Property Name="ID_Zawodnika" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ID_Uzytkownika_Kortow" Type="int" />
           <Property Name="ID_Turnieju" Type="int" Nullable="false" />
+          <Property Name="Imie" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Nazwisko" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Telefon" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Dostepnosc_Uzytkownicy_Kortow">
           <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="1" />
@@ -535,30 +532,6 @@
             </Principal>
             <Dependent Role="Trenerzy">
               <PropertyRef Name="ID_Osoby" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Turnieje_Kategorie">
-          <End Role="Kategorie" Type="Inzynierka1Model.Store.Kategorie" Multiplicity="1" />
-          <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Kategorie">
-              <PropertyRef Name="ID_Kategorii" />
-            </Principal>
-            <Dependent Role="Turnieje">
-              <PropertyRef Name="Kategoria" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Turnieje_Klasyfikacje">
-          <End Role="Klasyfikacje" Type="Inzynierka1Model.Store.Klasyfikacje" Multiplicity="0..1" />
-          <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Klasyfikacje">
-              <PropertyRef Name="ID_Klasyfikacji" />
-            </Principal>
-            <Dependent Role="Turnieje">
-              <PropertyRef Name="ID_Klasyfikacji" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -944,6 +917,7 @@
           <Property Type="String" Name="Opis" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Kategorie" Relationship="Inzynierka1Model.FK_Turnieje_Kategorie" FromRole="Turnieje" ToRole="Kategorie" />
           <NavigationProperty Name="Klasyfikacje" Relationship="Inzynierka1Model.FK_Turnieje_Klasyfikacje" FromRole="Turnieje" ToRole="Klasyfikacje" />
+          <Property Type="String" Name="Nazwa" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Typy">
           <Key>
@@ -1010,6 +984,10 @@
           <NavigationProperty Name="Rozegrane_Mecze" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy" FromRole="Zawodnicy" ToRole="Rozegrane_Mecze" />
           <NavigationProperty Name="Rozegrane_Mecze1" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy1" FromRole="Zawodnicy" ToRole="Rozegrane_Mecze" />
           <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow" FromRole="Zawodnicy" ToRole="Uzytkownicy_Kortow" />
+          <Property Type="String" Name="Imie" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nazwisko" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telefon" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Dostepnosc_Uzytkownicy_Kortow">
           <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
@@ -1444,6 +1422,7 @@
           <EntitySetMapping Name="Turnieje">
             <EntityTypeMapping TypeName="Inzynierka1Model.Turnieje">
               <MappingFragment StoreEntitySet="Turnieje">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="Opis" ColumnName="Opis" />
                 <ScalarProperty Name="DataZak" ColumnName="DataZak" />
                 <ScalarProperty Name="DataRozp" ColumnName="DataRozp" />
@@ -1502,6 +1481,10 @@
           <EntitySetMapping Name="Zawodnicy">
             <EntityTypeMapping TypeName="Inzynierka1Model.Zawodnicy">
               <MappingFragment StoreEntitySet="Zawodnicy">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
                 <ScalarProperty Name="ID_Turnieju" ColumnName="ID_Turnieju" />
                 <ScalarProperty Name="ID_Uzytkownika_Kortow" ColumnName="ID_Uzytkownika_Kortow" />
                 <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />

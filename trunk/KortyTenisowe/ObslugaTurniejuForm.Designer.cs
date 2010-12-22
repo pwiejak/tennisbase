@@ -32,14 +32,14 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            this.rgvTurnieje = new Telerik.WinControls.UI.RadGridView();
+            this.rgvZawodnicy = new Telerik.WinControls.UI.RadGridView();
             this.rbtDodajZawodnika = new Telerik.WinControls.UI.RadButton();
             this.rbtEdytujZawodnika = new Telerik.WinControls.UI.RadButton();
             this.rbtUsunZawodnika = new Telerik.WinControls.UI.RadButton();
             this.rbtZaplanujMecz = new Telerik.WinControls.UI.RadButton();
             this.rDDLWybierzTurniej = new Telerik.WinControls.UI.RadDropDownList();
             this.rlbWybierzTurniej = new Telerik.WinControls.UI.RadLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.rgvTurnieje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgvZawodnicy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtDodajZawodnika)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtEdytujZawodnika)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtUsunZawodnika)).BeginInit();
@@ -48,11 +48,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.rlbWybierzTurniej)).BeginInit();
             this.SuspendLayout();
             // 
-            // rgvTurnieje
+            // rgvZawodnicy
             // 
-            this.rgvTurnieje.Location = new System.Drawing.Point(213, 12);
+            this.rgvZawodnicy.Location = new System.Drawing.Point(213, 12);
             // 
-            // rgvTurnieje
+            // rgvZawodnicy
             // 
             gridViewTextBoxColumn9.HeaderText = "ID";
             gridViewTextBoxColumn9.Name = "Id";
@@ -66,16 +66,16 @@
             gridViewTextBoxColumn12.HeaderText = "Telefon kontaktowy";
             gridViewTextBoxColumn12.Name = "Telefon";
             gridViewTextBoxColumn12.Width = 250;
-            this.rgvTurnieje.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            this.rgvZawodnicy.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn9,
             gridViewTextBoxColumn10,
             gridViewTextBoxColumn11,
             gridViewTextBoxColumn12});
-            this.rgvTurnieje.Name = "rgvTurnieje";
-            this.rgvTurnieje.ReadOnly = true;
-            this.rgvTurnieje.Size = new System.Drawing.Size(618, 326);
-            this.rgvTurnieje.TabIndex = 0;
-            this.rgvTurnieje.Text = "Obsługa Turnieju";
+            this.rgvZawodnicy.Name = "rgvZawodnicy";
+            this.rgvZawodnicy.ReadOnly = true;
+            this.rgvZawodnicy.Size = new System.Drawing.Size(618, 326);
+            this.rgvZawodnicy.TabIndex = 0;
+            this.rgvZawodnicy.Text = "Obsługa Turnieju";
             // 
             // rbtDodajZawodnika
             // 
@@ -139,10 +139,10 @@
             this.Controls.Add(this.rbtUsunZawodnika);
             this.Controls.Add(this.rDDLWybierzTurniej);
             this.Controls.Add(this.rbtDodajZawodnika);
-            this.Controls.Add(this.rgvTurnieje);
+            this.Controls.Add(this.rgvZawodnicy);
             this.Name = "ObslugaTurniejuForm";
             this.Text = "Obsługa Turnieju";
-            ((System.ComponentModel.ISupportInitialize)(this.rgvTurnieje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgvZawodnicy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtDodajZawodnika)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtEdytujZawodnika)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtUsunZawodnika)).EndInit();
@@ -156,7 +156,7 @@
 
         #endregion
 
-        private Telerik.WinControls.UI.RadGridView rgvTurnieje;
+        private Telerik.WinControls.UI.RadGridView rgvZawodnicy;
         private Telerik.WinControls.UI.RadButton rbtDodajZawodnika;
         private Telerik.WinControls.UI.RadButton rbtEdytujZawodnika;
         private Telerik.WinControls.UI.RadButton rbtUsunZawodnika;
