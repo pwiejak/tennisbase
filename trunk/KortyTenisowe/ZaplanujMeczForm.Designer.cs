@@ -44,7 +44,7 @@
             // 
             this.rlbZawodnik1.Location = new System.Drawing.Point(39, 28);
             this.rlbZawodnik1.Name = "rlbZawodnik1";
-            this.rlbZawodnik1.Size = new System.Drawing.Size(57, 16);
+            this.rlbZawodnik1.Size = new System.Drawing.Size(67, 16);
             this.rlbZawodnik1.TabIndex = 0;
             this.rlbZawodnik1.Text = "Zawodnik 1.";
             // 
@@ -52,7 +52,7 @@
             // 
             this.rlbZawodnik2.Location = new System.Drawing.Point(39, 84);
             this.rlbZawodnik2.Name = "rlbZawodnik2";
-            this.rlbZawodnik2.Size = new System.Drawing.Size(57, 16);
+            this.rlbZawodnik2.Size = new System.Drawing.Size(67, 16);
             this.rlbZawodnik2.TabIndex = 1;
             this.rlbZawodnik2.Text = "Zawodnik 2.";
             // 
@@ -84,6 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(323, 168);
             this.Controls.Add(this.rbtZaplanuj);
             this.Controls.Add(this.rDDLZawodnik2);

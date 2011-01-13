@@ -191,7 +191,6 @@
             // tabKorty
             // 
             this.tabKorty.BackColor = System.Drawing.Color.AliceBlue;
-            this.tabKorty.BackgroundImage = global::KortyTenisowe.Properties.Resources.korty21;
             this.tabKorty.Controls.Add(this.dgKorty);
             this.tabKorty.Controls.Add(this.rgvKorty);
             this.tabKorty.Controls.Add(this.panelLegenda);
@@ -680,6 +679,7 @@
             // 
             // tabTurnieje
             // 
+            this.tabTurnieje.BackColor = System.Drawing.Color.AliceBlue;
             this.tabTurnieje.Controls.Add(this.rbtEdytujTurniej);
             this.tabTurnieje.Controls.Add(this.rbtUsunTurniej);
             this.tabTurnieje.Controls.Add(this.rbtObslugaTurnieju);
@@ -731,6 +731,7 @@
             gridViewTextBoxColumn21});
             this.rgvTurnieje.Name = "rgvTurnieje";
             this.rgvTurnieje.ReadOnly = true;
+            this.rgvTurnieje.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.rgvTurnieje_CellClick);
             // 
             // rbtDodajTurniej
             // 
@@ -740,6 +741,7 @@
             // 
             // tabKlasyfikacje
             // 
+            this.tabKlasyfikacje.BackColor = System.Drawing.Color.AliceBlue;
             this.tabKlasyfikacje.Controls.Add(this.rDDLWybierzTurniej);
             this.tabKlasyfikacje.Controls.Add(this.rbtUsunKlasyfikacje);
             this.tabKlasyfikacje.Controls.Add(this.rbtWynikiSpotkan);

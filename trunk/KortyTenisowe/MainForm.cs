@@ -276,7 +276,7 @@ namespace KortyTenisowe
                 wypozycz.ShowDialog();
         }
 
-private void rbtObslugaTurnieju_Click(object sender, EventArgs e)
+        private void rbtObslugaTurnieju_Click(object sender, EventArgs e)
         {
             KortyTenisowe.ObslugaTurniejuForm ObslugaTurnieju = new KortyTenisowe.ObslugaTurniejuForm();
             ObslugaTurnieju.Activate();
@@ -284,18 +284,21 @@ private void rbtObslugaTurnieju_Click(object sender, EventArgs e)
 
         }
 
+
         private void rbtDodajTurniej_Click(object sender, EventArgs e)
         {
             KortyTenisowe.DodajTurniejForm DodajTurniej = new KortyTenisowe.DodajTurniejForm();
             DodajTurniej.Activate();
             DodajTurniej.ShowDialog();
+            TabTurnieje.ZwrocTurnieje(rgvTurnieje);
         }
 
         private void rbtUsunTurniej_Click(object sender, EventArgs e)
         {
-            KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm();
+            KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm(aktualnaKomorka, 2);
             Usun.Activate();
             Usun.ShowDialog();
+            TabTurnieje.ZwrocTurnieje(rgvTurnieje);
         }
 
         private void rbtDodajKlasyfikacje_Click(object sender, EventArgs e)
@@ -307,7 +310,7 @@ private void rbtObslugaTurnieju_Click(object sender, EventArgs e)
 
         private void rbtUsunKlasyfikacje_Click(object sender, EventArgs e)
         {
-            KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm();
+            KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm(aktualnaKomorka, 3);
             Usun.Activate();
             Usun.ShowDialog();
         }
@@ -318,6 +321,17 @@ private void rbtObslugaTurnieju_Click(object sender, EventArgs e)
             Wyniki.Activate();
             Wyniki.ShowDialog();
         }
+
+        private void rgvTurnieje_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            aktualnaKomorka = int.Parse(rgvTurnieje.Rows[e.RowIndex].Cells[0].Value.ToString());           
+        }
+
+        private void rgvKlasyfikacje_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            aktualnaKomorka = int.Parse(rgvKlasyfikacje.Rows[e.RowIndex].Cells[0].Value.ToString());
+        }
+        
 
     }
 }

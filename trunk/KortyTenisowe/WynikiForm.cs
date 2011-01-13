@@ -9,6 +9,8 @@ using System.Windows.Forms;
 
 namespace KortyTenisowe
 {
+
+
     public partial class WynikiForm : Form
     {
         public WynikiForm()
@@ -25,9 +27,9 @@ namespace KortyTenisowe
 
         private void rbtUsunWynik_Click(object sender, EventArgs e)
         {
-            KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm();
-            Usun.Activate();
-            Usun.ShowDialog();
+            //KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm(aktualnaKomorka);
+            //Usun.Activate();
+            //Usun.ShowDialog();
         }
     }
 }

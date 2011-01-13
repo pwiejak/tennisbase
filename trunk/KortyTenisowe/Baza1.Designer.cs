@@ -23,7 +23,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Turnieje_Kategorie", "Kategorie", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Kategorie), "Turnieje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Turnieje), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Punkty_Zawodnikow_Klasyfikacje", "Klasyfikacje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Klasyfikacje), "Punkty_Zawodnikow", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Punkty_Zawodnikow), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Rozegrane_Mecze_Klasyfikacje", "Klasyfikacje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Klasyfikacje), "Rozegrane_Mecze", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(KortyTenisowe.Rozegrane_Mecze), true)]
-[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Turnieje_Klasyfikacje", "Klasyfikacje", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(KortyTenisowe.Klasyfikacje), "Turnieje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Turnieje), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Rezerwacje_Kortow_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Pracownicy), "Rezerwacje_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Rezerwacje_Kortow), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Serwis_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Pracownicy), "Serwis", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Serwis), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Uzytkownicy_Systemu_Pracownicy1", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Pracownicy), "Uzytkownicy_Systemu", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Uzytkownicy_Systemu), true)]
@@ -38,8 +37,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Stan_Magazynowy_Sprzet", "Sprzet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Sprzet), "Stan_Magazynowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Stan_Magazynowy), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Wypozyczone_Stan_Magazynowy", "Stan_Magazynowy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Stan_Magazynowy), "Wypozyczone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Wypozyczone), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Trenerzy_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Trenerzy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Trenerzy), true)]
+[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Zawodnicy_Turnieje", "Turnieje", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(KortyTenisowe.Turnieje), "Zawodnicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Zawodnicy), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Wypozyczone_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Wypozyczone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Wypozyczone), true)]
-[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Zawodnicy_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Zawodnicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Zawodnicy), true)]
 
 #endregion
 
@@ -1299,28 +1298,6 @@ namespace KortyTenisowe
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Rozegrane_Mecze>("Inzynierka1Model.FK_Rozegrane_Mecze_Klasyfikacje", "Rozegrane_Mecze", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Turnieje_Klasyfikacje", "Turnieje")]
-        public EntityCollection<Turnieje> Turnieje
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Turnieje>("Inzynierka1Model.FK_Turnieje_Klasyfikacje", "Turnieje");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Turnieje>("Inzynierka1Model.FK_Turnieje_Klasyfikacje", "Turnieje", value);
                 }
             }
         }
@@ -3972,34 +3949,18 @@ namespace KortyTenisowe
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Turnieje_Klasyfikacje", "Klasyfikacje")]
-        public Klasyfikacje Klasyfikacje
+        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Zawodnicy_Turnieje", "Zawodnicy")]
+        public EntityCollection<Zawodnicy> Zawodnicy
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Klasyfikacje>("Inzynierka1Model.FK_Turnieje_Klasyfikacje", "Klasyfikacje").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Klasyfikacje>("Inzynierka1Model.FK_Turnieje_Klasyfikacje", "Klasyfikacje").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Klasyfikacje> KlasyfikacjeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Klasyfikacje>("Inzynierka1Model.FK_Turnieje_Klasyfikacje", "Klasyfikacje");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Zawodnicy>("Inzynierka1Model.FK_Zawodnicy_Turnieje", "Zawodnicy");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Klasyfikacje>("Inzynierka1Model.FK_Turnieje_Klasyfikacje", "Klasyfikacje", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Zawodnicy>("Inzynierka1Model.FK_Zawodnicy_Turnieje", "Zawodnicy", value);
                 }
             }
         }
@@ -4444,28 +4405,6 @@ namespace KortyTenisowe
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Wypozyczone>("Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow", "Wypozyczone", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Zawodnicy_Uzytkownicy_Kortow", "Zawodnicy")]
-        public EntityCollection<Zawodnicy> Zawodnicy
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Zawodnicy>("Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow", "Zawodnicy");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Zawodnicy>("Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow", "Zawodnicy", value);
                 }
             }
         }
@@ -5021,16 +4960,14 @@ namespace KortyTenisowe
         /// Create a new Zawodnicy object.
         /// </summary>
         /// <param name="iD_Zawodnika">Initial value of the ID_Zawodnika property.</param>
-        /// <param name="iD_Turnieju">Initial value of the ID_Turnieju property.</param>
         /// <param name="imie">Initial value of the Imie property.</param>
         /// <param name="nazwisko">Initial value of the Nazwisko property.</param>
         /// <param name="telefon">Initial value of the Telefon property.</param>
         /// <param name="email">Initial value of the Email property.</param>
-        public static Zawodnicy CreateZawodnicy(global::System.Int32 iD_Zawodnika, global::System.Int32 iD_Turnieju, global::System.String imie, global::System.String nazwisko, global::System.String telefon, global::System.String email)
+        public static Zawodnicy CreateZawodnicy(global::System.Int32 iD_Zawodnika, global::System.String imie, global::System.String nazwisko, global::System.String telefon, global::System.String email)
         {
             Zawodnicy zawodnicy = new Zawodnicy();
             zawodnicy.ID_Zawodnika = iD_Zawodnika;
-            zawodnicy.ID_Turnieju = iD_Turnieju;
             zawodnicy.Imie = imie;
             zawodnicy.Nazwisko = nazwisko;
             zawodnicy.Telefon = telefon;
@@ -5073,31 +5010,7 @@ namespace KortyTenisowe
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ID_Uzytkownika_Kortow
-        {
-            get
-            {
-                return _ID_Uzytkownika_Kortow;
-            }
-            set
-            {
-                OnID_Uzytkownika_KortowChanging(value);
-                ReportPropertyChanging("ID_Uzytkownika_Kortow");
-                _ID_Uzytkownika_Kortow = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_Uzytkownika_Kortow");
-                OnID_Uzytkownika_KortowChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ID_Uzytkownika_Kortow;
-        partial void OnID_Uzytkownika_KortowChanging(Nullable<global::System.Int32> value);
-        partial void OnID_Uzytkownika_KortowChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID_Turnieju
+        public Nullable<global::System.Int32> ID_Turnieju
         {
             get
             {
@@ -5112,8 +5025,8 @@ namespace KortyTenisowe
                 OnID_TurniejuChanged();
             }
         }
-        private global::System.Int32 _ID_Turnieju;
-        partial void OnID_TurniejuChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _ID_Turnieju;
+        partial void OnID_TurniejuChanging(Nullable<global::System.Int32> value);
         partial void OnID_TurniejuChanged();
     
         /// <summary>
@@ -5304,16 +5217,16 @@ namespace KortyTenisowe
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Zawodnicy_Uzytkownicy_Kortow", "Uzytkownicy_Kortow")]
-        public Uzytkownicy_Kortow Uzytkownicy_Kortow
+        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Zawodnicy_Turnieje", "Turnieje")]
+        public Turnieje Turnieje
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Uzytkownicy_Kortow>("Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow", "Uzytkownicy_Kortow").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turnieje>("Inzynierka1Model.FK_Zawodnicy_Turnieje", "Turnieje").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Uzytkownicy_Kortow>("Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow", "Uzytkownicy_Kortow").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turnieje>("Inzynierka1Model.FK_Zawodnicy_Turnieje", "Turnieje").Value = value;
             }
         }
         /// <summary>
@@ -5321,17 +5234,17 @@ namespace KortyTenisowe
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Uzytkownicy_Kortow> Uzytkownicy_KortowReference
+        public EntityReference<Turnieje> TurniejeReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Uzytkownicy_Kortow>("Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow", "Uzytkownicy_Kortow");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turnieje>("Inzynierka1Model.FK_Zawodnicy_Turnieje", "Turnieje");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Uzytkownicy_Kortow>("Inzynierka1Model.FK_Zawodnicy_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Turnieje>("Inzynierka1Model.FK_Zawodnicy_Turnieje", "Turnieje", value);
                 }
             }
         }

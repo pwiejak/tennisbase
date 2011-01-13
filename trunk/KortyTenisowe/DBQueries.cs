@@ -421,6 +421,27 @@ namespace KortyTenisowe
             return result;
         }
 
+        public static bool UsunZawodnika(int id)
+        {
+            bool success = true;
+            Zawodnicy usuwanyZawodnik = new Zawodnicy();
+            try
+            {
+                usuwanyZawodnik = (from Zawodnicy sprawdzanyZawodnik in Inzynierka1Entities.ENTITY.Zawodnicy
+                                 where sprawdzanyZawodnik.ID_Zawodnika == id
+                                 select sprawdzanyZawodnik).First();
+                Inzynierka1Entities.ENTITY.Zawodnicy.DeleteObject(usuwanyZawodnik);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception exc)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            }
+
+            return success;
+        }
+
         public static bool DodajTurniej(int Kategoria, DateTime dataRozpoczecia, DateTime dataZakonczenia, string Nazwa, string Opis)
         {
             bool success = true;
@@ -447,17 +468,49 @@ namespace KortyTenisowe
             return success;
         }
 
+        public static bool UsunTurniej(int id)
+        {
+            bool success = true;
+            Turnieje usuwanyTurniej = new Turnieje();
+            try
+            {
+                usuwanyTurniej = (from Turnieje sprawdzanyTurniej in Inzynierka1Entities.ENTITY.Turnieje
+                                   where sprawdzanyTurniej.ID_Turnieju == id
+                                   select sprawdzanyTurniej).First();
+                Inzynierka1Entities.ENTITY.Turnieje.DeleteObject(usuwanyTurniej);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception exc)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            }
+
+            return success;
+        }
+
         public static IEnumerable<Turnieje> ZwrocTurnieje()
         {
-            return (from Turnieje WszystkieTurnieje in KortyTenisowe.Inzynierka1Entities.ENTITY.Turnieje
+            return (from Turnieje WszystkieTurnieje in Inzynierka1Entities.ENTITY.Turnieje 
                     orderby WszystkieTurnieje.ID_Turnieju
                     select WszystkieTurnieje);
         }
 
-        public static IEnumerable<Zawodnicy> ZwrocZawodnikow()
+        public static IEnumerable<Zawodnicy> ZwrocZawodnikow(int id)
         {
-            return (from Zawodnicy WszyscyZawodnicy in KortyTenisowe.Inzynierka1Entities.ENTITY.Zawodnicy
-                    select WszyscyZawodnicy);
+            return (from Zawodnicy ZawodnicyTurnieju in Inzynierka1Entities.ENTITY.Zawodnicy
+                    where ZawodnicyTurnieju.ID_Turnieju == id
+                    select ZawodnicyTurnieju);
         }
+
+        //public static IEnumerable<Zawodnicy> ZwrocZawodnikowWgTurnieju(int idTurnieju)
+        //{
+        //    int m_id = idTurnieju;
+        //    return (from Zawodnicy zwracaniZawodnicy in Inzynierka1Entities.ENTITY.Zawodnicy
+        //            join Turnieje turnieje in Inzynierka1Entities.ENTITY.Turnieje on zwracaniZawodnicy.ID_Turnieju equals turnieje.ID_Turnieju
+        //            where turnieje.ID_Turnieju == m_id
+        //            select zwracaniZawodnicy);
+        //}
     }
+
 }

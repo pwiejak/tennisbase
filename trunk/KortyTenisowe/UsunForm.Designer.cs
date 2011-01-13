@@ -51,6 +51,7 @@
             this.rbtTak.Size = new System.Drawing.Size(130, 24);
             this.rbtTak.TabIndex = 1;
             this.rbtTak.Text = "Tak";
+            this.rbtTak.Click += new System.EventHandler(this.rbtTak_Click);
             // 
             // rbtNie
             // 
@@ -65,6 +66,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(291, 89);
             this.Controls.Add(this.rbtNie);
             this.Controls.Add(this.rbtTak);

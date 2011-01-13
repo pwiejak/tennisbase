@@ -14,7 +14,7 @@ namespace KortyTenisowe
             dataGrid.Rows.Clear();
             for (int i = 0; i < WszystkieTurnieje.Count; i++)
             {
-                dataGrid.Rows.Add(WszystkieTurnieje[i].ID_Turnieju, WszystkieTurnieje[i].Nazwa, WszystkieTurnieje[i].Opis, WszystkieTurnieje[i].Kategoria);
+                dataGrid.Rows.Add(WszystkieTurnieje[i].ID_Turnieju, WszystkieTurnieje[i].Nazwa, WszystkieTurnieje[i].Opis, WszystkieTurnieje[i].Kategorie.Nazwa);
             }
         }
     }

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.rgvZawodnicy = new Telerik.WinControls.UI.RadGridView();
             this.rbtDodajZawodnika = new Telerik.WinControls.UI.RadButton();
             this.rbtEdytujZawodnika = new Telerik.WinControls.UI.RadButton();
@@ -54,28 +54,29 @@
             // 
             // rgvZawodnicy
             // 
-            gridViewTextBoxColumn9.HeaderText = "ID";
-            gridViewTextBoxColumn9.Name = "Id";
-            gridViewTextBoxColumn9.Width = 85;
-            gridViewTextBoxColumn10.HeaderText = "Imię";
-            gridViewTextBoxColumn10.Name = "Imie";
-            gridViewTextBoxColumn10.Width = 100;
-            gridViewTextBoxColumn11.HeaderText = "Nazwisko";
-            gridViewTextBoxColumn11.Name = "Nazwisko";
-            gridViewTextBoxColumn11.Width = 165;
-            gridViewTextBoxColumn12.HeaderText = "Telefon kontaktowy";
-            gridViewTextBoxColumn12.Name = "Telefon";
-            gridViewTextBoxColumn12.Width = 250;
+            gridViewTextBoxColumn1.HeaderText = "ID";
+            gridViewTextBoxColumn1.Name = "Id";
+            gridViewTextBoxColumn1.Width = 85;
+            gridViewTextBoxColumn2.HeaderText = "Imię";
+            gridViewTextBoxColumn2.Name = "Imie";
+            gridViewTextBoxColumn2.Width = 100;
+            gridViewTextBoxColumn3.HeaderText = "Nazwisko";
+            gridViewTextBoxColumn3.Name = "Nazwisko";
+            gridViewTextBoxColumn3.Width = 165;
+            gridViewTextBoxColumn4.HeaderText = "Telefon kontaktowy";
+            gridViewTextBoxColumn4.Name = "Telefon";
+            gridViewTextBoxColumn4.Width = 250;
             this.rgvZawodnicy.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn9,
-            gridViewTextBoxColumn10,
-            gridViewTextBoxColumn11,
-            gridViewTextBoxColumn12});
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4});
             this.rgvZawodnicy.Name = "rgvZawodnicy";
             this.rgvZawodnicy.ReadOnly = true;
             this.rgvZawodnicy.Size = new System.Drawing.Size(618, 326);
             this.rgvZawodnicy.TabIndex = 0;
             this.rgvZawodnicy.Text = "Obsługa Turnieju";
+            this.rgvZawodnicy.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.rgvZawodnicy_CellClick);
             // 
             // rbtDodajZawodnika
             // 
@@ -119,6 +120,7 @@
             this.rDDLWybierzTurniej.Size = new System.Drawing.Size(161, 22);
             this.rDDLWybierzTurniej.TabIndex = 3;
             this.rDDLWybierzTurniej.Text = "Turniej";
+            this.rDDLWybierzTurniej.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.rDDLWybierzTurniej_SelectedIndexChanged);
             // 
             // rlbWybierzTurniej
             // 
@@ -132,6 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(843, 347);
             this.Controls.Add(this.rlbWybierzTurniej);
             this.Controls.Add(this.rbtEdytujZawodnika);

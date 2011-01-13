@@ -228,7 +228,6 @@
           <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
           <ScalarProperty Name="Imie" ColumnName="Imie" />
           <ScalarProperty Name="ID_Turnieju" ColumnName="ID_Turnieju" />
-          <ScalarProperty Name="ID_Uzytkownika_Kortow" ColumnName="ID_Uzytkownika_Kortow" />
           <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
         </MappingFragment>
       </EntityTypeMapping>

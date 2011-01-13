@@ -99,6 +99,10 @@
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Trenerzy" EntitySet="Trenerzy" />
     </AssociationSet>
+    <AssociationSet Name="FK_Turnieje_Kategorie" Association="Inzynierka1Model.Store.FK_Turnieje_Kategorie">
+      <End Role="Kategorie" EntitySet="Kategorie" />
+      <End Role="Turnieje" EntitySet="Turnieje" />
+    </AssociationSet>
     <AssociationSet Name="FK_Uzytkownicy_Systemu_Pracownicy1" Association="Inzynierka1Model.Store.FK_Uzytkownicy_Systemu_Pracownicy1">
       <End Role="Pracownicy" EntitySet="Pracownicy" />
       <End Role="Uzytkownicy_Systemu" EntitySet="Uzytkownicy_Systemu" />
@@ -111,8 +115,8 @@
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Wypozyczone" EntitySet="Wypozyczone" />
     </AssociationSet>
-    <AssociationSet Name="FK_Zawodnicy_Uzytkownicy_Kortow" Association="Inzynierka1Model.Store.FK_Zawodnicy_Uzytkownicy_Kortow">
-      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+    <AssociationSet Name="FK_Zawodnicy_Turnieje" Association="Inzynierka1Model.Store.FK_Zawodnicy_Turnieje">
+      <End Role="Turnieje" EntitySet="Turnieje" />
       <End Role="Zawodnicy" EntitySet="Zawodnicy" />
     </AssociationSet>
   </EntityContainer>
@@ -281,7 +285,7 @@
     <Property Name="Kategoria" Type="int" Nullable="false" />
     <Property Name="DataRozp" Type="date" Nullable="false" />
     <Property Name="DataZak" Type="date" Nullable="false" />
-    <Property Name="Opis" Type="varchar" MaxLength="100" />
+    <Property Name="Opis" Type="nvarchar" MaxLength="1000" />
     <Property Name="Nazwa" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Typy">
@@ -331,8 +335,7 @@
       <PropertyRef Name="ID_Zawodnika" />
     </Key>
     <Property Name="ID_Zawodnika" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="ID_Uzytkownika_Kortow" Type="int" />
-    <Property Name="ID_Turnieju" Type="int" Nullable="false" />
+    <Property Name="ID_Turnieju" Type="int" />
     <Property Name="Imie" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Nazwisko" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Telefon" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -530,6 +533,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Turnieje_Kategorie">
+    <End Role="Kategorie" Type="Inzynierka1Model.Store.Kategorie" Multiplicity="1" />
+    <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategorie">
+        <PropertyRef Name="ID_Kategorii" />
+      </Principal>
+      <Dependent Role="Turnieje">
+        <PropertyRef Name="Kategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Uzytkownicy_Systemu_Pracownicy1">
     <End Role="Pracownicy" Type="Inzynierka1Model.Store.Pracownicy" Multiplicity="1" />
     <End Role="Uzytkownicy_Systemu" Type="Inzynierka1Model.Store.Uzytkownicy_Systemu" Multiplicity="*" />
@@ -566,15 +581,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Zawodnicy_Uzytkownicy_Kortow">
-    <End Role="Uzytkownicy_Kortow" Type="Inzynierka1Model.Store.Uzytkownicy_Kortow" Multiplicity="0..1" />
+  <Association Name="FK_Zawodnicy_Turnieje">
+    <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="0..1" />
     <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Uzytkownicy_Kortow">
-        <PropertyRef Name="ID" />
+      <Principal Role="Turnieje">
+        <PropertyRef Name="ID_Turnieju" />
       </Principal>
       <Dependent Role="Zawodnicy">
-        <PropertyRef Name="ID_Uzytkownika_Kortow" />
+        <PropertyRef Name="ID_Turnieju" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
