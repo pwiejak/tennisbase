@@ -399,7 +399,7 @@ namespace KortyTenisowe
                     select klient).First();
         }
 
-        public static bool DodajZawodnika(string Imie, string Nazwisko, string Telefon, string Email)
+        public static bool DodajZawodnika(string Imie, string Nazwisko, string Telefon, string Email, int ID_Turnieju)
         {
             bool result = true;
             Zawodnicy dodawanyZawodnik = new Zawodnicy();
@@ -407,6 +407,7 @@ namespace KortyTenisowe
             dodawanyZawodnik.Imie = Imie;
             dodawanyZawodnik.Telefon = Telefon;
             dodawanyZawodnik.Email = Email;
+            dodawanyZawodnik.ID_Turnieju = ID_Turnieju;
 
             try
             {
@@ -419,6 +420,40 @@ namespace KortyTenisowe
                 System.Windows.Forms.MessageBox.Show("Wystąpił błąd: " + e.Message);
             }
             return result;
+        }
+
+
+        public static Zawodnicy ZwrocKonkretnegoZawodnika(int id)
+        {
+                return (from Zawodnicy szukanyZawodnik in Inzynierka1Entities.ENTITY.Zawodnicy
+                                    where szukanyZawodnik.ID_Zawodnika == id
+                                    select szukanyZawodnik).First();
+
+        }
+
+        public static bool EdytujZawodnika(int id, string Imie, string Nazwisko, string Telefon, string Email, int ID_Turnieju)
+        {
+            bool success = true;
+            Zawodnicy zmienianyZawodnik = new Zawodnicy();
+            try
+            {
+                zmienianyZawodnik = (from Zawodnicy szukanyZawodnik in Inzynierka1Entities.ENTITY.Zawodnicy
+                                   where szukanyZawodnik.ID_Zawodnika == id
+                                   select szukanyZawodnik).First();
+                zmienianyZawodnik.Nazwisko = Nazwisko;
+                zmienianyZawodnik.Imie = Imie;
+                zmienianyZawodnik.Telefon = Telefon;
+                zmienianyZawodnik.Email = Email;
+                zmienianyZawodnik.ID_Turnieju = ID_Turnieju;
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception exc)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            }
+
+            return success;
         }
 
         public static bool UsunZawodnika(int id)
@@ -468,6 +503,39 @@ namespace KortyTenisowe
             return success;
         }
 
+        public static Turnieje ZwrocKonkretnyTurniej(int id)
+        {
+            return (from Turnieje szukanyTurniej in Inzynierka1Entities.ENTITY.Turnieje
+                    where szukanyTurniej.ID_Turnieju == id
+                    select szukanyTurniej).First();
+
+        }
+
+        public static bool EdytujTurniej(int id, int Kategoria, DateTime dataRozpoczecia, DateTime dataZakonczenia, string Nazwa, string Opis)
+        {
+            bool success = true;
+            Turnieje zmienianyTurniej = new Turnieje();
+            try
+            {
+                zmienianyTurniej = (from Turnieje szukanyTurniej in Inzynierka1Entities.ENTITY.Turnieje
+                                    where szukanyTurniej.ID_Turnieju == id
+                                    select szukanyTurniej).First();
+                zmienianyTurniej.Kategoria = Kategoria;
+                zmienianyTurniej.DataRozp= dataRozpoczecia;
+                zmienianyTurniej.DataZak = dataZakonczenia;
+                zmienianyTurniej.Nazwa = Nazwa;
+                zmienianyTurniej.Opis = Opis;
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception exc)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            }
+
+            return success;
+        }
+
         public static bool UsunTurniej(int id)
         {
             bool success = true;
@@ -502,6 +570,33 @@ namespace KortyTenisowe
                     where ZawodnicyTurnieju.ID_Turnieju == id
                     select ZawodnicyTurnieju);
         }
+
+        public static bool ZaplanujMecz (int ID_Turnieju, int Zawodnik1, int Zawodnik2)
+        {
+            bool success = true;
+
+            Mecze dodawanyMecz = new Mecze();
+            dodawanyMecz.ID_Turnieju = ID_Turnieju;
+            dodawanyMecz.Zawodnik1 = Zawodnik1;
+            dodawanyMecz.Zawodnik2 = Zawodnik2;
+            dodawanyMecz.CzyRozegrany = 0;
+            
+
+
+            try
+            {
+                Inzynierka1Entities.ENTITY.AddToMecze(dodawanyMecz);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message);
+                success = false;
+            }
+
+            return success;
+        }
+
 
         //public static IEnumerable<Zawodnicy> ZwrocZawodnikowWgTurnieju(int idTurnieju)
         //{

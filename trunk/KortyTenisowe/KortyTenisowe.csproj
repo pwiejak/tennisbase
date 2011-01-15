@@ -62,6 +62,18 @@
       <DependentUpon>Baza1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Baza1PartialClass.cs" />
+    <Compile Include="EdytujTurniejForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EdytujTurniejForm.Designer.cs">
+      <DependentUpon>EdytujTurniejForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EdytujZawodnikaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EdytujZawodnikaForm.Designer.cs">
+      <DependentUpon>EdytujZawodnikaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBQueries.cs" />
     <Compile Include="DodajKategorieForm.cs">
       <SubType>Form</SubType>
@@ -186,6 +198,12 @@
     <Compile Include="ZmienIloscForm.Designer.cs">
       <DependentUpon>ZmienIloscForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EdytujTurniejForm.resx">
+      <DependentUpon>EdytujTurniejForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EdytujZawodnikaForm.resx">
+      <DependentUpon>EdytujZawodnikaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DodajKategorieForm.resx">
       <DependentUpon>DodajKategorieForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,7 +280,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Baza1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Inzynierka1Entities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

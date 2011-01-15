@@ -39,6 +39,7 @@
             this.rbtZaplanujMecz = new Telerik.WinControls.UI.RadButton();
             this.rDDLWybierzTurniej = new Telerik.WinControls.UI.RadDropDownList();
             this.rlbWybierzTurniej = new Telerik.WinControls.UI.RadLabel();
+            this.rbtZaplanowaneMecze = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.rgvZawodnicy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtDodajZawodnika)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtEdytujZawodnika)).BeginInit();
@@ -46,6 +47,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rbtZaplanujMecz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rDDLWybierzTurniej)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rlbWybierzTurniej)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtZaplanowaneMecze)).BeginInit();
             this.SuspendLayout();
             // 
             // rgvZawodnicy
@@ -94,6 +96,7 @@
             this.rbtEdytujZawodnika.Size = new System.Drawing.Size(161, 24);
             this.rbtEdytujZawodnika.TabIndex = 3;
             this.rbtEdytujZawodnika.Text = "Edytuj zawodnika";
+            this.rbtEdytujZawodnika.Click += new System.EventHandler(this.rbtEdytujZawodnika_Click);
             // 
             // rbtUsunZawodnika
             // 
@@ -101,12 +104,12 @@
             this.rbtUsunZawodnika.Name = "rbtUsunZawodnika";
             this.rbtUsunZawodnika.Size = new System.Drawing.Size(161, 24);
             this.rbtUsunZawodnika.TabIndex = 3;
-            this.rbtUsunZawodnika.Text = "Usuń Zawodnika";
+            this.rbtUsunZawodnika.Text = "Usuń zawodnika";
             this.rbtUsunZawodnika.Click += new System.EventHandler(this.rbtUsunZawodnika_Click);
             // 
             // rbtZaplanujMecz
             // 
-            this.rbtZaplanujMecz.Location = new System.Drawing.Point(27, 314);
+            this.rbtZaplanujMecz.Location = new System.Drawing.Point(27, 281);
             this.rbtZaplanujMecz.Name = "rbtZaplanujMecz";
             this.rbtZaplanujMecz.Size = new System.Drawing.Size(161, 24);
             this.rbtZaplanujMecz.TabIndex = 3;
@@ -130,12 +133,21 @@
             this.rlbWybierzTurniej.TabIndex = 4;
             this.rlbWybierzTurniej.Text = "Wybierz Turniej:";
             // 
+            // rbtZaplanowaneMecze
+            // 
+            this.rbtZaplanowaneMecze.Location = new System.Drawing.Point(27, 311);
+            this.rbtZaplanowaneMecze.Name = "rbtZaplanowaneMecze";
+            this.rbtZaplanowaneMecze.Size = new System.Drawing.Size(161, 24);
+            this.rbtZaplanowaneMecze.TabIndex = 5;
+            this.rbtZaplanowaneMecze.Text = "Zaplanowane mecze";
+            // 
             // ObslugaTurniejuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(843, 347);
+            this.Controls.Add(this.rbtZaplanowaneMecze);
             this.Controls.Add(this.rlbWybierzTurniej);
             this.Controls.Add(this.rbtEdytujZawodnika);
             this.Controls.Add(this.rbtZaplanujMecz);
@@ -152,6 +164,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rbtZaplanujMecz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rDDLWybierzTurniej)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rlbWybierzTurniej)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtZaplanowaneMecze)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +179,6 @@
         private Telerik.WinControls.UI.RadButton rbtZaplanujMecz;
         private Telerik.WinControls.UI.RadDropDownList rDDLWybierzTurniej;
         private Telerik.WinControls.UI.RadLabel rlbWybierzTurniej;
+        private Telerik.WinControls.UI.RadButton rbtZaplanowaneMecze;
     }
 }

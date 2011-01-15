@@ -29,7 +29,11 @@ namespace KortyTenisowe
             TabMagazyn.WczytajKategorie(rddlKategorieMagazyn);
             TabWypozyczalnia.PokazWypozyczenia(rgvWypozyczalnia);
             TabTurnieje.ZwrocTurnieje(rgvTurnieje);
+            TabTurnieje.WczytajTurniej(rDDLWybierzTurniej);
             TabWypozyczalnia.PokazStany(rddlStan);
+            rbtEdytujTurniej.Enabled = false;
+            rbtUsunTurniej.Enabled = false;
+
         }
 
         private void zakończToolStripMenuItem_Click(object sender, EventArgs e)
@@ -299,6 +303,8 @@ namespace KortyTenisowe
             Usun.Activate();
             Usun.ShowDialog();
             TabTurnieje.ZwrocTurnieje(rgvTurnieje);
+            rbtEdytujTurniej.Enabled = false;
+            rbtUsunTurniej.Enabled = false;
         }
 
         private void rbtDodajKlasyfikacje_Click(object sender, EventArgs e)
@@ -324,12 +330,23 @@ namespace KortyTenisowe
 
         private void rgvTurnieje_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            aktualnaKomorka = int.Parse(rgvTurnieje.Rows[e.RowIndex].Cells[0].Value.ToString());           
+            aktualnaKomorka = int.Parse(rgvTurnieje.Rows[e.RowIndex].Cells[0].Value.ToString());
+            rbtEdytujTurniej.Enabled = true;
+            rbtUsunTurniej.Enabled = true;
         }
 
         private void rgvKlasyfikacje_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
             aktualnaKomorka = int.Parse(rgvKlasyfikacje.Rows[e.RowIndex].Cells[0].Value.ToString());
+        }
+
+        private void rbtEdytujTurniej_Click(object sender, EventArgs e)
+        {
+            Turnieje edytowanyTurniej = DBQueries.ZwrocKonkretnyTurniej(aktualnaKomorka);
+            new EdytujTurniejForm(edytowanyTurniej).ShowDialog();
+            TabTurnieje.ZwrocTurnieje(rgvTurnieje);
+            rbtEdytujTurniej.Enabled = false;
+            rbtUsunTurniej.Enabled = false;
         }
         
 

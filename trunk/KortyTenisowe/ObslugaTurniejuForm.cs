@@ -16,7 +16,9 @@ namespace KortyTenisowe
         public ObslugaTurniejuForm()
         {
             InitializeComponent();
-            WczytajTurniej(rDDLWybierzTurniej);
+            TabTurnieje.WczytajTurniej(rDDLWybierzTurniej);
+            rbtEdytujZawodnika.Enabled = false;
+            rbtUsunZawodnika.Enabled = false;
         }
 
         public static void ZwrocZawodnikow(int idTurnieju, Telerik.WinControls.UI.RadGridView dataGrid)
@@ -34,22 +36,13 @@ namespace KortyTenisowe
         }
 
 
-        public static void WczytajTurniej(Telerik.WinControls.UI.RadDropDownList listaTurniejow)
-        {
-            List<Turnieje> WszystkieTurnieje = DBQueries.ZwrocTurnieje().ToList();
-            listaTurniejow.Items.Clear();
-
-            for (int i = 0; i < WszystkieTurnieje.Count; i++)
-            {
-                Telerik.WinControls.UI.RadListDataItem element = new Telerik.WinControls.UI.RadListDataItem();
-                element.Text = WszystkieTurnieje[i].Nazwa;
-                listaTurniejow.Items.Add(element);
-            }
-        }
-
         private void rDDLWybierzTurniej_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            ZwrocZawodnikow(e.Position + 1, rgvZawodnicy);
+            int  m_id = Convert.ToInt32(rDDLWybierzTurniej.SelectedValue);
+            ZwrocZawodnikow(m_id, rgvZawodnicy);
+            rbtEdytujZawodnika.Enabled = false;
+            rbtUsunZawodnika.Enabled = false;
+
         }
 
         private void rbtDodajZawodnika_Click(object sender, EventArgs e)
@@ -57,7 +50,8 @@ namespace KortyTenisowe
             KortyTenisowe.DodajZawodnikaForm DodajZawodnika = new KortyTenisowe.DodajZawodnikaForm();
             DodajZawodnika.Activate();
             DodajZawodnika.ShowDialog();
-            //ZwrocZawodnikow(8,rgvZawodnicy);
+            int m_id = Convert.ToInt32(rDDLWybierzTurniej.SelectedValue);
+            ZwrocZawodnikow(m_id, rgvZawodnicy);
         }
 
         private void rbtZaplanujMecz_Click(object sender, EventArgs e)
@@ -72,13 +66,29 @@ namespace KortyTenisowe
             KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm(aktualnaKomorka, 1);
             Usun.Activate();
             Usun.ShowDialog();
-            //ZwrocZawodnikow(8,rgvZawodnicy);
+            int m_id = Convert.ToInt32(rDDLWybierzTurniej.SelectedValue);
+            ZwrocZawodnikow(m_id, rgvZawodnicy);
+            rbtEdytujZawodnika.Enabled = false;
+            rbtUsunZawodnika.Enabled = false;
         }
 
         private void rgvZawodnicy_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            //rbDodajNaMagazyn.Enabled = true;
             aktualnaKomorka = int.Parse(rgvZawodnicy.Rows[e.RowIndex].Cells[0].Value.ToString());
+            rbtEdytujZawodnika.Enabled = true;
+            rbtUsunZawodnika.Enabled = true;
+        }
+
+        private void rbtEdytujZawodnika_Click(object sender, EventArgs e)
+        {
+
+            Zawodnicy edytowanyZawodnik = DBQueries.ZwrocKonkretnegoZawodnika(aktualnaKomorka);
+            new EdytujZawodnikaForm(edytowanyZawodnik).ShowDialog();
+            int m_id = Convert.ToInt32(rDDLWybierzTurniej.SelectedValue);
+            ZwrocZawodnikow(m_id, rgvZawodnicy);
+            rbtEdytujZawodnika.Enabled = false;
+            rbtUsunZawodnika.Enabled = false;
+                        
         }
 
         //public static void PokazZawodnikow(int ID_Zawodnika, Telerik.WinControls.UI.RadGridView dataGrid)

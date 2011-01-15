@@ -14,6 +14,8 @@ namespace KortyTenisowe
         public DodajTurniejForm()
         {
             InitializeComponent();
+            this.rDTPDataRozp.Value = DateTime.Now;
+            this.rDTPDataZak.Value = DateTime.Now;
         }
 
         private void rbtAnuluj_Click(object sender, EventArgs e)

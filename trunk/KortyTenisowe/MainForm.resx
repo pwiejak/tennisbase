@@ -180,8 +180,26 @@
   <data name="rgvKorty.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 1</value>
   </data>
+  <data name="rgvKorty.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rgvKorty.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rgvKorty.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rgvKorty.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
   <data name="rgvKorty.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 1</value>
+  </data>
+  <data name="rgvKorty.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rgvKorty.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
   </data>
   <data name="rgvKorty.Size" type="System.Drawing.Size, System.Drawing">
     <value>450, 245</value>
@@ -729,9 +747,6 @@
   <data name="rDDLKategorie.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="rDDLKategorie.Text" xml:space="preserve">
-    <value>Kategoria</value>
-  </data>
   <data name="&gt;&gt;rDDLKategorie.Name" xml:space="preserve">
     <value>rDDLKategorie</value>
   </data>
@@ -821,6 +836,27 @@
   </data>
   <data name="rbtWypozycz.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 186</value>
+  </data>
+  <data name="rbtWypozycz.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rbtWypozycz.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbtWypozycz.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rbtWypozycz.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtWypozycz.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtWypozycz.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rbtWypozycz.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
   </data>
   <data name="rbtWypozycz.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 24</value>
@@ -1249,10 +1285,10 @@
     <value>130, 24</value>
   </data>
   <data name="rbtEdytujTurniej.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>0</value>
   </data>
   <data name="rbtEdytujTurniej.Text" xml:space="preserve">
-    <value>Edytuj Turniej</value>
+    <value>Edytuj turniej</value>
   </data>
   <data name="&gt;&gt;rbtEdytujTurniej.Name" xml:space="preserve">
     <value>rbtEdytujTurniej</value>
@@ -1269,6 +1305,27 @@
   <data name="rbtUsunTurniej.Location" type="System.Drawing.Point, System.Drawing">
     <value>33, 90</value>
   </data>
+  <data name="rbtUsunTurniej.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rbtUsunTurniej.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbtUsunTurniej.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rbtUsunTurniej.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtUsunTurniej.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtUsunTurniej.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rbtUsunTurniej.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
   <data name="rbtUsunTurniej.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 24</value>
   </data>
@@ -1276,7 +1333,7 @@
     <value>2</value>
   </data>
   <data name="rbtUsunTurniej.Text" xml:space="preserve">
-    <value>Usuń Turniej</value>
+    <value>Usun turniej</value>
   </data>
   <data name="&gt;&gt;rbtUsunTurniej.Name" xml:space="preserve">
     <value>rbtUsunTurniej</value>
@@ -1291,7 +1348,28 @@
     <value>1</value>
   </data>
   <data name="rbtObslugaTurnieju.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 209</value>
+    <value>33, 379</value>
+  </data>
+  <data name="rbtObslugaTurnieju.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rbtObslugaTurnieju.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbtObslugaTurnieju.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rbtObslugaTurnieju.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtObslugaTurnieju.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtObslugaTurnieju.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rbtObslugaTurnieju.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
   </data>
   <data name="rbtObslugaTurnieju.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 24</value>
@@ -1329,6 +1407,27 @@
   <data name="gridViewTextBoxColumn21.HeaderText" xml:space="preserve">
     <value>Kategoria</value>
   </data>
+  <data name="rgvTurnieje.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rgvTurnieje.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rgvTurnieje.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rgvTurnieje.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rgvTurnieje.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rgvTurnieje.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rgvTurnieje.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
   <data name="rgvTurnieje.Size" type="System.Drawing.Size, System.Drawing">
     <value>605, 397</value>
   </data>
@@ -1353,6 +1452,27 @@
   <data name="rbtDodajTurniej.Location" type="System.Drawing.Point, System.Drawing">
     <value>33, 30</value>
   </data>
+  <data name="rbtDodajTurniej.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rbtDodajTurniej.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbtDodajTurniej.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rbtDodajTurniej.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtDodajTurniej.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtDodajTurniej.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rbtDodajTurniej.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
   <data name="rbtDodajTurniej.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 24</value>
   </data>
@@ -1360,7 +1480,7 @@
     <value>0</value>
   </data>
   <data name="rbtDodajTurniej.Text" xml:space="preserve">
-    <value>Dodaj Turniej</value>
+    <value>Dodaj turniej</value>
   </data>
   <data name="&gt;&gt;rbtDodajTurniej.Name" xml:space="preserve">
     <value>rbtDodajTurniej</value>
@@ -1404,14 +1524,32 @@
   <data name="rDDLWybierzTurniej.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 40</value>
   </data>
+  <data name="rDDLWybierzTurniej.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rDDLWybierzTurniej.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rDDLWybierzTurniej.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rDDLWybierzTurniej.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rDDLWybierzTurniej.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rDDLWybierzTurniej.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rDDLWybierzTurniej.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
   <data name="rDDLWybierzTurniej.Size" type="System.Drawing.Size, System.Drawing">
     <value>220, 22</value>
   </data>
   <data name="rDDLWybierzTurniej.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
-  </data>
-  <data name="rDDLWybierzTurniej.Text" xml:space="preserve">
-    <value>Turniej</value>
   </data>
   <data name="&gt;&gt;rDDLWybierzTurniej.Name" xml:space="preserve">
     <value>rDDLWybierzTurniej</value>
@@ -1427,6 +1565,27 @@
   </data>
   <data name="rbtUsunKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 138</value>
+  </data>
+  <data name="rbtUsunKlasyfikacje.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rbtUsunKlasyfikacje.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbtUsunKlasyfikacje.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rbtUsunKlasyfikacje.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtUsunKlasyfikacje.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtUsunKlasyfikacje.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rbtUsunKlasyfikacje.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
   </data>
   <data name="rbtUsunKlasyfikacje.Size" type="System.Drawing.Size, System.Drawing">
     <value>220, 24</value>
@@ -1452,6 +1611,27 @@
   <data name="rbtWynikiSpotkan.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 267</value>
   </data>
+  <data name="rbtWynikiSpotkan.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rbtWynikiSpotkan.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbtWynikiSpotkan.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rbtWynikiSpotkan.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtWynikiSpotkan.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtWynikiSpotkan.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rbtWynikiSpotkan.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
   <data name="rbtWynikiSpotkan.Size" type="System.Drawing.Size, System.Drawing">
     <value>220, 24</value>
   </data>
@@ -1475,6 +1655,27 @@
   </data>
   <data name="rbtEdytujKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 108</value>
+  </data>
+  <data name="rbtEdytujKlasyfikacje.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rbtEdytujKlasyfikacje.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbtEdytujKlasyfikacje.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rbtEdytujKlasyfikacje.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtEdytujKlasyfikacje.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtEdytujKlasyfikacje.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rbtEdytujKlasyfikacje.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
   </data>
   <data name="rbtEdytujKlasyfikacje.Size" type="System.Drawing.Size, System.Drawing">
     <value>220, 24</value>
@@ -1500,6 +1701,27 @@
   <data name="rlbKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
     <value>169, 6</value>
   </data>
+  <data name="rlbKlasyfikacje.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rlbKlasyfikacje.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rlbKlasyfikacje.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rlbKlasyfikacje.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rlbKlasyfikacje.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rlbKlasyfikacje.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rlbKlasyfikacje.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
   <data name="rlbKlasyfikacje.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 16</value>
   </data>
@@ -1523,6 +1745,27 @@
   </data>
   <data name="rlbWybierzTurniej.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 6</value>
+  </data>
+  <data name="rlbWybierzTurniej.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rlbWybierzTurniej.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rlbWybierzTurniej.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rlbWybierzTurniej.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rlbWybierzTurniej.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rlbWybierzTurniej.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rlbWybierzTurniej.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
   </data>
   <data name="rlbWybierzTurniej.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 16</value>
@@ -1572,6 +1815,27 @@
   <data name="gridViewTextBoxColumn25.HeaderText" xml:space="preserve">
     <value>Punkty</value>
   </data>
+  <data name="rgvKlasyfikacje.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rgvKlasyfikacje.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rgvKlasyfikacje.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rgvKlasyfikacje.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rgvKlasyfikacje.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rgvKlasyfikacje.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rgvKlasyfikacje.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
   <data name="rgvKlasyfikacje.Size" type="System.Drawing.Size, System.Drawing">
     <value>558, 397</value>
   </data>
@@ -1592,6 +1856,27 @@
   </data>
   <data name="rbtDodajKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 78</value>
+  </data>
+  <data name="rbtDodajKlasyfikacje.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rbtDodajKlasyfikacje.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbtDodajKlasyfikacje.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rbtDodajKlasyfikacje.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtDodajKlasyfikacje.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rbtDodajKlasyfikacje.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rbtDodajKlasyfikacje.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
   </data>
   <data name="rbtDodajKlasyfikacje.Size" type="System.Drawing.Size, System.Drawing">
     <value>220, 24</value>
@@ -1643,6 +1928,27 @@
   </data>
   <data name="rchbNadchodzace.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 99</value>
+  </data>
+  <data name="rchbNadchodzace.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="rchbNadchodzace.RootElement.AngleTransform" type="System.Single, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rchbNadchodzace.RootElement.FlipText" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rchbNadchodzace.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rchbNadchodzace.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="rchbNadchodzace.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="rchbNadchodzace.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
   </data>
   <data name="rchbNadchodzace.Size" type="System.Drawing.Size, System.Drawing">
     <value>171, 18</value>
@@ -1742,9 +2048,6 @@
   </data>
   <data name="rddlStan.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
-  </data>
-  <data name="rddlStan.Text" xml:space="preserve">
-    <value>Stan</value>
   </data>
   <data name="&gt;&gt;rddlStan.Name" xml:space="preserve">
     <value>rddlStan</value>

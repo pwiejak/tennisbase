@@ -268,7 +268,13 @@
             // 
             // 
             // 
+            this.rgvKorty.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rgvKorty.RootElement.Alignment")));
+            this.rgvKorty.RootElement.AngleTransform = ((float)(resources.GetObject("rgvKorty.RootElement.AngleTransform")));
+            this.rgvKorty.RootElement.FlipText = ((bool)(resources.GetObject("rgvKorty.RootElement.FlipText")));
+            this.rgvKorty.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rgvKorty.RootElement.Margin")));
             this.rgvKorty.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rgvKorty.RootElement.Padding")));
+            this.rgvKorty.RootElement.Text = resources.GetString("rgvKorty.RootElement.Text");
+            this.rgvKorty.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rgvKorty.RootElement.TextOrientation")));
             // 
             // panelLegenda
             // 
@@ -506,6 +512,16 @@
             // 
             resources.ApplyResources(this.rbtWypozycz, "rbtWypozycz");
             this.rbtWypozycz.Name = "rbtWypozycz";
+            // 
+            // 
+            // 
+            this.rbtWypozycz.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rbtWypozycz.RootElement.Alignment")));
+            this.rbtWypozycz.RootElement.AngleTransform = ((float)(resources.GetObject("rbtWypozycz.RootElement.AngleTransform")));
+            this.rbtWypozycz.RootElement.FlipText = ((bool)(resources.GetObject("rbtWypozycz.RootElement.FlipText")));
+            this.rbtWypozycz.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rbtWypozycz.RootElement.Margin")));
+            this.rbtWypozycz.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rbtWypozycz.RootElement.Padding")));
+            this.rbtWypozycz.RootElement.Text = resources.GetString("rbtWypozycz.RootElement.Text");
+            this.rbtWypozycz.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rbtWypozycz.RootElement.TextOrientation")));
             this.rbtWypozycz.Click += new System.EventHandler(this.rbtWypozycz_Click);
             // 
             // rbtUsun
@@ -693,17 +709,39 @@
             // 
             resources.ApplyResources(this.rbtEdytujTurniej, "rbtEdytujTurniej");
             this.rbtEdytujTurniej.Name = "rbtEdytujTurniej";
+            this.rbtEdytujTurniej.Click += new System.EventHandler(this.rbtEdytujTurniej_Click);
             // 
             // rbtUsunTurniej
             // 
             resources.ApplyResources(this.rbtUsunTurniej, "rbtUsunTurniej");
             this.rbtUsunTurniej.Name = "rbtUsunTurniej";
+            this.rbtUsunTurniej.Text = "Usuń turniej";
+            // 
+            // 
+            // 
+            this.rbtUsunTurniej.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rbtUsunTurniej.RootElement.Alignment")));
+            this.rbtUsunTurniej.RootElement.AngleTransform = ((float)(resources.GetObject("rbtUsunTurniej.RootElement.AngleTransform")));
+            this.rbtUsunTurniej.RootElement.FlipText = ((bool)(resources.GetObject("rbtUsunTurniej.RootElement.FlipText")));
+            this.rbtUsunTurniej.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rbtUsunTurniej.RootElement.Margin")));
+            this.rbtUsunTurniej.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rbtUsunTurniej.RootElement.Padding")));
+            this.rbtUsunTurniej.RootElement.Text = resources.GetString("rbtUsunTurniej.RootElement.Text");
+            this.rbtUsunTurniej.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rbtUsunTurniej.RootElement.TextOrientation")));
             this.rbtUsunTurniej.Click += new System.EventHandler(this.rbtUsunTurniej_Click);
             // 
             // rbtObslugaTurnieju
             // 
             resources.ApplyResources(this.rbtObslugaTurnieju, "rbtObslugaTurnieju");
             this.rbtObslugaTurnieju.Name = "rbtObslugaTurnieju";
+            // 
+            // 
+            // 
+            this.rbtObslugaTurnieju.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rbtObslugaTurnieju.RootElement.Alignment")));
+            this.rbtObslugaTurnieju.RootElement.AngleTransform = ((float)(resources.GetObject("rbtObslugaTurnieju.RootElement.AngleTransform")));
+            this.rbtObslugaTurnieju.RootElement.FlipText = ((bool)(resources.GetObject("rbtObslugaTurnieju.RootElement.FlipText")));
+            this.rbtObslugaTurnieju.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rbtObslugaTurnieju.RootElement.Margin")));
+            this.rbtObslugaTurnieju.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rbtObslugaTurnieju.RootElement.Padding")));
+            this.rbtObslugaTurnieju.RootElement.Text = resources.GetString("rbtObslugaTurnieju.RootElement.Text");
+            this.rbtObslugaTurnieju.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rbtObslugaTurnieju.RootElement.TextOrientation")));
             this.rbtObslugaTurnieju.Click += new System.EventHandler(this.rbtObslugaTurnieju_Click);
             // 
             // rgvTurnieje
@@ -731,12 +769,32 @@
             gridViewTextBoxColumn21});
             this.rgvTurnieje.Name = "rgvTurnieje";
             this.rgvTurnieje.ReadOnly = true;
+            // 
+            // 
+            // 
+            this.rgvTurnieje.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rgvTurnieje.RootElement.Alignment")));
+            this.rgvTurnieje.RootElement.AngleTransform = ((float)(resources.GetObject("rgvTurnieje.RootElement.AngleTransform")));
+            this.rgvTurnieje.RootElement.FlipText = ((bool)(resources.GetObject("rgvTurnieje.RootElement.FlipText")));
+            this.rgvTurnieje.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rgvTurnieje.RootElement.Margin")));
+            this.rgvTurnieje.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rgvTurnieje.RootElement.Padding")));
+            this.rgvTurnieje.RootElement.Text = resources.GetString("rgvTurnieje.RootElement.Text");
+            this.rgvTurnieje.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rgvTurnieje.RootElement.TextOrientation")));
             this.rgvTurnieje.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.rgvTurnieje_CellClick);
             // 
             // rbtDodajTurniej
             // 
             resources.ApplyResources(this.rbtDodajTurniej, "rbtDodajTurniej");
             this.rbtDodajTurniej.Name = "rbtDodajTurniej";
+            // 
+            // 
+            // 
+            this.rbtDodajTurniej.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rbtDodajTurniej.RootElement.Alignment")));
+            this.rbtDodajTurniej.RootElement.AngleTransform = ((float)(resources.GetObject("rbtDodajTurniej.RootElement.AngleTransform")));
+            this.rbtDodajTurniej.RootElement.FlipText = ((bool)(resources.GetObject("rbtDodajTurniej.RootElement.FlipText")));
+            this.rbtDodajTurniej.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rbtDodajTurniej.RootElement.Margin")));
+            this.rbtDodajTurniej.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rbtDodajTurniej.RootElement.Padding")));
+            this.rbtDodajTurniej.RootElement.Text = resources.GetString("rbtDodajTurniej.RootElement.Text");
+            this.rbtDodajTurniej.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rbtDodajTurniej.RootElement.TextOrientation")));
             this.rbtDodajTurniej.Click += new System.EventHandler(this.rbtDodajTurniej_Click);
             // 
             // tabKlasyfikacje
@@ -759,16 +817,46 @@
             resources.ApplyResources(this.rDDLWybierzTurniej, "rDDLWybierzTurniej");
             this.rDDLWybierzTurniej.Name = "rDDLWybierzTurniej";
             // 
+            // 
+            // 
+            this.rDDLWybierzTurniej.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rDDLWybierzTurniej.RootElement.Alignment")));
+            this.rDDLWybierzTurniej.RootElement.AngleTransform = ((float)(resources.GetObject("rDDLWybierzTurniej.RootElement.AngleTransform")));
+            this.rDDLWybierzTurniej.RootElement.FlipText = ((bool)(resources.GetObject("rDDLWybierzTurniej.RootElement.FlipText")));
+            this.rDDLWybierzTurniej.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rDDLWybierzTurniej.RootElement.Margin")));
+            this.rDDLWybierzTurniej.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rDDLWybierzTurniej.RootElement.Padding")));
+            this.rDDLWybierzTurniej.RootElement.Text = resources.GetString("rDDLWybierzTurniej.RootElement.Text");
+            this.rDDLWybierzTurniej.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rDDLWybierzTurniej.RootElement.TextOrientation")));
+            // 
             // rbtUsunKlasyfikacje
             // 
             resources.ApplyResources(this.rbtUsunKlasyfikacje, "rbtUsunKlasyfikacje");
             this.rbtUsunKlasyfikacje.Name = "rbtUsunKlasyfikacje";
+            // 
+            // 
+            // 
+            this.rbtUsunKlasyfikacje.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rbtUsunKlasyfikacje.RootElement.Alignment")));
+            this.rbtUsunKlasyfikacje.RootElement.AngleTransform = ((float)(resources.GetObject("rbtUsunKlasyfikacje.RootElement.AngleTransform")));
+            this.rbtUsunKlasyfikacje.RootElement.FlipText = ((bool)(resources.GetObject("rbtUsunKlasyfikacje.RootElement.FlipText")));
+            this.rbtUsunKlasyfikacje.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rbtUsunKlasyfikacje.RootElement.Margin")));
+            this.rbtUsunKlasyfikacje.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rbtUsunKlasyfikacje.RootElement.Padding")));
+            this.rbtUsunKlasyfikacje.RootElement.Text = resources.GetString("rbtUsunKlasyfikacje.RootElement.Text");
+            this.rbtUsunKlasyfikacje.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rbtUsunKlasyfikacje.RootElement.TextOrientation")));
             this.rbtUsunKlasyfikacje.Click += new System.EventHandler(this.rbtUsunKlasyfikacje_Click);
             // 
             // rbtWynikiSpotkan
             // 
             resources.ApplyResources(this.rbtWynikiSpotkan, "rbtWynikiSpotkan");
             this.rbtWynikiSpotkan.Name = "rbtWynikiSpotkan";
+            // 
+            // 
+            // 
+            this.rbtWynikiSpotkan.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rbtWynikiSpotkan.RootElement.Alignment")));
+            this.rbtWynikiSpotkan.RootElement.AngleTransform = ((float)(resources.GetObject("rbtWynikiSpotkan.RootElement.AngleTransform")));
+            this.rbtWynikiSpotkan.RootElement.FlipText = ((bool)(resources.GetObject("rbtWynikiSpotkan.RootElement.FlipText")));
+            this.rbtWynikiSpotkan.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rbtWynikiSpotkan.RootElement.Margin")));
+            this.rbtWynikiSpotkan.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rbtWynikiSpotkan.RootElement.Padding")));
+            this.rbtWynikiSpotkan.RootElement.Text = resources.GetString("rbtWynikiSpotkan.RootElement.Text");
+            this.rbtWynikiSpotkan.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rbtWynikiSpotkan.RootElement.TextOrientation")));
             this.rbtWynikiSpotkan.Click += new System.EventHandler(this.rbtWynikiSpotkan_Click);
             // 
             // rbtEdytujKlasyfikacje
@@ -776,15 +864,45 @@
             resources.ApplyResources(this.rbtEdytujKlasyfikacje, "rbtEdytujKlasyfikacje");
             this.rbtEdytujKlasyfikacje.Name = "rbtEdytujKlasyfikacje";
             // 
+            // 
+            // 
+            this.rbtEdytujKlasyfikacje.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rbtEdytujKlasyfikacje.RootElement.Alignment")));
+            this.rbtEdytujKlasyfikacje.RootElement.AngleTransform = ((float)(resources.GetObject("rbtEdytujKlasyfikacje.RootElement.AngleTransform")));
+            this.rbtEdytujKlasyfikacje.RootElement.FlipText = ((bool)(resources.GetObject("rbtEdytujKlasyfikacje.RootElement.FlipText")));
+            this.rbtEdytujKlasyfikacje.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rbtEdytujKlasyfikacje.RootElement.Margin")));
+            this.rbtEdytujKlasyfikacje.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rbtEdytujKlasyfikacje.RootElement.Padding")));
+            this.rbtEdytujKlasyfikacje.RootElement.Text = resources.GetString("rbtEdytujKlasyfikacje.RootElement.Text");
+            this.rbtEdytujKlasyfikacje.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rbtEdytujKlasyfikacje.RootElement.TextOrientation")));
+            // 
             // rlbKlasyfikacje
             // 
             resources.ApplyResources(this.rlbKlasyfikacje, "rlbKlasyfikacje");
             this.rlbKlasyfikacje.Name = "rlbKlasyfikacje";
             // 
+            // 
+            // 
+            this.rlbKlasyfikacje.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rlbKlasyfikacje.RootElement.Alignment")));
+            this.rlbKlasyfikacje.RootElement.AngleTransform = ((float)(resources.GetObject("rlbKlasyfikacje.RootElement.AngleTransform")));
+            this.rlbKlasyfikacje.RootElement.FlipText = ((bool)(resources.GetObject("rlbKlasyfikacje.RootElement.FlipText")));
+            this.rlbKlasyfikacje.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rlbKlasyfikacje.RootElement.Margin")));
+            this.rlbKlasyfikacje.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rlbKlasyfikacje.RootElement.Padding")));
+            this.rlbKlasyfikacje.RootElement.Text = resources.GetString("rlbKlasyfikacje.RootElement.Text");
+            this.rlbKlasyfikacje.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rlbKlasyfikacje.RootElement.TextOrientation")));
+            // 
             // rlbWybierzTurniej
             // 
             resources.ApplyResources(this.rlbWybierzTurniej, "rlbWybierzTurniej");
             this.rlbWybierzTurniej.Name = "rlbWybierzTurniej";
+            // 
+            // 
+            // 
+            this.rlbWybierzTurniej.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rlbWybierzTurniej.RootElement.Alignment")));
+            this.rlbWybierzTurniej.RootElement.AngleTransform = ((float)(resources.GetObject("rlbWybierzTurniej.RootElement.AngleTransform")));
+            this.rlbWybierzTurniej.RootElement.FlipText = ((bool)(resources.GetObject("rlbWybierzTurniej.RootElement.FlipText")));
+            this.rlbWybierzTurniej.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rlbWybierzTurniej.RootElement.Margin")));
+            this.rlbWybierzTurniej.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rlbWybierzTurniej.RootElement.Padding")));
+            this.rlbWybierzTurniej.RootElement.Text = resources.GetString("rlbWybierzTurniej.RootElement.Text");
+            this.rlbWybierzTurniej.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rlbWybierzTurniej.RootElement.TextOrientation")));
             // 
             // rgvKlasyfikacje
             // 
@@ -811,10 +929,30 @@
             this.rgvKlasyfikacje.Name = "rgvKlasyfikacje";
             this.rgvKlasyfikacje.ReadOnly = true;
             // 
+            // 
+            // 
+            this.rgvKlasyfikacje.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rgvKlasyfikacje.RootElement.Alignment")));
+            this.rgvKlasyfikacje.RootElement.AngleTransform = ((float)(resources.GetObject("rgvKlasyfikacje.RootElement.AngleTransform")));
+            this.rgvKlasyfikacje.RootElement.FlipText = ((bool)(resources.GetObject("rgvKlasyfikacje.RootElement.FlipText")));
+            this.rgvKlasyfikacje.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rgvKlasyfikacje.RootElement.Margin")));
+            this.rgvKlasyfikacje.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rgvKlasyfikacje.RootElement.Padding")));
+            this.rgvKlasyfikacje.RootElement.Text = resources.GetString("rgvKlasyfikacje.RootElement.Text");
+            this.rgvKlasyfikacje.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rgvKlasyfikacje.RootElement.TextOrientation")));
+            // 
             // rbtDodajKlasyfikacje
             // 
             resources.ApplyResources(this.rbtDodajKlasyfikacje, "rbtDodajKlasyfikacje");
             this.rbtDodajKlasyfikacje.Name = "rbtDodajKlasyfikacje";
+            // 
+            // 
+            // 
+            this.rbtDodajKlasyfikacje.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rbtDodajKlasyfikacje.RootElement.Alignment")));
+            this.rbtDodajKlasyfikacje.RootElement.AngleTransform = ((float)(resources.GetObject("rbtDodajKlasyfikacje.RootElement.AngleTransform")));
+            this.rbtDodajKlasyfikacje.RootElement.FlipText = ((bool)(resources.GetObject("rbtDodajKlasyfikacje.RootElement.FlipText")));
+            this.rbtDodajKlasyfikacje.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rbtDodajKlasyfikacje.RootElement.Margin")));
+            this.rbtDodajKlasyfikacje.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rbtDodajKlasyfikacje.RootElement.Padding")));
+            this.rbtDodajKlasyfikacje.RootElement.Text = resources.GetString("rbtDodajKlasyfikacje.RootElement.Text");
+            this.rbtDodajKlasyfikacje.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rbtDodajKlasyfikacje.RootElement.TextOrientation")));
             this.rbtDodajKlasyfikacje.Click += new System.EventHandler(this.rbtDodajKlasyfikacje_Click);
             // 
             // tabWypozyczalnia
@@ -831,6 +969,16 @@
             // 
             resources.ApplyResources(this.rchbNadchodzace, "rchbNadchodzace");
             this.rchbNadchodzace.Name = "rchbNadchodzace";
+            // 
+            // 
+            // 
+            this.rchbNadchodzace.RootElement.Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("rchbNadchodzace.RootElement.Alignment")));
+            this.rchbNadchodzace.RootElement.AngleTransform = ((float)(resources.GetObject("rchbNadchodzace.RootElement.AngleTransform")));
+            this.rchbNadchodzace.RootElement.FlipText = ((bool)(resources.GetObject("rchbNadchodzace.RootElement.FlipText")));
+            this.rchbNadchodzace.RootElement.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("rchbNadchodzace.RootElement.Margin")));
+            this.rchbNadchodzace.RootElement.Padding = ((System.Windows.Forms.Padding)(resources.GetObject("rchbNadchodzace.RootElement.Padding")));
+            this.rchbNadchodzace.RootElement.Text = resources.GetString("rchbNadchodzace.RootElement.Text");
+            this.rchbNadchodzace.RootElement.TextOrientation = ((System.Windows.Forms.Orientation)(resources.GetObject("rchbNadchodzace.RootElement.TextOrientation")));
             // 
             // rlblStan
             // 
@@ -1075,7 +1223,6 @@
         private Telerik.WinControls.UI.RadButton rbtWypozycz;
         private Telerik.WinControls.UI.RadCheckBox rchbNadchodzace;
         private System.Windows.Forms.TabPage tabTurnieje;
-        private Telerik.WinControls.UI.RadButton rbtEdytujTurniej;
         private Telerik.WinControls.UI.RadButton rbtUsunTurniej;
         private Telerik.WinControls.UI.RadButton rbtObslugaTurnieju;
         private Telerik.WinControls.UI.RadGridView rgvTurnieje;
@@ -1089,5 +1236,6 @@
         private Telerik.WinControls.UI.RadLabel rlbWybierzTurniej;
         private Telerik.WinControls.UI.RadGridView rgvKlasyfikacje;
         private Telerik.WinControls.UI.RadButton rbtDodajKlasyfikacje;
+        private Telerik.WinControls.UI.RadButton rbtEdytujTurniej;
     }
 }

@@ -41,8 +41,28 @@
     <EntitySetMapping Name="Klasyfikacje">
       <EntityTypeMapping TypeName="Inzynierka1Model.Klasyfikacje">
         <MappingFragment StoreEntitySet="Klasyfikacje">
+          <ScalarProperty Name="Punkty" ColumnName="Punkty" />
+          <ScalarProperty Name="Miejsce" ColumnName="Miejsce" />
+          <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
+          <ScalarProperty Name="ID_Turnieju" ColumnName="ID_Turnieju" />
           <ScalarProperty Name="CzyGeneralna" ColumnName="CzyGeneralna" />
           <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mecze">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Mecze">
+        <MappingFragment StoreEntitySet="Mecze">
+          <ScalarProperty Name="Set5" ColumnName="Set5" />
+          <ScalarProperty Name="Set4" ColumnName="Set4" />
+          <ScalarProperty Name="Set3" ColumnName="Set3" />
+          <ScalarProperty Name="Set2" ColumnName="Set2" />
+          <ScalarProperty Name="Set1" ColumnName="Set1" />
+          <ScalarProperty Name="CzyRozegrany" ColumnName="CzyRozegrany" />
+          <ScalarProperty Name="Zawodnik2" ColumnName="Zawodnik2" />
+          <ScalarProperty Name="Zawodnik1" ColumnName="Zawodnik1" />
+          <ScalarProperty Name="ID_Turnieju" ColumnName="ID_Turnieju" />
+          <ScalarProperty Name="ID_Meczu" ColumnName="ID_Meczu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -53,15 +73,6 @@
           <ScalarProperty Name="Imie" ColumnName="Imie" />
           <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
           <ScalarProperty Name="Id_Pracownika" ColumnName="Id_Pracownika" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Punkty_Zawodnikow">
-      <EntityTypeMapping TypeName="Inzynierka1Model.Punkty_Zawodnikow">
-        <MappingFragment StoreEntitySet="Punkty_Zawodnikow">
-          <ScalarProperty Name="Punkty" ColumnName="Punkty" />
-          <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />
-          <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -77,20 +88,6 @@
           <ScalarProperty Name="Data" ColumnName="Data" />
           <ScalarProperty Name="Nr_Kortu" ColumnName="Nr_Kortu" />
           <ScalarProperty Name="ID_Rezerwacji" ColumnName="ID_Rezerwacji" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Rozegrane_Mecze">
-      <EntityTypeMapping TypeName="Inzynierka1Model.Rozegrane_Mecze">
-        <MappingFragment StoreEntitySet="Rozegrane_Mecze">
-          <ScalarProperty Name="Set5" ColumnName="Set5" />
-          <ScalarProperty Name="Set4" ColumnName="Set4" />
-          <ScalarProperty Name="Set3" ColumnName="Set3" />
-          <ScalarProperty Name="Set2" ColumnName="Set2" />
-          <ScalarProperty Name="Set1" ColumnName="Set1" />
-          <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />
-          <ScalarProperty Name="ID_Zawodnika2" ColumnName="ID_Zawodnika2" />
-          <ScalarProperty Name="ID_Zawodnika1" ColumnName="ID_Zawodnika1" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

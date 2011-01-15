@@ -24,10 +24,9 @@
           <EntitySet Name="Katalog_Uslug" EntityType="Inzynierka1Model.Store.Katalog_Uslug" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Kategorie" EntityType="Inzynierka1Model.Store.Kategorie" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Klasyfikacje" EntityType="Inzynierka1Model.Store.Klasyfikacje" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Mecze" EntityType="Inzynierka1Model.Store.Mecze" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Pracownicy" EntityType="Inzynierka1Model.Store.Pracownicy" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Punkty_Zawodnikow" EntityType="Inzynierka1Model.Store.Punkty_Zawodnikow" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Rezerwacje_Kortow" EntityType="Inzynierka1Model.Store.Rezerwacje_Kortow" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Rozegrane_Mecze" EntityType="Inzynierka1Model.Store.Rozegrane_Mecze" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Serwis" EntityType="Inzynierka1Model.Store.Serwis" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Sparingpartnerzy" EntityType="Inzynierka1Model.Store.Sparingpartnerzy" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Sprzet" EntityType="Inzynierka1Model.Store.Sprzet" store:Type="Tables" Schema="dbo" />
@@ -44,13 +43,17 @@
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
             <End Role="Dostepnosc" EntitySet="Dostepnosc" />
           </AssociationSet>
-          <AssociationSet Name="FK_Punkty_Zawodnikow_Klasyfikacje" Association="Inzynierka1Model.Store.FK_Punkty_Zawodnikow_Klasyfikacje">
-            <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
-            <End Role="Punkty_Zawodnikow" EntitySet="Punkty_Zawodnikow" />
+          <AssociationSet Name="FK_Mecze_Turnieje" Association="Inzynierka1Model.Store.FK_Mecze_Turnieje">
+            <End Role="Turnieje" EntitySet="Turnieje" />
+            <End Role="Mecze" EntitySet="Mecze" />
           </AssociationSet>
-          <AssociationSet Name="FK_Punkty_Zawodnikow_Zawodnicy" Association="Inzynierka1Model.Store.FK_Punkty_Zawodnikow_Zawodnicy">
+          <AssociationSet Name="FK_Mecze_Zawodnicy" Association="Inzynierka1Model.Store.FK_Mecze_Zawodnicy">
             <End Role="Zawodnicy" EntitySet="Zawodnicy" />
-            <End Role="Punkty_Zawodnikow" EntitySet="Punkty_Zawodnikow" />
+            <End Role="Mecze" EntitySet="Mecze" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mecze_Zawodnicy1" Association="Inzynierka1Model.Store.FK_Mecze_Zawodnicy1">
+            <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+            <End Role="Mecze" EntitySet="Mecze" />
           </AssociationSet>
           <AssociationSet Name="FK_Rezerwacje_Kortow_Pracownicy" Association="Inzynierka1Model.Store.FK_Rezerwacje_Kortow_Pracownicy">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
@@ -59,18 +62,6 @@
           <AssociationSet Name="FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" Association="Inzynierka1Model.Store.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow">
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
             <End Role="Rezerwacje_Kortow" EntitySet="Rezerwacje_Kortow" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Rozegrane_Mecze_Klasyfikacje" Association="Inzynierka1Model.Store.FK_Rozegrane_Mecze_Klasyfikacje">
-            <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
-            <End Role="Rozegrane_Mecze" EntitySet="Rozegrane_Mecze" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Rozegrane_Mecze_Zawodnicy" Association="Inzynierka1Model.Store.FK_Rozegrane_Mecze_Zawodnicy">
-            <End Role="Zawodnicy" EntitySet="Zawodnicy" />
-            <End Role="Rozegrane_Mecze" EntitySet="Rozegrane_Mecze" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Rozegrane_Mecze_Zawodnicy1" Association="Inzynierka1Model.Store.FK_Rozegrane_Mecze_Zawodnicy1">
-            <End Role="Zawodnicy" EntitySet="Zawodnicy" />
-            <End Role="Rozegrane_Mecze" EntitySet="Rozegrane_Mecze" />
           </AssociationSet>
           <AssociationSet Name="FK_Serwis_Katalog_Uslug" Association="Inzynierka1Model.Store.FK_Serwis_Katalog_Uslug">
             <End Role="Katalog_Uslug" EntitySet="Katalog_Uslug" />
@@ -106,6 +97,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Turnieje_Kategorie" Association="Inzynierka1Model.Store.FK_Turnieje_Kategorie">
             <End Role="Kategorie" EntitySet="Kategorie" />
+            <End Role="Turnieje" EntitySet="Turnieje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Turnieje_Klasyfikacje" Association="Inzynierka1Model.Store.FK_Turnieje_Klasyfikacje">
+            <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
             <End Role="Turnieje" EntitySet="Turnieje" />
           </AssociationSet>
           <AssociationSet Name="FK_Uzytkownicy_Systemu_Pracownicy1" Association="Inzynierka1Model.Store.FK_Uzytkownicy_Systemu_Pracownicy1">
@@ -175,6 +170,25 @@
           </Key>
           <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
           <Property Name="CzyGeneralna" Type="bit" Nullable="false" />
+          <Property Name="ID_Turnieju" Type="int" />
+          <Property Name="ID_Zawodnika" Type="int" />
+          <Property Name="Miejsce" Type="int" Nullable="false" />
+          <Property Name="Punkty" Type="int" />
+        </EntityType>
+        <EntityType Name="Mecze">
+          <Key>
+            <PropertyRef Name="ID_Meczu" />
+          </Key>
+          <Property Name="ID_Meczu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Turnieju" Type="int" />
+          <Property Name="Zawodnik1" Type="int" Nullable="false" />
+          <Property Name="Zawodnik2" Type="int" Nullable="false" />
+          <Property Name="CzyRozegrany" Type="int" Nullable="false" />
+          <Property Name="Set1" Type="nchar" MaxLength="10" />
+          <Property Name="Set2" Type="nchar" MaxLength="10" />
+          <Property Name="Set3" Type="nchar" MaxLength="10" />
+          <Property Name="Set4" Type="nchar" MaxLength="10" />
+          <Property Name="Set5" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Pracownicy">
           <Key>
@@ -184,14 +198,6 @@
           <Property Name="Nazwisko" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Imie" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Telefon" Type="nvarchar" Nullable="false" MaxLength="20" />
-        </EntityType>
-        <EntityType Name="Punkty_Zawodnikow">
-          <Key>
-            <PropertyRef Name="ID_Zawodnika" />
-          </Key>
-          <Property Name="ID_Zawodnika" Type="int" Nullable="false" />
-          <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
-          <Property Name="Punkty" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Rezerwacje_Kortow">
           <Key>
@@ -206,19 +212,6 @@
           <Property Name="ID_Osoby" Type="int" Nullable="false" />
           <Property Name="Cena" Type="float" />
           <Property Name="Id_Pracownika" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Rozegrane_Mecze">
-          <Key>
-            <PropertyRef Name="ID_Klasyfikacji" />
-          </Key>
-          <Property Name="ID_Zawodnika1" Type="int" Nullable="false" />
-          <Property Name="ID_Zawodnika2" Type="int" Nullable="false" />
-          <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
-          <Property Name="Set1" Type="nchar" MaxLength="10" />
-          <Property Name="Set2" Type="nchar" MaxLength="10" />
-          <Property Name="Set3" Type="nchar" MaxLength="10" />
-          <Property Name="Set4" Type="nchar" MaxLength="10" />
-          <Property Name="Set5" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Serwis">
           <Key>
@@ -358,27 +351,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Punkty_Zawodnikow_Klasyfikacje">
-          <End Role="Klasyfikacje" Type="Inzynierka1Model.Store.Klasyfikacje" Multiplicity="1" />
-          <End Role="Punkty_Zawodnikow" Type="Inzynierka1Model.Store.Punkty_Zawodnikow" Multiplicity="*" />
+        <Association Name="FK_Mecze_Turnieje">
+          <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="0..1" />
+          <End Role="Mecze" Type="Inzynierka1Model.Store.Mecze" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Klasyfikacje">
-              <PropertyRef Name="ID_Klasyfikacji" />
+            <Principal Role="Turnieje">
+              <PropertyRef Name="ID_Turnieju" />
             </Principal>
-            <Dependent Role="Punkty_Zawodnikow">
-              <PropertyRef Name="ID_Klasyfikacji" />
+            <Dependent Role="Mecze">
+              <PropertyRef Name="ID_Turnieju" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Punkty_Zawodnikow_Zawodnicy">
+        <Association Name="FK_Mecze_Zawodnicy">
           <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="1" />
-          <End Role="Punkty_Zawodnikow" Type="Inzynierka1Model.Store.Punkty_Zawodnikow" Multiplicity="0..1" />
+          <End Role="Mecze" Type="Inzynierka1Model.Store.Mecze" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Zawodnicy">
               <PropertyRef Name="ID_Zawodnika" />
             </Principal>
-            <Dependent Role="Punkty_Zawodnikow">
+            <Dependent Role="Mecze">
+              <PropertyRef Name="Zawodnik1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mecze_Zawodnicy1">
+          <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="1" />
+          <End Role="Mecze" Type="Inzynierka1Model.Store.Mecze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zawodnicy">
               <PropertyRef Name="ID_Zawodnika" />
+            </Principal>
+            <Dependent Role="Mecze">
+              <PropertyRef Name="Zawodnik2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -403,42 +408,6 @@
             </Principal>
             <Dependent Role="Rezerwacje_Kortow">
               <PropertyRef Name="ID_Osoby" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rozegrane_Mecze_Klasyfikacje">
-          <End Role="Klasyfikacje" Type="Inzynierka1Model.Store.Klasyfikacje" Multiplicity="1" />
-          <End Role="Rozegrane_Mecze" Type="Inzynierka1Model.Store.Rozegrane_Mecze" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Klasyfikacje">
-              <PropertyRef Name="ID_Klasyfikacji" />
-            </Principal>
-            <Dependent Role="Rozegrane_Mecze">
-              <PropertyRef Name="ID_Klasyfikacji" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rozegrane_Mecze_Zawodnicy">
-          <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="1" />
-          <End Role="Rozegrane_Mecze" Type="Inzynierka1Model.Store.Rozegrane_Mecze" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Zawodnicy">
-              <PropertyRef Name="ID_Zawodnika" />
-            </Principal>
-            <Dependent Role="Rozegrane_Mecze">
-              <PropertyRef Name="ID_Zawodnika1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rozegrane_Mecze_Zawodnicy1">
-          <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="1" />
-          <End Role="Rozegrane_Mecze" Type="Inzynierka1Model.Store.Rozegrane_Mecze" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Zawodnicy">
-              <PropertyRef Name="ID_Zawodnika" />
-            </Principal>
-            <Dependent Role="Rozegrane_Mecze">
-              <PropertyRef Name="ID_Zawodnika2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -550,6 +519,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Turnieje_Klasyfikacje">
+          <End Role="Klasyfikacje" Type="Inzynierka1Model.Store.Klasyfikacje" Multiplicity="0..1" />
+          <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klasyfikacje">
+              <PropertyRef Name="ID_Klasyfikacji" />
+            </Principal>
+            <Dependent Role="Turnieje">
+              <PropertyRef Name="ID_Klasyfikacji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Uzytkownicy_Systemu_Pracownicy1">
           <End Role="Pracownicy" Type="Inzynierka1Model.Store.Pracownicy" Multiplicity="1" />
           <End Role="Uzytkownicy_Systemu" Type="Inzynierka1Model.Store.Uzytkownicy_Systemu" Multiplicity="*" />
@@ -639,10 +620,9 @@
           <EntitySet Name="Katalog_Uslug" EntityType="Inzynierka1Model.Katalog_Uslug" />
           <EntitySet Name="Kategorie" EntityType="Inzynierka1Model.Kategorie" />
           <EntitySet Name="Klasyfikacje" EntityType="Inzynierka1Model.Klasyfikacje" />
+          <EntitySet Name="Mecze" EntityType="Inzynierka1Model.Mecze" />
           <EntitySet Name="Pracownicy" EntityType="Inzynierka1Model.Pracownicy" />
-          <EntitySet Name="Punkty_Zawodnikow" EntityType="Inzynierka1Model.Punkty_Zawodnikow" />
           <EntitySet Name="Rezerwacje_Kortow" EntityType="Inzynierka1Model.Rezerwacje_Kortow" />
-          <EntitySet Name="Rozegrane_Mecze" EntityType="Inzynierka1Model.Rozegrane_Mecze" />
           <EntitySet Name="Serwis" EntityType="Inzynierka1Model.Serwis" />
           <EntitySet Name="Sparingpartnerzy" EntityType="Inzynierka1Model.Sparingpartnerzy" />
           <EntitySet Name="Sprzet" EntityType="Inzynierka1Model.Sprzet" />
@@ -667,13 +647,21 @@
             <End Role="Kategorie" EntitySet="Kategorie" />
             <End Role="Turnieje" EntitySet="Turnieje" />
           </AssociationSet>
-          <AssociationSet Name="FK_Punkty_Zawodnikow_Klasyfikacje" Association="Inzynierka1Model.FK_Punkty_Zawodnikow_Klasyfikacje">
+          <AssociationSet Name="FK_Turnieje_Klasyfikacje" Association="Inzynierka1Model.FK_Turnieje_Klasyfikacje">
             <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
-            <End Role="Punkty_Zawodnikow" EntitySet="Punkty_Zawodnikow" />
+            <End Role="Turnieje" EntitySet="Turnieje" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rozegrane_Mecze_Klasyfikacje" Association="Inzynierka1Model.FK_Rozegrane_Mecze_Klasyfikacje">
-            <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
-            <End Role="Rozegrane_Mecze" EntitySet="Rozegrane_Mecze" />
+          <AssociationSet Name="FK_Mecze_Turnieje" Association="Inzynierka1Model.FK_Mecze_Turnieje">
+            <End Role="Turnieje" EntitySet="Turnieje" />
+            <End Role="Mecze" EntitySet="Mecze" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mecze_Zawodnicy" Association="Inzynierka1Model.FK_Mecze_Zawodnicy">
+            <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+            <End Role="Mecze" EntitySet="Mecze" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mecze_Zawodnicy1" Association="Inzynierka1Model.FK_Mecze_Zawodnicy1">
+            <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+            <End Role="Mecze" EntitySet="Mecze" />
           </AssociationSet>
           <AssociationSet Name="FK_Rezerwacje_Kortow_Pracownicy" Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
@@ -687,21 +675,9 @@
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Uzytkownicy_Systemu" EntitySet="Uzytkownicy_Systemu" />
           </AssociationSet>
-          <AssociationSet Name="FK_Punkty_Zawodnikow_Zawodnicy" Association="Inzynierka1Model.FK_Punkty_Zawodnikow_Zawodnicy">
-            <End Role="Zawodnicy" EntitySet="Zawodnicy" />
-            <End Role="Punkty_Zawodnikow" EntitySet="Punkty_Zawodnikow" />
-          </AssociationSet>
           <AssociationSet Name="FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow">
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
             <End Role="Rezerwacje_Kortow" EntitySet="Rezerwacje_Kortow" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Rozegrane_Mecze_Zawodnicy" Association="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy">
-            <End Role="Zawodnicy" EntitySet="Zawodnicy" />
-            <End Role="Rozegrane_Mecze" EntitySet="Rozegrane_Mecze" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Rozegrane_Mecze_Zawodnicy1" Association="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy1">
-            <End Role="Zawodnicy" EntitySet="Zawodnicy" />
-            <End Role="Rozegrane_Mecze" EntitySet="Rozegrane_Mecze" />
           </AssociationSet>
           <AssociationSet Name="FK_Serwis_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow">
             <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
@@ -787,8 +763,29 @@
           </Key>
           <Property Type="Int32" Name="ID_Klasyfikacji" Nullable="false" />
           <Property Type="Boolean" Name="CzyGeneralna" Nullable="false" />
-          <NavigationProperty Name="Punkty_Zawodnikow" Relationship="Inzynierka1Model.FK_Punkty_Zawodnikow_Klasyfikacje" FromRole="Klasyfikacje" ToRole="Punkty_Zawodnikow" />
-          <NavigationProperty Name="Rozegrane_Mecze" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Klasyfikacje" FromRole="Klasyfikacje" ToRole="Rozegrane_Mecze" />
+          <Property Type="Int32" Name="ID_Turnieju" />
+          <Property Type="Int32" Name="ID_Zawodnika" />
+          <Property Type="Int32" Name="Miejsce" Nullable="false" />
+          <Property Type="Int32" Name="Punkty" />
+          <NavigationProperty Name="Turnieje" Relationship="Inzynierka1Model.FK_Turnieje_Klasyfikacje" FromRole="Klasyfikacje" ToRole="Turnieje" />
+        </EntityType>
+        <EntityType Name="Mecze">
+          <Key>
+            <PropertyRef Name="ID_Meczu" />
+          </Key>
+          <Property Type="Int32" Name="ID_Meczu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ID_Turnieju" />
+          <Property Type="Int32" Name="Zawodnik1" Nullable="false" />
+          <Property Type="Int32" Name="Zawodnik2" Nullable="false" />
+          <Property Type="Int32" Name="CzyRozegrany" Nullable="false" />
+          <Property Type="String" Name="Set1" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Set2" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Set3" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Set4" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Set5" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Turnieje" Relationship="Inzynierka1Model.FK_Mecze_Turnieje" FromRole="Mecze" ToRole="Turnieje" />
+          <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Mecze_Zawodnicy" FromRole="Mecze" ToRole="Zawodnicy" />
+          <NavigationProperty Name="Zawodnicy1" Relationship="Inzynierka1Model.FK_Mecze_Zawodnicy1" FromRole="Mecze" ToRole="Zawodnicy" />
         </EntityType>
         <EntityType Name="Pracownicy">
           <Key>
@@ -801,16 +798,6 @@
           <NavigationProperty Name="Rezerwacje_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" FromRole="Pracownicy" ToRole="Rezerwacje_Kortow" />
           <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Pracownicy" FromRole="Pracownicy" ToRole="Serwis" />
           <NavigationProperty Name="Uzytkownicy_Systemu" Relationship="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1" FromRole="Pracownicy" ToRole="Uzytkownicy_Systemu" />
-        </EntityType>
-        <EntityType Name="Punkty_Zawodnikow">
-          <Key>
-            <PropertyRef Name="ID_Zawodnika" />
-          </Key>
-          <Property Type="Int32" Name="ID_Zawodnika" Nullable="false" />
-          <Property Type="Int32" Name="ID_Klasyfikacji" Nullable="false" />
-          <Property Type="Int32" Name="Punkty" Nullable="false" />
-          <NavigationProperty Name="Klasyfikacje" Relationship="Inzynierka1Model.FK_Punkty_Zawodnikow_Klasyfikacje" FromRole="Punkty_Zawodnikow" ToRole="Klasyfikacje" />
-          <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Punkty_Zawodnikow_Zawodnicy" FromRole="Punkty_Zawodnikow" ToRole="Zawodnicy" />
         </EntityType>
         <EntityType Name="Rezerwacje_Kortow">
           <Key>
@@ -827,22 +814,6 @@
           <Property Type="Int32" Name="Id_Pracownika" Nullable="false" />
           <NavigationProperty Name="Pracownicy" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" FromRole="Rezerwacje_Kortow" ToRole="Pracownicy" />
           <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" FromRole="Rezerwacje_Kortow" ToRole="Uzytkownicy_Kortow" />
-        </EntityType>
-        <EntityType Name="Rozegrane_Mecze">
-          <Key>
-            <PropertyRef Name="ID_Klasyfikacji" />
-          </Key>
-          <Property Type="Int32" Name="ID_Zawodnika1" Nullable="false" />
-          <Property Type="Int32" Name="ID_Zawodnika2" Nullable="false" />
-          <Property Type="Int32" Name="ID_Klasyfikacji" Nullable="false" />
-          <Property Type="String" Name="Set1" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Set2" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Set3" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Set4" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Set5" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Klasyfikacje" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Klasyfikacje" FromRole="Rozegrane_Mecze" ToRole="Klasyfikacje" />
-          <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy" FromRole="Rozegrane_Mecze" ToRole="Zawodnicy" />
-          <NavigationProperty Name="Zawodnicy1" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy1" FromRole="Rozegrane_Mecze" ToRole="Zawodnicy" />
         </EntityType>
         <EntityType Name="Serwis">
           <Key>
@@ -924,9 +895,11 @@
           <Property Type="Int32" Name="Kategoria" Nullable="false" />
           <Property Type="DateTime" Name="DataRozp" Nullable="false" />
           <Property Type="DateTime" Name="DataZak" Nullable="false" />
-          <Property Type="String" Name="Opis" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Opis" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Nazwa" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Kategorie" Relationship="Inzynierka1Model.FK_Turnieje_Kategorie" FromRole="Turnieje" ToRole="Kategorie" />
+          <NavigationProperty Name="Klasyfikacje" Relationship="Inzynierka1Model.FK_Turnieje_Klasyfikacje" FromRole="Turnieje" ToRole="Klasyfikacje" />
+          <NavigationProperty Name="Mecze" Relationship="Inzynierka1Model.FK_Mecze_Turnieje" FromRole="Turnieje" ToRole="Mecze" />
           <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Zawodnicy_Turnieje" FromRole="Turnieje" ToRole="Zawodnicy" />
         </EntityType>
         <EntityType Name="Typy">
@@ -992,9 +965,8 @@
           <Property Type="String" Name="Nazwisko" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Telefon" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Punkty_Zawodnikow" Relationship="Inzynierka1Model.FK_Punkty_Zawodnikow_Zawodnicy" FromRole="Zawodnicy" ToRole="Punkty_Zawodnikow" />
-          <NavigationProperty Name="Rozegrane_Mecze" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy" FromRole="Zawodnicy" ToRole="Rozegrane_Mecze" />
-          <NavigationProperty Name="Rozegrane_Mecze1" Relationship="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy1" FromRole="Zawodnicy" ToRole="Rozegrane_Mecze" />
+          <NavigationProperty Name="Mecze" Relationship="Inzynierka1Model.FK_Mecze_Zawodnicy" FromRole="Zawodnicy" ToRole="Mecze" />
+          <NavigationProperty Name="Mecze1" Relationship="Inzynierka1Model.FK_Mecze_Zawodnicy1" FromRole="Zawodnicy" ToRole="Mecze" />
           <NavigationProperty Name="Turnieje" Relationship="Inzynierka1Model.FK_Zawodnicy_Turnieje" FromRole="Zawodnicy" ToRole="Turnieje" />
         </EntityType>
         <Association Name="FK_Dostepnosc_Uzytkownicy_Kortow">
@@ -1033,27 +1005,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Punkty_Zawodnikow_Klasyfikacje">
-          <End Type="Inzynierka1Model.Klasyfikacje" Role="Klasyfikacje" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Punkty_Zawodnikow" Role="Punkty_Zawodnikow" Multiplicity="*" />
+        <Association Name="FK_Turnieje_Klasyfikacje">
+          <End Type="Inzynierka1Model.Klasyfikacje" Role="Klasyfikacje" Multiplicity="0..1" />
+          <End Type="Inzynierka1Model.Turnieje" Role="Turnieje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Klasyfikacje">
               <PropertyRef Name="ID_Klasyfikacji" />
             </Principal>
-            <Dependent Role="Punkty_Zawodnikow">
+            <Dependent Role="Turnieje">
               <PropertyRef Name="ID_Klasyfikacji" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Rozegrane_Mecze_Klasyfikacje">
-          <End Type="Inzynierka1Model.Klasyfikacje" Role="Klasyfikacje" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Rozegrane_Mecze" Role="Rozegrane_Mecze" Multiplicity="0..1" />
+        <Association Name="FK_Mecze_Turnieje">
+          <End Type="Inzynierka1Model.Turnieje" Role="Turnieje" Multiplicity="0..1" />
+          <End Type="Inzynierka1Model.Mecze" Role="Mecze" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Klasyfikacje">
-              <PropertyRef Name="ID_Klasyfikacji" />
+            <Principal Role="Turnieje">
+              <PropertyRef Name="ID_Turnieju" />
             </Principal>
-            <Dependent Role="Rozegrane_Mecze">
-              <PropertyRef Name="ID_Klasyfikacji" />
+            <Dependent Role="Mecze">
+              <PropertyRef Name="ID_Turnieju" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mecze_Zawodnicy">
+          <End Type="Inzynierka1Model.Zawodnicy" Role="Zawodnicy" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Mecze" Role="Mecze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zawodnicy">
+              <PropertyRef Name="ID_Zawodnika" />
+            </Principal>
+            <Dependent Role="Mecze">
+              <PropertyRef Name="Zawodnik1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mecze_Zawodnicy1">
+          <End Type="Inzynierka1Model.Zawodnicy" Role="Zawodnicy" Multiplicity="1" />
+          <End Type="Inzynierka1Model.Mecze" Role="Mecze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zawodnicy">
+              <PropertyRef Name="ID_Zawodnika" />
+            </Principal>
+            <Dependent Role="Mecze">
+              <PropertyRef Name="Zawodnik2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1093,18 +1089,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Punkty_Zawodnikow_Zawodnicy">
-          <End Type="Inzynierka1Model.Zawodnicy" Role="Zawodnicy" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Punkty_Zawodnikow" Role="Punkty_Zawodnikow" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Zawodnicy">
-              <PropertyRef Name="ID_Zawodnika" />
-            </Principal>
-            <Dependent Role="Punkty_Zawodnikow">
-              <PropertyRef Name="ID_Zawodnika" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Rezerwacje_Kortow_Uzytkownicy_Kortow">
           <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
           <End Type="Inzynierka1Model.Rezerwacje_Kortow" Role="Rezerwacje_Kortow" Multiplicity="*" />
@@ -1114,30 +1098,6 @@
             </Principal>
             <Dependent Role="Rezerwacje_Kortow">
               <PropertyRef Name="ID_Osoby" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rozegrane_Mecze_Zawodnicy">
-          <End Type="Inzynierka1Model.Zawodnicy" Role="Zawodnicy" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Rozegrane_Mecze" Role="Rozegrane_Mecze" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Zawodnicy">
-              <PropertyRef Name="ID_Zawodnika" />
-            </Principal>
-            <Dependent Role="Rozegrane_Mecze">
-              <PropertyRef Name="ID_Zawodnika1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rozegrane_Mecze_Zawodnicy1">
-          <End Type="Inzynierka1Model.Zawodnicy" Role="Zawodnicy" Multiplicity="1" />
-          <End Type="Inzynierka1Model.Rozegrane_Mecze" Role="Rozegrane_Mecze" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Zawodnicy">
-              <PropertyRef Name="ID_Zawodnika" />
-            </Principal>
-            <Dependent Role="Rozegrane_Mecze">
-              <PropertyRef Name="ID_Zawodnika2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1295,8 +1255,28 @@
           <EntitySetMapping Name="Klasyfikacje">
             <EntityTypeMapping TypeName="Inzynierka1Model.Klasyfikacje">
               <MappingFragment StoreEntitySet="Klasyfikacje">
+                <ScalarProperty Name="Punkty" ColumnName="Punkty" />
+                <ScalarProperty Name="Miejsce" ColumnName="Miejsce" />
+                <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
+                <ScalarProperty Name="ID_Turnieju" ColumnName="ID_Turnieju" />
                 <ScalarProperty Name="CzyGeneralna" ColumnName="CzyGeneralna" />
                 <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mecze">
+            <EntityTypeMapping TypeName="Inzynierka1Model.Mecze">
+              <MappingFragment StoreEntitySet="Mecze">
+                <ScalarProperty Name="Set5" ColumnName="Set5" />
+                <ScalarProperty Name="Set4" ColumnName="Set4" />
+                <ScalarProperty Name="Set3" ColumnName="Set3" />
+                <ScalarProperty Name="Set2" ColumnName="Set2" />
+                <ScalarProperty Name="Set1" ColumnName="Set1" />
+                <ScalarProperty Name="CzyRozegrany" ColumnName="CzyRozegrany" />
+                <ScalarProperty Name="Zawodnik2" ColumnName="Zawodnik2" />
+                <ScalarProperty Name="Zawodnik1" ColumnName="Zawodnik1" />
+                <ScalarProperty Name="ID_Turnieju" ColumnName="ID_Turnieju" />
+                <ScalarProperty Name="ID_Meczu" ColumnName="ID_Meczu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1307,15 +1287,6 @@
                 <ScalarProperty Name="Imie" ColumnName="Imie" />
                 <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
                 <ScalarProperty Name="Id_Pracownika" ColumnName="Id_Pracownika" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Punkty_Zawodnikow">
-            <EntityTypeMapping TypeName="Inzynierka1Model.Punkty_Zawodnikow">
-              <MappingFragment StoreEntitySet="Punkty_Zawodnikow">
-                <ScalarProperty Name="Punkty" ColumnName="Punkty" />
-                <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />
-                <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1331,20 +1302,6 @@
                 <ScalarProperty Name="Data" ColumnName="Data" />
                 <ScalarProperty Name="Nr_Kortu" ColumnName="Nr_Kortu" />
                 <ScalarProperty Name="ID_Rezerwacji" ColumnName="ID_Rezerwacji" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Rozegrane_Mecze">
-            <EntityTypeMapping TypeName="Inzynierka1Model.Rozegrane_Mecze">
-              <MappingFragment StoreEntitySet="Rozegrane_Mecze">
-                <ScalarProperty Name="Set5" ColumnName="Set5" />
-                <ScalarProperty Name="Set4" ColumnName="Set4" />
-                <ScalarProperty Name="Set3" ColumnName="Set3" />
-                <ScalarProperty Name="Set2" ColumnName="Set2" />
-                <ScalarProperty Name="Set1" ColumnName="Set1" />
-                <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />
-                <ScalarProperty Name="ID_Zawodnika2" ColumnName="ID_Zawodnika2" />
-                <ScalarProperty Name="ID_Zawodnika1" ColumnName="ID_Zawodnika1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1507,143 +1464,134 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Baza1">
-        <EntityTypeShape EntityType="Inzynierka1Model.Dostepnosc" Width="1.5" PointX="3" PointY="9.25" Height="1.9802864583333282" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Informacje" Width="1.5" PointX="8.75" PointY="8.375" Height="1.5956835937500102" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Katalog_Uslug" Width="1.5" PointX="3.75" PointY="16.375" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Kategorie" Width="1.5" PointX="8.75" PointY="4.75" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Klasyfikacje" Width="1.5" PointX="13.25" PointY="0.75" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Pracownicy" Width="1.5" PointX="3.75" PointY="1.875" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Punkty_Zawodnikow" Width="1.5" PointX="15.5" PointY="4.625" Height="1.9802864583333388" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Rezerwacje_Kortow" Width="1.5" PointX="3" PointY="12.25" Height="3.1340950520833388" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Rozegrane_Mecze" Width="1.5" PointX="18.5" PointY="4.125" Height="3.1340950520833246" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Serwis" Width="1.5" PointX="6" PointY="11.25" Height="3.1340950520833246" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Sparingpartnerzy" Width="1.5" PointX="3" PointY="19.75" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Sprzet" Width="1.5" PointX="1.5" PointY="5.625" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Stan_Magazynowy" Width="1.5" PointX="3.75" PointY="5.5" Height="2.7494921875000102" />
-        <EntityTypeShape EntityType="Inzynierka1Model.sysdiagrams" Width="1.5" PointX="8.75" PointY="11.375" Height="1.9802864583333246" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Trenerzy" Width="1.5" PointX="3" PointY="22.25" Height="1.9802864583333246" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Turnieje" Width="1.5" PointX="11" PointY="4.25" Height="2.7494921875000102" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Typy" Width="1.5" PointX="1.5" PointY="3" Height="1.595683593749996" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Uzytkownicy_Kortow" Width="1.5" PointX="0.75" PointY="11" Height="3.5186979166666674" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Uzytkownicy_Systemu" Width="1.5" PointX="6" PointY="4" Height="2.172587890624996" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Wypozyczone" Width="1.5" PointX="6" PointY="7.25" Height="3.1340950520833388" />
-        <EntityTypeShape EntityType="Inzynierka1Model.Zawodnicy" Width="1.5" PointX="13.25" PointY="4.125" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Dostepnosc" Width="1.5" PointX="3" PointY="8" Height="1.9802864583333282" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Informacje" Width="1.5" PointX="8.75" PointY="8.25" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Katalog_Uslug" Width="1.5" PointX="3.75" PointY="15.25" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Kategorie" Width="1.5" PointX="8.75" PointY="4.25" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Klasyfikacje" Width="1.5" PointX="8.75" PointY="1" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Mecze" Width="1.5" PointX="15.5" PointY="5.375" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Pracownicy" Width="1.5" PointX="3.75" PointY="0.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Rezerwacje_Kortow" Width="1.5" PointX="3" PointY="11.125" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Serwis" Width="1.5" PointX="6" PointY="10.125" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Sparingpartnerzy" Width="1.5" PointX="3" PointY="18.5" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Sprzet" Width="1.5" PointX="1.5" PointY="4.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Stan_Magazynowy" Width="1.5" PointX="3.75" PointY="4.25" Height="2.7494921875000102" />
+        <EntityTypeShape EntityType="Inzynierka1Model.sysdiagrams" Width="1.5" PointX="8.75" PointY="11.25" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Trenerzy" Width="1.5" PointX="3" PointY="21.125" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Turnieje" Width="1.5" PointX="11" PointY="3.5" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Typy" Width="1.5" PointX="1.5" PointY="1.875" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Uzytkownicy_Kortow" Width="1.5" PointX="0.75" PointY="9.875" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Uzytkownicy_Systemu" Width="1.5" PointX="6" PointY="2.875" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Wypozyczone" Width="1.5" PointX="6" PointY="6.125" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="Inzynierka1Model.Zawodnicy" Width="1.5" PointX="13.25" PointY="8" Height="2.7494921875000102" />
         <AssociationConnector Association="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="1.5" PointY="11" />
-          <ConnectorPoint PointX="1.5" PointY="10.124999500000001" />
-          <ConnectorPoint PointX="3" PointY="10.124999500000001" />
+          <ConnectorPoint PointX="1.5" PointY="9.875" />
+          <ConnectorPoint PointX="1.5" PointY="8.9374995000000013" />
+          <ConnectorPoint PointX="3" PointY="8.9374995000000013" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Katalog_Uslug" >
-          <ConnectorPoint PointX="4.90625" PointY="16.375" />
-          <ConnectorPoint PointX="4.90625" PointY="11.71875" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="11.718749999999998" />
-          <ConnectorPoint PointX="5.864583333333333" PointY="11.71875" />
-          <ConnectorPoint PointX="6" PointY="11.71875" />
+          <ConnectorPoint PointX="4.90625" PointY="15.25" />
+          <ConnectorPoint PointX="4.90625" PointY="10.59375" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="10.593749999999998" />
+          <ConnectorPoint PointX="5.864583333333333" PointY="10.59375" />
+          <ConnectorPoint PointX="6" PointY="10.59375" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Turnieje_Kategorie" >
-          <ConnectorPoint PointX="10.25" PointY="5.6439925130208337" />
-          <ConnectorPoint PointX="11" PointY="5.6439925130208337" />
+          <ConnectorPoint PointX="10.25" PointY="5.1439925130208337" />
+          <ConnectorPoint PointX="11" PointY="5.1439925130208337" />
         </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Punkty_Zawodnikow_Klasyfikacje" >
-          <ConnectorPoint PointX="14.75" PointY="1.6439925130208337" />
-          <ConnectorPoint PointX="16.25" PointY="1.6439925130208337" />
-          <ConnectorPoint PointX="16.25" PointY="4.625" />
+        <AssociationConnector Association="Inzynierka1Model.FK_Turnieje_Klasyfikacje" >
+          <ConnectorPoint PointX="10.25" PointY="2.1824446614583337" />
+          <ConnectorPoint PointX="11.75" PointY="2.1824446614583337" />
+          <ConnectorPoint PointX="11.75" PointY="3.5" />
         </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Rozegrane_Mecze_Klasyfikacje" >
-          <ConnectorPoint PointX="14.75" PointY="2.1222412695312443" />
-          <ConnectorPoint PointX="16.166666666666668" PointY="2.1222412695312438" />
-          <ConnectorPoint PointX="16.333333333333332" PointY="2.1222412695312443" />
-          <ConnectorPoint PointX="19.25" PointY="2.1222412695312443" />
-          <ConnectorPoint PointX="19.25" PointY="4.125" />
+        <AssociationConnector Association="Inzynierka1Model.FK_Mecze_Turnieje" >
+          <ConnectorPoint PointX="12.5" PointY="6.0045475260416623" />
+          <ConnectorPoint PointX="15.5" PointY="6.0045475260416623" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Mecze_Zawodnicy" >
+          <ConnectorPoint PointX="14.75" PointY="8.4468489583333337" />
+          <ConnectorPoint PointX="15.5" PointY="8.4468489583333337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Inzynierka1Model.FK_Mecze_Zawodnicy1" >
+          <ConnectorPoint PointX="14.75" PointY="8.1609244791666669" />
+          <ConnectorPoint PointX="15.5" PointY="8.1609244791666669" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" >
-          <ConnectorPoint PointX="5.2257692307692309" PointY="4.2398893229166674" />
-          <ConnectorPoint PointX="5.625" PointY="4.6391200921474365" />
-          <ConnectorPoint PointX="5.625" PointY="12.125" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="12.125" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="12.125" />
-          <ConnectorPoint PointX="4.6261528461538468" PointY="12.125" />
-          <ConnectorPoint PointX="4.5" PointY="12.251152846153847" />
+          <ConnectorPoint PointX="5.2257692307692309" PointY="3.1148893229166674" />
+          <ConnectorPoint PointX="5.625" PointY="3.5141200921474365" />
+          <ConnectorPoint PointX="5.625" PointY="11" />
+          <ConnectorPoint PointX="4.989583333333333" PointY="11" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="11" />
+          <ConnectorPoint PointX="4.6261528461538468" PointY="11" />
+          <ConnectorPoint PointX="4.5" PointY="11.126152846153847" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Pracownicy" >
-          <ConnectorPoint PointX="5.25" PointY="4.1833498613782059" />
-          <ConnectorPoint PointX="5.78125" PointY="4.7145998613782059" />
-          <ConnectorPoint PointX="5.78125" PointY="13.082674526041657" />
-          <ConnectorPoint PointX="6" PointY="13.082674526041657" />
+          <ConnectorPoint PointX="5.25" PointY="3.0583498613782054" />
+          <ConnectorPoint PointX="5.78125" PointY="3.5895998613782054" />
+          <ConnectorPoint PointX="5.78125" PointY="11.957674526041657" />
+          <ConnectorPoint PointX="6" PointY="11.957674526041657" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1" >
-          <ConnectorPoint PointX="5.25" PointY="2.9374995" />
-          <ConnectorPoint PointX="6.75" PointY="2.9374995" />
-          <ConnectorPoint PointX="6.75" PointY="4" />
-        </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Punkty_Zawodnikow_Zawodnicy" >
-          <ConnectorPoint PointX="14.75" PointY="5.6151432291666694" />
-          <ConnectorPoint PointX="15.5" PointY="5.6151432291666694" />
+          <ConnectorPoint PointX="5.25" PointY="1.8124995" />
+          <ConnectorPoint PointX="6.75" PointY="1.8124995" />
+          <ConnectorPoint PointX="6.75" PointY="2.875" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="2.25" PointY="13.384348958333334" />
-          <ConnectorPoint PointX="3" PointY="13.384348958333334" />
-        </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy" >
-          <ConnectorPoint PointX="14.75" PointY="4.34375" />
-          <ConnectorPoint PointX="16.166666666666668" PointY="4.3437499999999991" />
-          <ConnectorPoint PointX="16.333333333333332" PointY="4.34375" />
-          <ConnectorPoint PointX="18.5" PointY="4.34375" />
-        </AssociationConnector>
-        <AssociationConnector Association="Inzynierka1Model.FK_Rozegrane_Mecze_Zawodnicy1" >
-          <ConnectorPoint PointX="14.75" PointY="6.8672900390625031" />
-          <ConnectorPoint PointX="18.5" PointY="6.8672900390625031" />
+          <ConnectorPoint PointX="2.25" PointY="12.259348958333334" />
+          <ConnectorPoint PointX="3" PointY="12.259348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="2.25" PointY="11.421875" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="11.421874999999998" />
-          <ConnectorPoint PointX="5.864583333333333" PointY="11.421875" />
-          <ConnectorPoint PointX="6" PointY="11.421875" />
+          <ConnectorPoint PointX="2.25" PointY="10.296875" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="10.296874999999998" />
+          <ConnectorPoint PointX="5.864583333333333" PointY="10.296875" />
+          <ConnectorPoint PointX="6" PointY="10.296875" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1" >
-          <ConnectorPoint PointX="2.25" PointY="11.921875" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="11.921875" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="11.921875" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="11.921874999999998" />
-          <ConnectorPoint PointX="5.864583333333333" PointY="11.921875" />
-          <ConnectorPoint PointX="6" PointY="11.921875" />
+          <ConnectorPoint PointX="2.25" PointY="10.796875" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="10.796875" />
+          <ConnectorPoint PointX="4.989583333333333" PointY="10.796875" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="10.796874999999998" />
+          <ConnectorPoint PointX="5.864583333333333" PointY="10.796875" />
+          <ConnectorPoint PointX="6" PointY="10.796875" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Sparingpartnerzy_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="1.5" PointY="14.518697916666667" />
-          <ConnectorPoint PointX="1.5" PointY="20.643992513020834" />
-          <ConnectorPoint PointX="1.8229191666666667" PointY="20.643992513020834" />
-          <ConnectorPoint PointX="1.9895858333333332" PointY="20.643992513020834" />
-          <ConnectorPoint PointX="3" PointY="20.643992513020834" />
+          <ConnectorPoint PointX="1.5" PointY="13.393697916666667" />
+          <ConnectorPoint PointX="1.5" PointY="19.393992513020834" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="19.393992513020834" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="19.393992513020834" />
+          <ConnectorPoint PointX="3" PointY="19.393992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Sprzet_Typy" >
-          <ConnectorPoint PointX="2.25" PointY="4.595683593749996" />
-          <ConnectorPoint PointX="2.25" PointY="5.625" />
+          <ConnectorPoint PointX="2.25" PointY="3.470683593749996" />
+          <ConnectorPoint PointX="2.25" PointY="4.5" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" >
-          <ConnectorPoint PointX="3" PointY="6.8074446614583337" />
-          <ConnectorPoint PointX="3.75" PointY="6.8074446614583337" />
+          <ConnectorPoint PointX="3" PointY="5.6824446614583337" />
+          <ConnectorPoint PointX="3.75" PointY="5.6824446614583337" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" >
-          <ConnectorPoint PointX="5.25" PointY="7.7497460937500051" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="7.7497460937500042" />
-          <ConnectorPoint PointX="5.864583333333333" PointY="7.7497460937500051" />
-          <ConnectorPoint PointX="6" PointY="7.7497460937500051" />
+          <ConnectorPoint PointX="5.25" PointY="6.5622460937500051" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="6.5622460937500042" />
+          <ConnectorPoint PointX="5.864583333333333" PointY="6.5622460937500051" />
+          <ConnectorPoint PointX="6" PointY="6.5622460937500051" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Trenerzy_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="1.9062525" PointY="14.518697916666667" />
-          <ConnectorPoint PointX="1.9062525" PointY="23.240143229166662" />
-          <ConnectorPoint PointX="3" PointY="23.240143229166662" />
+          <ConnectorPoint PointX="1.9062525" PointY="13.393697916666667" />
+          <ConnectorPoint PointX="1.9062525" PointY="22.115143229166662" />
+          <ConnectorPoint PointX="3" PointY="22.115143229166662" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Zawodnicy_Turnieje" >
-          <ConnectorPoint PointX="12.5" PointY="5.6247460937500051" />
-          <ConnectorPoint PointX="13.25" PointY="5.6247460937500051" />
+          <ConnectorPoint PointX="11.75" PointY="6.6340950520833246" />
+          <ConnectorPoint PointX="11.75" PointY="9.3747460937500051" />
+          <ConnectorPoint PointX="13.25" PointY="9.3747460937500051" />
         </AssociationConnector>
         <AssociationConnector Association="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow" >
-          <ConnectorPoint PointX="1.09375" PointY="11" />
-          <ConnectorPoint PointX="1.09375" PointY="8.7497460937500051" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="8.7497460937500033" />
-          <ConnectorPoint PointX="5.864583333333333" PointY="8.7497460937500051" />
-          <ConnectorPoint PointX="6" PointY="8.7497460937500051" />
+          <ConnectorPoint PointX="1.09375" PointY="9.875" />
+          <ConnectorPoint PointX="1.09375" PointY="7.4997460937500051" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="7.4997460937500042" />
+          <ConnectorPoint PointX="5.864583333333333" PointY="7.4997460937500051" />
+          <ConnectorPoint PointX="6" PointY="7.4997460937500051" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
