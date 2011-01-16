@@ -74,9 +74,13 @@ namespace KortyTenisowe
 
         private void rgvZawodnicy_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            aktualnaKomorka = int.Parse(rgvZawodnicy.Rows[e.RowIndex].Cells[0].Value.ToString());
-            rbtEdytujZawodnika.Enabled = true;
-            rbtUsunZawodnika.Enabled = true;
+            if (e.RowIndex == -1) aktualnaKomorka = 0;
+            else
+            {
+                aktualnaKomorka = int.Parse(rgvZawodnicy.Rows[e.RowIndex].Cells[0].Value.ToString());
+                rbtEdytujZawodnika.Enabled = true;
+                rbtUsunZawodnika.Enabled = true;
+            }
         }
 
         private void rbtEdytujZawodnika_Click(object sender, EventArgs e)

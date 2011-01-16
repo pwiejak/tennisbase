@@ -571,6 +571,7 @@ namespace KortyTenisowe
                     select ZawodnicyTurnieju);
         }
 
+
         public static bool ZaplanujMecz (int ID_Turnieju, int Zawodnik1, int Zawodnik2)
         {
             bool success = true;

@@ -37,8 +37,12 @@ namespace KortyTenisowe
 
         private void rgvZaplanowaneMecze_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            aktualnaKomorka = int.Parse(rgvZaplanowaneMecze.Rows[e.RowIndex].Cells[0].Value.ToString());
-            rbtWybierzMecz.Enabled = true;
+            if (e.RowIndex == -1) aktualnaKomorka = 0;
+            else
+            {
+                aktualnaKomorka = int.Parse(rgvZaplanowaneMecze.Rows[e.RowIndex].Cells[0].Value.ToString());
+                rbtWybierzMecz.Enabled = true;
+            }
         }
 
         private void rDDLTurniej_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)

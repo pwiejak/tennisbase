@@ -330,14 +330,22 @@ namespace KortyTenisowe
 
         private void rgvTurnieje_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            aktualnaKomorka = int.Parse(rgvTurnieje.Rows[e.RowIndex].Cells[0].Value.ToString());
-            rbtEdytujTurniej.Enabled = true;
-            rbtUsunTurniej.Enabled = true;
+            if (e.RowIndex == -1) aktualnaKomorka = 0;
+            else
+            {
+                aktualnaKomorka = int.Parse(rgvTurnieje.Rows[e.RowIndex].Cells[0].Value.ToString());
+                rbtEdytujTurniej.Enabled = true;
+                rbtUsunTurniej.Enabled = true;
+            }
         }
 
         private void rgvKlasyfikacje_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            aktualnaKomorka = int.Parse(rgvKlasyfikacje.Rows[e.RowIndex].Cells[0].Value.ToString());
+            if (e.RowIndex == -1) aktualnaKomorka = 0;
+            else
+            {
+                aktualnaKomorka = int.Parse(rgvKlasyfikacje.Rows[e.RowIndex].Cells[0].Value.ToString());
+            }
         }
 
         private void rbtEdytujTurniej_Click(object sender, EventArgs e)
