@@ -62,6 +62,12 @@
       <DependentUpon>Baza1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Baza1PartialClass.cs" />
+    <Compile Include="WyborMeczuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborMeczuForm.Designer.cs">
+      <DependentUpon>WyborMeczuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EdytujTurniejForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     <Compile Include="ZmienIloscForm.Designer.cs">
       <DependentUpon>ZmienIloscForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WyborMeczuForm.resx">
+      <DependentUpon>WyborMeczuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EdytujTurniejForm.resx">
       <DependentUpon>EdytujTurniejForm.cs</DependentUpon>
     </EmbeddedResource>

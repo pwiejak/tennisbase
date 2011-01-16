@@ -103,7 +103,7 @@
             this.Controls.Add(this.rbtUsunMecz);
             this.Controls.Add(this.rgvZaplanowaneMecze);
             this.Name = "ZaplanowaneMeczeForm";
-            this.Text = "ZaplanowaneMeczeForm";
+            this.Text = "Zaplanowane mecze";
             ((System.ComponentModel.ISupportInitialize)(this.rgvZaplanowaneMecze)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtUsunMecz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rDDLTurniej)).EndInit();

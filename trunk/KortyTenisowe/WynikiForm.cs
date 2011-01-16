@@ -20,9 +20,9 @@ namespace KortyTenisowe
 
         private void rbtDodajWynik_Click(object sender, EventArgs e)
         {
-            KortyTenisowe.DodajWynikForm DodajWynik = new KortyTenisowe.DodajWynikForm();
-            DodajWynik.Activate();
-            DodajWynik.ShowDialog();
+            KortyTenisowe.WyborMeczuForm WybierzMecz = new KortyTenisowe.WyborMeczuForm();
+            WybierzMecz.Activate();
+            WybierzMecz.ShowDialog();
         }
 
         private void rbtUsunWynik_Click(object sender, EventArgs e)

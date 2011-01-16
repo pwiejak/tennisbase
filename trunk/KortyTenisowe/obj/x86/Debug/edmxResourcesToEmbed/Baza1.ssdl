@@ -38,6 +38,10 @@
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Dostepnosc" EntitySet="Dostepnosc" />
     </AssociationSet>
+    <AssociationSet Name="FK_Klasyfikacje_Zawodnicy" Association="Inzynierka1Model.Store.FK_Klasyfikacje_Zawodnicy">
+      <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+      <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
+    </AssociationSet>
     <AssociationSet Name="FK_Mecze_Turnieje" Association="Inzynierka1Model.Store.FK_Mecze_Turnieje">
       <End Role="Turnieje" EntitySet="Turnieje" />
       <End Role="Mecze" EntitySet="Mecze" />
@@ -90,7 +94,7 @@
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Trenerzy" EntitySet="Trenerzy" />
     </AssociationSet>
-    <AssociationSet Name="FK_Turnieje_Kategorie" Association="Inzynierka1Model.Store.FK_Turnieje_Kategorie">
+    <AssociationSet Name="FK_Turnieje_Kategorie1" Association="Inzynierka1Model.Store.FK_Turnieje_Kategorie1">
       <End Role="Kategorie" EntitySet="Kategorie" />
       <End Role="Turnieje" EntitySet="Turnieje" />
     </AssociationSet>
@@ -110,7 +114,7 @@
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Wypozyczone" EntitySet="Wypozyczone" />
     </AssociationSet>
-    <AssociationSet Name="FK_Zawodnicy_Turnieje" Association="Inzynierka1Model.Store.FK_Zawodnicy_Turnieje">
+    <AssociationSet Name="FK_Zawodnicy_Turnieje1" Association="Inzynierka1Model.Store.FK_Zawodnicy_Turnieje1">
       <End Role="Turnieje" EntitySet="Turnieje" />
       <End Role="Zawodnicy" EntitySet="Zawodnicy" />
     </AssociationSet>
@@ -164,18 +168,18 @@
       <PropertyRef Name="ID_Klasyfikacji" />
     </Key>
     <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
-    <Property Name="CzyGeneralna" Type="bit" Nullable="false" />
-    <Property Name="ID_Turnieju" Type="int" />
-    <Property Name="ID_Zawodnika" Type="int" />
+    <Property Name="CzyGeneralna" Type="int" Nullable="false" />
+    <Property Name="ID_Turnieju" Type="int" Nullable="false" />
     <Property Name="Miejsce" Type="int" Nullable="false" />
-    <Property Name="Punkty" Type="int" />
+    <Property Name="Punkty" Type="int" Nullable="false" />
+    <Property Name="ID_Zawodnika" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Mecze">
     <Key>
       <PropertyRef Name="ID_Meczu" />
     </Key>
     <Property Name="ID_Meczu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="ID_Turnieju" Type="int" />
+    <Property Name="ID_Turnieju" Type="int" Nullable="false" />
     <Property Name="Zawodnik1" Type="int" Nullable="false" />
     <Property Name="Zawodnik2" Type="int" Nullable="false" />
     <Property Name="CzyRozegrany" Type="int" Nullable="false" />
@@ -346,8 +350,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Klasyfikacje_Zawodnicy">
+    <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="1" />
+    <End Role="Klasyfikacje" Type="Inzynierka1Model.Store.Klasyfikacje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zawodnicy">
+        <PropertyRef Name="ID_Zawodnika" />
+      </Principal>
+      <Dependent Role="Klasyfikacje">
+        <PropertyRef Name="ID_Zawodnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Mecze_Turnieje">
-    <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="0..1" />
+    <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="1" />
     <End Role="Mecze" Type="Inzynierka1Model.Store.Mecze" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Turnieje">
@@ -502,7 +518,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Turnieje_Kategorie">
+  <Association Name="FK_Turnieje_Kategorie1">
     <End Role="Kategorie" Type="Inzynierka1Model.Store.Kategorie" Multiplicity="1" />
     <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="*" />
     <ReferentialConstraint>
@@ -562,7 +578,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Zawodnicy_Turnieje">
+  <Association Name="FK_Zawodnicy_Turnieje1">
     <End Role="Turnieje" Type="Inzynierka1Model.Store.Turnieje" Multiplicity="0..1" />
     <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="*" />
     <ReferentialConstraint>

@@ -41,9 +41,9 @@
     <EntitySetMapping Name="Klasyfikacje">
       <EntityTypeMapping TypeName="Inzynierka1Model.Klasyfikacje">
         <MappingFragment StoreEntitySet="Klasyfikacje">
+          <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
           <ScalarProperty Name="Punkty" ColumnName="Punkty" />
           <ScalarProperty Name="Miejsce" ColumnName="Miejsce" />
-          <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
           <ScalarProperty Name="ID_Turnieju" ColumnName="ID_Turnieju" />
           <ScalarProperty Name="CzyGeneralna" ColumnName="CzyGeneralna" />
           <ScalarProperty Name="ID_Klasyfikacji" ColumnName="ID_Klasyfikacji" />

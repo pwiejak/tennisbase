@@ -15,7 +15,6 @@ namespace KortyTenisowe
 
         public EdytujTurniejForm (Turnieje edytowanyTurniej)
         {
-            int idtur;
             InitializeComponent();
             m_id = edytowanyTurniej.ID_Turnieju;
             this.rtbNazwa.Text = edytowanyTurniej.Nazwa;

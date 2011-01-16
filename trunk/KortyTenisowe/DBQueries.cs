@@ -601,7 +601,7 @@ namespace KortyTenisowe
         public static IEnumerable<Mecze> ZwrocZaplanowaneMecze(int id)
         {
             return (from Mecze MeczeTurnieju in Inzynierka1Entities.ENTITY.Mecze
-                    where MeczeTurnieju.ID_Turnieju == id
+                    where (MeczeTurnieju.ID_Turnieju == id && MeczeTurnieju.CzyRozegrany == 0) 
                     select MeczeTurnieju);
         }
 
@@ -627,15 +627,40 @@ namespace KortyTenisowe
             return success;
         }
 
+        public static Mecze ZwrocKonkretnyMecz(int id)
+        {
+            return (from Mecze szukanyMecz in Inzynierka1Entities.ENTITY.Mecze
+                    where szukanyMecz.ID_Meczu == id
+                    select szukanyMecz).First();
 
-        //public static IEnumerable<Zawodnicy> ZwrocZawodnikowWgTurnieju(int idTurnieju)
-        //{
-        //    int m_id = idTurnieju;
-        //    return (from Zawodnicy zwracaniZawodnicy in Inzynierka1Entities.ENTITY.Zawodnicy
-        //            join Turnieje turnieje in Inzynierka1Entities.ENTITY.Turnieje on zwracaniZawodnicy.ID_Turnieju equals turnieje.ID_Turnieju
-        //            where turnieje.ID_Turnieju == m_id
-        //            select zwracaniZawodnicy);
-        //}
+        }
+
+        public static bool DodajWynik(int id, string set1, string set2, string set3, string set4, string set5)
+        {
+            bool success = true;
+            Mecze dodawanyWynik = new Mecze();
+            try
+            {
+                dodawanyWynik = (from Mecze szukanyMecz in Inzynierka1Entities.ENTITY.Mecze
+                                    where szukanyMecz.ID_Meczu == id
+                                    select szukanyMecz).First();
+                dodawanyWynik.Set1 = set1;
+                dodawanyWynik.Set2 = set2;
+                dodawanyWynik.Set3 = set3;
+                dodawanyWynik.Set4 = set4;
+                dodawanyWynik.Set5 = set5;
+                dodawanyWynik.CzyRozegrany = 1;
+
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception exc)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            }
+
+            return success;
+        }
     }
 
 }

@@ -152,7 +152,7 @@
             // 
             this.rDDLTurniej.Location = new System.Drawing.Point(103, 12);
             this.rDDLTurniej.Name = "rDDLTurniej";
-            this.rDDLTurniej.Size = new System.Drawing.Size(106, 22);
+            this.rDDLTurniej.Size = new System.Drawing.Size(286, 22);
             this.rDDLTurniej.TabIndex = 2;
             this.rDDLTurniej.Text = "Turniej";
             // 
@@ -160,7 +160,7 @@
             // 
             this.rDDLZawodnik1.Location = new System.Drawing.Point(103, 46);
             this.rDDLZawodnik1.Name = "rDDLZawodnik1";
-            this.rDDLZawodnik1.Size = new System.Drawing.Size(106, 22);
+            this.rDDLZawodnik1.Size = new System.Drawing.Size(286, 22);
             this.rDDLZawodnik1.TabIndex = 3;
             this.rDDLZawodnik1.Text = "Zawodnik 1.";
             // 
@@ -168,7 +168,7 @@
             // 
             this.rDDLZawodnik2.Location = new System.Drawing.Point(103, 81);
             this.rDDLZawodnik2.Name = "rDDLZawodnik2";
-            this.rDDLZawodnik2.Size = new System.Drawing.Size(106, 22);
+            this.rDDLZawodnik2.Size = new System.Drawing.Size(286, 22);
             this.rDDLZawodnik2.TabIndex = 4;
             this.rDDLZawodnik2.Text = "Zawodnik 2.";
             // 
@@ -179,6 +179,7 @@
             this.rrb2Sety.Size = new System.Drawing.Size(37, 18);
             this.rrb2Sety.TabIndex = 5;
             this.rrb2Sety.Text = "2";
+            this.rrb2Sety.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.rrb2Sety_ToggleStateChanged);
             // 
             // rrb3Sety
             // 
@@ -187,6 +188,7 @@
             this.rrb3Sety.Size = new System.Drawing.Size(32, 18);
             this.rrb3Sety.TabIndex = 6;
             this.rrb3Sety.Text = "3";
+            this.rrb3Sety.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.rrb3Sety_ToggleStateChanged);
             // 
             // rrb4Sety
             // 
@@ -195,6 +197,7 @@
             this.rrb4Sety.Size = new System.Drawing.Size(32, 18);
             this.rrb4Sety.TabIndex = 6;
             this.rrb4Sety.Text = "4";
+            this.rrb4Sety.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.rrb4Sety_ToggleStateChanged);
             // 
             // rrb5Setow
             // 
@@ -203,6 +206,7 @@
             this.rrb5Setow.Size = new System.Drawing.Size(39, 18);
             this.rrb5Setow.TabIndex = 6;
             this.rrb5Setow.Text = "5";
+            this.rrb5Setow.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.rrb5Setow_ToggleStateChanged);
             // 
             // rtbSet1
             // 
@@ -251,6 +255,7 @@
             this.rbtOK.Size = new System.Drawing.Size(184, 24);
             this.rbtOK.TabIndex = 8;
             this.rbtOK.Text = "OK";
+            this.rbtOK.Click += new System.EventHandler(this.rbtOK_Click);
             // 
             // rbtAnuluj
             // 
