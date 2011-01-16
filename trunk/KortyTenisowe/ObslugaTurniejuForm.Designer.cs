@@ -140,6 +140,7 @@
             this.rbtZaplanowaneMecze.Size = new System.Drawing.Size(161, 24);
             this.rbtZaplanowaneMecze.TabIndex = 5;
             this.rbtZaplanowaneMecze.Text = "Zaplanowane mecze";
+            this.rbtZaplanowaneMecze.Click += new System.EventHandler(this.rbtZaplanowaneMecze_Click);
             // 
             // ObslugaTurniejuForm
             // 

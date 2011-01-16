@@ -598,6 +598,36 @@ namespace KortyTenisowe
         }
 
 
+        public static IEnumerable<Mecze> ZwrocZaplanowaneMecze(int id)
+        {
+            return (from Mecze MeczeTurnieju in Inzynierka1Entities.ENTITY.Mecze
+                    where MeczeTurnieju.ID_Turnieju == id
+                    select MeczeTurnieju);
+        }
+
+
+        public static bool UsunMecz(int id)
+        {
+            bool success = true;
+            Mecze usuwanyMecz = new Mecze();
+            try
+            {
+                usuwanyMecz = (from Mecze sprawdzanyMecz in Inzynierka1Entities.ENTITY.Mecze
+                                  where sprawdzanyMecz.ID_Meczu == id
+                                  select sprawdzanyMecz).First();
+                Inzynierka1Entities.ENTITY.Mecze.DeleteObject(usuwanyMecz);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception exc)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            }
+
+            return success;
+        }
+
+
         //public static IEnumerable<Zawodnicy> ZwrocZawodnikowWgTurnieju(int idTurnieju)
         //{
         //    int m_id = idTurnieju;

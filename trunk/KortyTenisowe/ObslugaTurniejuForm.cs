@@ -91,19 +91,11 @@ namespace KortyTenisowe
                         
         }
 
-        //public static void PokazZawodnikow(int ID_Zawodnika, Telerik.WinControls.UI.RadGridView dataGrid)
-        //{
-        //    List<Zawodnicy> m_lista = new List<Zawodnicy>();
-        //    int m_indeks = ID_Zawodnika;
-        //    m_lista = DBQueries.zwrocZawodnikow(m_indeks).ToList<Zawodnicy>();
-        //    dataGrid.Rows.Clear();
-
-        //    for (int i = 0; i < m_lista.Count; i++)
-        //    {
-        //        dataGrid.Rows.Add(m_lista[i].ID, m_lista[i].Imie, m_lista[i].Nazwisko, m_lista[i].Telefon);
-        //        //dataGrid.Rows[i].Cells[1].Value = i;
-        //        //dataGrid.Rows[i+1].Cells[1].Value = m_lista[i].Marka;
-        //    }
-        //}
+        private void rbtZaplanowaneMecze_Click(object sender, EventArgs e)
+        {
+            KortyTenisowe.ZaplanowaneMeczeForm ZaplanowaneMecze = new KortyTenisowe.ZaplanowaneMeczeForm();
+            ZaplanowaneMecze.Activate();
+            ZaplanowaneMecze.ShowDialog();
+        }
     }
 }

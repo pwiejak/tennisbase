@@ -104,3 +104,6 @@ D:\tennisbase123\KortyTenisowe\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\tennisbase123\KortyTenisowe\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\tennisbase123\KortyTenisowe\obj\x86\Debug\KortyTenisowe.EdytujZawodnikaForm.resources
 D:\tennisbase123\KortyTenisowe\obj\x86\Debug\KortyTenisowe.EdytujTurniejForm.resources
+D:\tennisbase\KortyTenisowe\obj\x86\Debug\KortyTenisowe.EdytujTurniejForm.resources
+D:\tennisbase\KortyTenisowe\obj\x86\Debug\KortyTenisowe.EdytujZawodnikaForm.resources
+D:\tennisbase\KortyTenisowe\obj\x86\Debug\KortyTenisowe.ZaplanowaneMeczeForm.resources

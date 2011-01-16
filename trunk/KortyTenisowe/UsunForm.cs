@@ -37,6 +37,9 @@ namespace KortyTenisowe
                 case 2:
                     DBQueries.UsunTurniej(m_id);
                     break;
+                case 3:
+                    DBQueries.UsunMecz(m_id);
+                    break;
                 default:
                     break;
             }
