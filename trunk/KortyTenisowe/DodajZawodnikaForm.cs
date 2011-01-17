@@ -54,7 +54,7 @@ namespace KortyTenisowe
                         string imie = rtbImie.Text;
                         string telefon = rtbTelefon.Text;
                         string email = rtbEmail.Text;
-                        int idturnieju = rDDLTurniej.SelectedIndex +1;
+                        int idturnieju = Convert.ToInt32(rDDLTurniej.SelectedValue);
 
                             if (DBQueries.DodajZawodnika(imie, nazwisko, telefon, email, idturnieju) == true)
                             {

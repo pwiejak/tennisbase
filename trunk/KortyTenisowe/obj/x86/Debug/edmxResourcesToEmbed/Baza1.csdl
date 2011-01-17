@@ -2,6 +2,7 @@
 <Schema Namespace="Inzynierka1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="Inzynierka1Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Dostepnosc" EntityType="Inzynierka1Model.Dostepnosc" />
+    <EntitySet Name="Generalna" EntityType="Inzynierka1Model.Generalna" />
     <EntitySet Name="Informacje" EntityType="Inzynierka1Model.Informacje" />
     <EntitySet Name="Katalog_Uslug" EntityType="Inzynierka1Model.Katalog_Uslug" />
     <EntitySet Name="Kategorie" EntityType="Inzynierka1Model.Kategorie" />
@@ -24,6 +25,10 @@
     <AssociationSet Name="FK_Dostepnosc_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow">
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Dostepnosc" EntitySet="Dostepnosc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Generalna_Zawodnicy" Association="Inzynierka1Model.FK_Generalna_Zawodnicy">
+      <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+      <End Role="Generalna" EntitySet="Generalna" />
     </AssociationSet>
     <AssociationSet Name="FK_Serwis_Katalog_Uslug" Association="Inzynierka1Model.FK_Serwis_Katalog_Uslug">
       <End Role="Katalog_Uslug" EntitySet="Katalog_Uslug" />
@@ -119,6 +124,14 @@
     <Property Type="String" Name="Godz_Zakonczenia" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow" FromRole="Dostepnosc" ToRole="Uzytkownicy_Kortow" />
   </EntityType>
+  <EntityType Name="Generalna">
+    <Key>
+      <PropertyRef Name="ID_Zawodnika" />
+    </Key>
+    <Property Type="Int32" Name="ID_Zawodnika" Nullable="false" />
+    <Property Type="Int32" Name="Punkty" Nullable="false" />
+    <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Generalna_Zawodnicy" FromRole="Generalna" ToRole="Zawodnicy" />
+  </EntityType>
   <EntityType Name="Informacje">
     <Key>
       <PropertyRef Name="IloscKortow" />
@@ -151,11 +164,11 @@
     <Key>
       <PropertyRef Name="ID_Klasyfikacji" />
     </Key>
-    <Property Type="Int32" Name="ID_Klasyfikacji" Nullable="false" />
+    <Property Type="Int32" Name="ID_Klasyfikacji" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Int32" Name="CzyGeneralna" Nullable="false" />
     <Property Type="Int32" Name="ID_Turnieju" Nullable="false" />
     <Property Type="Int32" Name="Miejsce" Nullable="false" />
-    <Property Type="Int32" Name="Punkty" Nullable="false" />
+    <Property Type="Int32" Name="Punkty" />
     <Property Type="Int32" Name="ID_Zawodnika" Nullable="false" />
     <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Klasyfikacje_Zawodnicy" FromRole="Klasyfikacje" ToRole="Zawodnicy" />
     <NavigationProperty Name="Turnieje" Relationship="Inzynierka1Model.FK_Turnieje_Klasyfikacje" FromRole="Klasyfikacje" ToRole="Turnieje" />
@@ -164,7 +177,7 @@
     <Key>
       <PropertyRef Name="ID_Meczu" />
     </Key>
-    <Property Type="Int32" Name="ID_Meczu" Nullable="false" />
+    <Property Type="Int32" Name="ID_Meczu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Int32" Name="ID_Turnieju" Nullable="false" />
     <Property Type="Int32" Name="Zawodnik1" Nullable="false" />
     <Property Type="Int32" Name="Zawodnik2" Nullable="false" />
@@ -356,6 +369,7 @@
     <Property Type="String" Name="Nazwisko" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Telefon" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Generalna" Relationship="Inzynierka1Model.FK_Generalna_Zawodnicy" FromRole="Zawodnicy" ToRole="Generalna" />
     <NavigationProperty Name="Klasyfikacje" Relationship="Inzynierka1Model.FK_Klasyfikacje_Zawodnicy" FromRole="Zawodnicy" ToRole="Klasyfikacje" />
     <NavigationProperty Name="Mecze" Relationship="Inzynierka1Model.FK_Mecze_Zawodnicy" FromRole="Zawodnicy" ToRole="Mecze" />
     <NavigationProperty Name="Mecze1" Relationship="Inzynierka1Model.FK_Mecze_Zawodnicy1" FromRole="Zawodnicy" ToRole="Mecze" />
@@ -370,6 +384,18 @@
       </Principal>
       <Dependent Role="Dostepnosc">
         <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Generalna_Zawodnicy">
+    <End Type="Inzynierka1Model.Zawodnicy" Role="Zawodnicy" Multiplicity="1" />
+    <End Type="Inzynierka1Model.Generalna" Role="Generalna" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Zawodnicy">
+        <PropertyRef Name="ID_Zawodnika" />
+      </Principal>
+      <Dependent Role="Generalna">
+        <PropertyRef Name="ID_Zawodnika" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

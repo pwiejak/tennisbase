@@ -662,6 +662,92 @@ namespace KortyTenisowe
 
             return success;
         }
+
+        public static bool DodajKlasyfikacje(int ID_Turnieju, int CzyGeneralna, int Miejsce, int Punkty, int ID_Zawodnika)
+        {
+            
+            bool success = true;
+
+                Klasyfikacje dodawanaKlasyfikacja = new Klasyfikacje();
+                dodawanaKlasyfikacja.ID_Turnieju = ID_Turnieju;
+                dodawanaKlasyfikacja.CzyGeneralna = CzyGeneralna;
+                dodawanaKlasyfikacja.Miejsce = Miejsce;
+                dodawanaKlasyfikacja.Punkty = Punkty;
+                dodawanaKlasyfikacja.ID_Zawodnika = ID_Zawodnika;
+
+            try
+            {
+                Inzynierka1Entities.ENTITY.AddToKlasyfikacje(dodawanaKlasyfikacja);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message);
+                success = false;
+            }
+
+            return success;
+        }
+
+        public static bool DodajGeneralna(int ID_Zawodnika, int Punkty)
+        {
+
+            bool success = true;
+
+            Generalna dodawanaGeneralna = new Generalna();
+            dodawanaGeneralna.ID_Zawodnika = ID_Zawodnika;
+            dodawanaGeneralna.Punkty = Punkty;
+
+            try
+            {
+                Inzynierka1Entities.ENTITY.AddToGeneralna(dodawanaGeneralna);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message);
+                success = false;
+            }
+
+            return success;
+        }
+
+        public static bool EdytujGeneralna(int id_Zawodnika, int Punkty)
+        {
+            bool success = true;
+            Generalna zmienianaGeneralna = new Generalna();
+            try
+            {
+                zmienianaGeneralna = (from Generalna szukanaGeneralna in Inzynierka1Entities.ENTITY.Generalna
+                                      where szukanaGeneralna.ID_Zawodnika == id_Zawodnika
+                                      select szukanaGeneralna).First();
+                zmienianaGeneralna.Punkty += Punkty;
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception exc)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            }
+
+            return success;
+        }
+
+        public static bool ZwrocGeneralna(int id_Zawodnika)
+        {
+            return (from Generalna szukanaGeneralna in Inzynierka1Entities.ENTITY.Generalna
+                    where szukanaGeneralna.ID_Zawodnika == id_Zawodnika
+                    select szukanaGeneralna).Any();
+
+        }
+
+        public static bool ZwrocKlasyfikacje(int id_Turnieju, int id_Zawodnika)
+        {
+            return (from Klasyfikacje szukanaKlasyfikacja in Inzynierka1Entities.ENTITY.Klasyfikacje
+                    where (szukanaKlasyfikacja.ID_Turnieju == id_Turnieju) && (szukanaKlasyfikacja.ID_Zawodnika == id_Zawodnika)
+                    select szukanaKlasyfikacja).Any();
+        }
+
     }
 
 }

@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Dostepnosc_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Dostepnosc", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Dostepnosc), true)]
+[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Generalna_Zawodnicy", "Zawodnicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Zawodnicy), "Generalna", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(KortyTenisowe.Generalna), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Serwis_Katalog_Uslug", "Katalog_Uslug", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Katalog_Uslug), "Serwis", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Serwis), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Turnieje_Kategorie1", "Kategorie", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Kategorie), "Turnieje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Turnieje), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Klasyfikacje_Zawodnicy", "Zawodnicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Zawodnicy), "Klasyfikacje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Klasyfikacje), true)]
@@ -105,6 +106,22 @@ namespace KortyTenisowe
             }
         }
         private ObjectSet<Dostepnosc> _Dostepnosc;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Generalna> Generalna
+        {
+            get
+            {
+                if ((_Generalna == null))
+                {
+                    _Generalna = base.CreateObjectSet<Generalna>("Generalna");
+                }
+                return _Generalna;
+            }
+        }
+        private ObjectSet<Generalna> _Generalna;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -419,6 +436,14 @@ namespace KortyTenisowe
         public void AddToDostepnosc(Dostepnosc dostepnosc)
         {
             base.AddObject("Dostepnosc", dostepnosc);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Generalna EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToGeneralna(Generalna generalna)
+        {
+            base.AddObject("Generalna", generalna);
         }
     
         /// <summary>
@@ -757,6 +782,128 @@ namespace KortyTenisowe
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Uzytkownicy_Kortow>("Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Inzynierka1Model", Name="Generalna")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Generalna : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Generalna object.
+        /// </summary>
+        /// <param name="iD_Zawodnika">Initial value of the ID_Zawodnika property.</param>
+        /// <param name="punkty">Initial value of the Punkty property.</param>
+        public static Generalna CreateGeneralna(global::System.Int32 iD_Zawodnika, global::System.Int32 punkty)
+        {
+            Generalna generalna = new Generalna();
+            generalna.ID_Zawodnika = iD_Zawodnika;
+            generalna.Punkty = punkty;
+            return generalna;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Zawodnika
+        {
+            get
+            {
+                return _ID_Zawodnika;
+            }
+            set
+            {
+                if (_ID_Zawodnika != value)
+                {
+                    OnID_ZawodnikaChanging(value);
+                    ReportPropertyChanging("ID_Zawodnika");
+                    _ID_Zawodnika = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID_Zawodnika");
+                    OnID_ZawodnikaChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID_Zawodnika;
+        partial void OnID_ZawodnikaChanging(global::System.Int32 value);
+        partial void OnID_ZawodnikaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Punkty
+        {
+            get
+            {
+                return _Punkty;
+            }
+            set
+            {
+                OnPunktyChanging(value);
+                ReportPropertyChanging("Punkty");
+                _Punkty = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Punkty");
+                OnPunktyChanged();
+            }
+        }
+        private global::System.Int32 _Punkty;
+        partial void OnPunktyChanging(global::System.Int32 value);
+        partial void OnPunktyChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Generalna_Zawodnicy", "Zawodnicy")]
+        public Zawodnicy Zawodnicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Zawodnicy>("Inzynierka1Model.FK_Generalna_Zawodnicy", "Zawodnicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Zawodnicy>("Inzynierka1Model.FK_Generalna_Zawodnicy", "Zawodnicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Zawodnicy> ZawodnicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Zawodnicy>("Inzynierka1Model.FK_Generalna_Zawodnicy", "Zawodnicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Zawodnicy>("Inzynierka1Model.FK_Generalna_Zawodnicy", "Zawodnicy", value);
                 }
             }
         }
@@ -1154,16 +1301,14 @@ namespace KortyTenisowe
         /// <param name="czyGeneralna">Initial value of the CzyGeneralna property.</param>
         /// <param name="iD_Turnieju">Initial value of the ID_Turnieju property.</param>
         /// <param name="miejsce">Initial value of the Miejsce property.</param>
-        /// <param name="punkty">Initial value of the Punkty property.</param>
         /// <param name="iD_Zawodnika">Initial value of the ID_Zawodnika property.</param>
-        public static Klasyfikacje CreateKlasyfikacje(global::System.Int32 iD_Klasyfikacji, global::System.Int32 czyGeneralna, global::System.Int32 iD_Turnieju, global::System.Int32 miejsce, global::System.Int32 punkty, global::System.Int32 iD_Zawodnika)
+        public static Klasyfikacje CreateKlasyfikacje(global::System.Int32 iD_Klasyfikacji, global::System.Int32 czyGeneralna, global::System.Int32 iD_Turnieju, global::System.Int32 miejsce, global::System.Int32 iD_Zawodnika)
         {
             Klasyfikacje klasyfikacje = new Klasyfikacje();
             klasyfikacje.ID_Klasyfikacji = iD_Klasyfikacji;
             klasyfikacje.CzyGeneralna = czyGeneralna;
             klasyfikacje.ID_Turnieju = iD_Turnieju;
             klasyfikacje.Miejsce = miejsce;
-            klasyfikacje.Punkty = punkty;
             klasyfikacje.ID_Zawodnika = iD_Zawodnika;
             return klasyfikacje;
         }
@@ -1273,9 +1418,9 @@ namespace KortyTenisowe
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 Punkty
+        public Nullable<global::System.Int32> Punkty
         {
             get
             {
@@ -1290,8 +1435,8 @@ namespace KortyTenisowe
                 OnPunktyChanged();
             }
         }
-        private global::System.Int32 _Punkty;
-        partial void OnPunktyChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _Punkty;
+        partial void OnPunktyChanging(Nullable<global::System.Int32> value);
         partial void OnPunktyChanged();
     
         /// <summary>
@@ -5134,6 +5279,44 @@ namespace KortyTenisowe
         #endregion
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Generalna_Zawodnicy", "Generalna")]
+        public Generalna Generalna
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Generalna>("Inzynierka1Model.FK_Generalna_Zawodnicy", "Generalna").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Generalna>("Inzynierka1Model.FK_Generalna_Zawodnicy", "Generalna").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Generalna> GeneralnaReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Generalna>("Inzynierka1Model.FK_Generalna_Zawodnicy", "Generalna");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Generalna>("Inzynierka1Model.FK_Generalna_Zawodnicy", "Generalna", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.

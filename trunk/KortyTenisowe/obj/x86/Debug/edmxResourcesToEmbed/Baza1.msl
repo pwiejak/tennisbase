@@ -11,6 +11,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Generalna">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Generalna">
+        <MappingFragment StoreEntitySet="Generalna">
+          <ScalarProperty Name="Punkty" ColumnName="Punkty" />
+          <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Informacje">
       <EntityTypeMapping TypeName="Inzynierka1Model.Informacje">
         <MappingFragment StoreEntitySet="Informacje">

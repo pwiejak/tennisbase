@@ -78,7 +78,7 @@
             // 
             // rlbPunkty
             // 
-            this.rlbPunkty.Location = new System.Drawing.Point(12, 114);
+            this.rlbPunkty.Location = new System.Drawing.Point(12, 158);
             this.rlbPunkty.Name = "rlbPunkty";
             this.rlbPunkty.Size = new System.Drawing.Size(44, 16);
             this.rlbPunkty.TabIndex = 1;
@@ -91,6 +91,7 @@
             this.rDDLTurniej.Size = new System.Drawing.Size(195, 22);
             this.rDDLTurniej.TabIndex = 1;
             this.rDDLTurniej.Text = "Turniej";
+            this.rDDLTurniej.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.rDDLTurniej_SelectedIndexChanged);
             // 
             // rDDLZawodnik
             // 
@@ -110,7 +111,7 @@
             // 
             // rtbPunkty
             // 
-            this.rtbPunkty.Location = new System.Drawing.Point(97, 114);
+            this.rtbPunkty.Location = new System.Drawing.Point(97, 158);
             this.rtbPunkty.Name = "rtbPunkty";
             this.rtbPunkty.Size = new System.Drawing.Size(195, 20);
             this.rtbPunkty.TabIndex = 2;
@@ -123,6 +124,7 @@
             this.rbtOK.Size = new System.Drawing.Size(137, 24);
             this.rbtOK.TabIndex = 4;
             this.rbtOK.Text = "OK";
+            this.rbtOK.Click += new System.EventHandler(this.rbtOK_Click);
             // 
             // rbtAnuluj
             // 
@@ -135,11 +137,12 @@
             // 
             // rcbCzyGeneralna
             // 
-            this.rcbCzyGeneralna.Location = new System.Drawing.Point(12, 158);
+            this.rcbCzyGeneralna.Location = new System.Drawing.Point(12, 121);
             this.rcbCzyGeneralna.Name = "rcbCzyGeneralna";
             this.rcbCzyGeneralna.Size = new System.Drawing.Size(220, 18);
             this.rcbCzyGeneralna.TabIndex = 6;
             this.rcbCzyGeneralna.Text = "Turniej liczony do klasyfikacji generalnej";
+            this.rcbCzyGeneralna.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(this.rcbCzyGeneralna_PropertyChanged);
             // 
             // DodajKlasyfikacjeForm
             // 

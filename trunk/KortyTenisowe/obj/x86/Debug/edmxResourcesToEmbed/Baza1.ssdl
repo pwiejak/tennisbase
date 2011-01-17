@@ -9,6 +9,7 @@
       [Dostepnosc].[Godz_Zakonczenia] AS [Godz_Zakonczenia]
       FROM [dbo].[Dostepnosc] AS [Dostepnosc]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="Generalna" EntityType="Inzynierka1Model.Store.Generalna" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Informacje" EntityType="Inzynierka1Model.Store.Informacje" store:Type="Tables" store:Schema="dbo" store:Name="Informacje">
       <DefiningQuery>SELECT 
       [Informacje].[IloscKortow] AS [IloscKortow], 
@@ -37,6 +38,10 @@
     <AssociationSet Name="FK_Dostepnosc_Uzytkownicy_Kortow" Association="Inzynierka1Model.Store.FK_Dostepnosc_Uzytkownicy_Kortow">
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Dostepnosc" EntitySet="Dostepnosc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Generalna_Zawodnicy" Association="Inzynierka1Model.Store.FK_Generalna_Zawodnicy">
+      <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+      <End Role="Generalna" EntitySet="Generalna" />
     </AssociationSet>
     <AssociationSet Name="FK_Klasyfikacje_Zawodnicy" Association="Inzynierka1Model.Store.FK_Klasyfikacje_Zawodnicy">
       <End Role="Zawodnicy" EntitySet="Zawodnicy" />
@@ -134,6 +139,13 @@
     <Property Name="Godz_Rozpoczecia" Type="nchar" Nullable="false" MaxLength="10" />
     <Property Name="Godz_Zakonczenia" Type="nchar" Nullable="false" MaxLength="10" />
   </EntityType>
+  <EntityType Name="Generalna">
+    <Key>
+      <PropertyRef Name="ID_Zawodnika" />
+    </Key>
+    <Property Name="ID_Zawodnika" Type="int" Nullable="false" />
+    <Property Name="Punkty" Type="int" Nullable="false" />
+  </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'Inzynierka1.dbo.Informacje' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
@@ -167,11 +179,11 @@
     <Key>
       <PropertyRef Name="ID_Klasyfikacji" />
     </Key>
-    <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" />
+    <Property Name="ID_Klasyfikacji" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CzyGeneralna" Type="int" Nullable="false" />
     <Property Name="ID_Turnieju" Type="int" Nullable="false" />
     <Property Name="Miejsce" Type="int" Nullable="false" />
-    <Property Name="Punkty" Type="int" Nullable="false" />
+    <Property Name="Punkty" Type="int" />
     <Property Name="ID_Zawodnika" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Mecze">
@@ -347,6 +359,18 @@
       </Principal>
       <Dependent Role="Dostepnosc">
         <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Generalna_Zawodnicy">
+    <End Role="Zawodnicy" Type="Inzynierka1Model.Store.Zawodnicy" Multiplicity="1" />
+    <End Role="Generalna" Type="Inzynierka1Model.Store.Generalna" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Zawodnicy">
+        <PropertyRef Name="ID_Zawodnika" />
+      </Principal>
+      <Dependent Role="Generalna">
+        <PropertyRef Name="ID_Zawodnika" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

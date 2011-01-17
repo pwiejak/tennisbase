@@ -1333,7 +1333,7 @@
     <value>2</value>
   </data>
   <data name="rbtUsunTurniej.Text" xml:space="preserve">
-    <value>Usun turniej</value>
+    <value>Usuń turniej</value>
   </data>
   <data name="&gt;&gt;rbtUsunTurniej.Name" xml:space="preserve">
     <value>rbtUsunTurniej</value>
@@ -1521,6 +1521,30 @@
   <data name="&gt;&gt;tabTurnieje.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="rbtGeneralna.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 68</value>
+  </data>
+  <data name="rbtGeneralna.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 24</value>
+  </data>
+  <data name="rbtGeneralna.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbtGeneralna.Text" xml:space="preserve">
+    <value>Generalna</value>
+  </data>
+  <data name="&gt;&gt;rbtGeneralna.Name" xml:space="preserve">
+    <value>rbtGeneralna</value>
+  </data>
+  <data name="&gt;&gt;rbtGeneralna.Type" xml:space="preserve">
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+  </data>
+  <data name="&gt;&gt;rbtGeneralna.Parent" xml:space="preserve">
+    <value>tabKlasyfikacje</value>
+  </data>
+  <data name="&gt;&gt;rbtGeneralna.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="rDDLWybierzTurniej.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 40</value>
   </data>
@@ -1561,10 +1585,10 @@
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rDDLWybierzTurniej.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="rbtUsunKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 138</value>
+    <value>6, 206</value>
   </data>
   <data name="rbtUsunKlasyfikacje.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopLeft</value>
@@ -1606,10 +1630,10 @@
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rbtUsunKlasyfikacje.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="rbtWynikiSpotkan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 267</value>
+    <value>6, 379</value>
   </data>
   <data name="rbtWynikiSpotkan.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopLeft</value>
@@ -1651,10 +1675,10 @@
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rbtWynikiSpotkan.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="rbtEdytujKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 108</value>
+    <value>6, 176</value>
   </data>
   <data name="rbtEdytujKlasyfikacje.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopLeft</value>
@@ -1696,7 +1720,7 @@
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rbtEdytujKlasyfikacje.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="rlbKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
     <value>169, 6</value>
@@ -1741,7 +1765,7 @@
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rlbKlasyfikacje.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="rlbWybierzTurniej.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 6</value>
@@ -1786,10 +1810,10 @@
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rlbWybierzTurniej.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="rgvKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
-    <value>269, 6</value>
+    <value>266, 6</value>
   </data>
   <data name="gridViewTextBoxColumn22.FormatString" xml:space="preserve">
     <value />
@@ -1837,7 +1861,7 @@
     <value>Horizontal</value>
   </data>
   <data name="rgvKlasyfikacje.Size" type="System.Drawing.Size, System.Drawing">
-    <value>558, 397</value>
+    <value>608, 397</value>
   </data>
   <data name="rgvKlasyfikacje.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1852,10 +1876,10 @@
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rgvKlasyfikacje.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="rbtDodajKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 78</value>
+    <value>6, 146</value>
   </data>
   <data name="rbtDodajKlasyfikacje.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopLeft</value>
@@ -1897,7 +1921,7 @@
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rbtDodajKlasyfikacje.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="tabKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>

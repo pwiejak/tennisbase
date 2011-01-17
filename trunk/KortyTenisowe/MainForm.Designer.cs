@@ -104,6 +104,7 @@
             this.rgvTurnieje = new Telerik.WinControls.UI.RadGridView();
             this.rbtDodajTurniej = new Telerik.WinControls.UI.RadButton();
             this.tabKlasyfikacje = new System.Windows.Forms.TabPage();
+            this.rbtGeneralna = new Telerik.WinControls.UI.RadButton();
             this.rDDLWybierzTurniej = new Telerik.WinControls.UI.RadDropDownList();
             this.rbtUsunKlasyfikacje = new Telerik.WinControls.UI.RadButton();
             this.rbtWynikiSpotkan = new Telerik.WinControls.UI.RadButton();
@@ -158,6 +159,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgvTurnieje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtDodajTurniej)).BeginInit();
             this.tabKlasyfikacje.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtGeneralna)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rDDLWybierzTurniej)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtUsunKlasyfikacje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtWynikiSpotkan)).BeginInit();
@@ -715,7 +717,6 @@
             // 
             resources.ApplyResources(this.rbtUsunTurniej, "rbtUsunTurniej");
             this.rbtUsunTurniej.Name = "rbtUsunTurniej";
-            this.rbtUsunTurniej.Text = "Usuń turniej";
             // 
             // 
             // 
@@ -800,6 +801,7 @@
             // tabKlasyfikacje
             // 
             this.tabKlasyfikacje.BackColor = System.Drawing.Color.AliceBlue;
+            this.tabKlasyfikacje.Controls.Add(this.rbtGeneralna);
             this.tabKlasyfikacje.Controls.Add(this.rDDLWybierzTurniej);
             this.tabKlasyfikacje.Controls.Add(this.rbtUsunKlasyfikacje);
             this.tabKlasyfikacje.Controls.Add(this.rbtWynikiSpotkan);
@@ -811,6 +813,11 @@
             resources.ApplyResources(this.tabKlasyfikacje, "tabKlasyfikacje");
             this.tabKlasyfikacje.Name = "tabKlasyfikacje";
             this.tabKlasyfikacje.UseVisualStyleBackColor = true;
+            // 
+            // rbtGeneralna
+            // 
+            resources.ApplyResources(this.rbtGeneralna, "rbtGeneralna");
+            this.rbtGeneralna.Name = "rbtGeneralna";
             // 
             // rDDLWybierzTurniej
             // 
@@ -911,16 +918,17 @@
             // rgvKlasyfikacje
             // 
             resources.ApplyResources(gridViewTextBoxColumn22, "gridViewTextBoxColumn22");
-            gridViewTextBoxColumn22.Name = "Id";
+            gridViewTextBoxColumn22.Name = "Miejsce";
+            gridViewTextBoxColumn22.Width = 80;
             resources.ApplyResources(gridViewTextBoxColumn23, "gridViewTextBoxColumn23");
             gridViewTextBoxColumn23.Name = "Imie";
-            gridViewTextBoxColumn23.Width = 150;
+            gridViewTextBoxColumn23.Width = 130;
             resources.ApplyResources(gridViewTextBoxColumn24, "gridViewTextBoxColumn24");
             gridViewTextBoxColumn24.Name = "Nazwisko";
-            gridViewTextBoxColumn24.Width = 240;
+            gridViewTextBoxColumn24.Width = 250;
             resources.ApplyResources(gridViewTextBoxColumn25, "gridViewTextBoxColumn25");
             gridViewTextBoxColumn25.Name = "Punkty";
-            gridViewTextBoxColumn25.Width = 100;
+            gridViewTextBoxColumn25.Width = 130;
             this.rgvKlasyfikacje.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn22,
             gridViewTextBoxColumn23,
@@ -1153,6 +1161,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rbtDodajTurniej)).EndInit();
             this.tabKlasyfikacje.ResumeLayout(false);
             this.tabKlasyfikacje.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtGeneralna)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rDDLWybierzTurniej)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtUsunKlasyfikacje)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtWynikiSpotkan)).EndInit();
@@ -1237,5 +1246,6 @@
         private Telerik.WinControls.UI.RadGridView rgvKlasyfikacje;
         private Telerik.WinControls.UI.RadButton rbtDodajKlasyfikacje;
         private Telerik.WinControls.UI.RadButton rbtEdytujTurniej;
+        private Telerik.WinControls.UI.RadButton rbtGeneralna;
     }
 }
