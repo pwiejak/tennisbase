@@ -32,8 +32,10 @@ namespace KortyTenisowe
             TabKlasyfikacje.WczytajTurniej(rDDLWybierzTurniej);
             TabTurnieje.WczytajTurniej(rDDLWybierzTurniej);
             TabWypozyczalnia.PokazStany(rddlStan);
+            rDDLWybierzTurniej.Enabled = false;
             rbtEdytujTurniej.Enabled = false;
             rbtUsunTurniej.Enabled = false;
+            rbtUsunKlasyfikacje.Enabled = false;
 
         }
 
@@ -313,13 +315,34 @@ namespace KortyTenisowe
             KortyTenisowe.DodajKlasyfikacjeForm DodajKlasyfikacje = new KortyTenisowe.DodajKlasyfikacjeForm();
             DodajKlasyfikacje.Activate();
             DodajKlasyfikacje.ShowDialog();
+            int idtur = Convert.ToInt32(rDDLWybierzTurniej.SelectedValue);
+            TabKlasyfikacje.WypiszKlasyfikacjeTurnieju(idtur, rgvKlasyfikacje);
         }
 
         private void rbtUsunKlasyfikacje_Click(object sender, EventArgs e)
         {
-            KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm(aktualnaKomorka, 3);
-            Usun.Activate();
-            Usun.ShowDialog();
+            Klasyfikacje klasyfikacja = new Klasyfikacje();
+            klasyfikacja = DBQueries.ZwrocKonkretnaKlasyfikacje(aktualnaKomorka);
+            bool gen = DBQueries.ZaznaczonaGeneralna(klasyfikacja);
+
+            if (gen == true)
+            {
+                KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm(aktualnaKomorka, 5);
+                Usun.Activate();
+                Usun.ShowDialog();
+                rbtUsunKlasyfikacje.Enabled = false;
+            }
+
+            else
+            {
+                KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm(aktualnaKomorka, 6);
+                Usun.Activate();
+                Usun.ShowDialog();
+                rbtUsunKlasyfikacje.Enabled = false;
+            }
+
+            int idtur = Convert.ToInt32(rDDLWybierzTurniej.SelectedValue);
+            TabKlasyfikacje.WypiszKlasyfikacjeTurnieju(idtur, rgvKlasyfikacje);
         }
 
         private void rbtWynikiSpotkan_Click(object sender, EventArgs e)
@@ -339,15 +362,19 @@ namespace KortyTenisowe
                 rbtUsunTurniej.Enabled = true;
             }
         }
-
         private void rgvKlasyfikacje_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            if (e.RowIndex == -1) aktualnaKomorka = 0;
-            else
+            if (rrbGeneralna.IsChecked == false)
             {
-                aktualnaKomorka = int.Parse(rgvKlasyfikacje.Rows[e.RowIndex].Cells[0].Value.ToString());
+                if (e.RowIndex == -1) aktualnaKomorka = 0;
+                else
+                {
+                    aktualnaKomorka = int.Parse(rgvKlasyfikacje.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    rbtUsunKlasyfikacje.Enabled = true;
+                }
             }
         }
+
 
         private void rbtEdytujTurniej_Click(object sender, EventArgs e)
         {
@@ -357,7 +384,33 @@ namespace KortyTenisowe
             rbtEdytujTurniej.Enabled = false;
             rbtUsunTurniej.Enabled = false;
         }
-        
+
+        private void rrbGeneralna_PropertyChanged(object sender, EventArgs e)
+        {
+            if (rrbGeneralna.IsChecked == true) rDDLWybierzTurniej.Enabled = false;
+            TabKlasyfikacje.WypiszGeneralna(rgvKlasyfikacje);
+            rbtUsunKlasyfikacje.Enabled = false;
+
+
+        }
+
+        private void rrbTurniej_PropertyChanged(object sender, EventArgs e)
+        {
+            if (rrbTurniej.IsChecked == true) rDDLWybierzTurniej.Enabled = true;
+            int idtur = Convert.ToInt32(rDDLWybierzTurniej.SelectedValue);
+            TabKlasyfikacje.WypiszKlasyfikacjeTurnieju(idtur ,rgvKlasyfikacje);
+
+        }
+
+        private void rDDLWybierzTurniej_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            rgvKlasyfikacje.Rows.Clear();
+            int idtur = Convert.ToInt32(rDDLWybierzTurniej.SelectedValue);
+            TabKlasyfikacje.WypiszKlasyfikacjeTurnieju(idtur, rgvKlasyfikacje);
+            rbtUsunKlasyfikacje.Enabled = false;
+        }
+
+   
 
     }
 }

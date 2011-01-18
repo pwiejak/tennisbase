@@ -7,6 +7,7 @@
     <EntitySet Name="Katalog_Uslug" EntityType="Inzynierka1Model.Katalog_Uslug" />
     <EntitySet Name="Kategorie" EntityType="Inzynierka1Model.Kategorie" />
     <EntitySet Name="Klasyfikacje" EntityType="Inzynierka1Model.Klasyfikacje" />
+    <EntitySet Name="ListaGraczy" EntityType="Inzynierka1Model.ListaGraczy" />
     <EntitySet Name="Mecze" EntityType="Inzynierka1Model.Mecze" />
     <EntitySet Name="Pracownicy" EntityType="Inzynierka1Model.Pracownicy" />
     <EntitySet Name="Rezerwacje_Kortow" EntityType="Inzynierka1Model.Rezerwacje_Kortow" />
@@ -45,6 +46,14 @@
     <AssociationSet Name="FK_Turnieje_Klasyfikacje" Association="Inzynierka1Model.FK_Turnieje_Klasyfikacje">
       <End Role="Klasyfikacje" EntitySet="Klasyfikacje" />
       <End Role="Turnieje" EntitySet="Turnieje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListaGraczy_Turnieje" Association="Inzynierka1Model.FK_ListaGraczy_Turnieje">
+      <End Role="Turnieje" EntitySet="Turnieje" />
+      <End Role="ListaGraczy" EntitySet="ListaGraczy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ListaGraczy_Zawodnicy" Association="Inzynierka1Model.FK_ListaGraczy_Zawodnicy">
+      <End Role="Zawodnicy" EntitySet="Zawodnicy" />
+      <End Role="ListaGraczy" EntitySet="ListaGraczy" />
     </AssociationSet>
     <AssociationSet Name="FK_Mecze_Turnieje" Association="Inzynierka1Model.FK_Mecze_Turnieje">
       <End Role="Turnieje" EntitySet="Turnieje" />
@@ -101,10 +110,6 @@
     <AssociationSet Name="FK_Trenerzy_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Trenerzy_Uzytkownicy_Kortow">
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Trenerzy" EntitySet="Trenerzy" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Zawodnicy_Turnieje1" Association="Inzynierka1Model.FK_Zawodnicy_Turnieje1">
-      <End Role="Turnieje" EntitySet="Turnieje" />
-      <End Role="Zawodnicy" EntitySet="Zawodnicy" />
     </AssociationSet>
     <AssociationSet Name="FK_Wypozyczone_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow">
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
@@ -173,6 +178,16 @@
     <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Klasyfikacje_Zawodnicy" FromRole="Klasyfikacje" ToRole="Zawodnicy" />
     <NavigationProperty Name="Turnieje" Relationship="Inzynierka1Model.FK_Turnieje_Klasyfikacje" FromRole="Klasyfikacje" ToRole="Turnieje" />
   </EntityType>
+  <EntityType Name="ListaGraczy">
+    <Key>
+      <PropertyRef Name="ID_Listy" />
+    </Key>
+    <Property Type="Int32" Name="ID_Listy" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ID_Turnieju" Nullable="false" />
+    <Property Type="Int32" Name="ID_Zawodnika" Nullable="false" />
+    <NavigationProperty Name="Turnieje" Relationship="Inzynierka1Model.FK_ListaGraczy_Turnieje" FromRole="ListaGraczy" ToRole="Turnieje" />
+    <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_ListaGraczy_Zawodnicy" FromRole="ListaGraczy" ToRole="Zawodnicy" />
+  </EntityType>
   <EntityType Name="Mecze">
     <Key>
       <PropertyRef Name="ID_Meczu" />
@@ -182,11 +197,11 @@
     <Property Type="Int32" Name="Zawodnik1" Nullable="false" />
     <Property Type="Int32" Name="Zawodnik2" Nullable="false" />
     <Property Type="Int32" Name="CzyRozegrany" Nullable="false" />
-    <Property Type="String" Name="Set1" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Type="String" Name="Set2" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Type="String" Name="Set3" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Type="String" Name="Set4" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Type="String" Name="Set5" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Set1" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Set2" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Set3" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Set4" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Set5" MaxLength="3" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Turnieje" Relationship="Inzynierka1Model.FK_Mecze_Turnieje" FromRole="Mecze" ToRole="Turnieje" />
     <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Mecze_Zawodnicy" FromRole="Mecze" ToRole="Zawodnicy" />
     <NavigationProperty Name="Zawodnicy1" Relationship="Inzynierka1Model.FK_Mecze_Zawodnicy1" FromRole="Mecze" ToRole="Zawodnicy" />
@@ -303,8 +318,8 @@
     <Property Type="String" Name="Nazwa" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Kategorie" Relationship="Inzynierka1Model.FK_Turnieje_Kategorie1" FromRole="Turnieje" ToRole="Kategorie" />
     <NavigationProperty Name="Klasyfikacje" Relationship="Inzynierka1Model.FK_Turnieje_Klasyfikacje" FromRole="Turnieje" ToRole="Klasyfikacje" />
+    <NavigationProperty Name="ListaGraczy" Relationship="Inzynierka1Model.FK_ListaGraczy_Turnieje" FromRole="Turnieje" ToRole="ListaGraczy" />
     <NavigationProperty Name="Mecze" Relationship="Inzynierka1Model.FK_Mecze_Turnieje" FromRole="Turnieje" ToRole="Mecze" />
-    <NavigationProperty Name="Zawodnicy" Relationship="Inzynierka1Model.FK_Zawodnicy_Turnieje1" FromRole="Turnieje" ToRole="Zawodnicy" />
   </EntityType>
   <EntityType Name="Typy">
     <Key>
@@ -364,16 +379,15 @@
       <PropertyRef Name="ID_Zawodnika" />
     </Key>
     <Property Type="Int32" Name="ID_Zawodnika" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="ID_Turnieju" />
     <Property Type="String" Name="Imie" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Nazwisko" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Telefon" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Generalna" Relationship="Inzynierka1Model.FK_Generalna_Zawodnicy" FromRole="Zawodnicy" ToRole="Generalna" />
     <NavigationProperty Name="Klasyfikacje" Relationship="Inzynierka1Model.FK_Klasyfikacje_Zawodnicy" FromRole="Zawodnicy" ToRole="Klasyfikacje" />
+    <NavigationProperty Name="ListaGraczy" Relationship="Inzynierka1Model.FK_ListaGraczy_Zawodnicy" FromRole="Zawodnicy" ToRole="ListaGraczy" />
     <NavigationProperty Name="Mecze" Relationship="Inzynierka1Model.FK_Mecze_Zawodnicy" FromRole="Zawodnicy" ToRole="Mecze" />
     <NavigationProperty Name="Mecze1" Relationship="Inzynierka1Model.FK_Mecze_Zawodnicy1" FromRole="Zawodnicy" ToRole="Mecze" />
-    <NavigationProperty Name="Turnieje" Relationship="Inzynierka1Model.FK_Zawodnicy_Turnieje1" FromRole="Zawodnicy" ToRole="Turnieje" />
   </EntityType>
   <Association Name="FK_Dostepnosc_Uzytkownicy_Kortow">
     <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
@@ -444,6 +458,30 @@
       </Principal>
       <Dependent Role="Turnieje">
         <PropertyRef Name="ID_Klasyfikacji" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListaGraczy_Turnieje">
+    <End Type="Inzynierka1Model.Turnieje" Role="Turnieje" Multiplicity="1" />
+    <End Type="Inzynierka1Model.ListaGraczy" Role="ListaGraczy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turnieje">
+        <PropertyRef Name="ID_Turnieju" />
+      </Principal>
+      <Dependent Role="ListaGraczy">
+        <PropertyRef Name="ID_Turnieju" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListaGraczy_Zawodnicy">
+    <End Type="Inzynierka1Model.Zawodnicy" Role="Zawodnicy" Multiplicity="1" />
+    <End Type="Inzynierka1Model.ListaGraczy" Role="ListaGraczy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zawodnicy">
+        <PropertyRef Name="ID_Zawodnika" />
+      </Principal>
+      <Dependent Role="ListaGraczy">
+        <PropertyRef Name="ID_Zawodnika" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -612,18 +650,6 @@
       </Principal>
       <Dependent Role="Trenerzy">
         <PropertyRef Name="ID_Osoby" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Zawodnicy_Turnieje1">
-    <End Type="Inzynierka1Model.Turnieje" Role="Turnieje" Multiplicity="0..1" />
-    <End Type="Inzynierka1Model.Zawodnicy" Role="Zawodnicy" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Turnieje">
-        <PropertyRef Name="ID_Turnieju" />
-      </Principal>
-      <Dependent Role="Zawodnicy">
-        <PropertyRef Name="ID_Turnieju" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -214,7 +214,7 @@
     <value>rgvKorty</value>
   </data>
   <data name="&gt;&gt;rgvKorty.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rgvKorty.Parent" xml:space="preserve">
     <value>tabKorty</value>
@@ -262,7 +262,7 @@
     <value>rlblStala</value>
   </data>
   <data name="&gt;&gt;rlblStala.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rlblStala.Parent" xml:space="preserve">
     <value>panelLegenda</value>
@@ -310,7 +310,7 @@
     <value>rlblJednorazowa</value>
   </data>
   <data name="&gt;&gt;rlblJednorazowa.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rlblJednorazowa.Parent" xml:space="preserve">
     <value>panelLegenda</value>
@@ -358,7 +358,7 @@
     <value>rlblLegenda</value>
   </data>
   <data name="&gt;&gt;rlblLegenda.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rlblLegenda.Parent" xml:space="preserve">
     <value>panelLegenda</value>
@@ -448,7 +448,7 @@
     <value>panelLegenda</value>
   </data>
   <data name="&gt;&gt;panelLegenda.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadPanel, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadPanel, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;panelLegenda.Parent" xml:space="preserve">
     <value>tabKorty</value>
@@ -568,7 +568,7 @@
     <value>rlvlWybierzKategorieSprzetu</value>
   </data>
   <data name="&gt;&gt;rlvlWybierzKategorieSprzetu.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rlvlWybierzKategorieSprzetu.Parent" xml:space="preserve">
     <value>tabSprzet</value>
@@ -616,7 +616,7 @@
     <value>rbDodajNaMagazyn</value>
   </data>
   <data name="&gt;&gt;rbDodajNaMagazyn.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbDodajNaMagazyn.Parent" xml:space="preserve">
     <value>tabSprzet</value>
@@ -661,7 +661,7 @@
     <value>rbNowyTyp</value>
   </data>
   <data name="&gt;&gt;rbNowyTyp.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbNowyTyp.Parent" xml:space="preserve">
     <value>tabSprzet</value>
@@ -709,7 +709,7 @@
     <value>rgvSprzet</value>
   </data>
   <data name="&gt;&gt;rgvSprzet.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rgvSprzet.Parent" xml:space="preserve">
     <value>tabSprzet</value>
@@ -742,7 +742,7 @@
     <value>Horizontal</value>
   </data>
   <data name="rDDLKategorie.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
+    <value>130, 21</value>
   </data>
   <data name="rDDLKategorie.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -751,7 +751,7 @@
     <value>rDDLKategorie</value>
   </data>
   <data name="&gt;&gt;rDDLKategorie.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadDropDownList, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadDropDownList, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rDDLKategorie.Parent" xml:space="preserve">
     <value>tabSprzet</value>
@@ -796,7 +796,7 @@
     <value>rbtDodajNowy</value>
   </data>
   <data name="&gt;&gt;rbtDodajNowy.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbtDodajNowy.Parent" xml:space="preserve">
     <value>tabSprzet</value>
@@ -871,7 +871,7 @@
     <value>rbtWypozycz</value>
   </data>
   <data name="&gt;&gt;rbtWypozycz.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbtWypozycz.Parent" xml:space="preserve">
     <value>tabMagazyn</value>
@@ -919,7 +919,7 @@
     <value>rbtUsun</value>
   </data>
   <data name="&gt;&gt;rbtUsun.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbtUsun.Parent" xml:space="preserve">
     <value>tabMagazyn</value>
@@ -967,7 +967,7 @@
     <value>rbtZmienIlosc</value>
   </data>
   <data name="&gt;&gt;rbtZmienIlosc.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbtZmienIlosc.Parent" xml:space="preserve">
     <value>tabMagazyn</value>
@@ -1015,7 +1015,7 @@
     <value>rlblSzukajWgID</value>
   </data>
   <data name="&gt;&gt;rlblSzukajWgID.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rlblSzukajWgID.Parent" xml:space="preserve">
     <value>tabMagazyn</value>
@@ -1063,7 +1063,7 @@
     <value>rlbKategoria</value>
   </data>
   <data name="&gt;&gt;rlbKategoria.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rlbKategoria.Parent" xml:space="preserve">
     <value>tabMagazyn</value>
@@ -1108,7 +1108,7 @@
     <value>rbtSzukajWgID</value>
   </data>
   <data name="&gt;&gt;rbtSzukajWgID.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbtSzukajWgID.Parent" xml:space="preserve">
     <value>tabMagazyn</value>
@@ -1150,7 +1150,7 @@
     <value>rtbIDProduktu</value>
   </data>
   <data name="&gt;&gt;rtbIDProduktu.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadTextBox, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadTextBox, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rtbIDProduktu.Parent" xml:space="preserve">
     <value>tabMagazyn</value>
@@ -1183,7 +1183,7 @@
     <value>Horizontal</value>
   </data>
   <data name="rddlKategorieMagazyn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
+    <value>130, 21</value>
   </data>
   <data name="rddlKategorieMagazyn.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1195,7 +1195,7 @@
     <value>rddlKategorieMagazyn</value>
   </data>
   <data name="&gt;&gt;rddlKategorieMagazyn.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadDropDownList, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadDropDownList, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rddlKategorieMagazyn.Parent" xml:space="preserve">
     <value>tabMagazyn</value>
@@ -1243,7 +1243,7 @@
     <value>rgvMagazyn</value>
   </data>
   <data name="&gt;&gt;rgvMagazyn.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rgvMagazyn.Parent" xml:space="preserve">
     <value>tabMagazyn</value>
@@ -1294,7 +1294,7 @@
     <value>rbtEdytujTurniej</value>
   </data>
   <data name="&gt;&gt;rbtEdytujTurniej.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbtEdytujTurniej.Parent" xml:space="preserve">
     <value>tabTurnieje</value>
@@ -1339,7 +1339,7 @@
     <value>rbtUsunTurniej</value>
   </data>
   <data name="&gt;&gt;rbtUsunTurniej.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbtUsunTurniej.Parent" xml:space="preserve">
     <value>tabTurnieje</value>
@@ -1384,7 +1384,7 @@
     <value>rbtObslugaTurnieju</value>
   </data>
   <data name="&gt;&gt;rbtObslugaTurnieju.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbtObslugaTurnieju.Parent" xml:space="preserve">
     <value>tabTurnieje</value>
@@ -1396,7 +1396,7 @@
     <value>228, 6</value>
   </data>
   <data name="gridViewTextBoxColumn18.HeaderText" xml:space="preserve">
-    <value>ID</value>
+    <value>Id</value>
   </data>
   <data name="gridViewTextBoxColumn19.HeaderText" xml:space="preserve">
     <value>Nazwa</value>
@@ -1441,7 +1441,7 @@
     <value>rgvTurnieje</value>
   </data>
   <data name="&gt;&gt;rgvTurnieje.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rgvTurnieje.Parent" xml:space="preserve">
     <value>tabTurnieje</value>
@@ -1486,7 +1486,7 @@
     <value>rbtDodajTurniej</value>
   </data>
   <data name="&gt;&gt;rbtDodajTurniej.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbtDodajTurniej.Parent" xml:space="preserve">
     <value>tabTurnieje</value>
@@ -1521,56 +1521,47 @@
   <data name="&gt;&gt;tabTurnieje.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="rbtGeneralna.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 68</value>
+  <data name="rgvKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
+    <value>244, 6</value>
   </data>
-  <data name="rbtGeneralna.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 24</value>
+  <data name="gridViewTextBoxColumn22.HeaderText" xml:space="preserve">
+    <value>ID</value>
   </data>
-  <data name="rbtGeneralna.TabIndex" type="System.Int32, mscorlib">
+  <data name="gridViewTextBoxColumn23.HeaderText" xml:space="preserve">
+    <value>Miejsce</value>
+  </data>
+  <data name="gridViewTextBoxColumn24.HeaderText" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="gridViewTextBoxColumn25.HeaderText" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="gridViewTextBoxColumn26.HeaderText" xml:space="preserve">
+    <value>Punkty</value>
+  </data>
+  <data name="rgvKlasyfikacje.Size" type="System.Drawing.Size, System.Drawing">
+    <value>630, 412</value>
+  </data>
+  <data name="rgvKlasyfikacje.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="rbtGeneralna.Text" xml:space="preserve">
-    <value>Generalna</value>
+  <data name="&gt;&gt;rgvKlasyfikacje.Name" xml:space="preserve">
+    <value>rgvKlasyfikacje</value>
   </data>
-  <data name="&gt;&gt;rbtGeneralna.Name" xml:space="preserve">
-    <value>rbtGeneralna</value>
+  <data name="&gt;&gt;rgvKlasyfikacje.Type" xml:space="preserve">
+    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
-  <data name="&gt;&gt;rbtGeneralna.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
-  </data>
-  <data name="&gt;&gt;rbtGeneralna.Parent" xml:space="preserve">
+  <data name="&gt;&gt;rgvKlasyfikacje.Parent" xml:space="preserve">
     <value>tabKlasyfikacje</value>
   </data>
-  <data name="&gt;&gt;rbtGeneralna.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;rgvKlasyfikacje.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="rDDLWybierzTurniej.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 40</value>
-  </data>
-  <data name="rDDLWybierzTurniej.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopLeft</value>
-  </data>
-  <data name="rDDLWybierzTurniej.RootElement.AngleTransform" type="System.Single, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="rDDLWybierzTurniej.RootElement.FlipText" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="rDDLWybierzTurniej.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="rDDLWybierzTurniej.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="rDDLWybierzTurniej.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="rDDLWybierzTurniej.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
-    <value>Horizontal</value>
+    <value>6, 108</value>
   </data>
   <data name="rDDLWybierzTurniej.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 22</value>
+    <value>220, 21</value>
   </data>
   <data name="rDDLWybierzTurniej.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1579,13 +1570,61 @@
     <value>rDDLWybierzTurniej</value>
   </data>
   <data name="&gt;&gt;rDDLWybierzTurniej.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadDropDownList, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadDropDownList, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rDDLWybierzTurniej.Parent" xml:space="preserve">
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rDDLWybierzTurniej.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="rrbTurniej.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 49</value>
+  </data>
+  <data name="rrbTurniej.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 18</value>
+  </data>
+  <data name="rrbTurniej.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="rrbTurniej.Text" xml:space="preserve">
+    <value>Wybrany turniej</value>
+  </data>
+  <data name="&gt;&gt;rrbTurniej.Name" xml:space="preserve">
+    <value>rrbTurniej</value>
+  </data>
+  <data name="&gt;&gt;rrbTurniej.Type" xml:space="preserve">
+    <value>Telerik.WinControls.UI.RadRadioButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+  </data>
+  <data name="&gt;&gt;rrbTurniej.Parent" xml:space="preserve">
+    <value>tabKlasyfikacje</value>
+  </data>
+  <data name="&gt;&gt;rrbTurniej.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rrbGeneralna.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="rrbGeneralna.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 18</value>
+  </data>
+  <data name="rrbGeneralna.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="rrbGeneralna.Text" xml:space="preserve">
+    <value>Klasyfikacja generalna</value>
+  </data>
+  <data name="&gt;&gt;rrbGeneralna.Name" xml:space="preserve">
+    <value>rrbGeneralna</value>
+  </data>
+  <data name="&gt;&gt;rrbGeneralna.Type" xml:space="preserve">
+    <value>Telerik.WinControls.UI.RadRadioButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+  </data>
+  <data name="&gt;&gt;rrbGeneralna.Parent" xml:space="preserve">
+    <value>tabKlasyfikacje</value>
+  </data>
+  <data name="&gt;&gt;rrbGeneralna.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="rbtUsunKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 206</value>
@@ -1624,13 +1663,13 @@
     <value>rbtUsunKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rbtUsunKlasyfikacje.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbtUsunKlasyfikacje.Parent" xml:space="preserve">
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rbtUsunKlasyfikacje.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="rbtWynikiSpotkan.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 379</value>
@@ -1669,58 +1708,13 @@
     <value>rbtWynikiSpotkan</value>
   </data>
   <data name="&gt;&gt;rbtWynikiSpotkan.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbtWynikiSpotkan.Parent" xml:space="preserve">
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rbtWynikiSpotkan.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="rbtEdytujKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 176</value>
-  </data>
-  <data name="rbtEdytujKlasyfikacje.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopLeft</value>
-  </data>
-  <data name="rbtEdytujKlasyfikacje.RootElement.AngleTransform" type="System.Single, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="rbtEdytujKlasyfikacje.RootElement.FlipText" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="rbtEdytujKlasyfikacje.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="rbtEdytujKlasyfikacje.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="rbtEdytujKlasyfikacje.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="rbtEdytujKlasyfikacje.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
-    <value>Horizontal</value>
-  </data>
-  <data name="rbtEdytujKlasyfikacje.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 24</value>
-  </data>
-  <data name="rbtEdytujKlasyfikacje.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="rbtEdytujKlasyfikacje.Text" xml:space="preserve">
-    <value>Edytuj klasyfikację</value>
-  </data>
-  <data name="&gt;&gt;rbtEdytujKlasyfikacje.Name" xml:space="preserve">
-    <value>rbtEdytujKlasyfikacje</value>
-  </data>
-  <data name="&gt;&gt;rbtEdytujKlasyfikacje.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
-  </data>
-  <data name="&gt;&gt;rbtEdytujKlasyfikacje.Parent" xml:space="preserve">
-    <value>tabKlasyfikacje</value>
-  </data>
-  <data name="&gt;&gt;rbtEdytujKlasyfikacje.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="rlbKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
     <value>169, 6</value>
@@ -1759,16 +1753,16 @@
     <value>rlbKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rlbKlasyfikacje.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rlbKlasyfikacje.Parent" xml:space="preserve">
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rlbKlasyfikacje.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="rlbWybierzTurniej.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
+    <value>6, 86</value>
   </data>
   <data name="rlbWybierzTurniej.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopLeft</value>
@@ -1804,82 +1798,16 @@
     <value>rlbWybierzTurniej</value>
   </data>
   <data name="&gt;&gt;rlbWybierzTurniej.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rlbWybierzTurniej.Parent" xml:space="preserve">
     <value>tabKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rlbWybierzTurniej.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="rgvKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
-    <value>266, 6</value>
-  </data>
-  <data name="gridViewTextBoxColumn22.FormatString" xml:space="preserve">
-    <value />
-  </data>
-  <data name="gridViewTextBoxColumn22.HeaderText" xml:space="preserve">
-    <value>Miejsce</value>
-  </data>
-  <data name="gridViewTextBoxColumn23.FormatString" xml:space="preserve">
-    <value />
-  </data>
-  <data name="gridViewTextBoxColumn23.HeaderText" xml:space="preserve">
-    <value>Imię</value>
-  </data>
-  <data name="gridViewTextBoxColumn24.FormatString" xml:space="preserve">
-    <value />
-  </data>
-  <data name="gridViewTextBoxColumn24.HeaderText" xml:space="preserve">
-    <value>Nazwisko</value>
-  </data>
-  <data name="gridViewTextBoxColumn25.FormatString" xml:space="preserve">
-    <value />
-  </data>
-  <data name="gridViewTextBoxColumn25.HeaderText" xml:space="preserve">
-    <value>Punkty</value>
-  </data>
-  <data name="rgvKlasyfikacje.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopLeft</value>
-  </data>
-  <data name="rgvKlasyfikacje.RootElement.AngleTransform" type="System.Single, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="rgvKlasyfikacje.RootElement.FlipText" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="rgvKlasyfikacje.RootElement.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="rgvKlasyfikacje.RootElement.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="rgvKlasyfikacje.RootElement.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="rgvKlasyfikacje.RootElement.TextOrientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
-    <value>Horizontal</value>
-  </data>
-  <data name="rgvKlasyfikacje.Size" type="System.Drawing.Size, System.Drawing">
-    <value>608, 397</value>
-  </data>
-  <data name="rgvKlasyfikacje.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;rgvKlasyfikacje.Name" xml:space="preserve">
-    <value>rgvKlasyfikacje</value>
-  </data>
-  <data name="&gt;&gt;rgvKlasyfikacje.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
-  </data>
-  <data name="&gt;&gt;rgvKlasyfikacje.Parent" xml:space="preserve">
-    <value>tabKlasyfikacje</value>
-  </data>
-  <data name="&gt;&gt;rgvKlasyfikacje.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="rbtDodajKlasyfikacje.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 146</value>
+    <value>6, 176</value>
   </data>
   <data name="rbtDodajKlasyfikacje.RootElement.Alignment" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopLeft</value>
@@ -1915,7 +1843,7 @@
     <value>rbtDodajKlasyfikacje</value>
   </data>
   <data name="&gt;&gt;rbtDodajKlasyfikacje.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rbtDodajKlasyfikacje.Parent" xml:space="preserve">
     <value>tabKlasyfikacje</value>
@@ -1987,7 +1915,7 @@
     <value>rchbNadchodzace</value>
   </data>
   <data name="&gt;&gt;rchbNadchodzace.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadCheckBox, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadCheckBox, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rchbNadchodzace.Parent" xml:space="preserve">
     <value>tabWypozyczalnia</value>
@@ -2035,7 +1963,7 @@
     <value>rlblStan</value>
   </data>
   <data name="&gt;&gt;rlblStan.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rlblStan.Parent" xml:space="preserve">
     <value>tabWypozyczalnia</value>
@@ -2068,7 +1996,7 @@
     <value>Horizontal</value>
   </data>
   <data name="rddlStan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
+    <value>130, 21</value>
   </data>
   <data name="rddlStan.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -2077,7 +2005,7 @@
     <value>rddlStan</value>
   </data>
   <data name="&gt;&gt;rddlStan.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadDropDownList, Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadDropDownList, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rddlStan.Parent" xml:space="preserve">
     <value>tabWypozyczalnia</value>
@@ -2125,7 +2053,7 @@
     <value>rgvWypozyczalnia</value>
   </data>
   <data name="&gt;&gt;rgvWypozyczalnia.Type" xml:space="preserve">
-    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
   </data>
   <data name="&gt;&gt;rgvWypozyczalnia.Parent" xml:space="preserve">
     <value>tabWypozyczalnia</value>
@@ -2251,7 +2179,7 @@
     <value>6</value>
   </data>
   <data name="tcMainForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 27</value>
+    <value>12, 28</value>
   </data>
   <data name="tcMainForm.Size" type="System.Drawing.Size, System.Drawing">
     <value>888, 450</value>

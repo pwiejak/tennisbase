@@ -34,7 +34,22 @@ namespace KortyTenisowe
 
         public static void WczytajZawodnika(int id, Telerik.WinControls.UI.RadDropDownList listaZawodnikow)
         {
-            List<Zawodnicy> ZawodnicyTurnieju = DBQueries.ZwrocZawodnikow(id).ToList();
+            List<ListaGraczy> ZawodnicyTurnieju = DBQueries.ZwrocZawodnikow(id).ToList();
+            listaZawodnikow.Items.Clear();
+
+            for (int i = 0; i < ZawodnicyTurnieju.Count; i++)
+            {
+                Telerik.WinControls.UI.RadListDataItem element = new Telerik.WinControls.UI.RadListDataItem();
+                element.Text = ZawodnicyTurnieju[i].Zawodnicy.Nazwisko + ", " + ZawodnicyTurnieju[i].Zawodnicy.Imie;
+                element.Value = ZawodnicyTurnieju[i].ID_Zawodnika;
+                listaZawodnikow.Items.Add(element);
+            }
+        }
+
+
+        public static void WczytajWszystkichZawodnikow(Telerik.WinControls.UI.RadDropDownList listaZawodnikow)
+        {
+            List<Zawodnicy> ZawodnicyTurnieju = DBQueries.ZwrocWszystkichZawodnikow().ToList();
             listaZawodnikow.Items.Clear();
 
             for (int i = 0; i < ZawodnicyTurnieju.Count; i++)

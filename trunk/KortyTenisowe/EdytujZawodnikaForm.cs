@@ -19,14 +19,10 @@ namespace KortyTenisowe
             int idtur;
             InitializeComponent();
             m_id = edytowanyZawodnik.ID_Zawodnika;
-            TabTurnieje.WczytajTurniej(rDDLTurniej);
             this.rtbImie.Text = edytowanyZawodnik.Imie;
             this.rtbNazwisko.Text = edytowanyZawodnik.Nazwisko;
             this.rtbTelefon.Text = edytowanyZawodnik.Telefon;
             this.rtbEmail.Text = edytowanyZawodnik.Email;
-            if (edytowanyZawodnik.ID_Turnieju.HasValue == true) idtur = edytowanyZawodnik.ID_Turnieju.Value-1;
-            else idtur = -1;
-            this.rDDLTurniej.SelectedIndex = idtur;
 
         }
 
@@ -43,7 +39,7 @@ namespace KortyTenisowe
 
         private void rbtOK_Click(object sender, EventArgs e)
         {
-            if ((rtbNazwisko.Text == "") || (rtbImie.Text == "") || (rtbTelefon.Text == "") || (rtbEmail.Text == "") || (rDDLTurniej.SelectedIndex == -1))
+            if ((rtbNazwisko.Text == "") || (rtbImie.Text == "") || (rtbTelefon.Text == "") || (rtbEmail.Text == ""))
                 {
                     System.Windows.Forms.MessageBox.Show("Proszę wypełnić wszystkie pola");
                 }
@@ -67,9 +63,9 @@ namespace KortyTenisowe
                         string imie = rtbImie.Text;
                         string telefon = rtbTelefon.Text;
                         string email = rtbEmail.Text;
-                        int idturnieju = Convert.ToInt32(rDDLTurniej.SelectedValue);
 
-                            if (DBQueries.EdytujZawodnika(m_id ,imie, nazwisko, telefon, email, idturnieju) == true)
+
+                            if (DBQueries.EdytujZawodnika(m_id ,imie, nazwisko, telefon, email) == true)
                             {
                                 MessageBox.Show("Edytowano poprawnie");
                                 this.Dispose();

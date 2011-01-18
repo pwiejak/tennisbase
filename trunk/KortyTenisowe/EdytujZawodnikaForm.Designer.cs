@@ -38,8 +38,6 @@
             this.rtbEmail = new Telerik.WinControls.UI.RadTextBox();
             this.rbtOK = new Telerik.WinControls.UI.RadButton();
             this.rbtAnuluj = new Telerik.WinControls.UI.RadButton();
-            this.rDDLTurniej = new Telerik.WinControls.UI.RadDropDownList();
-            this.rlbTurniej = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.rlbImie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rlbNazwisko)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rlbTelefon)).BeginInit();
@@ -50,8 +48,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.rtbEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtOK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtAnuluj)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rDDLTurniej)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rlbTurniej)).BeginInit();
             this.SuspendLayout();
             // 
             // rlbImie
@@ -120,7 +116,7 @@
             // 
             // rbtOK
             // 
-            this.rbtOK.Location = new System.Drawing.Point(32, 198);
+            this.rbtOK.Location = new System.Drawing.Point(32, 174);
             this.rbtOK.Name = "rbtOK";
             this.rbtOK.Size = new System.Drawing.Size(136, 24);
             this.rbtOK.TabIndex = 3;
@@ -129,37 +125,19 @@
             // 
             // rbtAnuluj
             // 
-            this.rbtAnuluj.Location = new System.Drawing.Point(174, 198);
+            this.rbtAnuluj.Location = new System.Drawing.Point(174, 174);
             this.rbtAnuluj.Name = "rbtAnuluj";
             this.rbtAnuluj.Size = new System.Drawing.Size(141, 24);
             this.rbtAnuluj.TabIndex = 4;
             this.rbtAnuluj.Text = "Anuluj";
             this.rbtAnuluj.Click += new System.EventHandler(this.rbtAnuluj_Click);
             // 
-            // rDDLTurniej
-            // 
-            TabTurnieje.WczytajTurniej(rDDLTurniej);
-            this.rDDLTurniej.Location = new System.Drawing.Point(140, 147);
-            this.rDDLTurniej.Name = "rDDLTurniej";
-            this.rDDLTurniej.Size = new System.Drawing.Size(175, 22);
-            this.rDDLTurniej.TabIndex = 5;
-            // 
-            // rlbTurniej
-            // 
-            this.rlbTurniej.Location = new System.Drawing.Point(32, 147);
-            this.rlbTurniej.Name = "rlbTurniej";
-            this.rlbTurniej.Size = new System.Drawing.Size(57, 16);
-            this.rlbTurniej.TabIndex = 6;
-            this.rlbTurniej.Text = "Turniej: ";
-            // 
             // EdytujZawodnikaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(348, 237);
-            this.Controls.Add(this.rlbTurniej);
-            this.Controls.Add(this.rDDLTurniej);
+            this.ClientSize = new System.Drawing.Size(348, 216);
             this.Controls.Add(this.rbtAnuluj);
             this.Controls.Add(this.rbtOK);
             this.Controls.Add(this.rtbEmail);
@@ -182,8 +160,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.rtbEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtOK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtAnuluj)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rDDLTurniej)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rlbTurniej)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,7 +177,5 @@
         private Telerik.WinControls.UI.RadTextBox rtbEmail;
         private Telerik.WinControls.UI.RadButton rbtOK;
         private Telerik.WinControls.UI.RadButton rbtAnuluj;
-        private Telerik.WinControls.UI.RadDropDownList rDDLTurniej;
-        private Telerik.WinControls.UI.RadLabel rlbTurniej;
     }
 }

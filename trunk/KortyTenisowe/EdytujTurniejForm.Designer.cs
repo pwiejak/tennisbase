@@ -92,7 +92,7 @@
             // 
             // rlbKategoria
             // 
-            this.rlbKategoria.Location = new System.Drawing.Point(30, 166);
+            this.rlbKategoria.Location = new System.Drawing.Point(341, 87);
             this.rlbKategoria.Name = "rlbKategoria";
             this.rlbKategoria.Size = new System.Drawing.Size(58, 16);
             this.rlbKategoria.TabIndex = 1;
@@ -102,7 +102,7 @@
             // 
             this.rtbNazwa.Location = new System.Drawing.Point(131, 12);
             this.rtbNazwa.Name = "rtbNazwa";
-            this.rtbNazwa.Size = new System.Drawing.Size(150, 20);
+            this.rtbNazwa.Size = new System.Drawing.Size(634, 20);
             this.rtbNazwa.TabIndex = 2;
             this.rtbNazwa.TabStop = false;
             // 
@@ -110,7 +110,7 @@
             // 
             this.rtbOpis.Location = new System.Drawing.Point(131, 46);
             this.rtbOpis.Name = "rtbOpis";
-            this.rtbOpis.Size = new System.Drawing.Size(150, 20);
+            this.rtbOpis.Size = new System.Drawing.Size(634, 20);
             this.rtbOpis.TabIndex = 3;
             this.rtbOpis.TabStop = false;
             // 
@@ -146,7 +146,7 @@
             // 
             // rrbKategoriaM
             // 
-            this.rrbKategoriaM.Location = new System.Drawing.Point(131, 166);
+            this.rrbKategoriaM.Location = new System.Drawing.Point(439, 87);
             this.rrbKategoriaM.Name = "rrbKategoriaM";
             this.rrbKategoriaM.Size = new System.Drawing.Size(110, 18);
             this.rrbKategoriaM.TabIndex = 6;
@@ -154,7 +154,7 @@
             // 
             // rrbKategoriaK
             // 
-            this.rrbKategoriaK.Location = new System.Drawing.Point(131, 190);
+            this.rrbKategoriaK.Location = new System.Drawing.Point(439, 111);
             this.rrbKategoriaK.Name = "rrbKategoriaK";
             this.rrbKategoriaK.Size = new System.Drawing.Size(110, 18);
             this.rrbKategoriaK.TabIndex = 7;
@@ -162,7 +162,7 @@
             // 
             // rrbKategoriaJ
             // 
-            this.rrbKategoriaJ.Location = new System.Drawing.Point(131, 214);
+            this.rrbKategoriaJ.Location = new System.Drawing.Point(439, 135);
             this.rrbKategoriaJ.Name = "rrbKategoriaJ";
             this.rrbKategoriaJ.Size = new System.Drawing.Size(110, 18);
             this.rrbKategoriaJ.TabIndex = 8;
@@ -170,7 +170,7 @@
             // 
             // rbtOK
             // 
-            this.rbtOK.Location = new System.Drawing.Point(12, 248);
+            this.rbtOK.Location = new System.Drawing.Point(635, 87);
             this.rbtOK.Name = "rbtOK";
             this.rbtOK.Size = new System.Drawing.Size(130, 24);
             this.rbtOK.TabIndex = 9;
@@ -179,7 +179,7 @@
             // 
             // rbtAnuluj
             // 
-            this.rbtAnuluj.Location = new System.Drawing.Point(162, 248);
+            this.rbtAnuluj.Location = new System.Drawing.Point(635, 121);
             this.rbtAnuluj.Name = "rbtAnuluj";
             this.rbtAnuluj.Size = new System.Drawing.Size(130, 24);
             this.rbtAnuluj.TabIndex = 10;
@@ -191,7 +191,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(304, 283);
+            this.ClientSize = new System.Drawing.Size(777, 184);
             this.Controls.Add(this.rbtAnuluj);
             this.Controls.Add(this.rbtOK);
             this.Controls.Add(this.rrbKategoriaJ);
@@ -206,8 +206,8 @@
             this.Controls.Add(this.rlbDataRozp);
             this.Controls.Add(this.rlbOpis);
             this.Controls.Add(this.rlbNazwa);
-            this.Name = "EdytujTurniejForm";
-            this.Text = "Edytuj turniej";
+            this.Name = "DodajTurniejForm";
+            this.Text = "Dodaj turniej";
             ((System.ComponentModel.ISupportInitialize)(this.rlbNazwa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rlbOpis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rlbDataRozp)).EndInit();

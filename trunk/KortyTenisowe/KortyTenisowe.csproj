@@ -49,11 +49,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telerik.WinControls, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.GridView, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.Themes.Telerik, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.UI, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="TelerikCommon, Version=2010.3.10.1109, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.GridView, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Telerik, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="TelerikCommon, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Baza1.Designer.cs">
@@ -62,6 +62,18 @@
       <DependentUpon>Baza1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Baza1PartialClass.cs" />
+    <Compile Include="EdytujWynikForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EdytujWynikForm.Designer.cs">
+      <DependentUpon>EdytujWynikForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajZawodnikaDoTurniejuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajZawodnikaDoTurniejuForm.Designer.cs">
+      <DependentUpon>DodajZawodnikaDoTurniejuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WyborMeczuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +222,12 @@
     <Compile Include="ZmienIloscForm.Designer.cs">
       <DependentUpon>ZmienIloscForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EdytujWynikForm.resx">
+      <DependentUpon>EdytujWynikForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajZawodnikaDoTurniejuForm.resx">
+      <DependentUpon>DodajZawodnikaDoTurniejuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WyborMeczuForm.resx">
       <DependentUpon>WyborMeczuForm.cs</DependentUpon>
     </EmbeddedResource>

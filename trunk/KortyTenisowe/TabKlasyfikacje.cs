@@ -21,17 +21,39 @@ namespace KortyTenisowe
             }
         }
 
-                public static void WczytajZawodnika(int id, Telerik.WinControls.UI.RadDropDownList listaZawodnikow)
+        public static void WczytajZawodnika(int id, Telerik.WinControls.UI.RadDropDownList listaZawodnikow)
         {
-            List<Zawodnicy> ZawodnicyTurnieju = DBQueries.ZwrocZawodnikow(id).ToList();
+            List<ListaGraczy> ZawodnicyTurnieju = DBQueries.ZwrocZawodnikow(id).ToList();
             listaZawodnikow.Items.Clear();
 
             for (int i = 0; i < ZawodnicyTurnieju.Count; i++)
             {
                 Telerik.WinControls.UI.RadListDataItem element = new Telerik.WinControls.UI.RadListDataItem();
-                element.Text = ZawodnicyTurnieju[i].Nazwisko + ", " + ZawodnicyTurnieju[i].Imie;
+                element.Text = ZawodnicyTurnieju[i].Zawodnicy.Nazwisko + ", " + ZawodnicyTurnieju[i].Zawodnicy.Imie;
                 element.Value = ZawodnicyTurnieju[i].ID_Zawodnika;
                 listaZawodnikow.Items.Add(element);
+            }
+        }
+
+        public static void WypiszKlasyfikacjeTurnieju(int idtur, Telerik.WinControls.UI.RadGridView dataGrid)
+        {
+            
+            List<Klasyfikacje> KlasyfikacjeTurnieju = DBQueries.ZwrocKlasyfikacjeTurnieju(idtur).ToList();
+            dataGrid.Rows.Clear();
+            for (int i = 0; i < KlasyfikacjeTurnieju.Count; i++)
+            {
+                dataGrid.Rows.Add(KlasyfikacjeTurnieju[i].ID_Klasyfikacji, KlasyfikacjeTurnieju[i].Miejsce, KlasyfikacjeTurnieju[i].Zawodnicy.Imie, KlasyfikacjeTurnieju[i].Zawodnicy.Nazwisko, KlasyfikacjeTurnieju[i].Punkty);
+            }
+        }
+
+        public static void WypiszGeneralna(Telerik.WinControls.UI.RadGridView dataGrid)
+        {
+
+            List<Generalna> KlasyfikacjaGeneralna = DBQueries.ZwrocGeneralna().ToList();
+            dataGrid.Rows.Clear();
+            for (int i = 0; i < KlasyfikacjaGeneralna.Count; i++)
+            {
+                dataGrid.Rows.Add(KlasyfikacjaGeneralna[i].ID_Zawodnika, i + 1, KlasyfikacjaGeneralna[i].Zawodnicy.Imie, KlasyfikacjaGeneralna[i].Zawodnicy.Nazwisko, KlasyfikacjaGeneralna[i].Punkty);
             }
         }
     }

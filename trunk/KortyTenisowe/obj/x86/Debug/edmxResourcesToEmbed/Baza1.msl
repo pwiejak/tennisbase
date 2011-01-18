@@ -58,6 +58,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ListaGraczy">
+      <EntityTypeMapping TypeName="Inzynierka1Model.ListaGraczy">
+        <MappingFragment StoreEntitySet="ListaGraczy">
+          <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
+          <ScalarProperty Name="ID_Turnieju" ColumnName="ID_Turnieju" />
+          <ScalarProperty Name="ID_Listy" ColumnName="ID_Listy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Mecze">
       <EntityTypeMapping TypeName="Inzynierka1Model.Mecze">
         <MappingFragment StoreEntitySet="Mecze">
@@ -232,7 +241,6 @@
           <ScalarProperty Name="Telefon" ColumnName="Telefon" />
           <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
           <ScalarProperty Name="Imie" ColumnName="Imie" />
-          <ScalarProperty Name="ID_Turnieju" ColumnName="ID_Turnieju" />
           <ScalarProperty Name="ID_Zawodnika" ColumnName="ID_Zawodnika" />
         </MappingFragment>
       </EntityTypeMapping>

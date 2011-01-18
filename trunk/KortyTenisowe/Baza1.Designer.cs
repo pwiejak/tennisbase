@@ -24,6 +24,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Turnieje_Kategorie1", "Kategorie", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Kategorie), "Turnieje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Turnieje), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Klasyfikacje_Zawodnicy", "Zawodnicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Zawodnicy), "Klasyfikacje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Klasyfikacje), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Turnieje_Klasyfikacje", "Klasyfikacje", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(KortyTenisowe.Klasyfikacje), "Turnieje", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Turnieje), true)]
+[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_ListaGraczy_Turnieje", "Turnieje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Turnieje), "ListaGraczy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.ListaGraczy), true)]
+[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_ListaGraczy_Zawodnicy", "Zawodnicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Zawodnicy), "ListaGraczy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.ListaGraczy), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Mecze_Turnieje", "Turnieje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Turnieje), "Mecze", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Mecze), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Mecze_Zawodnicy", "Zawodnicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Zawodnicy), "Mecze", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Mecze), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Mecze_Zawodnicy1", "Zawodnicy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Zawodnicy), "Mecze", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Mecze), true)]
@@ -38,7 +40,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Stan_Magazynowy_Sprzet", "Sprzet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Sprzet), "Stan_Magazynowy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Stan_Magazynowy), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Wypozyczone_Stan_Magazynowy", "Stan_Magazynowy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Stan_Magazynowy), "Wypozyczone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Wypozyczone), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Trenerzy_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Trenerzy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Trenerzy), true)]
-[assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Zawodnicy_Turnieje1", "Turnieje", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(KortyTenisowe.Turnieje), "Zawodnicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Zawodnicy), true)]
 [assembly: EdmRelationshipAttribute("Inzynierka1Model", "FK_Wypozyczone_Uzytkownicy_Kortow", "Uzytkownicy_Kortow", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KortyTenisowe.Uzytkownicy_Kortow), "Wypozyczone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KortyTenisowe.Wypozyczone), true)]
 
 #endregion
@@ -186,6 +187,22 @@ namespace KortyTenisowe
             }
         }
         private ObjectSet<Klasyfikacje> _Klasyfikacje;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ListaGraczy> ListaGraczy
+        {
+            get
+            {
+                if ((_ListaGraczy == null))
+                {
+                    _ListaGraczy = base.CreateObjectSet<ListaGraczy>("ListaGraczy");
+                }
+                return _ListaGraczy;
+            }
+        }
+        private ObjectSet<ListaGraczy> _ListaGraczy;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -476,6 +493,14 @@ namespace KortyTenisowe
         public void AddToKlasyfikacje(Klasyfikacje klasyfikacje)
         {
             base.AddObject("Klasyfikacje", klasyfikacje);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ListaGraczy EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToListaGraczy(ListaGraczy listaGraczy)
+        {
+            base.AddObject("ListaGraczy", listaGraczy);
         }
     
         /// <summary>
@@ -1523,6 +1548,192 @@ namespace KortyTenisowe
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Turnieje>("Inzynierka1Model.FK_Turnieje_Klasyfikacje", "Turnieje", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Inzynierka1Model", Name="ListaGraczy")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ListaGraczy : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ListaGraczy object.
+        /// </summary>
+        /// <param name="iD_Listy">Initial value of the ID_Listy property.</param>
+        /// <param name="iD_Turnieju">Initial value of the ID_Turnieju property.</param>
+        /// <param name="iD_Zawodnika">Initial value of the ID_Zawodnika property.</param>
+        public static ListaGraczy CreateListaGraczy(global::System.Int32 iD_Listy, global::System.Int32 iD_Turnieju, global::System.Int32 iD_Zawodnika)
+        {
+            ListaGraczy listaGraczy = new ListaGraczy();
+            listaGraczy.ID_Listy = iD_Listy;
+            listaGraczy.ID_Turnieju = iD_Turnieju;
+            listaGraczy.ID_Zawodnika = iD_Zawodnika;
+            return listaGraczy;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Listy
+        {
+            get
+            {
+                return _ID_Listy;
+            }
+            set
+            {
+                if (_ID_Listy != value)
+                {
+                    OnID_ListyChanging(value);
+                    ReportPropertyChanging("ID_Listy");
+                    _ID_Listy = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID_Listy");
+                    OnID_ListyChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID_Listy;
+        partial void OnID_ListyChanging(global::System.Int32 value);
+        partial void OnID_ListyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Turnieju
+        {
+            get
+            {
+                return _ID_Turnieju;
+            }
+            set
+            {
+                OnID_TurniejuChanging(value);
+                ReportPropertyChanging("ID_Turnieju");
+                _ID_Turnieju = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_Turnieju");
+                OnID_TurniejuChanged();
+            }
+        }
+        private global::System.Int32 _ID_Turnieju;
+        partial void OnID_TurniejuChanging(global::System.Int32 value);
+        partial void OnID_TurniejuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Zawodnika
+        {
+            get
+            {
+                return _ID_Zawodnika;
+            }
+            set
+            {
+                OnID_ZawodnikaChanging(value);
+                ReportPropertyChanging("ID_Zawodnika");
+                _ID_Zawodnika = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_Zawodnika");
+                OnID_ZawodnikaChanged();
+            }
+        }
+        private global::System.Int32 _ID_Zawodnika;
+        partial void OnID_ZawodnikaChanging(global::System.Int32 value);
+        partial void OnID_ZawodnikaChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_ListaGraczy_Turnieje", "Turnieje")]
+        public Turnieje Turnieje
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turnieje>("Inzynierka1Model.FK_ListaGraczy_Turnieje", "Turnieje").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turnieje>("Inzynierka1Model.FK_ListaGraczy_Turnieje", "Turnieje").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Turnieje> TurniejeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turnieje>("Inzynierka1Model.FK_ListaGraczy_Turnieje", "Turnieje");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Turnieje>("Inzynierka1Model.FK_ListaGraczy_Turnieje", "Turnieje", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_ListaGraczy_Zawodnicy", "Zawodnicy")]
+        public Zawodnicy Zawodnicy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Zawodnicy>("Inzynierka1Model.FK_ListaGraczy_Zawodnicy", "Zawodnicy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Zawodnicy>("Inzynierka1Model.FK_ListaGraczy_Zawodnicy", "Zawodnicy").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Zawodnicy> ZawodnicyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Zawodnicy>("Inzynierka1Model.FK_ListaGraczy_Zawodnicy", "Zawodnicy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Zawodnicy>("Inzynierka1Model.FK_ListaGraczy_Zawodnicy", "Zawodnicy", value);
                 }
             }
         }
@@ -4078,6 +4289,28 @@ namespace KortyTenisowe
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_ListaGraczy_Turnieje", "ListaGraczy")]
+        public EntityCollection<ListaGraczy> ListaGraczy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListaGraczy>("Inzynierka1Model.FK_ListaGraczy_Turnieje", "ListaGraczy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListaGraczy>("Inzynierka1Model.FK_ListaGraczy_Turnieje", "ListaGraczy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Mecze_Turnieje", "Mecze")]
         public EntityCollection<Mecze> Mecze
         {
@@ -4090,28 +4323,6 @@ namespace KortyTenisowe
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Mecze>("Inzynierka1Model.FK_Mecze_Turnieje", "Mecze", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Zawodnicy_Turnieje1", "Zawodnicy")]
-        public EntityCollection<Zawodnicy> Zawodnicy
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Zawodnicy>("Inzynierka1Model.FK_Zawodnicy_Turnieje1", "Zawodnicy");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Zawodnicy>("Inzynierka1Model.FK_Zawodnicy_Turnieje1", "Zawodnicy", value);
                 }
             }
         }
@@ -5159,30 +5370,6 @@ namespace KortyTenisowe
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ID_Turnieju
-        {
-            get
-            {
-                return _ID_Turnieju;
-            }
-            set
-            {
-                OnID_TurniejuChanging(value);
-                ReportPropertyChanging("ID_Turnieju");
-                _ID_Turnieju = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_Turnieju");
-                OnID_TurniejuChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ID_Turnieju;
-        partial void OnID_TurniejuChanging(Nullable<global::System.Int32> value);
-        partial void OnID_TurniejuChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Imie
@@ -5346,6 +5533,28 @@ namespace KortyTenisowe
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_ListaGraczy_Zawodnicy", "ListaGraczy")]
+        public EntityCollection<ListaGraczy> ListaGraczy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListaGraczy>("Inzynierka1Model.FK_ListaGraczy_Zawodnicy", "ListaGraczy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListaGraczy>("Inzynierka1Model.FK_ListaGraczy_Zawodnicy", "ListaGraczy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Mecze_Zawodnicy", "Mecze")]
         public EntityCollection<Mecze> Mecze
         {
@@ -5380,44 +5589,6 @@ namespace KortyTenisowe
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Mecze>("Inzynierka1Model.FK_Mecze_Zawodnicy1", "Mecze", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Inzynierka1Model", "FK_Zawodnicy_Turnieje1", "Turnieje")]
-        public Turnieje Turnieje
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turnieje>("Inzynierka1Model.FK_Zawodnicy_Turnieje1", "Turnieje").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turnieje>("Inzynierka1Model.FK_Zawodnicy_Turnieje1", "Turnieje").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Turnieje> TurniejeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turnieje>("Inzynierka1Model.FK_Zawodnicy_Turnieje1", "Turnieje");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Turnieje>("Inzynierka1Model.FK_Zawodnicy_Turnieje1", "Turnieje", value);
                 }
             }
         }

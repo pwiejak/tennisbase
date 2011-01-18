@@ -19,18 +19,21 @@ namespace KortyTenisowe
             TabTurnieje.WczytajTurniej(rDDLWybierzTurniej);
             rbtEdytujZawodnika.Enabled = false;
             rbtUsunZawodnika.Enabled = false;
+            rbtUsunZawZTurnieju.Enabled = false;
         }
 
         public static void ZwrocZawodnikow(int idTurnieju, Telerik.WinControls.UI.RadGridView dataGrid)
         {
-            List<Zawodnicy> m_Zawodnicy = new List<Zawodnicy>(); 
+            List<ListaGraczy> m_Zawodnicy = new List<ListaGraczy>(); 
             int m_indeks = idTurnieju;
-            m_Zawodnicy = DBQueries.ZwrocZawodnikow(m_indeks).ToList<Zawodnicy>();
-            dataGrid.Rows.Clear();
-            
-            for (int i = 0; i < m_Zawodnicy.Count; i++)
+            if (m_Zawodnicy != null)
             {
-                dataGrid.Rows.Add(m_Zawodnicy[i].ID_Zawodnika, m_Zawodnicy[i].Imie, m_Zawodnicy[i].Nazwisko, m_Zawodnicy[i].Telefon);
+                m_Zawodnicy = DBQueries.ZwrocZawodnikow(m_indeks).ToList<ListaGraczy>();
+                dataGrid.Rows.Clear();
+                for (int i = 0; i < m_Zawodnicy.Count; i++)
+                {
+                    dataGrid.Rows.Add(m_Zawodnicy[i].ID_Zawodnika, m_Zawodnicy[i].Zawodnicy.Imie, m_Zawodnicy[i].Zawodnicy.Nazwisko, m_Zawodnicy[i].Zawodnicy.Telefon);
+                }
             }
 
         }
@@ -61,6 +64,8 @@ namespace KortyTenisowe
             ZaplanujMecz.ShowDialog();
         }
 
+        
+        
         private void rbtUsunZawodnika_Click(object sender, EventArgs e)
         {
             KortyTenisowe.UsunForm Usun = new KortyTenisowe.UsunForm(aktualnaKomorka, 1);
@@ -80,6 +85,7 @@ namespace KortyTenisowe
                 aktualnaKomorka = int.Parse(rgvZawodnicy.Rows[e.RowIndex].Cells[0].Value.ToString());
                 rbtEdytujZawodnika.Enabled = true;
                 rbtUsunZawodnika.Enabled = true;
+                rbtUsunZawZTurnieju.Enabled = true;
             }
         }
 
@@ -100,6 +106,32 @@ namespace KortyTenisowe
             KortyTenisowe.ZaplanowaneMeczeForm ZaplanowaneMecze = new KortyTenisowe.ZaplanowaneMeczeForm();
             ZaplanowaneMecze.Activate();
             ZaplanowaneMecze.ShowDialog();
+        }
+
+        private void rbtDodajZawDoTurnieju_Click(object sender, EventArgs e)
+        {
+            KortyTenisowe.DodajZawodnikaDoTurniejuForm DodajZawodnikaDoTurnieju = new KortyTenisowe.DodajZawodnikaDoTurniejuForm();
+            DodajZawodnikaDoTurnieju.Activate();
+            DodajZawodnikaDoTurnieju.ShowDialog();
+
+        }
+
+        private void rbtUsunZawZTurnieju_Click(object sender, EventArgs e)
+        {
+            int m_id, m_idtur, m_idzaw;
+            ListaGraczy m_lista;
+            m_idtur = Convert.ToInt32(rDDLWybierzTurniej.SelectedValue);
+            m_idzaw = aktualnaKomorka;
+            m_lista = DBQueries.ZwrocKonkretnaLista(m_idtur, m_idzaw);
+            m_id = DBQueries.ZwrocIDListy(m_lista);
+            KortyTenisowe.UsunForm UsunZawZTurnieju = new KortyTenisowe.UsunForm(m_id, 4);
+            UsunZawZTurnieju.Activate();
+            UsunZawZTurnieju.ShowDialog();
+            rgvZawodnicy.Rows.Clear();
+            rDDLWybierzTurniej.SelectedIndex = -1;
+            rbtUsunZawZTurnieju.Enabled = false;
+
+            
         }
     }
 }

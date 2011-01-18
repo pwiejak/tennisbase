@@ -28,7 +28,7 @@ namespace KortyTenisowe
 
         public void edytujGeneralna(int idzawodnika, int punkty)
         {
-            bool generalna = DBQueries.ZwrocGeneralna(idzawodnika);
+            bool generalna = DBQueries.CzyGeneralna(idzawodnika);
 
             if (generalna == false)
             {
@@ -75,12 +75,12 @@ namespace KortyTenisowe
                   }
                   catch (FormatException exc)
                   {
-                      Console.WriteLine("Wprowadzona wartość miejsca nie jest poprawną liczbą!");
+                      System.Windows.Forms.MessageBox.Show("Wprowadzona wartość miejsca nie jest poprawną liczbą!");
                   }
                   if (klasyfikacja == false)
                   {
                       if (m_miejsce > 0) DBQueries.DodajKlasyfikacje(idturnieju, 0, m_miejsce, 0, idzawodnika);
-                      else Console.WriteLine("Wprowadzona wartość miejsca nie jest poprawna!");
+                      else System.Windows.Forms.MessageBox.Show("Wprowadzona wartość miejsca nie jest poprawna!");
                       this.Dispose();
                   }
                   else System.Windows.Forms.MessageBox.Show("Podany zawodnik jest już sklasyfikowany w tym turnieju");
@@ -101,6 +101,7 @@ namespace KortyTenisowe
                     int idzawodnika = Convert.ToInt32(rDDLZawodnik.SelectedValue);
                     int m_miejsce = -1;
                     int m_punkty = -1;
+                    bool klasyfikacja = DBQueries.ZwrocKlasyfikacje(idturnieju, idzawodnika);
                     try
                     {
                         int miejsce = Convert.ToInt32(rtbMiejsce.Text);
@@ -108,7 +109,7 @@ namespace KortyTenisowe
                     }
                     catch (FormatException exc)
                     {
-                        Console.WriteLine("Wprowadzona wartość miejsca nie jest poprawną liczbą!");
+                        System.Windows.Forms.MessageBox.Show("Wprowadzona wartość miejsca nie jest poprawną liczbą!");
                     }
                     try
                     {
@@ -117,15 +118,19 @@ namespace KortyTenisowe
                     }
                     catch (FormatException exc)
                     {
-                        Console.WriteLine("Wprowadzona wartość punktów nie jest poprawną liczbą!");
+                        System.Windows.Forms.MessageBox.Show("Wprowadzona wartość punktów nie jest poprawną liczbą!");
                     }
-                    if ((m_miejsce > 0) && (m_punkty > 0))
+                    if (klasyfikacja == false)
                     {
-                        DBQueries.DodajKlasyfikacje(idturnieju, 1, m_miejsce, m_punkty, idzawodnika);
-                        edytujGeneralna(idzawodnika, m_punkty);
-                        this.Dispose();
+                        if ((m_miejsce > 0) && (m_punkty > 0))
+                        {
+                            DBQueries.DodajKlasyfikacje(idturnieju, 1, m_miejsce, m_punkty, idzawodnika);
+                            edytujGeneralna(idzawodnika, m_punkty);
+                            this.Dispose();
+                        }
+                        else System.Windows.Forms.MessageBox.Show("Wprowadzona wartość nie jest poprawna!");
                     }
-                    else Console.WriteLine("Wprowadzona wartość nie jest poprawna!");
+                    else System.Windows.Forms.MessageBox.Show("Podany zawodnik jest już sklasyfikowany w tym turnieju");
                 }
 
             }
