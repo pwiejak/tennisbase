@@ -64,6 +64,11 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn33 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn34 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn35 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn36 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn37 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn38 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn39 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn40 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.tcMainForm = new System.Windows.Forms.TabControl();
             this.tabKorty = new System.Windows.Forms.TabPage();
             this.dgKorty = new System.Windows.Forms.DataGridView();
@@ -122,6 +127,14 @@
             this.tabZarzadzanie = new System.Windows.Forms.TabPage();
             this.btDodajKlienta = new System.Windows.Forms.Button();
             this.btDodajPracownika = new System.Windows.Forms.Button();
+            this.tabSerwis = new System.Windows.Forms.TabPage();
+            this.rlbUsluga1 = new Telerik.WinControls.UI.RadLabel();
+            this.rbtDodaj = new Telerik.WinControls.UI.RadButton();
+            this.rbtZmienStan = new Telerik.WinControls.UI.RadButton();
+            this.rgvSerwis = new Telerik.WinControls.UI.RadGridView();
+            this.rDDLUsluga = new Telerik.WinControls.UI.RadDropDownList();
+            this.rcbNieodebrane = new Telerik.WinControls.UI.RadCheckBox();
+            this.rlbUsluga = new Telerik.WinControls.UI.RadLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -175,6 +188,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.rddlStan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgvWypozyczalnia)).BeginInit();
             this.tabZarzadzanie.SuspendLayout();
+            this.tabSerwis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rlbUsluga1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtDodaj)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtZmienStan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgvSerwis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rDDLUsluga)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rcbNieodebrane)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlbUsluga)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,6 +208,7 @@
             this.tcMainForm.Controls.Add(this.tabKlasyfikacje);
             this.tcMainForm.Controls.Add(this.tabWypozyczalnia);
             this.tcMainForm.Controls.Add(this.tabZarzadzanie);
+            this.tcMainForm.Controls.Add(this.tabSerwis);
             resources.ApplyResources(this.tcMainForm, "tcMainForm");
             this.tcMainForm.Name = "tcMainForm";
             this.tcMainForm.SelectedIndex = 0;
@@ -1076,6 +1098,84 @@
             this.btDodajPracownika.UseVisualStyleBackColor = true;
             this.btDodajPracownika.Click += new System.EventHandler(this.btDodajPracownika_Click);
             // 
+            // tabSerwis
+            // 
+            this.tabSerwis.Controls.Add(this.rlbUsluga1);
+            this.tabSerwis.Controls.Add(this.rbtDodaj);
+            this.tabSerwis.Controls.Add(this.rbtZmienStan);
+            this.tabSerwis.Controls.Add(this.rgvSerwis);
+            this.tabSerwis.Controls.Add(this.rDDLUsluga);
+            this.tabSerwis.Controls.Add(this.rcbNieodebrane);
+            this.tabSerwis.Controls.Add(this.rlbUsluga);
+            resources.ApplyResources(this.tabSerwis, "tabSerwis");
+            this.tabSerwis.Name = "tabSerwis";
+            this.tabSerwis.UseVisualStyleBackColor = true;
+            // 
+            // rlbUsluga1
+            // 
+            resources.ApplyResources(this.rlbUsluga1, "rlbUsluga1");
+            this.rlbUsluga1.Name = "rlbUsluga1";
+            // 
+            // rbtDodaj
+            // 
+            resources.ApplyResources(this.rbtDodaj, "rbtDodaj");
+            this.rbtDodaj.Name = "rbtDodaj";
+            this.rbtDodaj.Click += new System.EventHandler(this.rbtDodaj_Click);
+            // 
+            // rbtZmienStan
+            // 
+            resources.ApplyResources(this.rbtZmienStan, "rbtZmienStan");
+            this.rbtZmienStan.Name = "rbtZmienStan";
+            this.rbtZmienStan.Click += new System.EventHandler(this.rbtZmienStan_Click);
+            // 
+            // rgvSerwis
+            // 
+            resources.ApplyResources(this.rgvSerwis, "rgvSerwis");
+            // 
+            // rgvSerwis
+            // 
+            resources.ApplyResources(gridViewTextBoxColumn36, "gridViewTextBoxColumn36");
+            gridViewTextBoxColumn36.Name = "ID";
+            resources.ApplyResources(gridViewTextBoxColumn37, "gridViewTextBoxColumn37");
+            gridViewTextBoxColumn37.Name = "Klient";
+            gridViewTextBoxColumn37.Width = 190;
+            resources.ApplyResources(gridViewTextBoxColumn38, "gridViewTextBoxColumn38");
+            gridViewTextBoxColumn38.Name = "Usluga";
+            gridViewTextBoxColumn38.Width = 200;
+            resources.ApplyResources(gridViewTextBoxColumn39, "gridViewTextBoxColumn39");
+            gridViewTextBoxColumn39.Name = "Przyjęto";
+            gridViewTextBoxColumn39.Width = 100;
+            resources.ApplyResources(gridViewTextBoxColumn40, "gridViewTextBoxColumn40");
+            gridViewTextBoxColumn40.Name = "Status";
+            gridViewTextBoxColumn40.Width = 150;
+            this.rgvSerwis.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn36,
+            gridViewTextBoxColumn37,
+            gridViewTextBoxColumn38,
+            gridViewTextBoxColumn39,
+            gridViewTextBoxColumn40});
+            this.rgvSerwis.Name = "rgvSerwis";
+            this.rgvSerwis.ReadOnly = true;
+            this.rgvSerwis.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.rgvSerwis_CellClick);
+            // 
+            // rDDLUsluga
+            // 
+            resources.ApplyResources(this.rDDLUsluga, "rDDLUsluga");
+            this.rDDLUsluga.Name = "rDDLUsluga";
+            this.rDDLUsluga.ShowImageInEditorArea = true;
+            this.rDDLUsluga.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.rDDLUsluga_SelectedIndexChanged);
+            // 
+            // rcbNieodebrane
+            // 
+            resources.ApplyResources(this.rcbNieodebrane, "rcbNieodebrane");
+            this.rcbNieodebrane.Name = "rcbNieodebrane";
+            this.rcbNieodebrane.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.rcbNieodebrane_ToggleStateChanged);
+            // 
+            // rlbUsluga
+            // 
+            resources.ApplyResources(this.rlbUsluga, "rlbUsluga");
+            this.rlbUsluga.Name = "rlbUsluga";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1160,6 +1260,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.rddlStan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgvWypozyczalnia)).EndInit();
             this.tabZarzadzanie.ResumeLayout(false);
+            this.tabSerwis.ResumeLayout(false);
+            this.tabSerwis.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rlbUsluga1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtDodaj)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtZmienStan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgvSerwis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rDDLUsluga)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rcbNieodebrane)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rlbUsluga)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -1230,5 +1339,13 @@
         private Telerik.WinControls.UI.RadRadioButton rrbGeneralna;
         private Telerik.WinControls.UI.RadDropDownList rDDLWybierzTurniej;
         private Telerik.WinControls.UI.RadGridView rgvKlasyfikacje;
+        private System.Windows.Forms.TabPage tabSerwis;
+        private Telerik.WinControls.UI.RadCheckBox rcbNieodebrane;
+        private Telerik.WinControls.UI.RadLabel rlbUsluga;
+        private Telerik.WinControls.UI.RadDropDownList rDDLUsluga;
+        private Telerik.WinControls.UI.RadButton rbtZmienStan;
+        private Telerik.WinControls.UI.RadGridView rgvSerwis;
+        private Telerik.WinControls.UI.RadButton rbtDodaj;
+        private Telerik.WinControls.UI.RadLabel rlbUsluga1;
     }
 }

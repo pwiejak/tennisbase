@@ -31,7 +31,6 @@
     <EntitySetMapping Name="Katalog_Uslug">
       <EntityTypeMapping TypeName="Inzynierka1Model.Katalog_Uslug">
         <MappingFragment StoreEntitySet="Katalog_Uslug">
-          <ScalarProperty Name="Cena" ColumnName="Cena" />
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
           <ScalarProperty Name="ID_Uslugi" ColumnName="ID_Uslugi" />
         </MappingFragment>
@@ -111,11 +110,9 @@
     <EntitySetMapping Name="Serwis">
       <EntityTypeMapping TypeName="Inzynierka1Model.Serwis">
         <MappingFragment StoreEntitySet="Serwis">
-          <ScalarProperty Name="Opis" ColumnName="Opis" />
-          <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
-          <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
           <ScalarProperty Name="Data_Przyjecia" ColumnName="Data_Przyjecia" />
           <ScalarProperty Name="Usługa" ColumnName="Usługa" />
+          <ScalarProperty Name="Stan" ColumnName="Stan" />
           <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
           <ScalarProperty Name="ID_Zlecenia" ColumnName="ID_Zlecenia" />
         </MappingFragment>
@@ -151,6 +148,14 @@
           <ScalarProperty Name="Typ_Sprzedazy" ColumnName="Typ_Sprzedazy" />
           <ScalarProperty Name="Nr_Przedmiotu" ColumnName="Nr_Przedmiotu" />
           <ScalarProperty Name="ID_Produktu" ColumnName="ID_Produktu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stan_Uslug">
+      <EntityTypeMapping TypeName="Inzynierka1Model.Stan_Uslug">
+        <MappingFragment StoreEntitySet="Stan_Uslug">
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="ID_Stanu" ColumnName="ID_Stanu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

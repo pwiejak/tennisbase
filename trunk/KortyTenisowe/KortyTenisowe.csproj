@@ -62,6 +62,12 @@
       <DependentUpon>Baza1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Baza1PartialClass.cs" />
+    <Compile Include="DodajZamowienieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajZamowienieForm.Designer.cs">
+      <DependentUpon>DodajZamowienieForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EdytujWynikForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,7 @@
     <Compile Include="DodajZawodnikaDoTurniejuForm.Designer.cs">
       <DependentUpon>DodajZawodnikaDoTurniejuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TabSerwis.cs" />
     <Compile Include="WyborMeczuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +229,15 @@
     <Compile Include="ZmienIloscForm.Designer.cs">
       <DependentUpon>ZmienIloscForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ZmienStanZamowieniaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZmienStanZamowieniaForm.Designer.cs">
+      <DependentUpon>ZmienStanZamowieniaForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DodajZamowienieForm.resx">
+      <DependentUpon>DodajZamowienieForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EdytujWynikForm.resx">
       <DependentUpon>EdytujWynikForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +327,9 @@
     <EmbeddedResource Include="ZmienIloscForm.resx">
       <DependentUpon>ZmienIloscForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZmienStanZamowieniaForm.resx">
+      <DependentUpon>ZmienStanZamowieniaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Baza1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

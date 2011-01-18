@@ -32,6 +32,8 @@ namespace KortyTenisowe
             TabKlasyfikacje.WczytajTurniej(rDDLWybierzTurniej);
             TabTurnieje.WczytajTurniej(rDDLWybierzTurniej);
             TabWypozyczalnia.PokazStany(rddlStan);
+            TabSerwis.WczytajUsluge(rDDLUsluga);
+            rbtZmienStan.Enabled = false;
             rDDLWybierzTurniej.Enabled = false;
             rbtEdytujTurniej.Enabled = false;
             rbtUsunTurniej.Enabled = false;
@@ -410,7 +412,79 @@ namespace KortyTenisowe
             rbtUsunKlasyfikacje.Enabled = false;
         }
 
-   
+        private void rbtDodaj_Click(object sender, EventArgs e)
+        {
+            KortyTenisowe.DodajZamowienieForm DodajZamowienie = new KortyTenisowe.DodajZamowienieForm();
+            DodajZamowienie.Activate();
+            DodajZamowienie.ShowDialog();
+            if (rcbNieodebrane.Checked == true)
+            {
+                TabSerwis.WypiszZamowieniaNieodebrane(Convert.ToInt32(rDDLUsluga.SelectedValue), rgvSerwis);
+            }
+            else
+            {
+                TabSerwis.WypiszZamowienia(Convert.ToInt32(rDDLUsluga.SelectedValue), rgvSerwis);
+            }
+        }
 
-    }
+        private void rbtZmienStan_Click(object sender, EventArgs e)
+        {
+            KortyTenisowe.ZmienStanZamowieniaForm DodajZamowienie = new KortyTenisowe.ZmienStanZamowieniaForm(aktualnaKomorka, DBQueries.ZwrocStatus(aktualnaKomorka));
+            DodajZamowienie.Activate();
+            DodajZamowienie.ShowDialog();
+            rbtZmienStan.Enabled = false;
+            if (rcbNieodebrane.Checked == true)
+            {
+                TabSerwis.WypiszZamowieniaNieodebrane(Convert.ToInt32(rDDLUsluga.SelectedValue), rgvSerwis);
+            }
+            else
+            {
+                TabSerwis.WypiszZamowienia(Convert.ToInt32(rDDLUsluga.SelectedValue), rgvSerwis);
+            }
+
+        }
+
+        private void rDDLUsluga_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            if (rDDLUsluga.SelectedIndex != -1)
+            {
+                if (rcbNieodebrane.Checked == true)
+                {
+                    TabSerwis.WypiszZamowieniaNieodebrane(Convert.ToInt32(rDDLUsluga.SelectedValue), rgvSerwis);
+                }
+                else
+                {
+                    TabSerwis.WypiszZamowienia(Convert.ToInt32(rDDLUsluga.SelectedValue), rgvSerwis);
+                }
+            }
+        }
+
+        private void rgvSerwis_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) aktualnaKomorka = 0;
+            else
+            {
+                aktualnaKomorka = int.Parse(rgvSerwis.Rows[e.RowIndex].Cells[0].Value.ToString());
+                rbtZmienStan.Enabled = true;
+            }
+
+
+        }
+
+        private void rcbNieodebrane_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+            if (rDDLUsluga.SelectedIndex != -1)
+            {
+                if (rcbNieodebrane.Checked == true)
+                {
+                    TabSerwis.WypiszZamowieniaNieodebrane(Convert.ToInt32(rDDLUsluga.SelectedValue), rgvSerwis);
+                }
+                else
+                {
+                    TabSerwis.WypiszZamowienia(Convert.ToInt32(rDDLUsluga.SelectedValue), rgvSerwis);
+                }
+            }
+        }
+
+   }
 }

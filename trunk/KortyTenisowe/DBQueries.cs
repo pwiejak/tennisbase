@@ -635,6 +635,24 @@ namespace KortyTenisowe
                     select ZawodnicyTurnieju);
         }
 
+        public static IEnumerable<Uzytkownicy_Kortow> ZwrocKlientow()
+        {
+            return (from Uzytkownicy_Kortow Klienci in Inzynierka1Entities.ENTITY.Uzytkownicy_Kortow
+                    select Klienci);
+        }
+
+        public static IEnumerable<Stan_Uslug> ZwrocStany()
+        {
+            return (from Stan_Uslug Stany in Inzynierka1Entities.ENTITY.Stan_Uslug
+                    select Stany);
+        }
+
+        public static IEnumerable<Katalog_Uslug> ZwrocUslugi()
+        {
+            return (from Katalog_Uslug Uslugi in Inzynierka1Entities.ENTITY.Katalog_Uslug
+                    select Uslugi);
+        }
+
 
         public static bool ZaplanujMecz(int ID_Turnieju, int Zawodnik1, int Zawodnik2)
         {
@@ -896,6 +914,16 @@ namespace KortyTenisowe
         }
 
 
+        public static int ZwrocStatus(int idzam)
+        {
+            Serwis zamowienie = new Serwis();
+            zamowienie = (from Serwis szukanySerwis in Inzynierka1Entities.ENTITY.Serwis
+             where szukanySerwis.ID_Zlecenia == idzam
+             select szukanySerwis).First();
+
+            return zamowienie.Stan;
+        }
+
 
 
         public static bool UsunListaGraczy(int idListy)
@@ -961,6 +989,20 @@ namespace KortyTenisowe
                     select MeczeZawodnika);
         }
 
+
+
+        public static IEnumerable<Serwis> ZwrocZamowieniaWgUslugi(int id)
+        {
+            return (from Serwis Zamowienia in Inzynierka1Entities.ENTITY.Serwis
+                    where Zamowienia.Usługa == id
+                    select Zamowienia);
+        }
+
+
+
+
+
+
         public static bool UsunMeczeZawodnika(IEnumerable<Mecze> zwroconeMecze)
         {
             bool success = true;
@@ -1015,6 +1057,13 @@ namespace KortyTenisowe
             return (from ListaGraczy TurniejeZawodnika in Inzynierka1Entities.ENTITY.ListaGraczy
                     where TurniejeZawodnika.ID_Zawodnika == id_Zawodnika
                     select TurniejeZawodnika);
+        }
+
+        public static IEnumerable<Serwis> ZwrocZamowieniaNieodebrane(int idusl)
+        {
+            return (from Serwis szukaneZamowienia in Inzynierka1Entities.ENTITY.Serwis
+                    where szukaneZamowienia.Usługa == idusl && szukaneZamowienia.Stan != 4
+                    select szukaneZamowienia);
         }
 
 
@@ -1072,5 +1121,61 @@ namespace KortyTenisowe
             return success;
         }
 
+        public static bool DodajZamowienie(DateTime dataPocz, int idklienta, int iduslugi)
+        {
+            bool success = true;
+
+            Serwis dodawaneZamowienie = new Serwis();
+            dodawaneZamowienie.Data_Przyjecia = dataPocz;
+            dodawaneZamowienie.ID_Klienta = idklienta;
+            dodawaneZamowienie.Usługa = iduslugi;
+            dodawaneZamowienie.Stan = 1;
+
+
+            try
+            {
+                Inzynierka1Entities.ENTITY.AddToSerwis(dodawaneZamowienie);
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message);
+                success = false;
+            }
+
+            return success;
+        }
+
+
+        public static int SprawdzStatus(int id)              
+        {   
+            Serwis zmienianyStan = new Serwis();
+            zmienianyStan = (from Serwis szukanySerwis in Inzynierka1Entities.ENTITY.Serwis
+                                 where szukanySerwis.ID_Zlecenia == id
+                                 select szukanySerwis).First();
+            return zmienianyStan.Stan;
+        }
+        
+        public static bool ZmienStatus(int id, int stan)
+        {
+            bool success = true;
+            Serwis zmienianyStan = new Serwis();
+            try
+            {
+                zmienianyStan = (from Serwis szukanySerwis in Inzynierka1Entities.ENTITY.Serwis
+                                 where szukanySerwis.ID_Zlecenia == id
+                                 select szukanySerwis).First();
+                zmienianyStan.Stan = stan;
+
+                Inzynierka1Entities.ENTITY.SaveChanges();
+            }
+            catch (Exception exc)
+            {
+                success = false;
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            }
+
+            return success;
+        }
     }
 }

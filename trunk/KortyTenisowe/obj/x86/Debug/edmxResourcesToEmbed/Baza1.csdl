@@ -15,6 +15,7 @@
     <EntitySet Name="Sparingpartnerzy" EntityType="Inzynierka1Model.Sparingpartnerzy" />
     <EntitySet Name="Sprzet" EntityType="Inzynierka1Model.Sprzet" />
     <EntitySet Name="Stan_Magazynowy" EntityType="Inzynierka1Model.Stan_Magazynowy" />
+    <EntitySet Name="Stan_Uslug" EntityType="Inzynierka1Model.Stan_Uslug" />
     <EntitySet Name="sysdiagrams" EntityType="Inzynierka1Model.sysdiagrams" />
     <EntitySet Name="Trenerzy" EntityType="Inzynierka1Model.Trenerzy" />
     <EntitySet Name="Turnieje" EntityType="Inzynierka1Model.Turnieje" />
@@ -71,10 +72,6 @@
       <End Role="Pracownicy" EntitySet="Pracownicy" />
       <End Role="Rezerwacje_Kortow" EntitySet="Rezerwacje_Kortow" />
     </AssociationSet>
-    <AssociationSet Name="FK_Serwis_Pracownicy" Association="Inzynierka1Model.FK_Serwis_Pracownicy">
-      <End Role="Pracownicy" EntitySet="Pracownicy" />
-      <End Role="Serwis" EntitySet="Serwis" />
-    </AssociationSet>
     <AssociationSet Name="FK_Uzytkownicy_Systemu_Pracownicy1" Association="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1">
       <End Role="Pracownicy" EntitySet="Pracownicy" />
       <End Role="Uzytkownicy_Systemu" EntitySet="Uzytkownicy_Systemu" />
@@ -83,11 +80,11 @@
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Rezerwacje_Kortow" EntitySet="Rezerwacje_Kortow" />
     </AssociationSet>
-    <AssociationSet Name="FK_Serwis_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow">
-      <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
+    <AssociationSet Name="FK_Serwis_Stan_Uslug" Association="Inzynierka1Model.FK_Serwis_Stan_Uslug">
+      <End Role="Stan_Uslug" EntitySet="Stan_Uslug" />
       <End Role="Serwis" EntitySet="Serwis" />
     </AssociationSet>
-    <AssociationSet Name="FK_Serwis_Uzytkownicy_Kortow1" Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1">
+    <AssociationSet Name="FK_Serwis_Uzytkownicy_Kortow" Association="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow">
       <End Role="Uzytkownicy_Kortow" EntitySet="Uzytkownicy_Kortow" />
       <End Role="Serwis" EntitySet="Serwis" />
     </AssociationSet>
@@ -152,8 +149,7 @@
       <PropertyRef Name="ID_Uslugi" />
     </Key>
     <Property Type="Int32" Name="ID_Uslugi" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Nazwa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="Double" Name="Cena" />
+    <Property Type="String" Name="Nazwa" Nullable="false" MaxLength="25" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Katalog_Uslug" FromRole="Katalog_Uslug" ToRole="Serwis" />
   </EntityType>
   <EntityType Name="Kategorie">
@@ -215,7 +211,6 @@
     <Property Type="String" Name="Imie" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Telefon" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Rezerwacje_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Pracownicy" FromRole="Pracownicy" ToRole="Rezerwacje_Kortow" />
-    <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Pracownicy" FromRole="Pracownicy" ToRole="Serwis" />
     <NavigationProperty Name="Uzytkownicy_Systemu" Relationship="Inzynierka1Model.FK_Uzytkownicy_Systemu_Pracownicy1" FromRole="Pracownicy" ToRole="Uzytkownicy_Systemu" />
   </EntityType>
   <EntityType Name="Rezerwacje_Kortow">
@@ -238,17 +233,14 @@
     <Key>
       <PropertyRef Name="ID_Zlecenia" />
     </Key>
-    <Property Type="Int32" Name="ID_Zlecenia" Nullable="false" />
-    <Property Type="Int32" Name="ID_Klienta" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ID_Zlecenia" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ID_Klienta" Nullable="false" />
+    <Property Type="Int32" Name="Stan" Nullable="false" />
     <Property Type="Int32" Name="Usługa" Nullable="false" />
-    <Property Type="String" Name="Data_Przyjecia" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Type="String" Name="Data_Zakonczenia" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Type="Int32" Name="ID_Pracownika" Nullable="false" />
-    <Property Type="String" Name="Opis" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Data_Przyjecia" Nullable="false" />
     <NavigationProperty Name="Katalog_Uslug" Relationship="Inzynierka1Model.FK_Serwis_Katalog_Uslug" FromRole="Serwis" ToRole="Katalog_Uslug" />
-    <NavigationProperty Name="Pracownicy" Relationship="Inzynierka1Model.FK_Serwis_Pracownicy" FromRole="Serwis" ToRole="Pracownicy" />
+    <NavigationProperty Name="Stan_Uslug" Relationship="Inzynierka1Model.FK_Serwis_Stan_Uslug" FromRole="Serwis" ToRole="Stan_Uslug" />
     <NavigationProperty Name="Uzytkownicy_Kortow" Relationship="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow" FromRole="Serwis" ToRole="Uzytkownicy_Kortow" />
-    <NavigationProperty Name="Uzytkownicy_Kortow1" Relationship="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1" FromRole="Serwis" ToRole="Uzytkownicy_Kortow" />
   </EntityType>
   <EntityType Name="Sparingpartnerzy">
     <Key>
@@ -284,6 +276,14 @@
     <Property Type="Double" Name="Cena" Nullable="false" />
     <NavigationProperty Name="Sprzet" Relationship="Inzynierka1Model.FK_Stan_Magazynowy_Sprzet" FromRole="Stan_Magazynowy" ToRole="Sprzet" />
     <NavigationProperty Name="Wypozyczone" Relationship="Inzynierka1Model.FK_Wypozyczone_Stan_Magazynowy" FromRole="Stan_Magazynowy" ToRole="Wypozyczone" />
+  </EntityType>
+  <EntityType Name="Stan_Uslug">
+    <Key>
+      <PropertyRef Name="ID_Stanu" />
+    </Key>
+    <Property Type="Int32" Name="ID_Stanu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nazwa" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Stan_Uslug" FromRole="Stan_Uslug" ToRole="Serwis" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -342,7 +342,6 @@
     <NavigationProperty Name="Dostepnosc" Relationship="Inzynierka1Model.FK_Dostepnosc_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Dostepnosc" />
     <NavigationProperty Name="Rezerwacje_Kortow" Relationship="Inzynierka1Model.FK_Rezerwacje_Kortow_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Rezerwacje_Kortow" />
     <NavigationProperty Name="Serwis" Relationship="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Serwis" />
-    <NavigationProperty Name="Serwis1" Relationship="Inzynierka1Model.FK_Serwis_Uzytkownicy_Kortow1" FromRole="Uzytkownicy_Kortow" ToRole="Serwis" />
     <NavigationProperty Name="Sparingpartnerzy" Relationship="Inzynierka1Model.FK_Sparingpartnerzy_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Sparingpartnerzy" />
     <NavigationProperty Name="Trenerzy" Relationship="Inzynierka1Model.FK_Trenerzy_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Trenerzy" />
     <NavigationProperty Name="Wypozyczone" Relationship="Inzynierka1Model.FK_Wypozyczone_Uzytkownicy_Kortow" FromRole="Uzytkownicy_Kortow" ToRole="Wypozyczone" />
@@ -533,18 +532,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Serwis_Pracownicy">
-    <End Type="Inzynierka1Model.Pracownicy" Role="Pracownicy" Multiplicity="1" />
-    <End Type="Inzynierka1Model.Serwis" Role="Serwis" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Pracownicy">
-        <PropertyRef Name="Id_Pracownika" />
-      </Principal>
-      <Dependent Role="Serwis">
-        <PropertyRef Name="ID_Pracownika" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Uzytkownicy_Systemu_Pracownicy1">
     <End Type="Inzynierka1Model.Pracownicy" Role="Pracownicy" Multiplicity="1" />
     <End Type="Inzynierka1Model.Uzytkownicy_Systemu" Role="Uzytkownicy_Systemu" Multiplicity="*" />
@@ -569,19 +556,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Serwis_Uzytkownicy_Kortow">
-    <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
+  <Association Name="FK_Serwis_Stan_Uslug">
+    <End Type="Inzynierka1Model.Stan_Uslug" Role="Stan_Uslug" Multiplicity="1" />
     <End Type="Inzynierka1Model.Serwis" Role="Serwis" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Uzytkownicy_Kortow">
-        <PropertyRef Name="ID" />
+      <Principal Role="Stan_Uslug">
+        <PropertyRef Name="ID_Stanu" />
       </Principal>
       <Dependent Role="Serwis">
-        <PropertyRef Name="ID_Klienta" />
+        <PropertyRef Name="Stan" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Serwis_Uzytkownicy_Kortow1">
+  <Association Name="FK_Serwis_Uzytkownicy_Kortow">
     <End Type="Inzynierka1Model.Uzytkownicy_Kortow" Role="Uzytkownicy_Kortow" Multiplicity="1" />
     <End Type="Inzynierka1Model.Serwis" Role="Serwis" Multiplicity="*" />
     <ReferentialConstraint>

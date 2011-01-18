@@ -2178,6 +2178,204 @@
   <data name="&gt;&gt;tabZarzadzanie.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="rlbUsluga1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 212</value>
+  </data>
+  <data name="rlbUsluga1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 16</value>
+  </data>
+  <data name="rlbUsluga1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rlbUsluga1.Text" xml:space="preserve">
+    <value>Usluga:</value>
+  </data>
+  <data name="&gt;&gt;rlbUsluga1.Name" xml:space="preserve">
+    <value>rlbUsluga1</value>
+  </data>
+  <data name="&gt;&gt;rlbUsluga1.Type" xml:space="preserve">
+    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+  </data>
+  <data name="&gt;&gt;rlbUsluga1.Parent" xml:space="preserve">
+    <value>tabSerwis</value>
+  </data>
+  <data name="&gt;&gt;rlbUsluga1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rbtDodaj.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 24</value>
+  </data>
+  <data name="rbtDodaj.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 24</value>
+  </data>
+  <data name="rbtDodaj.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbtDodaj.Text" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="&gt;&gt;rbtDodaj.Name" xml:space="preserve">
+    <value>rbtDodaj</value>
+  </data>
+  <data name="&gt;&gt;rbtDodaj.Type" xml:space="preserve">
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+  </data>
+  <data name="&gt;&gt;rbtDodaj.Parent" xml:space="preserve">
+    <value>tabSerwis</value>
+  </data>
+  <data name="&gt;&gt;rbtDodaj.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rbtZmienStan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 302</value>
+  </data>
+  <data name="rbtZmienStan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 24</value>
+  </data>
+  <data name="rbtZmienStan.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbtZmienStan.Text" xml:space="preserve">
+    <value>Zmień status</value>
+  </data>
+  <data name="&gt;&gt;rbtZmienStan.Name" xml:space="preserve">
+    <value>rbtZmienStan</value>
+  </data>
+  <data name="&gt;&gt;rbtZmienStan.Type" xml:space="preserve">
+    <value>Telerik.WinControls.UI.RadButton, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+  </data>
+  <data name="&gt;&gt;rbtZmienStan.Parent" xml:space="preserve">
+    <value>tabSerwis</value>
+  </data>
+  <data name="&gt;&gt;rbtZmienStan.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rgvSerwis.Location" type="System.Drawing.Point, System.Drawing">
+    <value>172, 3</value>
+  </data>
+  <data name="gridViewTextBoxColumn36.HeaderText" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="gridViewTextBoxColumn37.HeaderText" xml:space="preserve">
+    <value>Klient</value>
+  </data>
+  <data name="gridViewTextBoxColumn38.HeaderText" xml:space="preserve">
+    <value>Usluga</value>
+  </data>
+  <data name="gridViewTextBoxColumn39.HeaderText" xml:space="preserve">
+    <value>Przyjęto</value>
+  </data>
+  <data name="gridViewTextBoxColumn40.HeaderText" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="rgvSerwis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>712, 418</value>
+  </data>
+  <data name="rgvSerwis.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;rgvSerwis.Name" xml:space="preserve">
+    <value>rgvSerwis</value>
+  </data>
+  <data name="&gt;&gt;rgvSerwis.Type" xml:space="preserve">
+    <value>Telerik.WinControls.UI.RadGridView, Telerik.WinControls.GridView, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+  </data>
+  <data name="&gt;&gt;rgvSerwis.Parent" xml:space="preserve">
+    <value>tabSerwis</value>
+  </data>
+  <data name="&gt;&gt;rgvSerwis.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="rDDLUsluga.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 234</value>
+  </data>
+  <data name="rDDLUsluga.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 21</value>
+  </data>
+  <data name="rDDLUsluga.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;rDDLUsluga.Name" xml:space="preserve">
+    <value>rDDLUsluga</value>
+  </data>
+  <data name="&gt;&gt;rDDLUsluga.Type" xml:space="preserve">
+    <value>Telerik.WinControls.UI.RadDropDownList, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+  </data>
+  <data name="&gt;&gt;rDDLUsluga.Parent" xml:space="preserve">
+    <value>tabSerwis</value>
+  </data>
+  <data name="&gt;&gt;rDDLUsluga.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="rcbNieodebrane.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 96</value>
+  </data>
+  <data name="rcbNieodebrane.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 18</value>
+  </data>
+  <data name="rcbNieodebrane.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="rcbNieodebrane.Text" xml:space="preserve">
+    <value>Pokaż tylko nieodebrane</value>
+  </data>
+  <data name="&gt;&gt;rcbNieodebrane.Name" xml:space="preserve">
+    <value>rcbNieodebrane</value>
+  </data>
+  <data name="&gt;&gt;rcbNieodebrane.Type" xml:space="preserve">
+    <value>Telerik.WinControls.UI.RadCheckBox, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+  </data>
+  <data name="&gt;&gt;rcbNieodebrane.Parent" xml:space="preserve">
+    <value>tabSerwis</value>
+  </data>
+  <data name="&gt;&gt;rcbNieodebrane.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="rlbUsluga.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="rlbUsluga.Size" type="System.Drawing.Size, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="rlbUsluga.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;rlbUsluga.Name" xml:space="preserve">
+    <value>rlbUsluga</value>
+  </data>
+  <data name="&gt;&gt;rlbUsluga.Type" xml:space="preserve">
+    <value>Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2010.3.10.1215, Culture=neutral, PublicKeyToken=5bb2a467cbec794e</value>
+  </data>
+  <data name="&gt;&gt;rlbUsluga.Parent" xml:space="preserve">
+    <value>tabSerwis</value>
+  </data>
+  <data name="&gt;&gt;rlbUsluga.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="tabSerwis.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabSerwis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>880, 424</value>
+  </data>
+  <data name="tabSerwis.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="tabSerwis.Text" xml:space="preserve">
+    <value>Serwis</value>
+  </data>
+  <data name="&gt;&gt;tabSerwis.Name" xml:space="preserve">
+    <value>tabSerwis</value>
+  </data>
+  <data name="&gt;&gt;tabSerwis.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabSerwis.Parent" xml:space="preserve">
+    <value>tcMainForm</value>
+  </data>
+  <data name="&gt;&gt;tabSerwis.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="tcMainForm.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 28</value>
   </data>
