@@ -43,43 +43,41 @@ namespace KortyTenisowe
                 rtbSet4.Enabled = false;
                 rtbSet5.Enabled = false;
             }
-            else
+
+            if ((mecz.Set3 != "---") && (mecz.Set4 == "---") && (mecz.Set5 == "---"))
             {
-                if ((mecz.Set3 != "---") && (mecz.Set4 == "---") && (mecz.Set5 == "---"))
-                {
-                    rrb2Sety.IsChecked = true;
-                    rtbSet1.Enabled = true;
-                    rtbSet2.Enabled = true;
-                    rtbSet3.Enabled = true;
-                    rtbSet4.Enabled = false;
-                    rtbSet5.Enabled = false;
-                }
-                else
-                {
-                    if ((mecz.Set3 != "---") && (mecz.Set4 != "---") && (mecz.Set5 == "---"))
-                    {
-                        rrb2Sety.IsChecked = true;
-                        rtbSet1.Enabled = true;
-                        rtbSet2.Enabled = true;
-                        rtbSet3.Enabled = true;
-                        rtbSet4.Enabled = true;
-                        rtbSet5.Enabled = false;
-                    }
-                    else
-                    {
-                        if ((mecz.Set3 != "---") && (mecz.Set4 != "---") && (mecz.Set5 != "---"))
-                        {
-                            rrb5Setow.IsChecked = true;
-                            rtbSet1.Enabled = true;
-                            rtbSet2.Enabled = true;
-                            rtbSet3.Enabled = true;
-                            rtbSet4.Enabled = true;
-                            rtbSet5.Enabled = true;
-                        }
-                    }
-                }
+                rrb3Sety.IsChecked = true;
+                rtbSet1.Enabled = true;
+                rtbSet2.Enabled = true;
+                rtbSet3.Enabled = true;
+                rtbSet4.Enabled = false;
+                rtbSet5.Enabled = false;
+            }
+
+            if ((mecz.Set3 != "---") && (mecz.Set4 != "---") && (mecz.Set5 == "---"))
+            {
+                rrb4Sety.IsChecked = true;
+                rtbSet1.Enabled = true;
+                rtbSet2.Enabled = true;
+                rtbSet3.Enabled = true;
+                rtbSet4.Enabled = true;
+                rtbSet5.Enabled = false;
+            }
+
+            if ((mecz.Set3 != "---") && (mecz.Set4 != "---") && (mecz.Set5 != "---"))
+            {
+                rrb5Setow.IsChecked = true;
+                rtbSet1.Enabled = true;
+                rtbSet2.Enabled = true;
+                rtbSet3.Enabled = true;
+                rtbSet4.Enabled = true;
+                rtbSet5.Enabled = true;
             }
         }
+                    
+                
+            
+        
 
 
 
